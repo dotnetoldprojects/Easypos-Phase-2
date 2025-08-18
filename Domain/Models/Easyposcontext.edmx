@@ -1,0 +1,1870 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EasyposModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="alltailoring">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tailheaderid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Alltable" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="cashier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SystemName" Type="nvarchar(max)" />
+          <Property Name="Systemserial" Type="nvarchar(max)" />
+          <Property Name="Materialname" Type="nvarchar(max)" />
+          <Property Name="Comid" Type="uniqueidentifier" />
+          <Property Name="CSR" Type="nvarchar(max)" />
+          <Property Name="PrivateKey" Type="nvarchar(max)" />
+          <Property Name="PublicKey" Type="nvarchar(max)" />
+          <Property Name="Secret" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="CategoryNo" />
+          </Key>
+          <Property Name="CategoryNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Color" Type="int" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="ENName" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Taxnumber" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CRN" Type="nvarchar" MaxLength="1000" />
+          <Property Name="CompanyLogo" Type="nvarchar(max)" />
+          <Property Name="Logoname" Type="nvarchar" MaxLength="1000" />
+          <Property Name="LogoENName" Type="nvarchar" MaxLength="1000" />
+          <Property Name="AllowInventory" Type="binary" MaxLength="1" />
+          <Property Name="ShowInPOS" Type="binary" MaxLength="1" />
+          <Property Name="IsUseShift" Type="binary" MaxLength="1" />
+          <Property Name="Discuontcheck" Type="binary" MaxLength="1" />
+          <Property Name="Printername" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Printertype" Type="nvarchar" MaxLength="1000" />
+          <Property Name="Sysnametype" Type="nvarchar" MaxLength="100" />
+          <Property Name="ISUSEPrinter" Type="bit" />
+          <Property Name="ISUSEResturant" Type="bit" />
+          <Property Name="ISUSElineproduction" Type="bit" />
+          <Property Name="Systemlang" Type="nvarchar" MaxLength="45" />
+          <Property Name="ISUsePhase2" Type="bit" Nullable="false" />
+          <Property Name="StreetName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuildingNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CitySubdivisionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalZone" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="exceptionpro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Screen" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Exceptionstring" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="expencestype">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Expencestypename" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="expenses">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="CDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="Vat" Type="float" />
+          <Property Name="Typeid" Type="int" />
+        </EntityType>
+        <EntityType Name="items">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Itemname" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Itemprice" Type="float" Nullable="false" />
+          <Property Name="Itemqty" Type="float" Nullable="false" />
+          <Property Name="UID" Type="int" Nullable="false" />
+          <Property Name="OpeningBalance" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itemsales">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Itemid" Type="int" Nullable="false" />
+          <Property Name="invoiceno" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tailortype" Type="int" />
+          <Property Name="clothnational" Type="int" />
+          <Property Name="fabricid" Type="int" />
+          <Property Name="fabrictypeid" Type="int" />
+          <Property Name="fabriccount" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="count" Type="int" />
+          <Property Name="empid" Type="int" />
+          <Property Name="ntid" Type="int" />
+          <Property Name="ntoid" Type="int" />
+          <Property Name="Receivedcount" Type="int" />
+          <Property Name="Remainingcount" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="paymentNo" />
+          </Key>
+          <Property Name="paymentNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="int" />
+          <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Bank" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Remaining" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="nvarchar" MaxLength="512" />
+          <Property Name="Time" Type="nvarchar" MaxLength="512" />
+          <Property Name="ThirdPartyID" Type="int" />
+          <Property Name="PaymentMethod" Type="nvarchar" MaxLength="512" />
+          <Property Name="Type" Type="nvarchar" MaxLength="512" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="paymentout">
+          <Key>
+            <PropertyRef Name="paymentNo" />
+          </Key>
+          <Property Name="paymentNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="int" />
+          <Property Name="Cash" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Bank" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Remaining" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="nvarchar" MaxLength="512" />
+          <Property Name="Time" Type="nvarchar" MaxLength="512" />
+          <Property Name="ThirdPartyID" Type="int" />
+          <Property Name="PaymentMethod" Type="nvarchar" MaxLength="512" />
+          <Property Name="Type" Type="nvarchar" MaxLength="512" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="price">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datefrom" Type="nvarchar" MaxLength="100" />
+          <Property Name="Dateto" Type="nvarchar" MaxLength="100" />
+          <Property Name="NonVatTotal" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="VatAmount" Type="float" />
+          <Property Name="TotalAmount" Type="float" />
+          <Property Name="ThirdPartyID" Type="int" />
+        </EntityType>
+        <EntityType Name="pricedetailes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Priceid" Type="int" />
+          <Property Name="ProductNo" Type="int" />
+          <Property Name="TDDesc" Type="nvarchar" MaxLength="100" />
+          <Property Name="Unitid" Type="int" />
+          <Property Name="ItemPrice" Type="float" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="Subtotal" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="Totafterdiscount" Type="float" />
+          <Property Name="Total" Type="float" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductNo" />
+          </Key>
+          <Property Name="ProductNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductCode" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="CategoryNo" Type="int" Nullable="false" />
+          <Property Name="Unitid" Type="int" />
+          <Property Name="StocksOnHand" Type="int" />
+          <Property Name="ShowInPOS" Type="bit" />
+          <Property Name="AllowInventory" Type="bit" Nullable="false" />
+          <Property Name="Checkedit" Type="bit" />
+          <Property Name="ReorderLevel" Type="int" />
+          <Property Name="Order" Type="int" />
+        </EntityType>
+        <EntityType Name="productitems">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proid" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="itemid" Type="nvarchar" MaxLength="45" />
+          <Property Name="Quantity" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="purchasedetailes">
+          <Key>
+            <PropertyRef Name="TDetailNo" />
+          </Key>
+          <Property Name="TDetailNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="int" Nullable="false" />
+          <Property Name="ProductNo" Type="bigint" Nullable="false" />
+          <Property Name="TDDesc" Type="nvarchar" MaxLength="145" />
+          <Property Name="Unitid" Type="int" />
+          <Property Name="ItemPrice" Type="float" Nullable="false" />
+          <Property Name="Quantity" Type="bigint" Nullable="false" />
+          <Property Name="Subtotal" Type="float" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="Totafterdiscount" Type="float" />
+          <Property Name="Total" Type="decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="purchases">
+          <Key>
+            <PropertyRef Name="Invoiceno" />
+          </Key>
+          <Property Name="Invoiceno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TDate" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="TTime" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="NonVatTotal" Type="float" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="VatAmount" Type="float" Nullable="false" />
+          <Property Name="TotalAmount" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="ThirdPartyID" Type="int" />
+          <Property Name="Billtype" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Supplierbill" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="sales">
+          <Key>
+            <PropertyRef Name="Invoiceno" />
+          </Key>
+          <Property Name="Invoiceno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TDate" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="TTime" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="NonVatTotal" Type="float" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="VatAmount" Type="float" Nullable="false" />
+          <Property Name="TotalAmount" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="ThirdPartyID" Type="int" />
+          <Property Name="Billtype" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+          <Property Name="Purchaseorder" Type="nvarchar" MaxLength="45" />
+          <Property Name="RN" Type="nvarchar" MaxLength="45" />
+          <Property Name="Proname" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="salesdetailes">
+          <Key>
+            <PropertyRef Name="TDetailNo" />
+          </Key>
+          <Property Name="TDetailNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="int" Nullable="false" />
+          <Property Name="ProductNo" Type="bigint" Nullable="false" />
+          <Property Name="TDDesc" Type="nvarchar" MaxLength="145" />
+          <Property Name="Unitid" Type="int" />
+          <Property Name="ItemPrice" Type="float" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="Subtotal" Type="float" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="Totafterdiscount" Type="float" />
+          <Property Name="Total" Type="decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Fullname" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Phonenumber" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="UPassword" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Role" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="tailorbocket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Bok1" Type="bit" />
+          <Property Name="Bok2" Type="bit" />
+          <Property Name="Bok3" Type="bit" />
+          <Property Name="Bok4" Type="bit" />
+          <Property Name="Bok5" Type="bit" />
+          <Property Name="Bok6" Type="bit" />
+          <Property Name="Bok7" Type="bit" />
+          <Property Name="Bok8" Type="bit" />
+          <Property Name="Bok9" Type="bit" />
+          <Property Name="Bok10" Type="bit" />
+          <Property Name="Bok11" Type="bit" />
+        </EntityType>
+        <EntityType Name="tailordetaile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Frontlength" Type="nvarchar" MaxLength="50" />
+          <Property Name="Backlength" Type="nvarchar" MaxLength="50" />
+          <Property Name="Shoulder" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handlength" Type="nvarchar" MaxLength="50" />
+          <Property Name="Neck" Type="nvarchar" MaxLength="50" />
+          <Property Name="Breadth" Type="nvarchar" MaxLength="50" />
+          <Property Name="Chest" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handwidthabove" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handwidthbelow" Type="nvarchar" MaxLength="50" />
+          <Property Name="Breadthbelow" Type="nvarchar" MaxLength="50" />
+          <Property Name="Handpalm" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="nvarchar" MaxLength="50" />
+          <Property Name="Notes" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aujra" Type="bit" />
+        </EntityType>
+        <EntityType Name="tailorhand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Texta" Type="nvarchar" MaxLength="50" />
+          <Property Name="Taxtb" Type="nvarchar" MaxLength="50" />
+          <Property Name="Inverted" Type="bit" />
+          <Property Name="Square" Type="bit" />
+          <Property Name="Horny" Type="bit" />
+          <Property Name="Round" Type="bit" />
+          <Property Name="Plain" Type="bit" />
+          <Property Name="Plain-cupcake" Type="bit" />
+          <Property Name="Triangle" Type="bit" />
+        </EntityType>
+        <EntityType Name="tailorheader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Custid" Type="int" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Clothesnumber" Type="int" />
+          <Property Name="Clothesrecived" Type="int" />
+          <Property Name="Clothesremining" Type="int" />
+          <Property Name="Total" Type="int" />
+          <Property Name="Paied" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Totalreimining" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Reciveddate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Note" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="tailorjabzor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Jab1" Type="bit" />
+          <Property Name="Jab2" Type="bit" />
+          <Property Name="Jab3" Type="bit" />
+          <Property Name="Jab4" Type="bit" />
+          <Property Name="Jab5" Type="bit" />
+          <Property Name="Jab6" Type="bit" />
+          <Property Name="Jab7" Type="bit" />
+          <Property Name="Jab8" Type="bit" />
+          <Property Name="Jab9" Type="bit" />
+          <Property Name="Jab10" Type="bit" />
+        </EntityType>
+        <EntityType Name="tailorneck">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Plain" Type="bit" />
+          <Property Name="Plainfrench" Type="bit" />
+          <Property Name="Regulartipper" Type="bit" />
+          <Property Name="Closedflap" Type="bit" />
+          <Property Name="Plainhidden" Type="bit" />
+          <Property Name="Chinese" Type="bit" />
+          <Property Name="Openflap" Type="bit" />
+          <Property Name="Frenchflip" Type="bit" />
+        </EntityType>
+        <EntityType Name="thirdparty">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="nvarchar" MaxLength="45" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="45" />
+          <Property Name="Address" Type="nvarchar" MaxLength="850" />
+          <Property Name="City" Type="nvarchar" MaxLength="850" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="45" />
+          <Property Name="Type" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="45" />
+          <Property Name="OpeningBalance" Type="float" />
+          <Property Name="Taxnumber" Type="nvarchar" MaxLength="45" />
+          <Property Name="CRN" Type="nvarchar" MaxLength="45" />
+          <Property Name="Billnumber" Type="nvarchar" MaxLength="45" />
+          <Property Name="Pagenumber" Type="nvarchar" MaxLength="45" />
+          <Property Name="StreetName" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuildingNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CitySubdivisionName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="PostalZone" Type="nvarchar" MaxLength="50" />
+          <Property Name="ISUsePhase2" Type="bit" />
+        </EntityType>
+        <EntityType Name="transactions">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Invoiceno" Type="int" />
+          <Property Name="Paynum" Type="int" />
+          <Property Name="TDate" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ThirdPartyID" Type="int" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paytype" Type="nvarchar" MaxLength="45" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UBL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="QRCode" Type="nvarchar(max)" />
+          <Property Name="Invoicehash" Type="nvarchar(max)" />
+          <Property Name="Uuid" Type="nvarchar(max)" />
+          <Property Name="Invoice" Type="nvarchar(max)" />
+          <Property Name="Saleid" Type="int" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Path" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="unittypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UName" Type="nvarchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="vatsetting">
+          <Key>
+            <PropertyRef Name="VATID" />
+          </Key>
+          <Property Name="VATID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VatPercent" Type="float" Nullable="false" />
+          <Property Name="PricesWithVAT" Type="smallint" />
+          <Property Name="ISVAT" Type="smallint" />
+          <Property Name="ISDiscforpro" Type="smallint" />
+          <Property Name="ISDiscafterpro" Type="smallint" />
+        </EntityType>
+        <EntityType Name="vouchers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Billnumber" Type="int" />
+          <Property Name="Thiredpartyid" Type="int" />
+          <Property Name="Date" Type="nvarchar" MaxLength="45" />
+          <Property Name="Vochertypes" Type="nvarchar" MaxLength="45" />
+          <Property Name="Billnum" Type="nvarchar" MaxLength="45" />
+          <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Paymentmathod" Type="nvarchar" MaxLength="45" />
+          <Property Name="Note" Type="nvarchar" MaxLength="250" />
+          <Property Name="Methode" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="expensesview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CDate" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="ExpenseName" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="int" Nullable="false" />
+          <Property Name="CDate" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="int" Nullable="false" />
+          <Property Name="ExpenseName" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_alltailoring_tailorbocket">
+          <End Role="tailorbocket" Type="Self.tailorbocket" Multiplicity="0..1" />
+          <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorbocket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailordetaile">
+          <End Role="tailordetaile" Type="Self.tailordetaile" Multiplicity="0..1" />
+          <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailordetaile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailorhand">
+          <End Role="tailorhand" Type="Self.tailorhand" Multiplicity="0..1" />
+          <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorhand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailorheader">
+          <End Role="tailorheader" Type="Self.tailorheader" Multiplicity="1" />
+          <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorheader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Tailheaderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailorneck">
+          <End Role="tailorneck" Type="Self.tailorneck" Multiplicity="0..1" />
+          <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorneck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tailorheader_thirdparty">
+          <End Role="thirdparty" Type="Self.thirdparty" Multiplicity="1" />
+          <End Role="tailorheader" Type="Self.tailorheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thirdparty">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tailorheader">
+              <PropertyRef Name="Custid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Getpaymentin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="resturant" />
+        <Function Name="Getpaymentout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="resturant" />
+        <Function Name="Getreturne" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="resturant" />
+        <Function Name="Gettransactions" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="resturant" />
+        <EntityContainer Name="EasyposModelStoreContainer">
+          <EntitySet Name="alltailoring" EntityType="Self.alltailoring" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="cashier" EntityType="Self.cashier" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="category" EntityType="Self.category" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="company" EntityType="Self.company" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="exceptionpro" EntityType="Self.exceptionpro" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="expencestype" EntityType="Self.expencestype" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="expenses" EntityType="Self.expenses" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="items" EntityType="Self.items" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="itemsales" EntityType="Self.itemsales" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="paymentout" EntityType="Self.paymentout" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="price" EntityType="Self.price" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="pricedetailes" EntityType="Self.pricedetailes" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="productitems" EntityType="Self.productitems" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="purchasedetailes" EntityType="Self.purchasedetailes" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="purchases" EntityType="Self.purchases" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="sales" EntityType="Self.sales" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="salesdetailes" EntityType="Self.salesdetailes" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="staff" EntityType="Self.staff" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="tailorbocket" EntityType="Self.tailorbocket" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="tailordetaile" EntityType="Self.tailordetaile" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="tailorhand" EntityType="Self.tailorhand" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="tailorheader" EntityType="Self.tailorheader" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="tailorjabzor" EntityType="Self.tailorjabzor" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="tailorneck" EntityType="Self.tailorneck" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="thirdparty" EntityType="Self.thirdparty" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="transactions" EntityType="Self.transactions" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="UBL" EntityType="Self.UBL" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="unittypes" EntityType="Self.unittypes" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="vatsetting" EntityType="Self.vatsetting" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="vouchers" EntityType="Self.vouchers" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="expensesview" EntityType="Self.expensesview" store:Type="Views" store:Schema="resturant">
+            <DefiningQuery>SELECT 
+    [expensesview].[ID] AS [ID], 
+    [expensesview].[Description] AS [Description], 
+    [expensesview].[CDate] AS [CDate], 
+    [expensesview].[Amount] AS [Amount], 
+    [expensesview].[ExpenseName] AS [ExpenseName]
+    FROM [resturant].[expensesview] AS [expensesview]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_alltailoring_tailorbocket" Association="Self.FK_alltailoring_tailorbocket">
+            <End Role="tailorbocket" EntitySet="tailorbocket" />
+            <End Role="alltailoring" EntitySet="alltailoring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailordetaile" Association="Self.FK_alltailoring_tailordetaile">
+            <End Role="tailordetaile" EntitySet="tailordetaile" />
+            <End Role="alltailoring" EntitySet="alltailoring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorhand" Association="Self.FK_alltailoring_tailorhand">
+            <End Role="tailorhand" EntitySet="tailorhand" />
+            <End Role="alltailoring" EntitySet="alltailoring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorheader" Association="Self.FK_alltailoring_tailorheader">
+            <End Role="tailorheader" EntitySet="tailorheader" />
+            <End Role="alltailoring" EntitySet="alltailoring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorneck" Association="Self.FK_alltailoring_tailorneck">
+            <End Role="tailorneck" EntitySet="tailorneck" />
+            <End Role="alltailoring" EntitySet="alltailoring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tailorheader_thirdparty" Association="Self.FK_tailorheader_thirdparty">
+            <End Role="thirdparty" EntitySet="thirdparty" />
+            <End Role="tailorheader" EntitySet="tailorheader" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EasyposModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cashier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SystemName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Systemserial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Materialname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Comid" Type="Guid" />
+          <Property Name="CSR" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PrivateKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PublicKey" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Secret" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="CategoryNo" />
+          </Key>
+          <Property Name="CategoryNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Color" Type="Int32" />
+        </EntityType>
+        <EntityType Name="company">
+          <Key>
+            <PropertyRef Name="CompanyID" />
+          </Key>
+          <Property Name="CompanyID" Type="Guid" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ENName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Taxnumber" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CRN" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Logoname" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="LogoENName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="AllowInventory" Type="Binary" MaxLength="1" FixedLength="true" />
+          <Property Name="ShowInPOS" Type="Binary" MaxLength="1" FixedLength="true" />
+          <Property Name="IsUseShift" Type="Binary" MaxLength="1" FixedLength="true" />
+          <Property Name="Discuontcheck" Type="Binary" MaxLength="1" FixedLength="true" />
+          <Property Name="Printername" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Printertype" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="Sysnametype" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ISUSEPrinter" Type="Boolean" />
+          <Property Name="ISUSEResturant" Type="Boolean" />
+          <Property Name="ISUSElineproduction" Type="Boolean" />
+          <Property Name="Systemlang" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="ISUsePhase2" Type="Boolean" Nullable="false" />
+          <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuildingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CitySubdivisionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostalZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="expencestype">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Expencestypename" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="expens">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="CDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Vat" Type="Double" />
+          <Property Name="Typeid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Itemname" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Itemprice" Type="Double" Nullable="false" />
+          <Property Name="Itemqty" Type="Double" Nullable="false" />
+          <Property Name="UID" Type="Int32" Nullable="false" />
+          <Property Name="OpeningBalance" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="itemsale">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Itemid" Type="Int32" Nullable="false" />
+          <Property Name="invoiceno" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tailortype" Type="Int32" />
+          <Property Name="clothnational" Type="Int32" />
+          <Property Name="fabricid" Type="Int32" />
+          <Property Name="fabrictypeid" Type="Int32" />
+          <Property Name="fabriccount" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="count" Type="Int32" />
+          <Property Name="empid" Type="Int32" />
+          <Property Name="ntid" Type="Int32" />
+          <Property Name="ntoid" Type="Int32" />
+          <Property Name="Receivedcount" Type="Int32" />
+          <Property Name="Remainingcount" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="paymentNo" />
+          </Key>
+          <Property Name="paymentNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="Int32" />
+          <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Bank" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Remaining" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="ThirdPartyID" Type="Int32" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="paymentout">
+          <Key>
+            <PropertyRef Name="paymentNo" />
+          </Key>
+          <Property Name="paymentNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="Int32" />
+          <Property Name="Cash" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Bank" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Remaining" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Date" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="ThirdPartyID" Type="Int32" />
+          <Property Name="PaymentMethod" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="price">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datefrom" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Dateto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NonVatTotal" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="VatAmount" Type="Double" />
+          <Property Name="TotalAmount" Type="Double" />
+          <Property Name="ThirdPartyID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="pricedetaile">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Priceid" Type="Int32" />
+          <Property Name="ProductNo" Type="Int32" />
+          <Property Name="TDDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Unitid" Type="Int32" />
+          <Property Name="ItemPrice" Type="Double" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="Subtotal" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="Totafterdiscount" Type="Double" />
+          <Property Name="Total" Type="Double" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="ProductNo" />
+          </Key>
+          <Property Name="ProductNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCode" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Barcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="CategoryNo" Type="Int32" Nullable="false" />
+          <Property Name="Unitid" Type="Int32" />
+          <Property Name="StocksOnHand" Type="Int32" Nullable="true" />
+          <Property Name="ShowInPOS" Type="Boolean" Nullable="true" />
+          <Property Name="AllowInventory" Type="Boolean" Nullable="false" />
+          <Property Name="ReorderLevel" Type="Int32" Nullable="true" />
+          <Property Name="Order" Type="Int32" Nullable="true" />
+        </EntityType>
+        <EntityType Name="productitem">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proid" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="itemid" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="purchasedetaile">
+          <Key>
+            <PropertyRef Name="TDetailNo" />
+          </Key>
+          <Property Name="TDetailNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+          <Property Name="ProductNo" Type="Int64" Nullable="false" />
+          <Property Name="TDDesc" Type="String" MaxLength="145" FixedLength="false" Unicode="true" />
+          <Property Name="Unitid" Type="Int32" />
+          <Property Name="ItemPrice" Type="Double" Nullable="false" />
+          <Property Name="Quantity" Type="Int64" Nullable="false" />
+          <Property Name="Subtotal" Type="Double" Nullable="false" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="Totafterdiscount" Type="Double" />
+          <Property Name="Total" Type="Decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="purchase">
+          <Key>
+            <PropertyRef Name="Invoiceno" />
+          </Key>
+          <Property Name="Invoiceno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TDate" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TTime" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NonVatTotal" Type="Double" Nullable="false" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="VatAmount" Type="Double" Nullable="false" />
+          <Property Name="TotalAmount" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThirdPartyID" Type="Int32" />
+          <Property Name="Billtype" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Supplierbill" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sale">
+          <Key>
+            <PropertyRef Name="Invoiceno" />
+          </Key>
+          <Property Name="Invoiceno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TDate" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TTime" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NonVatTotal" Type="Double" Nullable="false" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="VatAmount" Type="Double" Nullable="false" />
+          <Property Name="TotalAmount" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThirdPartyID" Type="Int32" />
+          <Property Name="Billtype" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Purchaseorder" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="RN" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Proname" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="salesdetaile">
+          <Key>
+            <PropertyRef Name="TDetailNo" />
+          </Key>
+          <Property Name="TDetailNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+          <Property Name="ProductNo" Type="Int64" Nullable="false" />
+          <Property Name="TDDesc" Type="String" MaxLength="145" FixedLength="false" Unicode="true" />
+          <Property Name="Unitid" Type="Int32" />
+          <Property Name="ItemPrice" Type="Double" Nullable="false" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="Subtotal" Type="Double" Nullable="false" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="Totafterdiscount" Type="Double" />
+          <Property Name="Total" Type="Decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="staff">
+          <Key>
+            <PropertyRef Name="StaffID" />
+          </Key>
+          <Property Name="StaffID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Lastname" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fullname" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phonenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UPassword" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="thirdparty">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="MobileNumber" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="850" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="850" FixedLength="false" Unicode="true" />
+          <Property Name="Comments" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="OpeningBalance" Type="Double" />
+          <Property Name="Taxnumber" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Billnumber" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Pagenumber" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="StreetName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuildingNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CitySubdivisionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PostalZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ISUsePhase2" Type="Boolean" />
+          <Property Name="CRN" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tailorheaders" Relationship="EasyposModel.FK_tailorheader_thirdparty" FromRole="thirdparty" ToRole="tailorheader" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Invoiceno" Type="Int32" />
+          <Property Name="Paynum" Type="Int32" />
+          <Property Name="TDate" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThirdPartyID" Type="Int32" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paytype" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="unittype">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="vatsetting">
+          <Key>
+            <PropertyRef Name="VATID" />
+          </Key>
+          <Property Name="VATID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VatPercent" Type="Double" Nullable="false" />
+          <Property Name="PricesWithVAT" Type="Int16" />
+          <Property Name="ISVAT" Type="Int16" />
+          <Property Name="ISDiscforpro" Type="Int16" />
+          <Property Name="ISDiscafterpro" Type="Int16" />
+        </EntityType>
+        <EntityType Name="expensesview">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CDate" />
+            <PropertyRef Name="Amount" />
+            <PropertyRef Name="ExpenseName" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="Int32" Nullable="false" />
+          <Property Name="CDate" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="ExpenseName" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="EasyposEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cashiers" EntityType="Self.cashier" />
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="companies" EntityType="Self.company" />
+          <EntitySet Name="expencestypes" EntityType="Self.expencestype" />
+          <EntitySet Name="expenses" EntityType="Self.expens" />
+          <EntitySet Name="items" EntityType="Self.item" />
+          <EntitySet Name="itemsales" EntityType="Self.itemsale" />
+          <EntitySet Name="orders" EntityType="Self.order" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <EntitySet Name="paymentouts" EntityType="Self.paymentout" />
+          <EntitySet Name="prices" EntityType="Self.price" />
+          <EntitySet Name="pricedetailes" EntityType="Self.pricedetaile" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <EntitySet Name="productitems" EntityType="Self.productitem" />
+          <EntitySet Name="purchasedetailes" EntityType="Self.purchasedetaile" />
+          <EntitySet Name="purchases" EntityType="Self.purchase" />
+          <EntitySet Name="sales" EntityType="Self.sale" />
+          <EntitySet Name="salesdetailes" EntityType="Self.salesdetaile" />
+          <EntitySet Name="staffs" EntityType="Self.staff" />
+          <EntitySet Name="thirdparties" EntityType="Self.thirdparty" />
+          <EntitySet Name="transactions" EntityType="Self.transaction" />
+          <EntitySet Name="unittypes" EntityType="Self.unittype" />
+          <EntitySet Name="vatsettings" EntityType="Self.vatsetting" />
+          <EntitySet Name="expensesviews" EntityType="Self.expensesview" />
+          <FunctionImport Name="Getpaymentin" />
+          <FunctionImport Name="Getpaymentout" />
+          <FunctionImport Name="Getreturne" />
+          <FunctionImport Name="Gettransactions" />
+          <EntitySet Name="UBLs" EntityType="EasyposModel.UBL" />
+          <EntitySet Name="vouchers" EntityType="EasyposModel.voucher" />
+          <EntitySet Name="alltailorings" EntityType="EasyposModel.alltailoring" />
+          <EntitySet Name="tailorbockets" EntityType="EasyposModel.tailorbocket" />
+          <EntitySet Name="tailordetailes" EntityType="EasyposModel.tailordetaile" />
+          <EntitySet Name="tailorhands" EntityType="EasyposModel.tailorhand" />
+          <EntitySet Name="tailorheaders" EntityType="EasyposModel.tailorheader" />
+          <EntitySet Name="tailorjabzors" EntityType="EasyposModel.tailorjabzor" />
+          <EntitySet Name="tailornecks" EntityType="EasyposModel.tailorneck" />
+          <AssociationSet Name="FK_alltailoring_tailorbocket" Association="EasyposModel.FK_alltailoring_tailorbocket">
+            <End Role="tailorbocket" EntitySet="tailorbockets" />
+            <End Role="alltailoring" EntitySet="alltailorings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailordetaile" Association="EasyposModel.FK_alltailoring_tailordetaile">
+            <End Role="tailordetaile" EntitySet="tailordetailes" />
+            <End Role="alltailoring" EntitySet="alltailorings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorhand" Association="EasyposModel.FK_alltailoring_tailorhand">
+            <End Role="tailorhand" EntitySet="tailorhands" />
+            <End Role="alltailoring" EntitySet="alltailorings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorheader" Association="EasyposModel.FK_alltailoring_tailorheader">
+            <End Role="tailorheader" EntitySet="tailorheaders" />
+            <End Role="alltailoring" EntitySet="alltailorings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorjabzor" Association="EasyposModel.FK_alltailoring_tailorjabzor">
+            <End Role="tailorjabzor" EntitySet="tailorjabzors" />
+            <End Role="alltailoring" EntitySet="alltailorings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorneck" Association="EasyposModel.FK_alltailoring_tailorneck">
+            <End Role="tailorneck" EntitySet="tailornecks" />
+            <End Role="alltailoring" EntitySet="alltailorings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tailorheader_thirdparty" Association="EasyposModel.FK_tailorheader_thirdparty">
+            <End Role="thirdparty" EntitySet="thirdparties" />
+            <End Role="tailorheader" EntitySet="tailorheaders" />
+          </AssociationSet>
+          <EntitySet Name="exceptionproes" EntityType="EasyposModel.exceptionpro" />
+        </EntityContainer>
+        <EntityType Name="UBL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QRCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Invoicehash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Uuid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Saleid" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="voucher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Billnumber" Type="Int32" />
+          <Property Name="Thiredpartyid" Type="Int32" />
+          <Property Name="Date" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Vochertypes" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Paymentmathod" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Methode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Billnum" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="alltailoring">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Tailheaderid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Alltable" Type="Guid" />
+          <NavigationProperty Name="tailorbocket" Relationship="EasyposModel.FK_alltailoring_tailorbocket" FromRole="alltailoring" ToRole="tailorbocket" />
+          <NavigationProperty Name="tailordetaile" Relationship="EasyposModel.FK_alltailoring_tailordetaile" FromRole="alltailoring" ToRole="tailordetaile" />
+          <NavigationProperty Name="tailorhand" Relationship="EasyposModel.FK_alltailoring_tailorhand" FromRole="alltailoring" ToRole="tailorhand" />
+          <NavigationProperty Name="tailorheader" Relationship="EasyposModel.FK_alltailoring_tailorheader" FromRole="alltailoring" ToRole="tailorheader" />
+          <NavigationProperty Name="tailorjabzor" Relationship="EasyposModel.FK_alltailoring_tailorjabzor" FromRole="alltailoring" ToRole="tailorjabzor" />
+          <NavigationProperty Name="tailorneck" Relationship="EasyposModel.FK_alltailoring_tailorneck" FromRole="alltailoring" ToRole="tailorneck" />
+        </EntityType>
+        <EntityType Name="tailorbocket">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Bok1" Type="Boolean" />
+          <Property Name="Bok2" Type="Boolean" />
+          <Property Name="Bok3" Type="Boolean" />
+          <Property Name="Bok4" Type="Boolean" />
+          <Property Name="Bok5" Type="Boolean" />
+          <Property Name="Bok6" Type="Boolean" />
+          <Property Name="Bok7" Type="Boolean" />
+          <Property Name="Bok8" Type="Boolean" />
+          <Property Name="Bok9" Type="Boolean" />
+          <Property Name="Bok10" Type="Boolean" />
+          <Property Name="Bok11" Type="Boolean" />
+          <NavigationProperty Name="alltailorings" Relationship="EasyposModel.FK_alltailoring_tailorbocket" FromRole="tailorbocket" ToRole="alltailoring" />
+        </EntityType>
+        <EntityType Name="tailordetaile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Frontlength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Backlength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Shoulder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handlength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Neck" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Breadth" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Chest" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handwidthabove" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handwidthbelow" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Breadthbelow" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Handpalm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aujra" Type="Boolean" />
+          <NavigationProperty Name="alltailorings" Relationship="EasyposModel.FK_alltailoring_tailordetaile" FromRole="tailordetaile" ToRole="alltailoring" />
+        </EntityType>
+        <EntityType Name="tailorhand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Texta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Taxtb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Inverted" Type="Boolean" />
+          <Property Name="Square" Type="Boolean" />
+          <Property Name="Horny" Type="Boolean" />
+          <Property Name="Round" Type="Boolean" />
+          <Property Name="Plain" Type="Boolean" />
+          <Property Name="Plain_cupcake" Type="Boolean" />
+          <Property Name="Triangle" Type="Boolean" />
+          <NavigationProperty Name="alltailorings" Relationship="EasyposModel.FK_alltailoring_tailorhand" FromRole="tailorhand" ToRole="alltailoring" />
+        </EntityType>
+        <EntityType Name="tailorheader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Custid" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Clothesnumber" Type="Int32" />
+          <Property Name="Clothesrecived" Type="Int32" />
+          <Property Name="Clothesremining" Type="Int32" />
+          <Property Name="Total" Type="Int32" />
+          <Property Name="Paied" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Totalreimining" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Reciveddate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="alltailorings" Relationship="EasyposModel.FK_alltailoring_tailorheader" FromRole="tailorheader" ToRole="alltailoring" />
+          <NavigationProperty Name="thirdparty" Relationship="EasyposModel.FK_tailorheader_thirdparty" FromRole="tailorheader" ToRole="thirdparty" />
+        </EntityType>
+        <EntityType Name="tailorjabzor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Jab1" Type="Boolean" />
+          <Property Name="Jab2" Type="Boolean" />
+          <Property Name="Jab3" Type="Boolean" />
+          <Property Name="Jab4" Type="Boolean" />
+          <Property Name="Jab5" Type="Boolean" />
+          <Property Name="Jab6" Type="Boolean" />
+          <Property Name="Jab7" Type="Boolean" />
+          <Property Name="Jab8" Type="Boolean" />
+          <Property Name="Jab9" Type="Boolean" />
+          <Property Name="Jab10" Type="Boolean" />
+          <NavigationProperty Name="alltailorings" Relationship="EasyposModel.FK_alltailoring_tailorjabzor" FromRole="tailorjabzor" ToRole="alltailoring" />
+        </EntityType>
+        <EntityType Name="tailorneck">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Plain" Type="Boolean" />
+          <Property Name="Plainfrench" Type="Boolean" />
+          <Property Name="Regulartipper" Type="Boolean" />
+          <Property Name="Closedflap" Type="Boolean" />
+          <Property Name="Plainhidden" Type="Boolean" />
+          <Property Name="Chinese" Type="Boolean" />
+          <Property Name="Openflap" Type="Boolean" />
+          <Property Name="Frenchflip" Type="Boolean" />
+          <NavigationProperty Name="alltailorings" Relationship="EasyposModel.FK_alltailoring_tailorneck" FromRole="tailorneck" ToRole="alltailoring" />
+        </EntityType>
+        <Association Name="FK_alltailoring_tailorbocket">
+          <End Type="EasyposModel.tailorbocket" Role="tailorbocket" Multiplicity="0..1" />
+          <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorbocket">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailordetaile">
+          <End Type="EasyposModel.tailordetaile" Role="tailordetaile" Multiplicity="0..1" />
+          <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailordetaile">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailorhand">
+          <End Type="EasyposModel.tailorhand" Role="tailorhand" Multiplicity="0..1" />
+          <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorhand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailorheader">
+          <End Type="EasyposModel.tailorheader" Role="tailorheader" Multiplicity="1" />
+          <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorheader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Tailheaderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailorjabzor">
+          <End Type="EasyposModel.tailorjabzor" Role="tailorjabzor" Multiplicity="0..1" />
+          <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorjabzor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_alltailoring_tailorneck">
+          <End Type="EasyposModel.tailorneck" Role="tailorneck" Multiplicity="0..1" />
+          <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorneck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tailorheader_thirdparty">
+          <End Type="EasyposModel.thirdparty" Role="thirdparty" Multiplicity="1" />
+          <End Type="EasyposModel.tailorheader" Role="tailorheader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="thirdparty">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="tailorheader">
+              <PropertyRef Name="Custid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="exceptionpro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Screen" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Exceptionstring" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EasyposModelStoreContainer" CdmEntityContainer="EasyposEntities">
+          <EntitySetMapping Name="cashiers">
+            <EntityTypeMapping TypeName="EasyposModel.cashier">
+              <MappingFragment StoreEntitySet="cashier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+                <ScalarProperty Name="Systemserial" ColumnName="Systemserial" />
+                <ScalarProperty Name="Materialname" ColumnName="Materialname" />
+                <ScalarProperty Name="Comid" ColumnName="Comid" />
+                <ScalarProperty Name="CSR" ColumnName="CSR" />
+                <ScalarProperty Name="PrivateKey" ColumnName="PrivateKey" />
+                <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+                <ScalarProperty Name="Secret" ColumnName="Secret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="EasyposModel.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Color" ColumnName="Color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="companies">
+            <EntityTypeMapping TypeName="EasyposModel.company">
+              <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="PostalZone" ColumnName="PostalZone" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="CitySubdivisionName" ColumnName="CitySubdivisionName" />
+                <ScalarProperty Name="BuildingNumber" ColumnName="BuildingNumber" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="CompanyID" ColumnName="CompanyID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ENName" ColumnName="ENName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Taxnumber" ColumnName="Taxnumber" />
+                <ScalarProperty Name="CRN" ColumnName="CRN" />
+                <ScalarProperty Name="CompanyLogo" ColumnName="CompanyLogo" />
+                <ScalarProperty Name="Logoname" ColumnName="Logoname" />
+                <ScalarProperty Name="LogoENName" ColumnName="LogoENName" />
+                <ScalarProperty Name="AllowInventory" ColumnName="AllowInventory" />
+                <ScalarProperty Name="ShowInPOS" ColumnName="ShowInPOS" />
+                <ScalarProperty Name="IsUseShift" ColumnName="IsUseShift" />
+                <ScalarProperty Name="Discuontcheck" ColumnName="Discuontcheck" />
+                <ScalarProperty Name="Printername" ColumnName="Printername" />
+                <ScalarProperty Name="Printertype" ColumnName="Printertype" />
+                <ScalarProperty Name="Sysnametype" ColumnName="Sysnametype" />
+                <ScalarProperty Name="ISUSEPrinter" ColumnName="ISUSEPrinter" />
+                <ScalarProperty Name="ISUSEResturant" ColumnName="ISUSEResturant" />
+                <ScalarProperty Name="ISUSElineproduction" ColumnName="ISUSElineproduction" />
+                <ScalarProperty Name="Systemlang" ColumnName="Systemlang" />
+                <ScalarProperty Name="ISUsePhase2" ColumnName="ISUsePhase2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expencestypes">
+            <EntityTypeMapping TypeName="EasyposModel.expencestype">
+              <MappingFragment StoreEntitySet="expencestype">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Expencestypename" ColumnName="Expencestypename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expenses">
+            <EntityTypeMapping TypeName="EasyposModel.expens">
+              <MappingFragment StoreEntitySet="expenses">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CDate" ColumnName="CDate" />
+                <ScalarProperty Name="Vat" ColumnName="Vat" />
+                <ScalarProperty Name="Typeid" ColumnName="Typeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="EasyposModel.item">
+              <MappingFragment StoreEntitySet="items">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Itemname" ColumnName="Itemname" />
+                <ScalarProperty Name="Itemprice" ColumnName="Itemprice" />
+                <ScalarProperty Name="Itemqty" ColumnName="Itemqty" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+                <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="itemsales">
+            <EntityTypeMapping TypeName="EasyposModel.itemsale">
+              <MappingFragment StoreEntitySet="itemsales">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+                <ScalarProperty Name="invoiceno" ColumnName="invoiceno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="EasyposModel.order">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tailortype" ColumnName="Tailortype" />
+                <ScalarProperty Name="clothnational" ColumnName="clothnational" />
+                <ScalarProperty Name="fabricid" ColumnName="fabricid" />
+                <ScalarProperty Name="fabrictypeid" ColumnName="fabrictypeid" />
+                <ScalarProperty Name="fabriccount" ColumnName="fabriccount" />
+                <ScalarProperty Name="count" ColumnName="count" />
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="ntid" ColumnName="ntid" />
+                <ScalarProperty Name="ntoid" ColumnName="ntoid" />
+                <ScalarProperty Name="Receivedcount" ColumnName="Receivedcount" />
+                <ScalarProperty Name="Remainingcount" ColumnName="Remainingcount" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="EasyposModel.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="paymentNo" ColumnName="paymentNo" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Remaining" ColumnName="Remaining" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ThirdPartyID" ColumnName="ThirdPartyID" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paymentouts">
+            <EntityTypeMapping TypeName="EasyposModel.paymentout">
+              <MappingFragment StoreEntitySet="paymentout">
+                <ScalarProperty Name="paymentNo" ColumnName="paymentNo" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="Cash" ColumnName="Cash" />
+                <ScalarProperty Name="Bank" ColumnName="Bank" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Remaining" ColumnName="Remaining" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="ThirdPartyID" ColumnName="ThirdPartyID" />
+                <ScalarProperty Name="PaymentMethod" ColumnName="PaymentMethod" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="prices">
+            <EntityTypeMapping TypeName="EasyposModel.price">
+              <MappingFragment StoreEntitySet="price">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Datefrom" ColumnName="Datefrom" />
+                <ScalarProperty Name="Dateto" ColumnName="Dateto" />
+                <ScalarProperty Name="NonVatTotal" ColumnName="NonVatTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="ThirdPartyID" ColumnName="ThirdPartyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pricedetailes">
+            <EntityTypeMapping TypeName="EasyposModel.pricedetaile">
+              <MappingFragment StoreEntitySet="pricedetailes">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Priceid" ColumnName="Priceid" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="TDDesc" ColumnName="TDDesc" />
+                <ScalarProperty Name="Unitid" ColumnName="Unitid" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Totafterdiscount" ColumnName="Totafterdiscount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="EasyposModel.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="CategoryNo" ColumnName="CategoryNo" />
+                <ScalarProperty Name="Unitid" ColumnName="Unitid" />
+                <ScalarProperty Name="StocksOnHand" ColumnName="StocksOnHand" />
+                <ScalarProperty Name="ShowInPOS" ColumnName="ShowInPOS" />
+                <ScalarProperty Name="AllowInventory" ColumnName="AllowInventory" />
+                <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+                <ScalarProperty Name="Order" ColumnName="Order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productitems">
+            <EntityTypeMapping TypeName="EasyposModel.productitem">
+              <MappingFragment StoreEntitySet="productitems">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchasedetailes">
+            <EntityTypeMapping TypeName="EasyposModel.purchasedetaile">
+              <MappingFragment StoreEntitySet="purchasedetailes">
+                <ScalarProperty Name="TDetailNo" ColumnName="TDetailNo" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="TDDesc" ColumnName="TDDesc" />
+                <ScalarProperty Name="Unitid" ColumnName="Unitid" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Totafterdiscount" ColumnName="Totafterdiscount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchases">
+            <EntityTypeMapping TypeName="EasyposModel.purchase">
+              <MappingFragment StoreEntitySet="purchases">
+                <ScalarProperty Name="Invoiceno" ColumnName="Invoiceno" />
+                <ScalarProperty Name="TDate" ColumnName="TDate" />
+                <ScalarProperty Name="TTime" ColumnName="TTime" />
+                <ScalarProperty Name="NonVatTotal" ColumnName="NonVatTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="ThirdPartyID" ColumnName="ThirdPartyID" />
+                <ScalarProperty Name="Billtype" ColumnName="Billtype" />
+                <ScalarProperty Name="Supplierbill" ColumnName="Supplierbill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales">
+            <EntityTypeMapping TypeName="EasyposModel.sale">
+              <MappingFragment StoreEntitySet="sales">
+                <ScalarProperty Name="Proname" ColumnName="Proname" />
+                <ScalarProperty Name="RN" ColumnName="RN" />
+                <ScalarProperty Name="Purchaseorder" ColumnName="Purchaseorder" />
+                <ScalarProperty Name="Invoiceno" ColumnName="Invoiceno" />
+                <ScalarProperty Name="TDate" ColumnName="TDate" />
+                <ScalarProperty Name="TTime" ColumnName="TTime" />
+                <ScalarProperty Name="NonVatTotal" ColumnName="NonVatTotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="ThirdPartyID" ColumnName="ThirdPartyID" />
+                <ScalarProperty Name="Billtype" ColumnName="Billtype" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="salesdetailes">
+            <EntityTypeMapping TypeName="EasyposModel.salesdetaile">
+              <MappingFragment StoreEntitySet="salesdetailes">
+                <ScalarProperty Name="TDetailNo" ColumnName="TDetailNo" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="TDDesc" ColumnName="TDDesc" />
+                <ScalarProperty Name="Unitid" ColumnName="Unitid" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Totafterdiscount" ColumnName="Totafterdiscount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="staffs">
+            <EntityTypeMapping TypeName="EasyposModel.staff">
+              <MappingFragment StoreEntitySet="staff">
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Fullname" ColumnName="Fullname" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UPassword" ColumnName="UPassword" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="thirdparties">
+            <EntityTypeMapping TypeName="EasyposModel.thirdparty">
+              <MappingFragment StoreEntitySet="thirdparty">
+                <ScalarProperty Name="CRN" ColumnName="CRN" />
+                <ScalarProperty Name="ISUsePhase2" ColumnName="ISUsePhase2" />
+                <ScalarProperty Name="PostalZone" ColumnName="PostalZone" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="CitySubdivisionName" ColumnName="CitySubdivisionName" />
+                <ScalarProperty Name="BuildingNumber" ColumnName="BuildingNumber" />
+                <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="OpeningBalance" ColumnName="OpeningBalance" />
+                <ScalarProperty Name="Taxnumber" ColumnName="Taxnumber" />
+                <ScalarProperty Name="Billnumber" ColumnName="Billnumber" />
+                <ScalarProperty Name="Pagenumber" ColumnName="Pagenumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transactions">
+            <EntityTypeMapping TypeName="EasyposModel.transaction">
+              <MappingFragment StoreEntitySet="transactions">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Invoiceno" ColumnName="Invoiceno" />
+                <ScalarProperty Name="Paynum" ColumnName="Paynum" />
+                <ScalarProperty Name="TDate" ColumnName="TDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ThirdPartyID" ColumnName="ThirdPartyID" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Paytype" ColumnName="Paytype" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="unittypes">
+            <EntityTypeMapping TypeName="EasyposModel.unittype">
+              <MappingFragment StoreEntitySet="unittypes">
+                <ScalarProperty Name="UName" ColumnName="UName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vatsettings">
+            <EntityTypeMapping TypeName="EasyposModel.vatsetting">
+              <MappingFragment StoreEntitySet="vatsetting">
+                <ScalarProperty Name="VATID" ColumnName="VATID" />
+                <ScalarProperty Name="VatPercent" ColumnName="VatPercent" />
+                <ScalarProperty Name="PricesWithVAT" ColumnName="PricesWithVAT" />
+                <ScalarProperty Name="ISVAT" ColumnName="ISVAT" />
+                <ScalarProperty Name="ISDiscforpro" ColumnName="ISDiscforpro" />
+                <ScalarProperty Name="ISDiscafterpro" ColumnName="ISDiscafterpro" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="expensesviews">
+            <EntityTypeMapping TypeName="EasyposModel.expensesview">
+              <MappingFragment StoreEntitySet="expensesview">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="CDate" ColumnName="CDate" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ExpenseName" ColumnName="ExpenseName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Getpaymentin" FunctionName="EasyposModel.Store.Getpaymentin" />
+          <FunctionImportMapping FunctionImportName="Getpaymentout" FunctionName="EasyposModel.Store.Getpaymentout" />
+          <FunctionImportMapping FunctionImportName="Getreturne" FunctionName="EasyposModel.Store.Getreturne" />
+          <FunctionImportMapping FunctionImportName="Gettransactions" FunctionName="EasyposModel.Store.Gettransactions" />
+          <EntitySetMapping Name="UBLs">
+            <EntityTypeMapping TypeName="EasyposModel.UBL">
+              <MappingFragment StoreEntitySet="UBL">
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Saleid" ColumnName="Saleid" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="Uuid" ColumnName="Uuid" />
+                <ScalarProperty Name="Invoicehash" ColumnName="Invoicehash" />
+                <ScalarProperty Name="QRCode" ColumnName="QRCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vouchers">
+            <EntityTypeMapping TypeName="EasyposModel.voucher">
+              <MappingFragment StoreEntitySet="vouchers">
+                <ScalarProperty Name="Billnum" ColumnName="Billnum" />
+                <ScalarProperty Name="Methode" ColumnName="Methode" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Paymentmathod" ColumnName="Paymentmathod" />
+                <ScalarProperty Name="Paid" ColumnName="Paid" />
+                <ScalarProperty Name="Vochertypes" ColumnName="Vochertypes" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Thiredpartyid" ColumnName="Thiredpartyid" />
+                <ScalarProperty Name="Billnumber" ColumnName="Billnumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="alltailorings">
+            <EntityTypeMapping TypeName="EasyposModel.alltailoring">
+              <MappingFragment StoreEntitySet="alltailoring">
+                <ScalarProperty Name="Alltable" ColumnName="Alltable" />
+                <ScalarProperty Name="Tailheaderid" ColumnName="Tailheaderid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailorbockets">
+            <EntityTypeMapping TypeName="EasyposModel.tailorbocket">
+              <MappingFragment StoreEntitySet="tailorbocket">
+                <ScalarProperty Name="Bok11" ColumnName="Bok11" />
+                <ScalarProperty Name="Bok10" ColumnName="Bok10" />
+                <ScalarProperty Name="Bok9" ColumnName="Bok9" />
+                <ScalarProperty Name="Bok8" ColumnName="Bok8" />
+                <ScalarProperty Name="Bok7" ColumnName="Bok7" />
+                <ScalarProperty Name="Bok6" ColumnName="Bok6" />
+                <ScalarProperty Name="Bok5" ColumnName="Bok5" />
+                <ScalarProperty Name="Bok4" ColumnName="Bok4" />
+                <ScalarProperty Name="Bok3" ColumnName="Bok3" />
+                <ScalarProperty Name="Bok2" ColumnName="Bok2" />
+                <ScalarProperty Name="Bok1" ColumnName="Bok1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailordetailes">
+            <EntityTypeMapping TypeName="EasyposModel.tailordetaile">
+              <MappingFragment StoreEntitySet="tailordetaile">
+                <ScalarProperty Name="Aujra" ColumnName="Aujra" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Handpalm" ColumnName="Handpalm" />
+                <ScalarProperty Name="Breadthbelow" ColumnName="Breadthbelow" />
+                <ScalarProperty Name="Handwidthbelow" ColumnName="Handwidthbelow" />
+                <ScalarProperty Name="Handwidthabove" ColumnName="Handwidthabove" />
+                <ScalarProperty Name="Chest" ColumnName="Chest" />
+                <ScalarProperty Name="Breadth" ColumnName="Breadth" />
+                <ScalarProperty Name="Neck" ColumnName="Neck" />
+                <ScalarProperty Name="Handlength" ColumnName="Handlength" />
+                <ScalarProperty Name="Shoulder" ColumnName="Shoulder" />
+                <ScalarProperty Name="Backlength" ColumnName="Backlength" />
+                <ScalarProperty Name="Frontlength" ColumnName="Frontlength" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailorhands">
+            <EntityTypeMapping TypeName="EasyposModel.tailorhand">
+              <MappingFragment StoreEntitySet="tailorhand">
+                <ScalarProperty Name="Triangle" ColumnName="Triangle" />
+                <ScalarProperty Name="Plain_cupcake" ColumnName="Plain-cupcake" />
+                <ScalarProperty Name="Plain" ColumnName="Plain" />
+                <ScalarProperty Name="Round" ColumnName="Round" />
+                <ScalarProperty Name="Horny" ColumnName="Horny" />
+                <ScalarProperty Name="Square" ColumnName="Square" />
+                <ScalarProperty Name="Inverted" ColumnName="Inverted" />
+                <ScalarProperty Name="Taxtb" ColumnName="Taxtb" />
+                <ScalarProperty Name="Texta" ColumnName="Texta" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailorheaders">
+            <EntityTypeMapping TypeName="EasyposModel.tailorheader">
+              <MappingFragment StoreEntitySet="tailorheader">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Reciveddate" ColumnName="Reciveddate" />
+                <ScalarProperty Name="Totalreimining" ColumnName="Totalreimining" />
+                <ScalarProperty Name="Paied" ColumnName="Paied" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Clothesremining" ColumnName="Clothesremining" />
+                <ScalarProperty Name="Clothesrecived" ColumnName="Clothesrecived" />
+                <ScalarProperty Name="Clothesnumber" ColumnName="Clothesnumber" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Custid" ColumnName="Custid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailorjabzors">
+            <EntityTypeMapping TypeName="EasyposModel.tailorjabzor">
+              <MappingFragment StoreEntitySet="tailorjabzor">
+                <ScalarProperty Name="Jab10" ColumnName="Jab10" />
+                <ScalarProperty Name="Jab9" ColumnName="Jab9" />
+                <ScalarProperty Name="Jab8" ColumnName="Jab8" />
+                <ScalarProperty Name="Jab7" ColumnName="Jab7" />
+                <ScalarProperty Name="Jab6" ColumnName="Jab6" />
+                <ScalarProperty Name="Jab5" ColumnName="Jab5" />
+                <ScalarProperty Name="Jab4" ColumnName="Jab4" />
+                <ScalarProperty Name="Jab3" ColumnName="Jab3" />
+                <ScalarProperty Name="Jab2" ColumnName="Jab2" />
+                <ScalarProperty Name="Jab1" ColumnName="Jab1" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tailornecks">
+            <EntityTypeMapping TypeName="EasyposModel.tailorneck">
+              <MappingFragment StoreEntitySet="tailorneck">
+                <ScalarProperty Name="Frenchflip" ColumnName="Frenchflip" />
+                <ScalarProperty Name="Openflap" ColumnName="Openflap" />
+                <ScalarProperty Name="Chinese" ColumnName="Chinese" />
+                <ScalarProperty Name="Plainhidden" ColumnName="Plainhidden" />
+                <ScalarProperty Name="Closedflap" ColumnName="Closedflap" />
+                <ScalarProperty Name="Regulartipper" ColumnName="Regulartipper" />
+                <ScalarProperty Name="Plainfrench" ColumnName="Plainfrench" />
+                <ScalarProperty Name="Plain" ColumnName="Plain" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="exceptionproes">
+            <EntityTypeMapping TypeName="EasyposModel.exceptionpro">
+              <MappingFragment StoreEntitySet="exceptionpro">
+                <ScalarProperty Name="Exceptionstring" ColumnName="Exceptionstring" />
+                <ScalarProperty Name="Screen" ColumnName="Screen" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

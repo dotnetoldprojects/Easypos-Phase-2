@@ -1,0 +1,1185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 144</value>
+  </data>
+  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 23</value>
+  </data>
+  <data name="radioButton1.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="radioButton2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 141</value>
+  </data>
+  <data name="radioButton2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>60, 23</value>
+  </data>
+  <data name="radioButton2.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="textBox12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 114</value>
+  </data>
+  <data name="label13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>196, 91</value>
+  </data>
+  <data name="textBox13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 58</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="dateTimePicker1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="dateTimePicker1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>812, 21</value>
+  </data>
+  <data name="label15.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>399, 25</value>
+  </data>
+  <data name="label15.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 19</value>
+  </data>
+  <data name="label15.Text" xml:space="preserve">
+    <value>Customer Phone :</value>
+  </data>
+  <data name="label10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>40, 25</value>
+  </data>
+  <data name="label10.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>76, 19</value>
+  </data>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Customer :</value>
+  </data>
+  <data name="textBox15.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>521, 23</value>
+  </data>
+  <data name="label9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>759, 27</value>
+  </data>
+  <data name="label9.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label9.Text" xml:space="preserve">
+    <value>Date :</value>
+  </data>
+  <data name="clientID.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="clientID.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="checkBox25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 141</value>
+  </data>
+  <data name="checkBox25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="checkBox25.Text" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="textBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 118</value>
+  </data>
+  <data name="label12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 95</value>
+  </data>
+  <data name="textBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 62</value>
+  </data>
+  <data name="textBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>171, 25</value>
+  </data>
+  <data name="label11.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Sylfaen, 9.75pt</value>
+  </data>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 29</value>
+  </data>
+  <data name="label11.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 18</value>
+  </data>
+  <data name="label11.Text" xml:space="preserve">
+    <value>Count :</value>
+  </data>
+  <data name="checkBox13.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 112</value>
+  </data>
+  <data name="checkBox13.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="checkBox13.Text" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="textBox14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>172, 21</value>
+  </data>
+  <data name="checkBox15.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 54</value>
+  </data>
+  <data name="checkBox15.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 23</value>
+  </data>
+  <data name="checkBox15.Text" xml:space="preserve">
+    <value>Hidden neck</value>
+  </data>
+  <data name="label14.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Sylfaen, 9.75pt</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>121, 25</value>
+  </data>
+  <data name="label14.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 18</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>Count :</value>
+  </data>
+  <data name="checkBox21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 46</value>
+  </data>
+  <data name="checkBox21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 23</value>
+  </data>
+  <data name="checkBox21.Text" xml:space="preserve">
+    <value>Payne square</value>
+  </data>
+  <data name="checkBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 110</value>
+  </data>
+  <data name="checkBox4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 23</value>
+  </data>
+  <data name="checkBox4.Text" xml:space="preserve">
+    <value>Formula</value>
+  </data>
+  <data name="Btnbull.Location" type="System.Drawing.Point, System.Drawing">
+    <value>502, 748</value>
+  </data>
+  <data name="Btnbull.Text" xml:space="preserve">
+    <value>Create bill</value>
+  </data>
+  <data name="checkBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 111</value>
+  </data>
+  <data name="checkBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>91, 23</value>
+  </data>
+  <data name="checkBox9.Text" xml:space="preserve">
+    <value>Cuff filling</value>
+  </data>
+  <data name="label17.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>822, 104</value>
+  </data>
+  <data name="label17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>83, 19</value>
+  </data>
+  <data name="label17.Text" xml:space="preserve">
+    <value>Fabric name</value>
+  </data>
+  <data name="textBox28.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 110</value>
+  </data>
+  <data name="textBox28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 27</value>
+  </data>
+  <data name="textBox18.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>906, 80</value>
+  </data>
+  <data name="textBox18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 57</value>
+  </data>
+  <data name="groupBox10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>139, 145</value>
+  </data>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Gypsum details</value>
+  </data>
+  <data name="checkBox27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 133</value>
+  </data>
+  <data name="checkBox27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 23</value>
+  </data>
+  <data name="checkBox27.Text" xml:space="preserve">
+    <value>Hidden Zipper</value>
+  </data>
+  <data name="checkBox26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 111</value>
+  </data>
+  <data name="checkBox26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 23</value>
+  </data>
+  <data name="checkBox26.Text" xml:space="preserve">
+    <value>Zipper Pine</value>
+  </data>
+  <data name="checkBox24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 90</value>
+  </data>
+  <data name="checkBox24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 23</value>
+  </data>
+  <data name="checkBox24.Text" xml:space="preserve">
+    <value>hidden square</value>
+  </data>
+  <data name="checkBox20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 69</value>
+  </data>
+  <data name="checkBox20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 23</value>
+  </data>
+  <data name="checkBox20.Text" xml:space="preserve">
+    <value>hidden triangle</value>
+  </data>
+  <data name="checkBox22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 24</value>
+  </data>
+  <data name="checkBox22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 23</value>
+  </data>
+  <data name="checkBox22.Text" xml:space="preserve">
+    <value>Pine triangle</value>
+  </data>
+  <data name="checkBox17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 82</value>
+  </data>
+  <data name="checkBox17.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 23</value>
+  </data>
+  <data name="checkBox17.Text" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="label30.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label30.Location" type="System.Drawing.Point, System.Drawing">
+    <value>546, 110</value>
+  </data>
+  <data name="label30.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label30.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 19</value>
+  </data>
+  <data name="label30.Text" xml:space="preserve">
+    <value>Palm :</value>
+  </data>
+  <data name="checkBox18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 54</value>
+  </data>
+  <data name="checkBox18.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 23</value>
+  </data>
+  <data name="checkBox18.Text" xml:space="preserve">
+    <value>Hidden neck</value>
+  </data>
+  <data name="checkBox14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 83</value>
+  </data>
+  <data name="checkBox14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 23</value>
+  </data>
+  <data name="checkBox14.Text" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="checkBox23.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="checkBox23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>826, 78</value>
+  </data>
+  <data name="checkBox23.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="checkBox23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 23</value>
+  </data>
+  <data name="checkBox23.Text" xml:space="preserve">
+    <value>Ujra</value>
+  </data>
+  <data name="textBox19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 107</value>
+  </data>
+  <data name="checkBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 82</value>
+  </data>
+  <data name="checkBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>98, 23</value>
+  </data>
+  <data name="checkBox10.Text" xml:space="preserve">
+    <value>Cuff aligner</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>155, 82</value>
+  </data>
+  <data name="checkBox11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 53</value>
+  </data>
+  <data name="checkBox11.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 23</value>
+  </data>
+  <data name="checkBox11.Text" xml:space="preserve">
+    <value>Cuff square</value>
+  </data>
+  <data name="textBox20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>131, 52</value>
+  </data>
+  <data name="checkBox19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 24</value>
+  </data>
+  <data name="checkBox19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 23</value>
+  </data>
+  <data name="checkBox19.Text" xml:space="preserve">
+    <value>Neck Button</value>
+  </data>
+  <data name="checkBox12.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="checkBox12.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 23</value>
+  </data>
+  <data name="checkBox12.Text" xml:space="preserve">
+    <value>Round cuff</value>
+  </data>
+  <data name="Btnreport.Location" type="System.Drawing.Point, System.Drawing">
+    <value>606, 748</value>
+  </data>
+  <data name="Btnreport.Text" xml:space="preserve">
+    <value>Reports</value>
+  </data>
+  <data name="Btnclear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>421, 748</value>
+  </data>
+  <data name="Btnclear.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="checkBox16.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Sylfaen, 9.75pt</value>
+  </data>
+  <data name="checkBox16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 25</value>
+  </data>
+  <data name="checkBox16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 22</value>
+  </data>
+  <data name="checkBox16.Text" xml:space="preserve">
+    <value>Neck Button</value>
+  </data>
+  <data name="groupBox7.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="groupBox7.Text" xml:space="preserve">
+    <value>Other Detailes</value>
+  </data>
+  <data name="label32.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label32.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 96</value>
+  </data>
+  <data name="label32.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label32.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 19</value>
+  </data>
+  <data name="label32.Text" xml:space="preserve">
+    <value>Status :</value>
+  </data>
+  <data name="Statustype.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="Statustype.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 93</value>
+  </data>
+  <data name="textBox25.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 82</value>
+  </data>
+  <data name="textBox23.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 54</value>
+  </data>
+  <data name="label25.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label25.Location" type="System.Drawing.Point, System.Drawing">
+    <value>675, 85</value>
+  </data>
+  <data name="label25.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label25.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 19</value>
+  </data>
+  <data name="label25.Text" xml:space="preserve">
+    <value>Remining number :</value>
+  </data>
+  <data name="label23.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label23.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 56</value>
+  </data>
+  <data name="label23.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label23.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 19</value>
+  </data>
+  <data name="label23.Text" xml:space="preserve">
+    <value>Note :</value>
+  </data>
+  <data name="label24.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>673, 52</value>
+  </data>
+  <data name="label24.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label24.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 19</value>
+  </data>
+  <data name="label24.Text" xml:space="preserve">
+    <value>Received number :</value>
+  </data>
+  <data name="dateTimePicker2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="dateTimePicker2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>129, 21</value>
+  </data>
+  <data name="textBox24.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox24.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 49</value>
+  </data>
+  <data name="label22.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 24</value>
+  </data>
+  <data name="label22.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label22.Size" type="System.Drawing.Size, System.Drawing">
+    <value>110, 19</value>
+  </data>
+  <data name="label22.Text" xml:space="preserve">
+    <value>Date of receipt :</value>
+  </data>
+  <data name="textBox22.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox22.Location" type="System.Drawing.Point, System.Drawing">
+    <value>802, 16</value>
+  </data>
+  <data name="label21.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 88</value>
+  </data>
+  <data name="label21.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label21.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 19</value>
+  </data>
+  <data name="label21.Text" xml:space="preserve">
+    <value>Remining</value>
+  </data>
+  <data name="label16.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>684, 21</value>
+  </data>
+  <data name="label16.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label16.Size" type="System.Drawing.Size, System.Drawing">
+    <value>112, 19</value>
+  </data>
+  <data name="label16.Text" xml:space="preserve">
+    <value>Clothes number :</value>
+  </data>
+  <data name="label20.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label20.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 55</value>
+  </data>
+  <data name="label20.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label20.Size" type="System.Drawing.Size, System.Drawing">
+    <value>36, 19</value>
+  </data>
+  <data name="label20.Text" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="label19.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 24</value>
+  </data>
+  <data name="label19.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 19</value>
+  </data>
+  <data name="label19.Text" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="textBox21.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 87</value>
+  </data>
+  <data name="textBox16.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox16.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 54</value>
+  </data>
+  <data name="textBox17.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox17.Location" type="System.Drawing.Point, System.Drawing">
+    <value>451, 21</value>
+  </data>
+  <data name="groupBox4.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="groupBox4.Text" xml:space="preserve">
+    <value>Customer detailes</value>
+  </data>
+  <data name="Btnsearch.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="Btnsearch.Location" type="System.Drawing.Point, System.Drawing">
+    <value>306, 22</value>
+  </data>
+  <data name="Btncustomers.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="Btncustomers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>345, 22</value>
+  </data>
+  <data name="Btnclose.Location" type="System.Drawing.Point, System.Drawing">
+    <value>687, 748</value>
+  </data>
+  <data name="Btnclose.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Btnsave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>340, 748</value>
+  </data>
+  <data name="Btnsave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="checkBox3.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Sylfaen, 9.75pt</value>
+  </data>
+  <data name="checkBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 82</value>
+  </data>
+  <data name="checkBox3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="checkBox3.Text" xml:space="preserve">
+    <value>Plain hand cup</value>
+  </data>
+  <data name="checkBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Sylfaen, 9pt</value>
+  </data>
+  <data name="checkBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 53</value>
+  </data>
+  <data name="checkBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>103, 20</value>
+  </data>
+  <data name="checkBox2.Text" xml:space="preserve">
+    <value>Plain open hand</value>
+  </data>
+  <data name="checkBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 24</value>
+  </data>
+  <data name="checkBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 23</value>
+  </data>
+  <data name="checkBox1.Text" xml:space="preserve">
+    <value>Plain hand</value>
+  </data>
+  <data name="label28.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label28.Location" type="System.Drawing.Point, System.Drawing">
+    <value>726, 22</value>
+  </data>
+  <data name="label28.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 19</value>
+  </data>
+  <data name="label28.Text" xml:space="preserve">
+    <value>Under</value>
+  </data>
+  <data name="groupBox5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>479, 145</value>
+  </data>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 176</value>
+  </data>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>Neck detailes</value>
+  </data>
+  <data name="groupBox6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>730, 145</value>
+  </data>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 176</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>Flip neck details</value>
+  </data>
+  <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 145</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>Hand details</value>
+  </data>
+  <data name="label29.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>650, 22</value>
+  </data>
+  <data name="label29.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 19</value>
+  </data>
+  <data name="label29.Text" xml:space="preserve">
+    <value>Above</value>
+  </data>
+  <data name="textBox27.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>713, 47</value>
+  </data>
+  <data name="label27.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
+    <value>199, 21</value>
+  </data>
+  <data name="label27.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="label27.Text" xml:space="preserve">
+    <value>behind</value>
+  </data>
+  <data name="label26.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>118, 21</value>
+  </data>
+  <data name="label26.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 19</value>
+  </data>
+  <data name="label26.Text" xml:space="preserve">
+    <value>before</value>
+  </data>
+  <data name="textBox26.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox26.Location" type="System.Drawing.Point, System.Drawing">
+    <value>186, 43</value>
+  </data>
+  <data name="groupBox8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="groupBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 145</value>
+  </data>
+  <data name="groupBox8.Text" xml:space="preserve">
+    <value>Cuff detailes</value>
+  </data>
+  <data name="textBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 76</value>
+  </data>
+  <data name="Column15.HeaderText" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="Date.HeaderText" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="Cust.HeaderText" xml:space="preserve">
+    <value>Customer</value>
+  </data>
+  <data name="Tall.HeaderText" xml:space="preserve">
+    <value>Height</value>
+  </data>
+  <data name="Sholder.HeaderText" xml:space="preserve">
+    <value>Sholder</value>
+  </data>
+  <data name="Column7.HeaderText" xml:space="preserve">
+    <value>Hand length</value>
+  </data>
+  <data name="Column4.HeaderText" xml:space="preserve">
+    <value>Neck</value>
+  </data>
+  <data name="Bench.HeaderText" xml:space="preserve">
+    <value>Chest</value>
+  </data>
+  <data name="الوسع.HeaderText" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="Column5.HeaderText" xml:space="preserve">
+    <value>Hand Length</value>
+  </data>
+  <data name="Column6.HeaderText" xml:space="preserve">
+    <value>Expand below</value>
+  </data>
+  <data name="Column8.HeaderText" xml:space="preserve">
+    <value>Clothes number</value>
+  </data>
+  <data name="Delete.HeaderText" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="dgw.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="pictureBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="pictureBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        jogAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 54</value>
+  </data>
+  <data name="lblTitle.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="lblTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 15</value>
+  </data>
+  <data name="lblTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>109, 25</value>
+  </data>
+  <data name="lblTitle.Text" xml:space="preserve">
+    <value>Tailor order</value>
+  </data>
+  <data name="label31.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label31.Location" type="System.Drawing.Point, System.Drawing">
+    <value>825, 22</value>
+  </data>
+  <data name="label31.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label31.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 19</value>
+  </data>
+  <data name="label31.Text" xml:space="preserve">
+    <value>Weight</value>
+  </data>
+  <data name="textBox29.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox29.Location" type="System.Drawing.Point, System.Drawing">
+    <value>821, 47</value>
+  </data>
+  <data name="groupBox1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>Size Details</value>
+  </data>
+  <data name="label8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>546, 83</value>
+  </data>
+  <data name="label8.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 19</value>
+  </data>
+  <data name="label8.Text" xml:space="preserve">
+    <value>lowest :</value>
+  </data>
+  <data name="textBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>108, 43</value>
+  </data>
+  <data name="textBox8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>636, 80</value>
+  </data>
+  <data name="textBox8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 27</value>
+  </data>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 47</value>
+  </data>
+  <data name="label1.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 19</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>height :</value>
+  </data>
+  <data name="label7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>547, 50</value>
+  </data>
+  <data name="label7.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>85, 19</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>Hand width:</value>
+  </data>
+  <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 76</value>
+  </data>
+  <data name="label2.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>65, 19</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Shoulder:</value>
+  </data>
+  <data name="textBox7.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>637, 47</value>
+  </data>
+  <data name="textBox3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 41</value>
+  </data>
+  <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 112</value>
+  </data>
+  <data name="label6.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>86, 19</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Hand length:</value>
+  </data>
+  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 44</value>
+  </data>
+  <data name="label3.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 19</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Neck:</value>
+  </data>
+  <data name="textBox6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>106, 109</value>
+  </data>
+  <data name="textBox4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 107</value>
+  </data>
+  <data name="label5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 76</value>
+  </data>
+  <data name="label5.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 19</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Width:</value>
+  </data>
+  <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>292, 110</value>
+  </data>
+  <data name="label4.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Inherit</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>48, 19</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Chest:</value>
+  </data>
+  <data name="textBox5.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left</value>
+  </data>
+  <data name="textBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>350, 74</value>
+  </data>
+  <data name="iconButton1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="iconButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>33, 28</value>
+  </data>
+</root>

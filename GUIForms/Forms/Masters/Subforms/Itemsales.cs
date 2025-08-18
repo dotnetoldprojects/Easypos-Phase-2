@@ -1,0 +1,140 @@
+﻿using Domain.Models;
+using GUIForms.Dtos;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using UOW;
+
+namespace Easypos.Masters.Subforms
+{
+    public partial class Itemsales : Form
+    {
+        Getcentralaizes GC;
+        company DC;
+        IUnitofwork _IUW;
+        item items;
+        purchasedetaile Pd;
+        public Itemsales()
+        {
+            InitializeComponent();
+            Loading();
+        }
+        private void Loading()
+        {
+            GC = new Getcentralaizes();
+            Pd = new purchasedetaile();
+            DC = (company)LanguageHelper.ApplyLanguage(this);
+            _IUW = new Unitofwork(new EasyposEntities());
+            Getdata();
+            DGSort();
+        }
+        void Getdata() 
+        {
+            // أولاً، نحصل على البيانات
+            var purchases = _IUW.purchases.GetAll().ToList();
+            var purchaseDetails = _IUW.purchasedetailes.GetAll().ToList();
+
+            // نعمل LEFT JOIN يدوي باستخدام LINQ
+            var result1 = from detail in purchaseDetails
+                         join purchase in purchases
+                         on detail.InvoiceNo equals purchase.Invoiceno into joined
+                         from purchase in joined.DefaultIfEmpty() // Left Join
+                         select new
+                         {
+                             detail.TDetailNo,
+                             detail.TDDesc,
+                             TDate = purchase?.TDate.ToString() ?? "", // لو null حط قيمة افتراضية
+                             detail.Quantity,
+                             detail.InvoiceNo
+                         };
+
+            // نملأ الـ DataGridView
+            foreach (var item in result1)
+            {
+                DGV.Rows.Add(
+                    item.TDetailNo.ToString(),
+                    item.TDDesc?.ToString() ?? "",
+                    item.TDate.ToString(),
+                    item.Quantity.ToString(),
+                    0,
+                    0,
+                    item.InvoiceNo.ToString() ?? "",
+                    "فاتورة مشتريات"
+                );
+            }
+
+            // أولاً، نحصل على البيانات
+            var items = _IUW.items.GetAll().ToList();
+            var itemsales = _IUW.itemsales.GetAll().ToList();
+
+            var result2 = from its in itemsales
+                          join it in items
+                          on its.Itemid equals it.ID into joined
+                          from it in joined.DefaultIfEmpty() // Left Join
+                          select new
+                          {
+                              its.ID,
+                              Itemname = it?.Itemname ?? "",
+                              its.Date,
+                              Itemqty = it?.Itemqty ?? 0,
+                              its.Quantity,
+                              //Remining = it?.Remining ?? 0,
+                              its.invoiceno
+                          };
+
+            // تعبئة الـ DataGridView
+            foreach (var item in result2)
+            {
+                DGV.Rows.Add(
+                    item.ID.ToString(),
+                    item.Itemname,
+                    item.Date.ToString(),
+                    0,
+                    item.Quantity.ToString(),
+                    0,
+                    item.invoiceno.ToString() ?? "",
+                    "فاتورة مبيعات"
+                );
+            }
+        }
+        void DGSort()
+        {
+            DGV.Sort(DGV.Columns["Date"], System.ComponentModel.ListSortDirection.Ascending);
+            var Balance = 0.0;
+            for (int i = 0; i < DGV.Rows.Count; i++)
+            {
+                var Det = DGV.Rows[i].Cells[7].Value.ToString();
+                var Stock = Convert.ToDouble(DGV.Rows[i].Cells[3].Value.ToString());
+                var Qty = Convert.ToDouble(DGV.Rows[i].Cells[4].Value.ToString());
+                var Rem = Convert.ToDouble(DGV.Rows[i].Cells[5].Value.ToString());
+                if (i > 0)
+                {
+                    if (Det == "فاتورة مبيعات")
+                    {
+                        DGV.Rows[i].Cells[3].Value = Balance;
+                    }
+                }
+                if (Det == "فاتورة مشتريات")
+                {
+                    Balance = Balance + (Stock + Qty);
+                    DGV.Rows[i].Cells[5].Value = Balance;
+                }
+                if (Det == "فاتورة مبيعات")
+                {
+                    Balance = Balance + (Stock - Qty);
+                    DGV.Rows[i].Cells[5].Value = Balance;
+                }
+            }
+        }
+        private void picClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+    }
+}

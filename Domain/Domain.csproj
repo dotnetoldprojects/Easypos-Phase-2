@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4EC1385D-A3AD-4A68-B0DE-72EFB80C49DE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dataset.cs">
+      <DependentUpon>Dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset.Designer.cs">
+      <DependentUpon>Dataset.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset1.Designer.cs">
+      <DependentUpon>Dataset.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\alltailoring.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\cashier.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\category.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\company.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Easyposcontext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Easyposcontext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Easyposcontext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Easyposcontext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Easyposcontext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\exceptionpro.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\expencestype.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\expens.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\expensesview.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\item.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\itemsale.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\order.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\payment.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\paymentout.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\price.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pricedetaile.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\product.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\productitem.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\purchase.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\purchasedetaile.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sale.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\salesdetaile.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\staff.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tailorbocket.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tailordetaile.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tailorhand.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tailorheader.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tailorjabzor.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tailorneck.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\thirdparty.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\transaction.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UBL.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\unittype.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\vatsetting.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\voucher.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Models\Easyposcontext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Easyposcontext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Dataset.xsc">
+      <DependentUpon>Dataset.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Dataset1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dataset.xss">
+      <DependentUpon>Dataset.xsd</DependentUpon>
+    </None>
+    <None Include="Models\Easyposcontext.edmx.diagram">
+      <DependentUpon>Easyposcontext.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Easyposcontext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Easyposcontext.edmx</DependentUpon>
+      <LastGenOutput>Easyposcontext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Easyposcontext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Easyposcontext.edmx</DependentUpon>
+      <LastGenOutput>Easyposcontext.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>
