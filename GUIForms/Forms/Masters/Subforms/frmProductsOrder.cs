@@ -51,16 +51,92 @@ namespace Easypos.Masters.Subforms
                               }).ToList();
             // Fix: Change the type of BindingList to match the anonymous type
             var Datapro = new BindingList<ProductViewModel>(prodata);
-            dgvProducts.DataSource = Datapro.Select(p => new
+            //dgvProducts.DataSource = Datapro.Select(p => new
+            //{
+            //    p.ProductNo,
+            //    p.Description,
+            //    p.Order,
+            //}).ToList();
+
+            // 2️⃣ ربط الـ DataGridView مباشرة
+            dgvProducts.DataSource = Datapro;
+
+            // 3️⃣ التأكد من الأعمدة بعد الربط
+            dgvProducts.AutoGenerateColumns = true; // لو الأعمدة مش موجودة تلقائي
+
+            // 4️⃣ لف على الأعمدة لتعديل ReadOnly للعمود المطلوب
+            foreach (DataGridViewColumn col in dgvProducts.Columns)
             {
-                p.ProductNo,
-                p.Description,
-                p.Order,
-            }).ToList();
+                if (col.Name == "Order")  // العمود اللي عايز تعدل عليه
+                {
+                    col.ReadOnly = false;  // دلوقتي ممكن تعدل
+                    col.DisplayIndex = 2;  // ترتيب العمود
+                }
+                else if (col.Name == "UnitName")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "ProductCode")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "UnitPrice")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "CategoryName")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "CategoryNo")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "Barcode")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "ReorderLevel")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "AllowInventory")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "Unitid")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "ShowInPOS")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "StocksOnHand")
+                {
+                    col.ReadOnly = false;   // الرقم لا يتغير
+                    col.Visible = false;
+                }
+                else if (col.Name == "ProductCode")
+                {
+                    col.ReadOnly = true;   // الرقم لا يتغير
+                    col.Visible = true;
+                }
+            }
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < dgvProducts.Rows.Count - 1; i++)
+            for (int i = 0; i < dgvProducts.Rows.Count; i++)
             {
                 var ID = Convert.ToInt32(dgvProducts.Rows[i].Cells["ID"].Value);
                 var Order = Convert.ToInt32(dgvProducts.Rows[i].Cells["Order"].Value);

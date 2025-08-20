@@ -53,6 +53,7 @@ namespace GUIForms.helpers
                                 Bank = x.payment?.Bank ?? 0,
                                 ThirdPartyID = x.thirdParty?.ID,
                                 ThirdPartyName = x.thirdParty?.Name ?? "عميل افتراضي",
+                                Phone = x.thirdParty.MobileNumber,
                                 Status = ubl?.Status ?? "لم تسجل",
                                 Note = x.sale.Note
                             }).OrderByDescending(x => x.Invoiceno).ToList();

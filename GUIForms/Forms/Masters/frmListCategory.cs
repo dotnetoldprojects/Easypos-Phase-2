@@ -88,7 +88,7 @@ namespace Easypos.Masters
         {
             try
             {
-                if (!string.IsNullOrEmpty(cat.CategoryName))
+                if (!string.IsNullOrEmpty(txtCatName.Text))
                 {
                     if (cat.CategoryNo != null)
                     {

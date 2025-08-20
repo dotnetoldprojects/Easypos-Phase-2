@@ -1,4 +1,5 @@
-﻿using Domain.Dtos;
+﻿using Aspose.Pdf;
+using Domain.Dtos;
 using Domain.Models;
 using Easypos.Masters;
 using Easypos.Payment;
@@ -17,6 +18,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using UOW;
+using Color = System.Drawing.Color;
 
 namespace Easypos.Salesforms.Cashier
 {
@@ -28,6 +30,7 @@ namespace Easypos.Salesforms.Cashier
         DGVProductHandler _DGVPH;
         Getallsales GAS;
         List<SaleViewModel> Res;
+        Printinginvoice _PI;
         public int Invid { get; set; }
         int top = 0;
         Usingnumber _ON;
@@ -80,6 +83,7 @@ namespace Easypos.Salesforms.Cashier
             Getcatlist();
             Getdatalist();
             _ON = new Usingnumber();
+            _PI = new Printinginvoice();
         }
         private void Getdatalist()
         {
@@ -126,7 +130,7 @@ namespace Easypos.Salesforms.Cashier
         {
             var products = _IUW.products.GetAll()
                                         .Where(p => p.CategoryNo == int.Parse(CateNumber))
-                                        .ToList();
+                                        .OrderBy(x => x.Order).ToList();
 
             int columnCount = 4;
             int rowCount = (int)Math.Ceiling((double)products.Count / columnCount);
@@ -162,28 +166,29 @@ namespace Easypos.Salesforms.Cashier
             for (int i = 0; i < products.Count; i++)
             {
                 var product = products[i];
-
-                Button button = new Button
+                if (product.ShowInPOS != false)
                 {
-                    Tag = product.ProductNo.ToString(),
-                    Text = product.Description + "\n" + product.UnitPrice + " ريال",
-                    Dock = DockStyle.Top,
-                    BackColor = Color.FromArgb(int.Parse(Backcolor)),
-                    ForeColor = Color.White,
-                    TabIndex = 25,
-                    FlatStyle = FlatStyle.Flat,
-                    Width = 100,
-                    Height = 85
-                };
+                    Button button = new Button
+                    {
+                        Tag = product.ProductNo.ToString(),
+                        Text = product.Description + "\n" + product.UnitPrice + " ريال",
+                        Dock = DockStyle.Top,
+                        BackColor = Color.FromArgb(int.Parse(Backcolor)),
+                        ForeColor = Color.White,
+                        TabIndex = 25,
+                        FlatStyle = FlatStyle.Flat,
+                        Width = 100,
+                        Height = 85
+                    };
+                    button.Click += productBtn_Click;
 
-                button.Click += productBtn_Click;
-
-                tableLayoutPanel1.Controls.Add(button, cl, rw);
-                cl++;
-                if (cl == columnCount)
-                {
-                    cl = 0;
-                    rw++;
+                    tableLayoutPanel1.Controls.Add(button, cl, rw);
+                    cl++;
+                    if (cl == columnCount)
+                    {
+                        cl = 0;
+                        rw++;
+                    }
                 }
             }
 
@@ -257,7 +262,23 @@ namespace Easypos.Salesforms.Cashier
         }
         private void btnSettlepayment_Click(object sender, System.EventArgs e)
         {
-            openpayment();
+            var Cust = int.Parse(clientID.SelectedValue.ToString());
+            if (Cust == 0)
+            {
+                MessageBox.Show("الرجاء اختيار عميل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (DGV.Rows.Count == 0)
+            {
+                MessageBox.Show("لايوجد طلبات متاحه", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                openpayment();
+                _PI.Invoice(Invid);
+                Clearfieldes();
+            }
         }
         private void Editsales()
         {

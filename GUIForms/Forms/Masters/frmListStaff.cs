@@ -83,7 +83,7 @@ namespace Easypos.Masters
             txtProvince.Clear();
             textBox1.Clear();
             textBox2.Clear();
-            DGV.Rows.Clear();
+            //DGV.Rows.Clear();
             Loading();
         }
         private void Btndel_Click(object sender, EventArgs e)
@@ -175,7 +175,7 @@ namespace Easypos.Masters
             _Stf.Role = "Admin";
             try
             {
-                if (Btnaddedit.Text == "أضافة" || Btnaddedit.Text == "Add")
+                if (Btnaddedit.Text == "حفظ" || Btnaddedit.Text == "Save")
                 {
                     _IUW.staffs.Insert(_Stf);
                 }

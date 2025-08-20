@@ -95,7 +95,7 @@ namespace Easypos.Masters
         {
             var Lastid = GC.Getproductdatalist().Max(p => p.ProductNo);
             string nextCode = $"EP{(Lastid + 1).ToString("D4")}";
-            lblProductNo.Text = (Lastid + 1).ToString();
+            //lblProductNo.Text = (Lastid + 1).ToString();
             txtProductCode.Text = nextCode;
         }
         private void Cleardata()
@@ -143,7 +143,6 @@ namespace Easypos.Masters
         }
         private void Btnaddedit_Click(object sender, EventArgs e)
         {
-            Pro.ProductNo = int.Parse(lblProductNo.Text);
             Pro.ProductCode = txtProductCode.Text;
             Pro.Description = txtDescription.Text;
             Pro.Barcode = txtBarcode.Text;
@@ -156,24 +155,38 @@ namespace Easypos.Masters
             Pro.ReorderLevel = int.Parse(txtReorderLevel.Text);
             try
             {
-                if (Pro.ProductNo != 0)
+                if (Pro.Unitid == 0)
                 {
+                    MessageBox.Show("برجاء ادخال الوحده", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (Pro.CategoryNo == 0)
+                {
+                    MessageBox.Show("برجاء ادخال الفئه", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (!string.IsNullOrEmpty(lblProductNo.Text.Trim()))
+                {
+                    Pro.ProductNo = int.Parse(lblProductNo.Text);
                     _IUW.products.Update(Pro);
                 }
                 else
                 {
                     _IUW.products.Insert(Pro);
                 }
-                for (int i = 0; i < DGV.Rows.Count; i++)
+                if (DGVProitems.Rows.Count > 0)
                 {
-                    Pi.Proid = lblProductNo.Text;
-                    var itemId = int.Parse(DGVProitems.Rows[i].Cells[0].Value.ToString());
-                    var itemqty = DGVProitems.Rows[i].Cells[1].Value.ToString();
-                    _IUW.productitems.Delbyid(itemId);
-                    Pi.itemid = itemId.ToString();
-                    Pi.Quantity = itemqty;
-                    _IUW.productitems.Insert(Pi);
-                    _IUW.Complete();
+                    for (int i = 0; i < DGVProitems.Rows.Count; i++)
+                    {
+                        Pi.Proid = lblProductNo.Text;
+                        var itemId = int.Parse(DGVProitems.Rows[i].Cells[0].Value.ToString());
+                        var itemqty = DGVProitems.Rows[i].Cells[1].Value.ToString();
+                        _IUW.productitems.Delbyid(itemId);
+                        Pi.itemid = itemId.ToString();
+                        Pi.Quantity = itemqty;
+                        _IUW.productitems.Insert(Pi);
+                        _IUW.Complete();
+                    }
                 }
                 _IUW.Complete();
             }

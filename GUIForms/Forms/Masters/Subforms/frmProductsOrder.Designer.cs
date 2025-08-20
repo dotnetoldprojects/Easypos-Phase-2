@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductsOrder));
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -41,6 +38,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Btnclose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Order = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GroupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.panel2.SuspendLayout();
@@ -69,26 +69,6 @@
             resources.ApplyResources(this.dgvProducts, "dgvProducts");
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.RowTemplate.Height = 26;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ProductNo";
-            resources.ApplyResources(this.ID, "ID");
-            this.ID.Name = "ID";
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "Description";
-            this.ProductName.FillWeight = 73.85786F;
-            resources.ApplyResources(this.ProductName, "ProductName");
-            this.ProductName.Name = "ProductName";
-            // 
-            // Order
-            // 
-            this.Order.DataPropertyName = "Order";
-            this.Order.FillWeight = 73.85786F;
-            resources.ApplyResources(this.Order, "Order");
-            this.Order.Name = "Order";
             // 
             // cmbCategory
             // 
@@ -146,6 +126,27 @@
             this.btnSave.Name = "btnSave";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ProductNo";
+            resources.ApplyResources(this.ID, "ID");
+            this.ID.Name = "ID";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "Description";
+            this.ProductName.FillWeight = 73.85786F;
+            resources.ApplyResources(this.ProductName, "ProductName");
+            this.ProductName.Name = "ProductName";
+            // 
+            // Order
+            // 
+            this.Order.DataPropertyName = "Order";
+            this.Order.FillWeight = 73.85786F;
+            resources.ApplyResources(this.Order, "Order");
+            this.Order.Name = "Order";
+            this.Order.ReadOnly = true;
             // 
             // frmProductsOrder
             // 

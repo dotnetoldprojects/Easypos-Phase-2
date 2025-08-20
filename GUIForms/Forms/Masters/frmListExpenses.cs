@@ -143,6 +143,16 @@ namespace Easypos.Masters
         }
         private void Btnsave_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtDescription.Text))
+            {
+                MessageBox.Show("برجاء ادخال وصف المصروف","خطأ",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtAmount.Text))
+            {
+                MessageBox.Show("برجاء مبلغ المصروف", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             exp.Description = txtDescription.Text;
             exp.Amount = double.Parse(txtAmount.Text);
             exp.CDate = DTF.Value.ToString("yyyy-MM-dd");
@@ -191,6 +201,7 @@ namespace Easypos.Masters
                 {
                     _IUW.expenses.Delbyid(exp.ID);
                     _IUW.Complete();
+                    Clearfeildes();
                 }
             }
             catch (Exception ex)

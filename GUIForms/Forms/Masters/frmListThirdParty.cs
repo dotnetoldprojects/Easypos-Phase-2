@@ -205,7 +205,7 @@ namespace Easypos.Masters
                     }
                     try
                     {
-                        if (TP.ID != null)
+                        if (!string.IsNullOrEmpty(txtNumber.Text.Trim()))
                         {
                             TP.ID = int.Parse(txtNumber.Text);
                             _IUW.thirdparties.Update(TP);

@@ -136,14 +136,29 @@ namespace Easypos.Purchases
         }
         private void Btnsave_Click(object sender, EventArgs e)
         {
-            openpayment();
+            var Cust = int.Parse(clientID.SelectedValue.ToString());
+            if (Cust == 0)
+            {
+                MessageBox.Show("الرجاء اختيار عميل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (DGV.Rows.Count == 0)
+            {
+                MessageBox.Show("لايوجد طلبات متاحه", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                openpayment();
+                Clearfildes();
+            }
         }
         public void openpayment()
         {
             Frmpayments PAY = new Frmpayments();
-            PAY.Total = decimal.Parse(txtTotal.Text);
-            PAY.clients.SelectedValue = clientID.SelectedValue;
             PAY.Formname = "Purchases";
+            PAY.Total = decimal.Parse(txtTotal.Text);
+            PAY.Purcid = clientID.SelectedValue.ToString();
             PAY.ShowDialog();
         }
         public void Btnsaved()

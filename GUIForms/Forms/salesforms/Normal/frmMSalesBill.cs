@@ -228,7 +228,22 @@ namespace GUIForms.Forms.salesforms.Normal
         }
         private void Btnsave_Click(object sender, EventArgs e)
         {
-            openpayment();
+            var Cust = int.Parse(clientID.SelectedValue.ToString());
+            if (Cust == 0)
+            {
+                MessageBox.Show("الرجاء اختيار عميل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (DGV.Rows.Count == 0)
+            {
+                MessageBox.Show("لايوجد طلبات متاحه", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                openpayment();
+                ClearAll();
+            }
         }
         private void Editsales()
         {
@@ -460,8 +475,23 @@ namespace GUIForms.Forms.salesforms.Normal
         }
         private void Btnsaveandprint_Click(object sender, EventArgs e)
         {
-            openpayment();
-            _PI.Invoice(Invid);
+            var Cust = int.Parse(clientID.SelectedValue.ToString());
+            if (Cust == 0)
+            {
+                MessageBox.Show("الرجاء اختيار عميل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (DGV.Rows.Count == 0)
+            {
+                MessageBox.Show("لايوجد طلبات متاحه", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                openpayment();
+                _PI.Invoice(Invid);
+                ClearAll();
+            }
         }
     }
 }

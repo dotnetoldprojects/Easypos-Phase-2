@@ -15,6 +15,7 @@ namespace Easypos.Payment
     {
         public decimal Total { get; set; }
         public string Formname { get; set; }
+        public string Purcid { get; set; }
         Getcentralaizes GC;
         IUnitofwork _IUW;
         company DC;
@@ -30,7 +31,6 @@ namespace Easypos.Payment
             GC = new Getcentralaizes();
             DC = (company)LanguageHelper.ApplyLanguage(this);
             _IUW = new Unitofwork(new EasyposEntities());
-            LoadAllCombos();
             pay = new payment();
             payout = new paymentout();
             Sb = (Application.OpenForms["frmMSalesBill"] as frmMSalesBill);
@@ -40,7 +40,15 @@ namespace Easypos.Payment
         }
         private void LoadAllCombos()
         {
-            Commondatasales.FillCombo(clients, GC.Getcustomerdatalist(), "Name", "ID");
+            if (Formname == "Purchases")
+            {
+                Commondatasales.FillCombo(clients, GC.Getsupplierdatalist(), "Name", "ID");
+                clients.SelectedValue = int.Parse(Purcid);
+            }
+            else
+            {
+                Commondatasales.FillCombo(clients, GC.Getcustomerdatalist(), "Name", "ID");
+            }
         }
         private void AddCash_Click(object sender, System.EventArgs e)
         {
@@ -60,6 +68,7 @@ namespace Easypos.Payment
         }
         private void Frmpayments_Load(object sender, EventArgs e)
         {
+            LoadAllCombos();
             txtTotal.Text = Total.ToString();
         }
         private void Btnsave_Click(object sender, EventArgs e)
@@ -76,7 +85,6 @@ namespace Easypos.Payment
                             Savpayment();
                             Sb.Generatexml();
                         }
-                        Sb.ClearAll();
                     }
                     if (Pos != null)
                     {
@@ -86,7 +94,7 @@ namespace Easypos.Payment
                             Savpayment();
                             Pos.Generatexml();
                         }
-                        Pos.Clearfieldes();
+                        //Pos.Clearfieldes();
                     }
                 }
                 if (Formname == "Purchases")

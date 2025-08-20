@@ -20,6 +20,7 @@ namespace GUIForms.models
         public decimal Bank { get; set; }
         public int? ThirdPartyID { get; set; }
         public string ThirdPartyName { get; set; }
+        public string Phone { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
         public string Note { get; set; }

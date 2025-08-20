@@ -20,6 +20,7 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using UOW;
 using Zatca.EInvoice.SDK.Contracts.Models;
+using static net.sf.saxon.expr.JPConverter;
 
 
 namespace Easypos.Salesforms
@@ -205,28 +206,97 @@ namespace Easypos.Salesforms
         }
         public void Getsalesbyfilters()
         {
+            //if (!string.IsNullOrEmpty(IN.Text))
+            //{
+            //    //var Data = Res.Where(x => x.Invoiceno == int.Parse(IN.Text)).FirstOrDefault();
+            //    var Data = Res.Where(x => x.Invoiceno == int.Parse(IN.Text))
+            //                  .Select(x => new
+            //                    {
+            //                        x.Invoiceno,
+            //                        x.TDate,
+            //                        x.TTime,
+            //                        x.NonVatTotal,
+            //                        x.Discount,
+            //                        x.VatAmount,
+            //                        x.TotalAmount,
+            //                        x.Cash,
+            //                        x.Bank,
+            //                        ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
+            //                        x.Type,
+            //                        x.Note
+            //                    })
+            //                  .FirstOrDefault();
+            //    DGV.DataSource = new List<object> { Data };
+            //}
+
+
+
+
+
+            var query = Res.AsQueryable();
+
+            // شرط رقم الفاتورة
             if (!string.IsNullOrEmpty(IN.Text))
             {
-                //var Data = Res.Where(x => x.Invoiceno == int.Parse(IN.Text)).FirstOrDefault();
-                var Data = Res.Where(x => x.Invoiceno == int.Parse(IN.Text))
-                              .Select(x => new
-                                {
-                                    x.Invoiceno,
-                                    x.TDate,
-                                    x.TTime,
-                                    x.NonVatTotal,
-                                    x.Discount,
-                                    x.VatAmount,
-                                    x.TotalAmount,
-                                    x.Cash,
-                                    x.Bank,
-                                    ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
-                                    x.Type,
-                                    x.Note
-                                })
-                              .FirstOrDefault();
-                DGV.DataSource = new List<object> { Data };
+                int invoiceNo = int.Parse(IN.Text);
+                query = query.Where(x => x.Invoiceno == invoiceNo);
             }
+
+            // شرط العميل
+            if (clientID.SelectedValue != null && (int)clientID.SelectedValue != 0)
+            {
+                int clientId = (int)clientID.SelectedValue;
+                query = query.Where(x => x.ThirdPartyID == clientId); // غيّر اسم الحقل حسب اللي عندك
+            }
+
+            // شرط التاريخ
+            if (Searchbydate.Checked)
+            {
+                var fromDate = DTF.Value.Date;
+                var toDate = DTT.Value.Date;
+                query = query.Where(x => DateTime.Parse(x.TDate).Date >= fromDate && DateTime.Parse(x.TDate).Date <= toDate);
+            }
+
+            // شرط الوقت
+            if (Searchbytime.Checked)
+            {
+                var fromTime = TimeSpan.Parse(TTF.Text);
+                var toTime = TimeSpan.Parse(TTT.Text);
+                query = query.Where(x => TimeSpan.Parse(x.TTime) >= fromTime && TimeSpan.Parse(x.TTime) <= toTime);
+            }
+
+            // شرط رقم الهاتف
+            if (!string.IsNullOrEmpty(txtPhone.Text))
+            {
+                query = query.Where(x => x.Phone.Contains(txtPhone.Text)); // غيّر اسم الحقل حسب اللي عندك
+            }
+
+            // شرط الملاحظات
+            if (!string.IsNullOrEmpty(txtNote.Text))
+            {
+                query = query.Where(x => x.Note.Contains(txtNote.Text));
+            }
+
+            // تحويل النتائج
+            var result = query.Select(x => new
+            {
+                x.Invoiceno,
+                x.TDate,
+                x.TTime,
+                x.NonVatTotal,
+                x.Discount,
+                x.VatAmount,
+                x.TotalAmount,
+                x.Cash,
+                x.Bank,
+                ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
+                x.Type,
+                x.Note
+            }).ToList();
+
+            // عرض النتائج
+            DGV.DataSource = result;
+
         }
         private void Btnall_Click(object sender, EventArgs e)
         {

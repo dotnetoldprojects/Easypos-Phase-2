@@ -134,6 +134,7 @@ namespace Easypos.Purchases
                 if (open == null)
                 {
                     FMS.Clearfildes();
+                    FMS.DGV.Rows.Clear();
                     FMS.Invid = int.Parse(Dataid);
                     FMS.Btnsave.Text = "تعديل";
                     if (Datatye == "مسوده")
@@ -156,6 +157,7 @@ namespace Easypos.Purchases
                 else
                 {
                     open.Clearfildes();
+                    open.DGV.Rows.Clear();
                     open.Activate();
                     if (open.WindowState == FormWindowState.Maximized)
                     {
