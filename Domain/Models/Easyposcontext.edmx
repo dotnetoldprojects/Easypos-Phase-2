@@ -10,8 +10,8 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Tailheaderid" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Alltable" Type="uniqueidentifier" />
+          <Property Name="Tailheaderid" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Alltable" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="cashier">
           <Key>
@@ -306,7 +306,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Bok1" Type="bit" />
           <Property Name="Bok2" Type="bit" />
           <Property Name="Bok3" Type="bit" />
@@ -323,7 +323,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Frontlength" Type="nvarchar" MaxLength="50" />
           <Property Name="Backlength" Type="nvarchar" MaxLength="50" />
           <Property Name="Shoulder" Type="nvarchar" MaxLength="50" />
@@ -343,7 +343,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Texta" Type="nvarchar" MaxLength="50" />
           <Property Name="Taxtb" Type="nvarchar" MaxLength="50" />
           <Property Name="Inverted" Type="bit" />
@@ -358,7 +358,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Custid" Type="int" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="50" />
           <Property Name="Clothesnumber" Type="int" />
@@ -375,7 +375,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Jab1" Type="bit" />
           <Property Name="Jab2" Type="bit" />
           <Property Name="Jab3" Type="bit" />
@@ -391,7 +391,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Id" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Plain" Type="bit" />
           <Property Name="Plainfrench" Type="bit" />
           <Property Name="Regulartipper" Type="bit" />
@@ -503,7 +503,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="ExpenseName" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_alltailoring_tailorbocket">
-          <End Role="tailorbocket" Type="Self.tailorbocket" Multiplicity="0..1" />
+          <End Role="tailorbocket" Type="Self.tailorbocket" Multiplicity="1" />
           <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailorbocket">
@@ -515,7 +515,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_alltailoring_tailordetaile">
-          <End Role="tailordetaile" Type="Self.tailordetaile" Multiplicity="0..1" />
+          <End Role="tailordetaile" Type="Self.tailordetaile" Multiplicity="1" />
           <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailordetaile">
@@ -527,7 +527,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_alltailoring_tailorhand">
-          <End Role="tailorhand" Type="Self.tailorhand" Multiplicity="0..1" />
+          <End Role="tailorhand" Type="Self.tailorhand" Multiplicity="1" />
           <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailorhand">
@@ -550,8 +550,20 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_alltailoring_tailorjabzor">
+          <End Role="tailorjabzor" Type="Self.tailorjabzor" Multiplicity="1" />
+          <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tailorjabzor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="alltailoring">
+              <PropertyRef Name="Alltable" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_alltailoring_tailorneck">
-          <End Role="tailorneck" Type="Self.tailorneck" Multiplicity="0..1" />
+          <End Role="tailorneck" Type="Self.tailorneck" Multiplicity="1" />
           <End Role="alltailoring" Type="Self.alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailorneck">
@@ -635,6 +647,10 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           </AssociationSet>
           <AssociationSet Name="FK_alltailoring_tailorheader" Association="Self.FK_alltailoring_tailorheader">
             <End Role="tailorheader" EntitySet="tailorheader" />
+            <End Role="alltailoring" EntitySet="alltailoring" />
+          </AssociationSet>
+          <AssociationSet Name="FK_alltailoring_tailorjabzor" Association="Self.FK_alltailoring_tailorjabzor">
+            <End Role="tailorjabzor" EntitySet="tailorjabzor" />
             <End Role="alltailoring" EntitySet="alltailoring" />
           </AssociationSet>
           <AssociationSet Name="FK_alltailoring_tailorneck" Association="Self.FK_alltailoring_tailorneck">
@@ -1033,6 +1049,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <FunctionImport Name="Gettransactions" />
           <EntitySet Name="UBLs" EntityType="EasyposModel.UBL" />
           <EntitySet Name="vouchers" EntityType="EasyposModel.voucher" />
+          <EntitySet Name="exceptionproes" EntityType="EasyposModel.exceptionpro" />
           <EntitySet Name="alltailorings" EntityType="EasyposModel.alltailoring" />
           <EntitySet Name="tailorbockets" EntityType="EasyposModel.tailorbocket" />
           <EntitySet Name="tailordetailes" EntityType="EasyposModel.tailordetaile" />
@@ -1068,7 +1085,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
             <End Role="thirdparty" EntitySet="thirdparties" />
             <End Role="tailorheader" EntitySet="tailorheaders" />
           </AssociationSet>
-          <EntitySet Name="exceptionproes" EntityType="EasyposModel.exceptionpro" />
         </EntityContainer>
         <EntityType Name="UBL">
           <Key>
@@ -1098,13 +1114,21 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Methode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Billnum" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="exceptionpro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Screen" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Exceptionstring" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="alltailoring">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Tailheaderid" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Alltable" Type="Guid" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tailheaderid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Alltable" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tailorbocket" Relationship="EasyposModel.FK_alltailoring_tailorbocket" FromRole="alltailoring" ToRole="tailorbocket" />
           <NavigationProperty Name="tailordetaile" Relationship="EasyposModel.FK_alltailoring_tailordetaile" FromRole="alltailoring" ToRole="tailordetaile" />
           <NavigationProperty Name="tailorhand" Relationship="EasyposModel.FK_alltailoring_tailorhand" FromRole="alltailoring" ToRole="tailorhand" />
@@ -1116,7 +1140,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Bok1" Type="Boolean" />
           <Property Name="Bok2" Type="Boolean" />
           <Property Name="Bok3" Type="Boolean" />
@@ -1134,7 +1158,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Frontlength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Backlength" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Shoulder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -1155,7 +1179,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Texta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Taxtb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Inverted" Type="Boolean" />
@@ -1171,7 +1195,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Custid" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Clothesnumber" Type="Int32" />
@@ -1190,7 +1214,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Jab1" Type="Boolean" />
           <Property Name="Jab2" Type="Boolean" />
           <Property Name="Jab3" Type="Boolean" />
@@ -1207,7 +1231,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Plain" Type="Boolean" />
           <Property Name="Plainfrench" Type="Boolean" />
           <Property Name="Regulartipper" Type="Boolean" />
@@ -1219,7 +1243,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <NavigationProperty Name="alltailorings" Relationship="EasyposModel.FK_alltailoring_tailorneck" FromRole="tailorneck" ToRole="alltailoring" />
         </EntityType>
         <Association Name="FK_alltailoring_tailorbocket">
-          <End Type="EasyposModel.tailorbocket" Role="tailorbocket" Multiplicity="0..1" />
+          <End Type="EasyposModel.tailorbocket" Role="tailorbocket" Multiplicity="1" />
           <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailorbocket">
@@ -1231,7 +1255,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_alltailoring_tailordetaile">
-          <End Type="EasyposModel.tailordetaile" Role="tailordetaile" Multiplicity="0..1" />
+          <End Type="EasyposModel.tailordetaile" Role="tailordetaile" Multiplicity="1" />
           <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailordetaile">
@@ -1243,7 +1267,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_alltailoring_tailorhand">
-          <End Type="EasyposModel.tailorhand" Role="tailorhand" Multiplicity="0..1" />
+          <End Type="EasyposModel.tailorhand" Role="tailorhand" Multiplicity="1" />
           <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailorhand">
@@ -1267,7 +1291,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_alltailoring_tailorjabzor">
-          <End Type="EasyposModel.tailorjabzor" Role="tailorjabzor" Multiplicity="0..1" />
+          <End Type="EasyposModel.tailorjabzor" Role="tailorjabzor" Multiplicity="1" />
           <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailorjabzor">
@@ -1279,7 +1303,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_alltailoring_tailorneck">
-          <End Type="EasyposModel.tailorneck" Role="tailorneck" Multiplicity="0..1" />
+          <End Type="EasyposModel.tailorneck" Role="tailorneck" Multiplicity="1" />
           <End Type="EasyposModel.alltailoring" Role="alltailoring" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tailorneck">
@@ -1302,14 +1326,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="exceptionpro">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Screen" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Exceptionstring" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1721,6 +1737,15 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="exceptionproes">
+            <EntityTypeMapping TypeName="EasyposModel.exceptionpro">
+              <MappingFragment StoreEntitySet="exceptionpro">
+                <ScalarProperty Name="Exceptionstring" ColumnName="Exceptionstring" />
+                <ScalarProperty Name="Screen" ColumnName="Screen" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="alltailorings">
             <EntityTypeMapping TypeName="EasyposModel.alltailoring">
               <MappingFragment StoreEntitySet="alltailoring">
@@ -1831,15 +1856,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
                 <ScalarProperty Name="Regulartipper" ColumnName="Regulartipper" />
                 <ScalarProperty Name="Plainfrench" ColumnName="Plainfrench" />
                 <ScalarProperty Name="Plain" ColumnName="Plain" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="exceptionproes">
-            <EntityTypeMapping TypeName="EasyposModel.exceptionpro">
-              <MappingFragment StoreEntitySet="exceptionpro">
-                <ScalarProperty Name="Exceptionstring" ColumnName="Exceptionstring" />
-                <ScalarProperty Name="Screen" ColumnName="Screen" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

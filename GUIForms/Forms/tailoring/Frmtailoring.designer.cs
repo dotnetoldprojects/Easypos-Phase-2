@@ -30,10 +30,10 @@ namespace Easypos.Tailoring
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frmtailoring));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -160,56 +160,62 @@ namespace Easypos.Tailoring
             this.label31 = new System.Windows.Forms.Label();
             this.textBox29 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
+            this.panel24 = new System.Windows.Forms.Panel();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.checkBox28 = new System.Windows.Forms.CheckBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel37 = new System.Windows.Forms.Panel();
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.checkBox39 = new System.Windows.Forms.CheckBox();
             this.panel36 = new System.Windows.Forms.Panel();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.checkBox38 = new System.Windows.Forms.CheckBox();
+            this.panel34 = new System.Windows.Forms.Panel();
+            this.pictureBox34 = new System.Windows.Forms.PictureBox();
+            this.checkBox36 = new System.Windows.Forms.CheckBox();
             this.panel35 = new System.Windows.Forms.Panel();
             this.pictureBox35 = new System.Windows.Forms.PictureBox();
             this.checkBox37 = new System.Windows.Forms.CheckBox();
+            this.panel33 = new System.Windows.Forms.Panel();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
+            this.checkBox35 = new System.Windows.Forms.CheckBox();
             this.panel27 = new System.Windows.Forms.Panel();
             this.pictureBox27 = new System.Windows.Forms.PictureBox();
             this.checkBox29 = new System.Windows.Forms.CheckBox();
+            this.panel32 = new System.Windows.Forms.Panel();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.checkBox34 = new System.Windows.Forms.CheckBox();
             this.panel28 = new System.Windows.Forms.Panel();
             this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.checkBox30 = new System.Windows.Forms.CheckBox();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.checkBox33 = new System.Windows.Forms.CheckBox();
             this.panel29 = new System.Windows.Forms.Panel();
             this.checkBox31 = new System.Windows.Forms.CheckBox();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.panel30 = new System.Windows.Forms.Panel();
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.checkBox32 = new System.Windows.Forms.CheckBox();
-            this.panel31 = new System.Windows.Forms.Panel();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
-            this.checkBox33 = new System.Windows.Forms.CheckBox();
-            this.panel32 = new System.Windows.Forms.Panel();
-            this.pictureBox32 = new System.Windows.Forms.PictureBox();
-            this.checkBox34 = new System.Windows.Forms.CheckBox();
-            this.panel33 = new System.Windows.Forms.Panel();
-            this.pictureBox33 = new System.Windows.Forms.PictureBox();
-            this.checkBox35 = new System.Windows.Forms.CheckBox();
-            this.panel34 = new System.Windows.Forms.Panel();
-            this.pictureBox34 = new System.Windows.Forms.PictureBox();
-            this.checkBox36 = new System.Windows.Forms.CheckBox();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.pictureBox25 = new System.Windows.Forms.PictureBox();
-            this.checkBox28 = new System.Windows.Forms.CheckBox();
-            this.panel24 = new System.Windows.Forms.Panel();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.pictureBox23 = new System.Windows.Forms.PictureBox();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
-            this.panel20 = new System.Windows.Forms.Panel();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
-            this.panel19 = new System.Windows.Forms.Panel();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -226,12 +232,6 @@ namespace Easypos.Tailoring
             this.label4 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.panel18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.panel17.SuspendLayout();
@@ -272,50 +272,50 @@ namespace Easypos.Tailoring
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            this.panel21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            this.panel23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            this.panel24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.panel26.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            this.panel20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            this.panel25.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.panel37.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
             this.panel36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
+            this.panel34.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
             this.panel35.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
+            this.panel33.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             this.panel27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
+            this.panel32.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
             this.panel28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
+            this.panel31.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
             this.panel29.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             this.panel30.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
-            this.panel31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
-            this.panel32.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
-            this.panel33.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
-            this.panel34.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
-            this.panel26.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
-            this.panel25.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
-            this.panel24.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
-            this.panel23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
-            this.panel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
-            this.panel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
-            this.panel20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
-            this.panel19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePicker1
@@ -774,6 +774,7 @@ namespace Easypos.Tailoring
             // 
             resources.ApplyResources(this.textBox24, "textBox24");
             this.textBox24.Name = "textBox24";
+            this.textBox24.TextChanged += new System.EventHandler(this.textBox24_TextChanged);
             this.textBox24.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label22
@@ -785,6 +786,7 @@ namespace Easypos.Tailoring
             // 
             resources.ApplyResources(this.textBox22, "textBox22");
             this.textBox22.Name = "textBox22";
+            this.textBox22.TextChanged += new System.EventHandler(this.textBox22_TextChanged);
             this.textBox22.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label21
@@ -817,12 +819,14 @@ namespace Easypos.Tailoring
             // 
             resources.ApplyResources(this.textBox16, "textBox16");
             this.textBox16.Name = "textBox16";
+            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
             this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // textBox17
             // 
             resources.ApplyResources(this.textBox17, "textBox17");
             this.textBox17.Name = "textBox17";
+            this.textBox17.TextChanged += new System.EventHandler(this.textBox17_TextChanged);
             this.textBox17.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // groupBox4
@@ -1051,21 +1055,21 @@ namespace Easypos.Tailoring
             this.dgw.AllowUserToDeleteRows = false;
             this.dgw.AllowUserToResizeColumns = false;
             this.dgw.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FloralWhite;
-            this.dgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FloralWhite;
+            this.dgw.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             resources.ApplyResources(this.dgw, "dgw");
             this.dgw.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgw.BackgroundColor = System.Drawing.Color.White;
             this.dgw.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgw.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.PowderBlue;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.LightSteelBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgw.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column15,
             this.Date,
@@ -1086,21 +1090,21 @@ namespace Easypos.Tailoring
             this.dgw.Name = "dgw";
             this.dgw.ReadOnly = true;
             this.dgw.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.NavajoWhite;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.DarkSalmon;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgw.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.NavajoWhite;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.DarkSalmon;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgw.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgw.RowHeadersVisible = false;
             this.dgw.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SandyBrown;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.White;
-            this.dgw.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.SandyBrown;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.White;
+            this.dgw.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgw.RowTemplate.Height = 40;
             this.dgw.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgw.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1259,6 +1263,204 @@ namespace Easypos.Tailoring
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // tabControl1
+            // 
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.label18);
+            this.tabPage5.Controls.Add(this.textBox19);
+            this.tabPage5.Controls.Add(this.panel1);
+            this.tabPage5.Controls.Add(this.panel8);
+            this.tabPage5.Controls.Add(this.textBox20);
+            this.tabPage5.Controls.Add(this.panel3);
+            this.tabPage5.Controls.Add(this.panel5);
+            this.tabPage5.Controls.Add(this.panel7);
+            this.tabPage5.Controls.Add(this.panel6);
+            this.tabPage5.Controls.Add(this.panel4);
+            resources.ApplyResources(this.tabPage5, "tabPage5");
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel19);
+            this.tabPage1.Controls.Add(this.panel21);
+            this.tabPage1.Controls.Add(this.panel23);
+            this.tabPage1.Controls.Add(this.panel24);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel19
+            // 
+            resources.ApplyResources(this.panel19, "panel19");
+            this.panel19.Controls.Add(this.pictureBox19);
+            this.panel19.Controls.Add(this.checkBox16);
+            this.panel19.Name = "panel19";
+            // 
+            // pictureBox19
+            // 
+            resources.ApplyResources(this.pictureBox19, "pictureBox19");
+            this.pictureBox19.Image = global::GUIForms.Properties.Resources.رقبه_ساده;
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.TabStop = false;
+            // 
+            // panel21
+            // 
+            resources.ApplyResources(this.panel21, "panel21");
+            this.panel21.Controls.Add(this.pictureBox21);
+            this.panel21.Controls.Add(this.checkBox15);
+            this.panel21.Name = "panel21";
+            // 
+            // pictureBox21
+            // 
+            resources.ApplyResources(this.pictureBox21, "pictureBox21");
+            this.pictureBox21.Image = global::GUIForms.Properties.Resources.رقبه_ساده_مخفي;
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.TabStop = false;
+            // 
+            // panel23
+            // 
+            resources.ApplyResources(this.panel23, "panel23");
+            this.panel23.Controls.Add(this.pictureBox23);
+            this.panel23.Controls.Add(this.checkBox14);
+            this.panel23.Name = "panel23";
+            // 
+            // pictureBox23
+            // 
+            resources.ApplyResources(this.pictureBox23, "pictureBox23");
+            this.pictureBox23.Image = global::GUIForms.Properties.Resources.رقبه_ساده_فرنسي;
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.TabStop = false;
+            // 
+            // panel24
+            // 
+            resources.ApplyResources(this.panel24, "panel24");
+            this.panel24.Controls.Add(this.checkBox25);
+            this.panel24.Controls.Add(this.pictureBox24);
+            this.panel24.Name = "panel24";
+            // 
+            // pictureBox24
+            // 
+            resources.ApplyResources(this.pictureBox24, "pictureBox24");
+            this.pictureBox24.Image = global::GUIForms.Properties.Resources.رقبه_صيني;
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.TabStop = false;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panel26);
+            this.tabPage2.Controls.Add(this.panel20);
+            this.tabPage2.Controls.Add(this.panel22);
+            this.tabPage2.Controls.Add(this.panel25);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel26
+            // 
+            resources.ApplyResources(this.panel26, "panel26");
+            this.panel26.Controls.Add(this.pictureBox26);
+            this.panel26.Controls.Add(this.checkBox17);
+            this.panel26.Name = "panel26";
+            // 
+            // pictureBox26
+            // 
+            resources.ApplyResources(this.pictureBox26, "pictureBox26");
+            this.pictureBox26.Image = global::GUIForms.Properties.Resources.قلاب_فرنسي;
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.TabStop = false;
+            // 
+            // panel20
+            // 
+            resources.ApplyResources(this.panel20, "panel20");
+            this.panel20.Controls.Add(this.pictureBox20);
+            this.panel20.Controls.Add(this.checkBox19);
+            this.panel20.Name = "panel20";
+            // 
+            // pictureBox20
+            // 
+            resources.ApplyResources(this.pictureBox20, "pictureBox20");
+            this.pictureBox20.Image = global::GUIForms.Properties.Resources.قلاب_عادي;
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.TabStop = false;
+            // 
+            // panel22
+            // 
+            resources.ApplyResources(this.panel22, "panel22");
+            this.panel22.Controls.Add(this.pictureBox22);
+            this.panel22.Controls.Add(this.checkBox18);
+            this.panel22.Name = "panel22";
+            // 
+            // pictureBox22
+            // 
+            resources.ApplyResources(this.pictureBox22, "pictureBox22");
+            this.pictureBox22.Image = global::GUIForms.Properties.Resources.قلاب_مفتوح1;
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.TabStop = false;
+            // 
+            // panel25
+            // 
+            resources.ApplyResources(this.panel25, "panel25");
+            this.panel25.Controls.Add(this.pictureBox25);
+            this.panel25.Controls.Add(this.checkBox28);
+            this.panel25.Name = "panel25";
+            // 
+            // pictureBox25
+            // 
+            resources.ApplyResources(this.pictureBox25, "pictureBox25");
+            this.pictureBox25.Image = global::GUIForms.Properties.Resources.قلاب_مقفل;
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.TabStop = false;
+            // 
+            // checkBox28
+            // 
+            resources.ApplyResources(this.checkBox28, "checkBox28");
+            this.checkBox28.Name = "checkBox28";
+            this.checkBox28.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.panel18);
+            this.tabPage3.Controls.Add(this.panel17);
+            this.tabPage3.Controls.Add(this.panel9);
+            this.tabPage3.Controls.Add(this.panel16);
+            this.tabPage3.Controls.Add(this.panel10);
+            this.tabPage3.Controls.Add(this.panel15);
+            this.tabPage3.Controls.Add(this.panel11);
+            this.tabPage3.Controls.Add(this.panel14);
+            this.tabPage3.Controls.Add(this.panel12);
+            this.tabPage3.Controls.Add(this.panel13);
+            resources.ApplyResources(this.tabPage3, "tabPage3");
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.panel37);
+            this.tabPage4.Controls.Add(this.panel36);
+            this.tabPage4.Controls.Add(this.panel34);
+            this.tabPage4.Controls.Add(this.panel35);
+            this.tabPage4.Controls.Add(this.panel33);
+            this.tabPage4.Controls.Add(this.panel27);
+            this.tabPage4.Controls.Add(this.panel32);
+            this.tabPage4.Controls.Add(this.panel28);
+            this.tabPage4.Controls.Add(this.panel31);
+            this.tabPage4.Controls.Add(this.panel29);
+            this.tabPage4.Controls.Add(this.panel30);
+            resources.ApplyResources(this.tabPage4, "tabPage4");
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // panel37
             // 
             resources.ApplyResources(this.panel37, "panel37");
@@ -1299,6 +1501,26 @@ namespace Easypos.Tailoring
             this.checkBox38.Name = "checkBox38";
             this.checkBox38.UseVisualStyleBackColor = true;
             // 
+            // panel34
+            // 
+            resources.ApplyResources(this.panel34, "panel34");
+            this.panel34.Controls.Add(this.pictureBox34);
+            this.panel34.Controls.Add(this.checkBox36);
+            this.panel34.Name = "panel34";
+            // 
+            // pictureBox34
+            // 
+            resources.ApplyResources(this.pictureBox34, "pictureBox34");
+            this.pictureBox34.Image = global::GUIForms.Properties.Resources._12;
+            this.pictureBox34.Name = "pictureBox34";
+            this.pictureBox34.TabStop = false;
+            // 
+            // checkBox36
+            // 
+            resources.ApplyResources(this.checkBox36, "checkBox36");
+            this.checkBox36.Name = "checkBox36";
+            this.checkBox36.UseVisualStyleBackColor = true;
+            // 
             // panel35
             // 
             resources.ApplyResources(this.panel35, "panel35");
@@ -1318,6 +1540,26 @@ namespace Easypos.Tailoring
             resources.ApplyResources(this.checkBox37, "checkBox37");
             this.checkBox37.Name = "checkBox37";
             this.checkBox37.UseVisualStyleBackColor = true;
+            // 
+            // panel33
+            // 
+            resources.ApplyResources(this.panel33, "panel33");
+            this.panel33.Controls.Add(this.pictureBox33);
+            this.panel33.Controls.Add(this.checkBox35);
+            this.panel33.Name = "panel33";
+            // 
+            // pictureBox33
+            // 
+            resources.ApplyResources(this.pictureBox33, "pictureBox33");
+            this.pictureBox33.Image = global::GUIForms.Properties.Resources._31;
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.TabStop = false;
+            // 
+            // checkBox35
+            // 
+            resources.ApplyResources(this.checkBox35, "checkBox35");
+            this.checkBox35.Name = "checkBox35";
+            this.checkBox35.UseVisualStyleBackColor = true;
             // 
             // panel27
             // 
@@ -1339,6 +1581,26 @@ namespace Easypos.Tailoring
             this.checkBox29.Name = "checkBox29";
             this.checkBox29.UseVisualStyleBackColor = true;
             // 
+            // panel32
+            // 
+            resources.ApplyResources(this.panel32, "panel32");
+            this.panel32.Controls.Add(this.pictureBox32);
+            this.panel32.Controls.Add(this.checkBox34);
+            this.panel32.Name = "panel32";
+            // 
+            // pictureBox32
+            // 
+            resources.ApplyResources(this.pictureBox32, "pictureBox32");
+            this.pictureBox32.Image = global::GUIForms.Properties.Resources._52;
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.TabStop = false;
+            // 
+            // checkBox34
+            // 
+            resources.ApplyResources(this.checkBox34, "checkBox34");
+            this.checkBox34.Name = "checkBox34";
+            this.checkBox34.UseVisualStyleBackColor = true;
+            // 
             // panel28
             // 
             resources.ApplyResources(this.panel28, "panel28");
@@ -1358,6 +1620,26 @@ namespace Easypos.Tailoring
             resources.ApplyResources(this.checkBox30, "checkBox30");
             this.checkBox30.Name = "checkBox30";
             this.checkBox30.UseVisualStyleBackColor = true;
+            // 
+            // panel31
+            // 
+            resources.ApplyResources(this.panel31, "panel31");
+            this.panel31.Controls.Add(this.pictureBox31);
+            this.panel31.Controls.Add(this.checkBox33);
+            this.panel31.Name = "panel31";
+            // 
+            // pictureBox31
+            // 
+            resources.ApplyResources(this.pictureBox31, "pictureBox31");
+            this.pictureBox31.Image = global::GUIForms.Properties.Resources._71;
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.TabStop = false;
+            // 
+            // checkBox33
+            // 
+            resources.ApplyResources(this.checkBox33, "checkBox33");
+            this.checkBox33.Name = "checkBox33";
+            this.checkBox33.UseVisualStyleBackColor = true;
             // 
             // panel29
             // 
@@ -1398,204 +1680,6 @@ namespace Easypos.Tailoring
             resources.ApplyResources(this.checkBox32, "checkBox32");
             this.checkBox32.Name = "checkBox32";
             this.checkBox32.UseVisualStyleBackColor = true;
-            // 
-            // panel31
-            // 
-            resources.ApplyResources(this.panel31, "panel31");
-            this.panel31.Controls.Add(this.pictureBox31);
-            this.panel31.Controls.Add(this.checkBox33);
-            this.panel31.Name = "panel31";
-            // 
-            // pictureBox31
-            // 
-            resources.ApplyResources(this.pictureBox31, "pictureBox31");
-            this.pictureBox31.Image = global::GUIForms.Properties.Resources._71;
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.TabStop = false;
-            // 
-            // checkBox33
-            // 
-            resources.ApplyResources(this.checkBox33, "checkBox33");
-            this.checkBox33.Name = "checkBox33";
-            this.checkBox33.UseVisualStyleBackColor = true;
-            // 
-            // panel32
-            // 
-            resources.ApplyResources(this.panel32, "panel32");
-            this.panel32.Controls.Add(this.pictureBox32);
-            this.panel32.Controls.Add(this.checkBox34);
-            this.panel32.Name = "panel32";
-            // 
-            // pictureBox32
-            // 
-            resources.ApplyResources(this.pictureBox32, "pictureBox32");
-            this.pictureBox32.Image = global::GUIForms.Properties.Resources._52;
-            this.pictureBox32.Name = "pictureBox32";
-            this.pictureBox32.TabStop = false;
-            // 
-            // checkBox34
-            // 
-            resources.ApplyResources(this.checkBox34, "checkBox34");
-            this.checkBox34.Name = "checkBox34";
-            this.checkBox34.UseVisualStyleBackColor = true;
-            // 
-            // panel33
-            // 
-            resources.ApplyResources(this.panel33, "panel33");
-            this.panel33.Controls.Add(this.pictureBox33);
-            this.panel33.Controls.Add(this.checkBox35);
-            this.panel33.Name = "panel33";
-            // 
-            // pictureBox33
-            // 
-            resources.ApplyResources(this.pictureBox33, "pictureBox33");
-            this.pictureBox33.Image = global::GUIForms.Properties.Resources._31;
-            this.pictureBox33.Name = "pictureBox33";
-            this.pictureBox33.TabStop = false;
-            // 
-            // checkBox35
-            // 
-            resources.ApplyResources(this.checkBox35, "checkBox35");
-            this.checkBox35.Name = "checkBox35";
-            this.checkBox35.UseVisualStyleBackColor = true;
-            // 
-            // panel34
-            // 
-            resources.ApplyResources(this.panel34, "panel34");
-            this.panel34.Controls.Add(this.pictureBox34);
-            this.panel34.Controls.Add(this.checkBox36);
-            this.panel34.Name = "panel34";
-            // 
-            // pictureBox34
-            // 
-            resources.ApplyResources(this.pictureBox34, "pictureBox34");
-            this.pictureBox34.Image = global::GUIForms.Properties.Resources._12;
-            this.pictureBox34.Name = "pictureBox34";
-            this.pictureBox34.TabStop = false;
-            // 
-            // checkBox36
-            // 
-            resources.ApplyResources(this.checkBox36, "checkBox36");
-            this.checkBox36.Name = "checkBox36";
-            this.checkBox36.UseVisualStyleBackColor = true;
-            // 
-            // panel26
-            // 
-            resources.ApplyResources(this.panel26, "panel26");
-            this.panel26.Controls.Add(this.pictureBox26);
-            this.panel26.Controls.Add(this.checkBox17);
-            this.panel26.Name = "panel26";
-            // 
-            // pictureBox26
-            // 
-            resources.ApplyResources(this.pictureBox26, "pictureBox26");
-            this.pictureBox26.Image = global::GUIForms.Properties.Resources.قلاب_فرنسي;
-            this.pictureBox26.Name = "pictureBox26";
-            this.pictureBox26.TabStop = false;
-            // 
-            // panel25
-            // 
-            resources.ApplyResources(this.panel25, "panel25");
-            this.panel25.Controls.Add(this.pictureBox25);
-            this.panel25.Controls.Add(this.checkBox28);
-            this.panel25.Name = "panel25";
-            // 
-            // pictureBox25
-            // 
-            resources.ApplyResources(this.pictureBox25, "pictureBox25");
-            this.pictureBox25.Image = global::GUIForms.Properties.Resources.قلاب_مقفل;
-            this.pictureBox25.Name = "pictureBox25";
-            this.pictureBox25.TabStop = false;
-            // 
-            // checkBox28
-            // 
-            resources.ApplyResources(this.checkBox28, "checkBox28");
-            this.checkBox28.Name = "checkBox28";
-            this.checkBox28.UseVisualStyleBackColor = true;
-            // 
-            // panel24
-            // 
-            resources.ApplyResources(this.panel24, "panel24");
-            this.panel24.Controls.Add(this.checkBox25);
-            this.panel24.Controls.Add(this.pictureBox24);
-            this.panel24.Name = "panel24";
-            // 
-            // pictureBox24
-            // 
-            resources.ApplyResources(this.pictureBox24, "pictureBox24");
-            this.pictureBox24.Image = global::GUIForms.Properties.Resources.رقبه_صيني;
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.TabStop = false;
-            // 
-            // panel23
-            // 
-            resources.ApplyResources(this.panel23, "panel23");
-            this.panel23.Controls.Add(this.pictureBox23);
-            this.panel23.Controls.Add(this.checkBox14);
-            this.panel23.Name = "panel23";
-            // 
-            // pictureBox23
-            // 
-            resources.ApplyResources(this.pictureBox23, "pictureBox23");
-            this.pictureBox23.Image = global::GUIForms.Properties.Resources.رقبه_ساده_فرنسي;
-            this.pictureBox23.Name = "pictureBox23";
-            this.pictureBox23.TabStop = false;
-            // 
-            // panel22
-            // 
-            resources.ApplyResources(this.panel22, "panel22");
-            this.panel22.Controls.Add(this.pictureBox22);
-            this.panel22.Controls.Add(this.checkBox18);
-            this.panel22.Name = "panel22";
-            // 
-            // pictureBox22
-            // 
-            resources.ApplyResources(this.pictureBox22, "pictureBox22");
-            this.pictureBox22.Image = global::GUIForms.Properties.Resources.قلاب_مفتوح1;
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.TabStop = false;
-            // 
-            // panel21
-            // 
-            resources.ApplyResources(this.panel21, "panel21");
-            this.panel21.Controls.Add(this.pictureBox21);
-            this.panel21.Controls.Add(this.checkBox15);
-            this.panel21.Name = "panel21";
-            // 
-            // pictureBox21
-            // 
-            resources.ApplyResources(this.pictureBox21, "pictureBox21");
-            this.pictureBox21.Image = global::GUIForms.Properties.Resources.رقبه_ساده_مخفي;
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.TabStop = false;
-            // 
-            // panel20
-            // 
-            resources.ApplyResources(this.panel20, "panel20");
-            this.panel20.Controls.Add(this.pictureBox20);
-            this.panel20.Controls.Add(this.checkBox19);
-            this.panel20.Name = "panel20";
-            // 
-            // pictureBox20
-            // 
-            resources.ApplyResources(this.pictureBox20, "pictureBox20");
-            this.pictureBox20.Image = global::GUIForms.Properties.Resources.قلاب_عادي;
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.TabStop = false;
-            // 
-            // panel19
-            // 
-            resources.ApplyResources(this.panel19, "panel19");
-            this.panel19.Controls.Add(this.pictureBox19);
-            this.panel19.Controls.Add(this.checkBox16);
-            this.panel19.Name = "panel19";
-            // 
-            // pictureBox19
-            // 
-            resources.ApplyResources(this.pictureBox19, "pictureBox19");
-            this.pictureBox19.Image = global::GUIForms.Properties.Resources.رقبه_ساده;
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.TabStop = false;
             // 
             // label8
             // 
@@ -1690,86 +1774,6 @@ namespace Easypos.Tailoring
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tabControl1
-            // 
-            resources.ApplyResources(this.tabControl1, "tabControl1");
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.panel19);
-            this.tabPage1.Controls.Add(this.panel21);
-            this.tabPage1.Controls.Add(this.panel23);
-            this.tabPage1.Controls.Add(this.panel24);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.panel26);
-            this.tabPage2.Controls.Add(this.panel20);
-            this.tabPage2.Controls.Add(this.panel22);
-            this.tabPage2.Controls.Add(this.panel25);
-            resources.ApplyResources(this.tabPage2, "tabPage2");
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.panel18);
-            this.tabPage3.Controls.Add(this.panel17);
-            this.tabPage3.Controls.Add(this.panel9);
-            this.tabPage3.Controls.Add(this.panel16);
-            this.tabPage3.Controls.Add(this.panel10);
-            this.tabPage3.Controls.Add(this.panel15);
-            this.tabPage3.Controls.Add(this.panel11);
-            this.tabPage3.Controls.Add(this.panel14);
-            this.tabPage3.Controls.Add(this.panel12);
-            this.tabPage3.Controls.Add(this.panel13);
-            resources.ApplyResources(this.tabPage3, "tabPage3");
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.panel37);
-            this.tabPage4.Controls.Add(this.panel36);
-            this.tabPage4.Controls.Add(this.panel34);
-            this.tabPage4.Controls.Add(this.panel35);
-            this.tabPage4.Controls.Add(this.panel33);
-            this.tabPage4.Controls.Add(this.panel27);
-            this.tabPage4.Controls.Add(this.panel32);
-            this.tabPage4.Controls.Add(this.panel28);
-            this.tabPage4.Controls.Add(this.panel31);
-            this.tabPage4.Controls.Add(this.panel29);
-            this.tabPage4.Controls.Add(this.panel30);
-            resources.ApplyResources(this.tabPage4, "tabPage4");
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.label18);
-            this.tabPage5.Controls.Add(this.textBox19);
-            this.tabPage5.Controls.Add(this.panel1);
-            this.tabPage5.Controls.Add(this.panel8);
-            this.tabPage5.Controls.Add(this.textBox20);
-            this.tabPage5.Controls.Add(this.panel3);
-            this.tabPage5.Controls.Add(this.panel5);
-            this.tabPage5.Controls.Add(this.panel7);
-            this.tabPage5.Controls.Add(this.panel6);
-            this.tabPage5.Controls.Add(this.panel4);
-            resources.ApplyResources(this.tabPage5, "tabPage5");
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
             // Frmtailoring
             // 
             resources.ApplyResources(this, "$this");
@@ -1849,70 +1853,70 @@ namespace Easypos.Tailoring
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            this.panel23.ResumeLayout(false);
+            this.panel23.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            this.panel24.ResumeLayout(false);
+            this.panel24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
+            this.panel26.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
+            this.panel20.ResumeLayout(false);
+            this.panel20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            this.panel25.ResumeLayout(false);
+            this.panel25.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.panel37.ResumeLayout(false);
             this.panel37.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
             this.panel36.ResumeLayout(false);
             this.panel36.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
+            this.panel34.ResumeLayout(false);
+            this.panel34.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
             this.panel35.ResumeLayout(false);
             this.panel35.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
+            this.panel33.ResumeLayout(false);
+            this.panel33.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             this.panel27.ResumeLayout(false);
             this.panel27.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
+            this.panel32.ResumeLayout(false);
+            this.panel32.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
             this.panel29.ResumeLayout(false);
             this.panel29.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             this.panel30.ResumeLayout(false);
             this.panel30.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
-            this.panel31.ResumeLayout(false);
-            this.panel31.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
-            this.panel32.ResumeLayout(false);
-            this.panel32.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
-            this.panel33.ResumeLayout(false);
-            this.panel33.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
-            this.panel34.ResumeLayout(false);
-            this.panel34.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
-            this.panel26.ResumeLayout(false);
-            this.panel26.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
-            this.panel25.ResumeLayout(false);
-            this.panel25.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
-            this.panel24.ResumeLayout(false);
-            this.panel24.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
-            this.panel23.ResumeLayout(false);
-            this.panel23.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
-            this.panel20.ResumeLayout(false);
-            this.panel20.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
-            this.panel19.ResumeLayout(false);
-            this.panel19.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }

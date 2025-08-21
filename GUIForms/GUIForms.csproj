@@ -657,7 +657,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{4EC1385D-A3AD-4A68-B0DE-72EFB80C49DE}</Project>
+      <Project>{4ec1385d-a3ad-4a68-b0de-72efb80c49de}</Project>
       <Name>Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Reporting\Reporting.csproj">

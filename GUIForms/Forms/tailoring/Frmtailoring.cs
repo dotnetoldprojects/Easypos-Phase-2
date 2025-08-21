@@ -54,6 +54,7 @@ namespace Easypos.Tailoring
         alltailoring AT;
         Usingnumber _NO;
         public int TilId { get; set; }
+        public string TilGId { get; set; }
         public Guid TilHId { get; set; }
         public Guid TilDId { get; set; }
         public Frmtailoring()
@@ -67,8 +68,6 @@ namespace Easypos.Tailoring
             DC = (company)LanguageHelper.ApplyLanguage(this);
             _IUW = new Unitofwork(new EasyposEntities());
             LoadAllCombos();
-            TilHId = Guid.NewGuid();
-            TilDId = Guid.NewGuid();
             TH = new tailorheader();
             THN = new tailorhand();
             TJ = new tailorjabzor();
@@ -95,8 +94,8 @@ namespace Easypos.Tailoring
             textBox29.Clear();
             textBox26.Clear();
             textBox27.Clear();
-            textBox25.Clear();
-            textBox24.Clear();
+            textBox25.Text = "0";
+            textBox24.Text = "0";
             textBox23.Clear();
             textBox1.Clear();
             textBox2.Clear();
@@ -106,13 +105,13 @@ namespace Easypos.Tailoring
             textBox6.Clear();
             textBox7.Clear();
             textBox8.Clear();
-            textBox16.Clear();
-            textBox17.Clear();
+            textBox16.Text = "0";
+            textBox17.Text = "0";
             textBox18.Clear();
             textBox19.Clear();
             textBox20.Clear();
-            textBox21.Clear();
-            textBox22.Clear();
+            textBox21.Text = "0";
+            textBox22.Text = "0";
             textBox28.Clear();
             checkBox1.Checked = false;
             checkBox2.Checked = false;
@@ -182,7 +181,7 @@ namespace Easypos.Tailoring
                 var deatile = _IUW.tailorheaders.GetAll().Where(x => x.thirdparty.ID == Res.ID).FirstOrDefault();
                 if (deatile != null)
                 {
-                    Getingdata(deatile.Id.ToString());
+                    //Getingdata(deatile.Id.ToString());
                 }
             }
             else
@@ -215,7 +214,7 @@ namespace Easypos.Tailoring
         }
         private void Btnsave_Click(object sender, EventArgs e)
         {
-            if (clientID.Text == "--اختر--" || clientID.Text == "")
+            if (clientID.Text == "-- اختر --")
             {
                 MessageBox.Show("برجاء اختيار العميل", "خطأ");
                 return;
@@ -224,51 +223,43 @@ namespace Easypos.Tailoring
             {
                 try
                 {
-                    tailorheadersave();
-                    tailorhandsave();
-                    tailornecksave();
-                    tailorjabzorsave();
-                    tailorboketsave();
-                    tailordeatailesave();
+
                     if (Btnsave.Text == "حفظ")
                     {
-                        if (TilHId == null)
-                        {
-                            _IUW.tailorheaders.Insert(TH);
-                        }
-                        _IUW.tailorhands.Insert(THN);
-                        _IUW.tailornecks.Insert(TN);
-                        _IUW.tailorjabzors.Insert(TJ);
-                        _IUW.tailorbockets.Insert(TBD);
-                        _IUW.tailordetailes.Insert(TD);
+                        TilHId = Guid.NewGuid();
+                        TilDId = Guid.NewGuid();
+                        TH = new tailorheader();
+                        tailorheadersave();
+                        THN = new tailorhand();
+                        tailorhandsave();
+                        TN = new tailorneck();
+                        tailornecksave();
+                        TJ = new tailorjabzor();
+                        tailorjabzorsave();
+                        TBD = new tailorbocket();
+                        tailorboketsave();
+                        TD = new tailordetaile();
+                        tailordeatailesave();
+                        AT = new alltailoring();
                         Alltailorsave();
-                        MessageBox.Show("تم الحفظ بنجاح", "اضافة امر تفصيل");
                     }
                     else
                     {
-                        if (TilId == 0)
-                        {
-                            MessageBox.Show("برجاء اختيار الامر", "خطأ");
-                            return;
-                        }
-                        else
-                        {
-                            _IUW.tailorheaders.Update(TH);
-                            _IUW.tailorhands.Update(THN);
-                            _IUW.tailornecks.Update(TN);
-                            _IUW.tailorjabzors.Update(TJ);
-                            _IUW.tailorbockets.Update(TBD);
-                            _IUW.tailordetailes.Update(TD);
-                            MessageBox.Show("تم التعديل بنجاح", "تعديل امر تفصيل");
-                        }
+                        tailorheadersave();
+                        tailorhandsave();
+                        tailornecksave();
+                        tailorjabzorsave();
+                        tailorboketsave();
+                        tailordeatailesave();
                     }
-                    _IUW.Complete();
                 }
                 catch (Exception ex)
                 {
                     var logger = new ExceptionLogger(_IUW);
                     logger.Log(ex, "Tailoring");
                 }
+                _IUW.Complete();
+                MessageBox.Show("تم الحفظ بنجاح", "امر تفصيل");
                 Clearfildes();
                 dgw.Rows.Clear();
                 Btnsave.Text = "حفظ";
@@ -282,19 +273,18 @@ namespace Easypos.Tailoring
             TH.Clothesnumber = int.Parse(textBox22.Text);
             TH.Clothesrecived = int.Parse(textBox24.Text);
             TH.Clothesremining = int.Parse(textBox25.Text);
-            TH.Total = int.Parse(textBox25.Text);
+            TH.Total = int.Parse(textBox17.Text);
             TH.Paied = decimal.Parse(textBox16.Text);
-            //TH.Totalreimining = decimal.Parse(textBox21.Text);
-            TH.Totalreimining = 0;
+            TH.Totalreimining = decimal.Parse(textBox21.Text);
             TH.Reciveddate = dateTimePicker2.Value.ToString("dd-MM-yyyy");
             TH.Status = Statustype.Text;
             TH.Note = textBox23.Text;
-            
+            _IUW.tailorheaders.Update(TH);
         }
         void tailorhandsave()
         {
-            THN.Id = TilDId;
-            THN.Texta = textBox22.Text;
+            THN.Id = TilDId.ToString();
+            THN.Texta = textBox20.Text;
             THN.Taxtb = textBox19.Text;
             THN.Inverted = checkBox1.Checked;
             THN.Square = checkBox2.Checked;
@@ -303,10 +293,11 @@ namespace Easypos.Tailoring
             THN.Plain = checkBox3.Checked;
             THN.Plain_cupcake = checkBox11.Checked;
             THN.Triangle = checkBox9.Checked;
+            _IUW.tailorhands.Update(THN);
         }
         void tailornecksave()
         {
-            TN.Id = TilDId;
+            TN.Id = TilDId.ToString();
             TN.Plain = checkBox16.Checked;
             TN.Plainfrench = checkBox14.Checked;
             TN.Regulartipper = checkBox19.Checked;
@@ -315,10 +306,11 @@ namespace Easypos.Tailoring
             TN.Chinese = checkBox25.Checked;
             TN.Openflap = checkBox18.Checked;
             TN.Frenchflip = checkBox17.Checked;
+            _IUW.tailornecks.Update(TN);
         }
         void tailorjabzorsave()
         {
-            TJ.Id = TilDId;
+            TJ.Id = TilDId.ToString();
             TJ.Jab1 = checkBox20.Checked;
             TJ.Jab2 = checkBox24.Checked;
             TJ.Jab3 = checkBox8.Checked;
@@ -329,10 +321,11 @@ namespace Easypos.Tailoring
             TJ.Jab8 = checkBox7.Checked;
             TJ.Jab9 = checkBox6.Checked;
             TJ.Jab10 = checkBox5.Checked;
+            _IUW.tailorjabzors.Update(TJ);
         }
         void tailorboketsave()
         {
-            TBD.Id = TilDId;
+            TBD.Id = TilDId.ToString();
             TBD.Bok1 = checkBox36.Checked;
             TBD.Bok2 = checkBox32.Checked;
             TBD.Bok3 = checkBox35.Checked;
@@ -344,10 +337,11 @@ namespace Easypos.Tailoring
             TBD.Bok9 = checkBox37.Checked;
             TBD.Bok10 = checkBox38.Checked;
             TBD.Bok11 = checkBox39.Checked;
+            _IUW.tailorbockets.Update(TBD);
         }
         void tailordeatailesave()
         {
-            TD.Id = TilDId;
+            TD.Id = TilDId.ToString();
             TD.Frontlength = textBox1.Text;
             TD.Backlength = textBox26.Text;
             TD.Shoulder = textBox2.Text;
@@ -362,64 +356,54 @@ namespace Easypos.Tailoring
             TD.Weight = textBox29.Text;
             TD.Notes = textBox18.Text;
             TD.Aujra = checkBox23.Checked;
+            _IUW.tailordetailes.Update(TD);
         }
         void Alltailorsave() {
             AT.Tailheaderid = TilHId.ToString();
-            AT.Alltable = TilDId;
+            AT.Alltable = TilDId.ToString();
             _IUW.alltailorings.Insert(AT);
         }
         private void clientID_SelectionChangeCommitted(object sender, EventArgs e)
         {
             var Res = int.Parse(clientID.SelectedValue.ToString());
-            var deatile = _IUW.tailorheaders.GetAll().Where(x => x.Custid == Res).FirstOrDefault();
-            if (deatile != null) {
-                TilHId = Guid.Parse(deatile.Id);
-                Getingdata(deatile.Id);
-            }
-        }
-        void Getingdata(string GU)
-        {
-            var Query = _IUW.alltailorings.GetQueryable()
-                                         .Include(x => x.tailorheader)
-                                         .Where(x => x.Tailheaderid == GU.ToString())
-                                         .Select(x => new
-                                         {
-                                             Id = x.Alltable,
-                                             Date = x.tailorheader.Date,
-                                             Custname = x.tailorheader.thirdparty.Name,
-                                             Clothesnumber = x.tailorheader.Clothesnumber,
-                                             Clothesremining = x.tailorheader.Clothesremining,
-                                             Total = x.tailorheader.Total,
-                                             Paied = x.tailorheader.Paied,
-                                             Totalremining = 0,
-                                             Recivrddate = x.tailorheader.Reciveddate,
-                                             Status = x.tailorheader.Status,
-                                             Note = x.tailorheader.Note,
-                                         })
-                                         .ToList();
+            var deatile = _IUW.alltailorings.GetQueryable()
+                                            .Include(x => x.tailorheader)
+                                            .Where(x => x.tailorheader.Custid == Res)
+                                             .Select(x => new
+                                              {
+                                                  Id = x.Alltable,
+                                                  Date = x.tailorheader.Date,
+                                                  Custname = x.tailorheader.thirdparty.Name,
+                                                  Clothesnumber = x.tailorheader.Clothesnumber,
+                                                  Clothesremining = x.tailorheader.Clothesremining,
+                                                  Total = x.tailorheader.Total,
+                                                  Paied = x.tailorheader.Paied,
+                                                  Totalremining = 0,
+                                                  Recivrddate = x.tailorheader.Reciveddate,
+                                                  Status = x.tailorheader.Status,
+                                                  Note = x.tailorheader.Note,
+                                              })
+                                             .ToList();
             BindingSource bs = new BindingSource();
-            bs.DataSource = Query;
+            bs.DataSource = deatile;
             dgw.DataSource = bs;
         }
         void Getheaderdata(tailorheader TH)
         {
-            //Clearfildes();
-            //TilHId = TH.Id;
             clientID.SelectedValue = TH.Custid;
             dateTimePicker1.Text = TH.Date;
             textBox22.Text = TH.Clothesnumber.ToString();
             textBox24.Text = TH.Clothesrecived.ToString();
             textBox25.Text = TH.Clothesremining.ToString();
-            textBox25.Text = TH.Total.ToString();
             textBox16.Text = TH.Paied.ToString();
-            textBox21.Text = "0";
+            textBox17.Text = TH.Total.ToString();
             dateTimePicker2.Text = TH.Reciveddate;
             Statustype.Text = TH.Status;
             textBox23.Text = TH.Note;
         }
         void Gethanddata(tailorhand THN)
         {
-            textBox22.Text = THN.Texta;
+            textBox20.Text = THN.Texta;
             textBox19.Text = THN.Taxtb;
             checkBox1.Checked = (bool)THN.Inverted;
             checkBox2.Checked = (bool)THN.Square;
@@ -456,17 +440,17 @@ namespace Easypos.Tailoring
         void Getbocketdata(tailorbocket TB)
         {
             // Fix for CS0266: Explicitly cast 'bool?' to 'bool' using the null-coalescing operator to handle null values.
-            checkBox36.Checked = TBD.Bok1 ?? false;
-            checkBox32.Checked = TBD.Bok2 ?? false;
-            checkBox35.Checked = TBD.Bok3 ?? false;
-            checkBox30.Checked = TBD.Bok4 ?? false;
-            checkBox34.Checked = TBD.Bok5 ?? false;
-            checkBox31.Checked = TBD.Bok6 ?? false;
-            checkBox33.Checked = TBD.Bok7 ?? false;
-            checkBox29.Checked = TBD.Bok8 ?? false;
-            checkBox37.Checked = TBD.Bok9 ?? false;
-            checkBox38.Checked = TBD.Bok10 ?? false;
-            checkBox39.Checked = TBD.Bok11 ?? false;
+            checkBox36.Checked = TB.Bok1 ?? false;
+            checkBox32.Checked = TB.Bok2 ?? false;
+            checkBox35.Checked = TB.Bok3 ?? false;
+            checkBox30.Checked = TB.Bok4 ?? false;
+            checkBox34.Checked = TB.Bok5 ?? false;
+            checkBox31.Checked = TB.Bok6 ?? false;
+            checkBox33.Checked = TB.Bok7 ?? false;
+            checkBox29.Checked = TB.Bok8 ?? false;
+            checkBox37.Checked = TB.Bok9 ?? false;
+            checkBox38.Checked = TB.Bok10 ?? false;
+            checkBox39.Checked = TB.Bok11 ?? false;
         }
         void Gettailordeatail(tailordetaile TD)
         {
@@ -495,7 +479,9 @@ namespace Easypos.Tailoring
                 // أولًا: استرجاع الكيان من قاعدة البيانات
                 var entity = _IUW.alltailorings.GetQueryable()
                                                .Include(x => x.tailorheader)
-                                               .Where(x => x.Alltable.Value.ToString() == Id).FirstOrDefault();
+                                               .Where(x => x.Alltable.ToString() == Id).FirstOrDefault();
+                TilHId = Guid.Parse(entity.Tailheaderid);
+                TilDId = Guid.Parse(entity.Alltable);
 
                 // ثانيًا: إنشاء كائن tailorheader في الذاكرة
                 tailorheader dataheader = null;
@@ -506,9 +492,12 @@ namespace Easypos.Tailoring
                         Date = entity.tailorheader.Date,
                         Custid = entity.tailorheader.thirdparty.ID,
                         Clothesnumber = entity.tailorheader.Clothesnumber,
+                        Clothesrecived = entity.tailorheader.Clothesrecived,
                         Clothesremining = entity.tailorheader.Clothesremining,
                         Total = entity.tailorheader.Total,
                         Paied = entity.tailorheader.Paied,
+                        Totalreimining = entity.tailorheader.Totalreimining,
+                        Reciveddate = entity.tailorheader.Reciveddate,
                         Status = entity.tailorheader.Status,
                         Note = entity.tailorheader.Note,
                     };
@@ -629,34 +618,17 @@ namespace Easypos.Tailoring
                     var Res = MessageBox.Show("هل تريد حذف هذا الامر", "حذف الامر", MessageBoxButtons.YesNo);
                     if (Res == DialogResult.Yes)
                     {
-                        var data = _IUW.alltailorings.GetAll().Where(x => x.Alltable.Value.ToString() == Id).ToList();
-                        foreach (var item in data)
-                        {
-                            if (item.tailorheader != null)
-                            {
-                                _IUW.tailorheaders.Delete(item.tailorheader);
-                            }
-                            if (item.tailorhand != null)
-                            {
-                                _IUW.tailorhands.Delete(item.tailorhand);
-                            }
-                            if (item.tailorneck != null)
-                            {
-                                _IUW.tailornecks.Delete(item.tailorneck);
-                            }
-                            if (item.tailorjabzor != null)
-                            {
-                                _IUW.tailorjabzors.Delete(item.tailorjabzor);
-                            }
-                            if (item.tailorbocket != null)
-                            {
-                                _IUW.tailorbockets.Delete(item.tailorbocket);
-                            }
-                            if (item.tailordetaile != null)
-                            {
-                                _IUW.tailordetailes.Delete(item.tailordetaile);
-                            }
-                        }
+                        var data = _IUW.alltailorings.GetAll().Where(x => x.Alltable.ToString() == Id).FirstOrDefault();
+                        var Hid = data.Tailheaderid;
+                        var Hdid = data.Alltable;
+                        _IUW.alltailorings.Delbyid(data.Id);
+                        _IUW.Complete();
+                        _IUW.tailorheaders.Delbystringid(Hid);
+                        _IUW.tailorhands.Delbystringid(Hdid);
+                        _IUW.tailornecks.Delbystringid(Hdid);
+                        _IUW.tailorjabzors.Delbystringid(Hdid);
+                        _IUW.tailorbockets.Delbystringid(Hdid);
+                        _IUW.tailordetailes.Delbystringid(Hdid);
                         _IUW.Complete();
                         Clearfildes();
                         dgw.Rows.Clear();
@@ -939,10 +911,57 @@ namespace Easypos.Tailoring
             FCCR.CRV.Refresh();
             FCCR.Show();
         }
-
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             _NO.Usenumber(sender,e);
+        }
+        private void textBox22_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox22.Text) || string.IsNullOrEmpty(textBox24.Text))
+            {
+                textBox25.Text = "0";
+                return;
+            }
+            else
+            {
+                textBox25.Text = (int.Parse(textBox22.Text) - int.Parse(textBox24.Text)).ToString();
+            }
+        }
+        private void textBox24_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox22.Text) || string.IsNullOrEmpty(textBox24.Text))
+            {
+                textBox25.Text = "0";
+                return;
+            }
+            else
+            {
+                textBox25.Text = (int.Parse(textBox22.Text) - int.Parse(textBox24.Text)).ToString();
+            }
+        }
+        private void textBox17_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox17.Text) || string.IsNullOrEmpty(textBox16.Text))
+            {
+                textBox21.Text = "0";
+                return;
+            }
+            else
+            {
+                textBox21.Text = (decimal.Parse(textBox17.Text) - decimal.Parse(textBox16.Text)).ToString();
+            }
+        }
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBox17.Text) || string.IsNullOrEmpty(textBox16.Text))
+            {
+                textBox21.Text = "0";
+                return;
+            }
+            else
+            {
+                textBox21.Text = (decimal.Parse(textBox17.Text) - decimal.Parse(textBox16.Text)).ToString();
+            }
         }
     }
 }
