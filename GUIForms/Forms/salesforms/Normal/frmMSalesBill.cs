@@ -535,36 +535,29 @@ namespace GUIForms.Forms.salesforms.Normal
             txtDiscount.Enabled = false;
             txtTotal.Enabled = false;
         }
-        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
         {
-            var ST = Convert.ToDouble(txtTBV.Text) - Convert.ToDouble(txtDiscount.Text);
-            if (DC.ISUsePhase2)
+            _NO.Usenumber(sender,e);
+            if (!string.IsNullOrEmpty(txtDiscount.Text))
             {
-                var Tax = Convert.ToDouble(ST) * (15 / 100);
-                var GTax = Math.Round(Convert.ToDouble(Tax), 2).ToString();
-                txtTax.Text = GTax.ToString();
-                var Price = ST + Tax;
-                var GPrice = Math.Round(Convert.ToDouble(Price), 2).ToString();
-                txtTotal.Text = GPrice.ToString();
-            }
-            else
-            {
-                txtTotal.Text = ST.ToString();
+                Changedisc();
             }
         }
-        private void txtTotal_TextChanged(object sender, EventArgs e)
+        private void txtTotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            _NO.Usenumber(sender,e);
+            if (!string.IsNullOrEmpty(txtTotal.Text))
+            {
+                Changetot();
+            }
+        }
+        void Changetot()
         {
             var Price = Convert.ToDouble(txtTotal.Text);
             var TBV = Price / 1.15;
             var GTBV = Math.Round(Convert.ToDecimal(TBV), 2).ToString();
             if (DC.ISUsePhase2)
             {
-                var Tax = Convert.ToDouble(GTBV) * (15 / 100);
-                var GTax = Math.Round(Convert.ToDouble(Tax), 2).ToString();
-                //var GT = Math.Round(Convert.ToDecimal(GTax), MidpointRounding.ToEven);
-
-                txtTax.Text = GTax.ToString();
-
                 var Disc = Convert.ToDouble(txtTBV.Text) - TBV;
                 var GDisc = Math.Round(Convert.ToDouble(Disc), 2).ToString();
                 txtDiscount.Text = Convert.ToString(GDisc);
@@ -575,6 +568,24 @@ namespace GUIForms.Forms.salesforms.Normal
                 var Tot = Convert.ToDouble(txtTotal.Text);
                 var Res = TB - Tot;
                 txtDiscount.Text = Res.ToString();
+            }
+        }
+        void Changedisc()
+        {
+            var ST = Convert.ToDouble(txtTBV.Text) - Convert.ToDouble(txtDiscount.Text);
+            if (DC.ISUsePhase2)
+            {
+                var Tax = Convert.ToDouble(ST) * 0.15;
+                var GTax = Math.Round(Convert.ToDouble(Tax), 2).ToString();
+                txtTax.Text = GTax.ToString();
+
+                var Price = ST + Tax;
+                var GPrice = Math.Round(Convert.ToDouble(Price), 2).ToString();
+                txtTotal.Text = GPrice.ToString();
+            }
+            else
+            {
+                txtTotal.Text = ST.ToString();
             }
         }
     }
