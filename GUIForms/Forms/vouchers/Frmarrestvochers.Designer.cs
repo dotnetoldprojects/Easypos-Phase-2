@@ -437,10 +437,10 @@
             resources.GetString("Vochertypes.Items"),
             resources.GetString("Vochertypes.Items1"),
             resources.GetString("Vochertypes.Items2"),
-            resources.GetString("Vochertypes.Items3"),
-            resources.GetString("Vochertypes.Items4")});
+            resources.GetString("Vochertypes.Items3")});
             resources.ApplyResources(this.Vochertypes, "Vochertypes");
             this.Vochertypes.Name = "Vochertypes";
+            this.Vochertypes.SelectionChangeCommitted += new System.EventHandler(this.Vochertypes_SelectionChangeCommitted);
             // 
             // label4
             // 
@@ -794,6 +794,7 @@
             resources.GetString("Vochertype.Items3")});
             resources.ApplyResources(this.Vochertype, "Vochertype");
             this.Vochertype.Name = "Vochertype";
+            this.Vochertype.SelectionChangeCommitted += new System.EventHandler(this.Vochertype_SelectionChangeCommitted);
             // 
             // label2
             // 

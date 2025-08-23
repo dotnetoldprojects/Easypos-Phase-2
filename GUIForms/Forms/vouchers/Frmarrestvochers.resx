@@ -706,15 +706,12 @@
     <value>-- اختر --</value>
   </data>
   <data name="Vochertypes.Items1" xml:space="preserve">
-    <value>سند قبض</value>
-  </data>
-  <data name="Vochertypes.Items2" xml:space="preserve">
     <value>ايرادات اخرى</value>
   </data>
-  <data name="Vochertypes.Items3" xml:space="preserve">
+  <data name="Vochertypes.Items2" xml:space="preserve">
     <value>سند ايصال مبيعات</value>
   </data>
-  <data name="Vochertypes.Items4" xml:space="preserve">
+  <data name="Vochertypes.Items3" xml:space="preserve">
     <value>فاتورة مبيعات</value>
   </data>
   <data name="Vochertypes.Location" type="System.Drawing.Point, System.Drawing">

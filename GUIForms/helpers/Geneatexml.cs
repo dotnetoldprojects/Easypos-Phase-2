@@ -127,8 +127,15 @@ namespace Helpers.Dtos
                 writer.WriteElementString("cbc", "ProfileID", null, "reporting:1.0");
                 writer.WriteElementString("cbc", "ID", null, Invtitle);
                 writer.WriteElementString("cbc", "UUID", null, Guid.NewGuid().ToString());
+                
                 writer.WriteElementString("cbc", "IssueDate", null, DateTime.Now.ToString("yyyy-MM-dd"));
                 writer.WriteElementString("cbc", "IssueTime", null, DateTime.Now.ToString("HH:mm:ss"));
+
+                // مثال: 15 أغسطس 2025 الساعة 10:30:45 صباحاً
+                //DateTime customDate = new DateTime(2024, 7, 14, 16, 29, 45);
+
+                //writer.WriteElementString("cbc", "IssueDate", null, customDate.ToString("yyyy-MM-dd"));
+                //writer.WriteElementString("cbc", "IssueTime", null, customDate.ToString("HH:mm:ss"));
 
                 // Invoice Type Code
                 writer.WriteStartElement("cbc", "InvoiceTypeCode", null);

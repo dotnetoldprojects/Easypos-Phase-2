@@ -108,6 +108,7 @@ namespace GUIForms.Forms.salesforms.Normal
         private void LoadAllCombos()
         {
             Commondatasales.FillCombo(clientID, GC.Getcustomerdatalist(), "Name", "ID");
+            clientID.SelectedIndex = 1;
             Commondatasales.FillCombo(cmbproducts, GC.Getproductdatalist(), "Description", "ProductNo");
             Commondatasales.FillCombo(unitTypes, GC.Getunittypedatalist(), "UName", "ID");
         }
@@ -125,7 +126,7 @@ namespace GUIForms.Forms.salesforms.Normal
         public void ClearAll()
         {
             Clearfildes();
-            clientID.SelectedIndex = 0;
+            clientID.SelectedIndex = 1;
             cmbproducts.SelectedIndex = 0;
             unitTypes.SelectedIndex = 0;
             DGV.Rows.Clear();
@@ -242,7 +243,6 @@ namespace GUIForms.Forms.salesforms.Normal
             else
             {
                 openpayment();
-                ClearAll();
             }
         }
         private void Editsales()
@@ -324,12 +324,13 @@ namespace GUIForms.Forms.salesforms.Normal
             SalesHelper.SaveSaleWithDetails(sale, details, _IUW);
             Invid = sale.Invoiceno;
             Saveitemsales();
+            //Clearfildes();
         }
         public void openpayment()
         {
             Frmpayments PAY = new Frmpayments();
             PAY.Total = decimal.Parse(txtTotal.Text);
-            PAY.clients.SelectedValue = clientID.SelectedValue;
+            PAY.Cust = clientID.SelectedValue.ToString();
             PAY.Formname = "Sales";
             PAY.ShowDialog();
         }
@@ -489,8 +490,11 @@ namespace GUIForms.Forms.salesforms.Normal
             else
             {
                 openpayment();
-                _PI.Invoice(Invid);
-                ClearAll();
+                if (Invid != 0)
+                {
+                    _PI.Invoice(Invid);
+                    ClearAll();
+                }
             }
         }
     }
