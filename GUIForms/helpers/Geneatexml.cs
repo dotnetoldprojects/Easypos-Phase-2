@@ -32,7 +32,7 @@ namespace Helpers.Dtos
             DC = _IUW.companies.GetAll().FirstOrDefault();
         }
 
-        public void Createxmldata(List<ProductLine> Pro, company com)
+        public void Createxmldata(List<ProductLine> Pro, company com,bool RBM, decimal RBMDisc)
         {
             Cust = new thirdparty();
             Cust = _IUW.thirdparties.GetAll().FirstOrDefault(x => x.ID == Custid);
@@ -258,7 +258,14 @@ namespace Helpers.Dtos
                 // Amount with currency attribute
                 writer.WriteStartElement("cbc", "Amount", null);
                 writer.WriteAttributeString("currencyID", "SAR");
-                writer.WriteString("0.00");
+                if (RBM)
+                {
+                    writer.WriteString(RBMDisc.ToString());
+                }
+                else
+                {
+                    writer.WriteString("0.00");
+                }
                 writer.WriteEndElement(); // Amount
 
                 // TaxCategory

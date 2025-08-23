@@ -269,7 +269,7 @@
     <value>Tahoma, 8.25pt</value>
   </data>
   <data name="txtTotal.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 106</value>
+    <value>24, 162</value>
   </data>
   <data name="txtTotal.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 21</value>
@@ -293,7 +293,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtTotal.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -302,7 +302,7 @@
     <value>True</value>
   </data>
   <data name="label10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 58</value>
+    <value>103, 114</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 13</value>
@@ -323,7 +323,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="label14.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -332,7 +332,7 @@
     <value>True</value>
   </data>
   <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 82</value>
+    <value>103, 138</value>
   </data>
   <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
     <value>77, 13</value>
@@ -353,7 +353,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="txtDiscount.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -362,7 +362,7 @@
     <value>False</value>
   </data>
   <data name="txtDiscount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 55</value>
+    <value>24, 111</value>
   </data>
   <data name="txtDiscount.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 21</value>
@@ -386,7 +386,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtDiscount.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="txtTax.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -398,7 +398,7 @@
     <value>Tahoma, 8.25pt</value>
   </data>
   <data name="txtTax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 79</value>
+    <value>24, 135</value>
   </data>
   <data name="txtTax.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 21</value>
@@ -422,7 +422,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtTax.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label11.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -431,7 +431,7 @@
     <value>True</value>
   </data>
   <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 109</value>
+    <value>103, 165</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
     <value>105, 13</value>
@@ -452,7 +452,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="label19.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -461,7 +461,7 @@
     <value>True</value>
   </data>
   <data name="label19.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 30</value>
+    <value>99, 86</value>
   </data>
   <data name="label19.Size" type="System.Drawing.Size, System.Drawing">
     <value>97, 13</value>
@@ -482,7 +482,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label19.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="txtTBV.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -494,7 +494,7 @@
     <value>Tahoma, 8.25pt</value>
   </data>
   <data name="txtTBV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 27</value>
+    <value>24, 83</value>
   </data>
   <data name="txtTBV.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 21</value>
@@ -518,7 +518,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtTBV.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="QRPic.Location" type="System.Drawing.Point, System.Drawing">
     <value>167, 143</value>
@@ -542,7 +542,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;QRPic.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>13</value>
   </data>
   <data name="groupBox4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -685,6 +685,63 @@
   <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
+  <data name="RB2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RB2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RB2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 56</value>
+  </data>
+  <data name="RB2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>145, 17</value>
+  </data>
+  <data name="RB2.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="RB2.Text" xml:space="preserve">
+    <value>خصم على مستوى الفاتوره</value>
+  </data>
+  <data name="&gt;&gt;RB2.Name" xml:space="preserve">
+    <value>RB2</value>
+  </data>
+  <data name="&gt;&gt;RB2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RB2.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;RB2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="RB1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RB1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>46, 33</value>
+  </data>
+  <data name="RB1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>147, 17</value>
+  </data>
+  <data name="RB1.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="RB1.Text" xml:space="preserve">
+    <value>خصم على مستوى المنتجات</value>
+  </data>
+  <data name="&gt;&gt;RB1.Name" xml:space="preserve">
+    <value>RB1</value>
+  </data>
+  <data name="&gt;&gt;RB1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RB1.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;RB1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label21.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -719,7 +776,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="label23.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -749,7 +806,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="label27.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -782,7 +839,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label27.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 8.25pt</value>

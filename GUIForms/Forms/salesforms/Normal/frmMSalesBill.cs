@@ -125,6 +125,12 @@ namespace GUIForms.Forms.salesforms.Normal
         }
         public void ClearAll()
         {
+            DGV.Enabled = true;
+            DGV.ReadOnly = true;
+            txtDiscount.ReadOnly = true;
+            txtTotal.ReadOnly = true;
+            txtDiscount.Enabled = false;
+            txtTotal.Enabled = false;
             Clearfildes();
             clientID.SelectedIndex = 1;
             cmbproducts.SelectedIndex = 0;
@@ -418,7 +424,8 @@ namespace GUIForms.Forms.salesforms.Normal
                 }
                 string InputPath = @"Data/Invoice.xml";
                 var data = DC;
-                GXL.Createxmldata(productLines, DC);
+                var RBD = Convert.ToDecimal(txtDiscount.Text);
+                GXL.Createxmldata(productLines, DC, RB2.Checked, RBD);
 
                 var xmlContent = File.ReadAllText(InputPath);
                 var Doc = GC.LoadInvoiceFromString(xmlContent);
@@ -495,6 +502,79 @@ namespace GUIForms.Forms.salesforms.Normal
                     _PI.Invoice(Invid);
                     ClearAll();
                 }
+            }
+        }
+        private void RB2_CheckedChanged(object sender, EventArgs e)
+        {
+            DGV.Enabled = false;
+            DGV.ReadOnly = false;
+            txtDiscount.ReadOnly = false;
+            txtTotal.ReadOnly = false;
+            txtDiscount.Enabled = true;
+            txtTotal.Enabled = true;
+            if (DGV.Rows.Count > 0)
+            {
+                for (int i = 0; i < DGV.Rows.Count; i++)
+                {
+                    DGV.Rows[i].Cells[6].Value = 0;
+                    var C1 = Convert.ToDouble(DGV.Rows[i].Cells[4].Value.ToString());
+                    var C2 = Convert.ToDouble(DGV.Rows[i].Cells[5].Value);
+                    var C3 = Convert.ToDouble(DGV.Rows[i].Cells[6].Value);
+                    var Res = (C1 * C2) - C3;
+                    DGV.Rows[i].Cells[7].Value = Res;
+                    _DGVPH.UpdateDGVSummary();
+                }
+            }
+        }
+        private void RB1_CheckedChanged(object sender, EventArgs e)
+        {
+            DGV.Enabled = true;
+            DGV.ReadOnly = true;
+            txtDiscount.ReadOnly = true;
+            txtTotal.ReadOnly = true;
+            txtDiscount.Enabled = false;
+            txtTotal.Enabled = false;
+        }
+        private void txtDiscount_TextChanged(object sender, EventArgs e)
+        {
+            var ST = Convert.ToDouble(txtTBV.Text) - Convert.ToDouble(txtDiscount.Text);
+            if (DC.ISUsePhase2)
+            {
+                var Tax = Convert.ToDouble(ST) * (15 / 100);
+                var GTax = Math.Round(Convert.ToDouble(Tax), 2).ToString();
+                txtTax.Text = GTax.ToString();
+                var Price = ST + Tax;
+                var GPrice = Math.Round(Convert.ToDouble(Price), 2).ToString();
+                txtTotal.Text = GPrice.ToString();
+            }
+            else
+            {
+                txtTotal.Text = ST.ToString();
+            }
+        }
+        private void txtTotal_TextChanged(object sender, EventArgs e)
+        {
+            var Price = Convert.ToDouble(txtTotal.Text);
+            var TBV = Price / 1.15;
+            var GTBV = Math.Round(Convert.ToDecimal(TBV), 2).ToString();
+            if (DC.ISUsePhase2)
+            {
+                var Tax = Convert.ToDouble(GTBV) * (15 / 100);
+                var GTax = Math.Round(Convert.ToDouble(Tax), 2).ToString();
+                //var GT = Math.Round(Convert.ToDecimal(GTax), MidpointRounding.ToEven);
+
+                txtTax.Text = GTax.ToString();
+
+                var Disc = Convert.ToDouble(txtTBV.Text) - TBV;
+                var GDisc = Math.Round(Convert.ToDouble(Disc), 2).ToString();
+                txtDiscount.Text = Convert.ToString(GDisc);
+            }
+            else
+            {
+                var TB = Convert.ToDouble(txtTBV.Text);
+                var Tot = Convert.ToDouble(txtTotal.Text);
+                var Res = TB - Tot;
+                txtDiscount.Text = Res.ToString();
             }
         }
     }

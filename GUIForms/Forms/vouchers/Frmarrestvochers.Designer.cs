@@ -723,6 +723,7 @@
             this.Btnprint.IconSize = 42;
             this.Btnprint.Name = "Btnprint";
             this.Btnprint.UseVisualStyleBackColor = false;
+            this.Btnprint.Click += new System.EventHandler(this.Btnprint_Click);
             // 
             // Btndel
             // 

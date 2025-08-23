@@ -500,5 +500,9 @@ namespace Easypos.Vouchers
                 Billnumber.Visible = false;
             }
         }
+        private void Btnprint_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
