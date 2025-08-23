@@ -369,6 +369,7 @@
             this.BtnShow.IconSize = 42;
             this.BtnShow.Name = "BtnShow";
             this.BtnShow.UseVisualStyleBackColor = false;
+            this.BtnShow.Click += new System.EventHandler(this.BtnShow_Click);
             // 
             // Btndelete
             // 

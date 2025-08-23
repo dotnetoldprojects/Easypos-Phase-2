@@ -1,4 +1,5 @@
 ﻿using Aspose.Pdf;
+using CrystalDecisions.CrystalReports.Engine;
 using Domain.Models;
 using GUIForms.Dtos;
 using GUIForms.helpers;
@@ -6,13 +7,18 @@ using iText.Kernel.Pdf;
 using java.lang;
 using java.util.function;
 using MetroFramework.Forms;
+using Reporting;
+using Reporting.vouchers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -502,7 +508,82 @@ namespace Easypos.Vouchers
         }
         private void Btnprint_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtpayout.Text))
+            {
+                MessageBox.Show("برجاء اختيار السند", "السند");
+                return;
+            }
+            else
+            {
+                var ID = Convert.ToInt32(txtpayout.Text);
+                Printvochers(ID, "سندات دفع");
+            }
+        }
+        PayDto GetPayById(int id)
+        {
+            var result = (from pay in _IUW.vouchers.GetAll()
+                          join tp in _IUW.thirdparties.GetAll()
+                              on pay.Thiredpartyid equals tp.ID into tpJoin
+                          from tp in tpJoin.DefaultIfEmpty()
+                          where pay.Id == id
+                          select new PayDto
+                          {
+                              PaymentNo = pay.Id,
+                              Date = pay.Date,
+                              Paid = pay.Paid,
+                              Remaining = pay.Paid,
+                              Type = pay.Paymentmathod,
+                              ThirdPartyName = tp != null ? tp.Name : null
+                          }).FirstOrDefault();
 
+            return result;
+        }
+        void Printvochers(int id, string screen)
+        {
+            ReportDocument Rep = new ReportDocument();
+            Frmreporting FR = new Frmreporting();
+            Dataset Dsx = new Dataset();
+            if (screen == "سندات دفع")
+            {
+                Rep = new PaymentVoucher();
+            }
+            if (screen == "سندات قبض")
+            {
+                Rep = new ReceiptVoucher();
+            }
+            var PMD = GetPayById(id);
+            Dsx.Vochers.Rows.Add(new object[] {
+                        PMD.PaymentNo,
+                        PMD.Date,
+                        PMD.Paid,
+                        PMD.ThirdPartyName,
+                        PMD.Paid,
+                        PMD.Type,
+                        null,null,
+                        null,null
+                    });
+            Rep.SetDataSource(Dsx);
+            Rep.SetParameterValue("CompanyName", DC.Name);
+            Rep.SetParameterValue("Address", DC.Address);
+            Rep.SetParameterValue("Taxnum", DC.Taxnumber);
+            Rep.SetParameterValue("PhoneNo", DC.PhoneNo);
+            Rep.SetParameterValue("Proname", DC.CRN);
+            Rep.SetParameterValue("English_Shop_name", DC.ENName);
+            FR.CRV.ReportSource = Rep;
+            FR.Show();
+        }
+        private void BtnShow_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtpay.Text))
+            {
+                MessageBox.Show("برجاء اختيار السند", "السند");
+                return;
+            }
+            else
+            {
+                var ID = Convert.ToInt32(txtpay.Text);
+                Printvochers(ID, "سندات قبض");
+            }
         }
     }
 }

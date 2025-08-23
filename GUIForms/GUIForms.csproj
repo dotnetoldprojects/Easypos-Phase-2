@@ -201,6 +201,7 @@
   <ItemGroup>
     <Compile Include="Dtos\Getcentralaizes.cs" />
     <Compile Include="Dtos\LanguageHelper.cs" />
+    <Compile Include="Dtos\PayDto.cs" />
     <Compile Include="Dtos\ProductLine.cs" />
     <Compile Include="Dtos\Usingnumber.cs" />
     <Compile Include="Forms\Frmindex.cs">

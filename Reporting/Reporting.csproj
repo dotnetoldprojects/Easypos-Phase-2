@@ -194,6 +194,18 @@
     <Compile Include="VM\Saleshelper.cs" />
     <Compile Include="VM\Saleslist.cs" />
     <Compile Include="VM\Salesonetax.cs" />
+    <Compile Include="vouchers\PaymentVoucher1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PaymentVoucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="vouchers\ReceiptVoucher1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReceiptVoucher.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Frmreporting.resx">
       <DependentUpon>Frmreporting.cs</DependentUpon>
     </EmbeddedResource>
@@ -277,6 +289,14 @@
     <EmbeddedResource Include="tailor\Tialorder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Tialorder1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vouchers\PaymentVoucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PaymentVoucher1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="vouchers\ReceiptVoucher.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReceiptVoucher1.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
