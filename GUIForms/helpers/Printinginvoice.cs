@@ -69,6 +69,8 @@ namespace GUIForms.helpers
             }
             Dataset Ds = new Dataset();
             string date = "";
+            string Paied = "";
+            string Dept = "";
             if (Invid != 0)
             {
                 var result = (from s in _IUW.sales.GetAll()
@@ -79,6 +81,10 @@ namespace GUIForms.helpers
                               join tp in _IUW.thirdparties.GetAll()
                                   on s.ThirdPartyID equals tp.ID into thirdPartyJoin
                               from tp in thirdPartyJoin.DefaultIfEmpty()
+
+                              join pay in _IUW.payments.GetAll()
+                                  on s.Invoiceno equals pay.InvoiceNo into paymentJoin
+                              from pay in paymentJoin.DefaultIfEmpty()
 
                               join ubl in _IUW.UBLS.GetAll()
                                   on s.Invoiceno equals ubl.Saleid into ublJoin
@@ -110,9 +116,13 @@ namespace GUIForms.helpers
                                   Purchaseorder = s.Purchaseorder,
                                   RN = s.RN,
                                   Proname = s.Proname,
+                                  pay.Paid,
+                                  pay.Remaining
                               }).ToList();
                 foreach (var item in result)
                 {
+                    Paied = item.Paid.ToString();
+                    Dept = item.Remaining.ToString();
                     Filename = item.Path;
                     date = item.TDate;
                     var qrText = item.QRCode;
@@ -175,8 +185,9 @@ namespace GUIForms.helpers
                     Rep.SetParameterValue("RD", "0");
                     Rep.SetParameterValue("Discount", "0");
                     Rep.SetParameterValue("Tax", "0");
-                    Rep.SetParameterValue("Paied", "0");
-                    Rep.SetParameterValue("Dept", "0");
+                    Rep.SetParameterValue("Paied", Paied);
+                    Rep.SetParameterValue("Dept", Dept);
+                    Rep.SetParameterValue("PhoneNo", DC.PhoneNo);
                     //Save As PDF
                     var invname = Filename + ".pdf";
                     var PD = Directory.GetCurrentDirectory() + @"\Data\";
@@ -186,16 +197,18 @@ namespace GUIForms.helpers
                         Directory.CreateDirectory(Pathdata);
                     }
                     Pathdata += invname;
-                    Rep.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Pathdata);
+                    FR.Show();
+                    //Rep.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, Pathdata);
                 }
                 if (DC.Sysnametype != "طباعة نظام مبيعات كبير")
                 {
                     Rep.SetParameterValue("Shopname", DC.Name);
                     Rep.SetParameterValue("PhoneNo", DC.PhoneNo);
-                    Rep.SetParameterValue("Paid", "0");
-                    Rep.SetParameterValue("Remaining", "0");
-                    Rep.PrintOptions.PrinterName = DC.Printername;
-                    Rep.PrintToPrinter(1, true, 1, 1);
+                    Rep.SetParameterValue("Paied", Paied);
+                    Rep.SetParameterValue("Dept", Dept);
+                    FR.Show();
+                    //Rep.PrintOptions.PrinterName = DC.Printername;
+                    //Rep.PrintToPrinter(1, true, 1, 1);
                 }
                 if (DC.Sysnametype == "طباعة نظام مبيعات كبير")
                 {
