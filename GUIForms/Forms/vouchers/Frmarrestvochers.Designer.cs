@@ -436,8 +436,7 @@
             this.Vochertypes.Items.AddRange(new object[] {
             resources.GetString("Vochertypes.Items"),
             resources.GetString("Vochertypes.Items1"),
-            resources.GetString("Vochertypes.Items2"),
-            resources.GetString("Vochertypes.Items3")});
+            resources.GetString("Vochertypes.Items2")});
             resources.ApplyResources(this.Vochertypes, "Vochertypes");
             this.Vochertypes.Name = "Vochertypes";
             this.Vochertypes.SelectionChangeCommitted += new System.EventHandler(this.Vochertypes_SelectionChangeCommitted);
@@ -790,8 +789,7 @@
             this.Vochertype.Items.AddRange(new object[] {
             resources.GetString("Vochertype.Items"),
             resources.GetString("Vochertype.Items1"),
-            resources.GetString("Vochertype.Items2"),
-            resources.GetString("Vochertype.Items3")});
+            resources.GetString("Vochertype.Items2")});
             resources.ApplyResources(this.Vochertype, "Vochertype");
             this.Vochertype.Name = "Vochertype";
             this.Vochertype.SelectionChangeCommitted += new System.EventHandler(this.Vochertype_SelectionChangeCommitted);

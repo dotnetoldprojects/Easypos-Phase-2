@@ -106,21 +106,64 @@ namespace Easypos.Vouchers
             }
             if (Methode == "سندات قبض")
             {
-                if (string.IsNullOrWhiteSpace(txtinv.Text))
+                if (Vochertypes.Text == "سند ايصال مبيعات")
                 {
-                    Voch.Billnumber = null;
+                    int BN = 0;
+                    if (!string.IsNullOrEmpty(Invnum.Text))
+                    {
+                        BN = int.Parse(Invnum.Text.Trim());
+                    }
+                    var result = _IUW.sales.GetAll()
+                                 .Where(p => p.Invoiceno == BN)
+                                 .GroupJoin(
+                                     _IUW.payments.GetAll(),
+                                     p => p.Invoiceno,
+                                     pay => pay.InvoiceNo,
+                                     (p, pays) => new { p, pays })
+                                 .SelectMany(
+                                     x => x.pays.DefaultIfEmpty(),
+                                     (x, pay) => new
+                                     {
+                                         PaymentNo = pay.paymentNo,
+                                         TotalAmount = x.p.TotalAmount,
+                                         Paid = (decimal?)pay.Paid,
+                                         Remaining = (decimal?)pay.Remaining
+                                     })
+                                 .FirstOrDefault();
+                    var PO = _IUW.payments.Get(result.PaymentNo);
+                    if (PO != null)
+                    {
+                        PO.paymentNo = result.PaymentNo;
+                        PO.Paid = PO.Paid + Convert.ToDecimal(txtprice.Text);
+                        PO.Cash = PO.Paid;
+                        PO.Remaining = Convert.ToDecimal(result.TotalAmount) - PO.Paid;
+                        if (PO.Remaining >= 0)
+                        {
+                            _IUW.payments.Update(PO);
+                            _IUW.Complete();
+                            Voch.Billnumber = Convert.ToInt32(Invnum.Text);
+                            if (string.IsNullOrWhiteSpace(txtinv.Text))
+                            {
+                                Voch.Billnum = null;
+                            }
+                            else
+                            {
+                                Voch.Billnum = txtinv.Text;
+                            }
+                            Voch.Date = date.Value.ToString("dd-MM-yyyy");
+                            Voch.Thiredpartyid = Convert.ToInt32(Clients.SelectedValue.ToString());
+                            Voch.Vochertypes = Vochertypes.Text;
+                            Voch.Paid = decimal.Parse(txtprice.Text);
+                            Voch.Paymentmathod = Cmbpricetype.Text;
+                            Voch.Note = Note.Text;
+                        }
+                        else
+                        {
+                            MessageBox.Show("المبلغ المدفوع اكبر من المبلغ المستحق","خطأ",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                            return;
+                        }
+                    }
                 }
-                else
-                {
-                    Voch.Billnumber = Convert.ToInt32(txtinv.Text);
-                }
-                Voch.Date = date.Value.ToString("dd-MM-yyyy");
-                Voch.Thiredpartyid = Convert.ToInt32(Clients.SelectedValue.ToString());
-                Voch.Vochertypes = Vochertypes.Text;
-                Voch.Billnum = Billnumber.Text;
-                Voch.Paid = decimal.Parse(txtprice.Text);
-                Voch.Paymentmathod = Cmbpricetype.Text;
-                Voch.Note = Note.Text;
             }
             try
             {
@@ -264,7 +307,7 @@ namespace Easypos.Vouchers
             lblbill.Visible = false;
             Invnum.Visible = false;
             Billnumber.Visible = false;
-            Invnum.Items.Clear();
+            //Invnum.Items.Clear();
             Billnumber.Items.Clear();
             txtpay.Clear();
             txtinv.Clear();
@@ -287,27 +330,43 @@ namespace Easypos.Vouchers
         }
         private void Btnadd_Click(object sender, EventArgs e)
         {
-            if (Btnadd.Text == "حفظ")
+            if (CmbPaymethod.SelectedIndex == 0)
             {
-                Btnevent = "Save";
+                MessageBox.Show("برجاء اختيار طريقة الدفع", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
-                Btnevent = "Edit";
+                if (Btnadd.Text == "حفظ")
+                {
+                    Btnevent = "Save";
+                }
+                else
+                {
+                    Btnevent = "Edit";
+                }
+                SaveEdit("سندات دفع");
             }
-            SaveEdit("سندات دفع");
         }
         private void Btnsave_Click(object sender, EventArgs e)
         {
-            if (Btnsave.Text == "تعديل")
+            if (Cmbpricetype.SelectedIndex == 0)
             {
-                Btnevent = "Edit";
+                MessageBox.Show("برجاء اختيار نوع الدفع", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
             else
             {
-                Btnevent = "Save";
+                if (Btnsave.Text == "تعديل")
+                {
+                    Btnevent = "Edit";
+                }
+                else
+                {
+                    Btnevent = "Save";
+                }
+                SaveEdit("سندات قبض");
             }
-            SaveEdit("سندات قبض");
         }
         private void Btndelete_Click(object sender, EventArgs e)
         {
@@ -357,7 +416,6 @@ namespace Easypos.Vouchers
         {
             _NO.Usenumber(sender,e);
         }
-
         private void Vochertype_SelectionChangeCommitted(object sender, EventArgs e)
         {
             if (Vochertype.SelectedIndex != 0)
@@ -405,53 +463,42 @@ namespace Easypos.Vouchers
                 return;
             }
         }
-
         private void Vochertypes_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (Vochertypes.Text == "سند ايصال مبيعات")
-            //    {
-            //        //if (Clients.SelectedIndex == 0)
-            //        //{
-            //        //    Vochertypes.SelectedIndex = 0;
-            //        //    MessageBox.Show("برجاء اختيار العميل", "خطأ");
-            //        //    return;
-            //        //}
-            //        //else
-            //        //{
+            if (Vochertypes.Text == "سند ايصال مبيعات")
+            {
+                if (Clients.SelectedIndex == 0)
+                {
+                    Vochertypes.SelectedIndex = 0;
+                    MessageBox.Show("برجاء اختيار العميل", "خطأ");
+                    return;
+                }
+                else
+                {
+                    var CustId = Convert.ToInt32(Clients.SelectedValue);
 
-            //        //}
-            //        label9.Visible = true;
-            //        Invnum.Visible = true;
-            //        var Cid = int.Parse(Clients.SelectedValue.ToString());
-            //        var GD = Pm.Getvoucherbythird(Cid);
-            //        if (GD != null)
-            //        {
-            //            var PML = Pm.invoices;
-            //            if (PML != null)
-            //            {
-            //                foreach (var item in PML)
-            //                {
-            //                    Creditor = item.Remaining;
-            //                    Invnum.Items.Add(item.InvoiceNo);
-            //                }
-            //            }
-            //        }
-            //    }
-            //    else
-            //    {
-            //        label9.Visible = false;
-            //        Invnum.Visible = false;
-            //        lblbill.Visible = false;
-            //        Billnumber.Visible = false;
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    var Qurcat = @"Insert Into Exception(Exceptionname,Form,Note) value('" + "شاشة الاشعارات" + "','" + "Getinvoices" + "','" + ex.Message.ToString() + "')";
-            //    var CMO = Da.Crudopration(Qurcat);
-            //}
+                    // هات كل الفواتير اللي لسه عليها باقي من جدول الدفعات
+                    var GPR = _IUW.payments.GetAll()
+                                .Where(x => x.ThirdPartyID == CustId && x.Remaining != 0)
+                                .ToList();
+
+                    // اربط بالكومبو بوكس (WinForms)
+                    Invnum.DataSource = GPR;
+                    Invnum.DisplayMember = "InvoiceNo";   // اللي المستخدم يشوفه
+                    Invnum.ValueMember = "PaymentNo";    // القيمة اللي تتخزن داخليًا
+                    label9.Visible = true;
+                    Invnum.Visible = true;
+                    lblbill.Visible = true;
+                    Billnumber.Visible = true;
+                }
+            }
+            else
+            {
+                label9.Visible = false;
+                Invnum.Visible = false;
+                lblbill.Visible = false;
+                Billnumber.Visible = false;
+            }
         }
     }
 }

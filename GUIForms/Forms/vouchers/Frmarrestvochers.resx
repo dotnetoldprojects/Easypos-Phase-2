@@ -711,9 +711,6 @@
   <data name="Vochertypes.Items2" xml:space="preserve">
     <value>سند ايصال مبيعات</value>
   </data>
-  <data name="Vochertypes.Items3" xml:space="preserve">
-    <value>فاتورة مبيعات</value>
-  </data>
   <data name="Vochertypes.Location" type="System.Drawing.Point, System.Drawing">
     <value>629, 78</value>
   </data>
@@ -1532,9 +1529,6 @@
   </data>
   <data name="Vochertype.Items2" xml:space="preserve">
     <value>سند دفع لعميل</value>
-  </data>
-  <data name="Vochertype.Items3" xml:space="preserve">
-    <value>سند ايصال مشتريات</value>
   </data>
   <data name="Vochertype.Location" type="System.Drawing.Point, System.Drawing">
     <value>632, 81</value>
