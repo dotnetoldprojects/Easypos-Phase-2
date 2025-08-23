@@ -100,6 +100,7 @@ namespace Easypos.Salesforms.Cashier
         private void LoadAllCombos()
         {
             Commondatasales.FillCombo(clientID, GC.Getcustomerdatalist(), "Name", "ID");
+            clientID.SelectedIndex = 1;
         }
         void Getcatlist()
         {
@@ -276,8 +277,11 @@ namespace Easypos.Salesforms.Cashier
             else
             {
                 openpayment();
-                _PI.Invoice(Invid);
-                Clearfieldes();
+                if (Invid != 0)
+                {
+                    _PI.Invoice(Invid);
+                    Clearfieldes();
+                }
             }
         }
         private void Editsales()
@@ -353,12 +357,13 @@ namespace Easypos.Salesforms.Cashier
             SalesHelper.SaveSaleWithDetails(sale, details, _IUW);
             Invid = sale.Invoiceno;
             Saveitemsales();
+            //Clearfieldes();
         }
         public void openpayment()
         {
             Frmpayments PAY = new Frmpayments();
             PAY.Total = decimal.Parse(txtTotal.Text);
-            PAY.clients.SelectedValue = clientID.SelectedValue;
+            PAY.Cust = clientID.SelectedValue.ToString();
             PAY.Formname = "Sales";
             PAY.ShowDialog();
         }

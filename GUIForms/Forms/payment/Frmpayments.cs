@@ -16,6 +16,7 @@ namespace Easypos.Payment
         public decimal Total { get; set; }
         public string Formname { get; set; }
         public string Purcid { get; set; }
+        public string Cust { get; set; }
         Getcentralaizes GC;
         IUnitofwork _IUW;
         company DC;
@@ -70,6 +71,14 @@ namespace Easypos.Payment
         {
             LoadAllCombos();
             txtTotal.Text = Total.ToString();
+            if (Cust != null)
+            {
+                clients.SelectedValue = int.Parse(Cust);
+            }
+            else
+            {
+                clients.SelectedValue = int.Parse(Purcid);
+            }
         }
         private void Btnsave_Click(object sender, EventArgs e)
         {
@@ -77,24 +86,35 @@ namespace Easypos.Payment
             {
                 if (Formname == "Sales")
                 {
-                    if (Sb != null)
+                    var Rem = Convert.ToDouble(txtRem.Text);
+                    if (Rem <= 0 && clients.SelectedIndex == 1)
                     {
-                        Sb.Btnsaved();
-                        if (Sb.Billtype.Text == "صدرت")
-                        {
-                            Savpayment();
-                            Sb.Generatexml();
-                        }
+                        MessageBox.Show("لا يمكن البيع بالآجل لعميل اقتراضي", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
-                    if (Pos != null)
+                    else
                     {
-                        Pos.Btnsaved();
-                        if (Pos.Billtype.Text == "صدرت")
+                        if (Sb != null)
                         {
-                            Savpayment();
-                            Pos.Generatexml();
+                            Sb.Btnsaved();
+                            if (Sb.Billtype.Text == "صدرت")
+                            {
+                                Savpayment();
+                                Sb.Generatexml();
+                            }
+                            MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
                         }
-                        //Pos.Clearfieldes();
+                        if (Pos != null)
+                        {
+                            Pos.Btnsaved();
+                            if (Pos.Billtype.Text == "صدرت")
+                            {
+                                Savpayment();
+                                Pos.Generatexml();
+                            }
+                            MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
+                            //Pos.Clearfieldes();
+                        }
                     }
                 }
                 if (Formname == "Purchases")
@@ -107,6 +127,7 @@ namespace Easypos.Payment
                             Savpayout();
                         }
                         Pur.Clearfildes();
+                        MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
                     }
                 }
             }
@@ -115,7 +136,6 @@ namespace Easypos.Payment
                 var logger = new ExceptionLogger(_IUW);
                 logger.Log(ex, "Payments");
             }
-            MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
             Close();
         }
         private void Savpayment()
@@ -144,7 +164,6 @@ namespace Easypos.Payment
             _IUW.payments.Insert(pay);
             _IUW.Complete();
             SalesHelper.Savetransactions(Inv, pay.ThirdPartyID, pay.Paid, "فاتورة مبيعات", _IUW);
-            Close();
         }
         private void Savpayout()
         {
