@@ -675,7 +675,7 @@ namespace Easypos.Salesforms.Cashier
         private void RB1_CheckedChanged(object sender, EventArgs e)
         {
             DGV.Enabled = true;
-            DGV.ReadOnly = true;
+            DGV.ReadOnly = false;
             txtDiscount.ReadOnly = true;
             txtTotal.ReadOnly = true;
             txtDiscount.Enabled = false;
@@ -684,7 +684,7 @@ namespace Easypos.Salesforms.Cashier
         private void RB2_CheckedChanged(object sender, EventArgs e)
         {
             DGV.Enabled = false;
-            DGV.ReadOnly = false;
+            DGV.ReadOnly = true;
             txtDiscount.ReadOnly = false;
             txtTotal.ReadOnly = false;
             txtDiscount.Enabled = true;

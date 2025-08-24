@@ -314,7 +314,7 @@ namespace Easypos.Vouchers
             Invnum.Visible = false;
             Billnumber.Visible = false;
             //Invnum.Items.Clear();
-            Billnumber.Items.Clear();
+            //Billnumber.Items.Clear();
             txtpay.Clear();
             txtinv.Clear();
             Cmbpricetype.SelectedIndex = 0;
