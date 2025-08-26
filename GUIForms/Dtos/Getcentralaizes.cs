@@ -80,20 +80,22 @@ namespace GUIForms.Dtos
         {
             DateTime DF = DateTime.Parse(DFT);
             DateTime DT = DateTime.Parse(DTT);
-            var result = (from t in _IUOW.transactions.GetAll()
+            var result = (from t in _IUOW.transactions.GetAll().ToList()
                           where t.ThirdPartyID == Thirdid &&
-                                DateTime.Parse(t.TDate) >= DF && DateTime.Parse(t.TDate) <= DT
-                          join tp in _IUOW.thirdparties.GetAll() on t.ThirdPartyID equals tp.ID into tpJoin
+                                DateTime.Parse(t.TDate) >= DF && DateTime.Parse(t.TDate) <= DT 
+                                && t.Type != "ايرادات اخرى"
+                          join tp in _IUOW.thirdparties.GetAll().ToList() on t.ThirdPartyID equals tp.ID into tpJoin
                           from tp in tpJoin.DefaultIfEmpty()
 
-                          join p in _IUOW.payments.GetAll() on t.Paynum equals p.paymentNo into pJoin
+                          join p in _IUOW.payments.GetAll().ToList() on t.Paynum equals p.paymentNo into pJoin
                           from p in pJoin.DefaultIfEmpty()
 
-                          join s in _IUOW.sales.GetAll() on t.Invoiceno equals s.Invoiceno into sJoin
+                          join s in _IUOW.sales.GetAll().ToList() on t.Invoiceno equals s.Invoiceno into sJoin
                           from s in sJoin.DefaultIfEmpty()
 
                           select new
                           {
+                              ID = t.ID,
                               Name = tp.Name,
                               MobileNumber = tp.MobileNumber,
                               Address = tp.Address,
@@ -103,9 +105,9 @@ namespace GUIForms.Dtos
                               InvoiceNo = t.Invoiceno,
                               TDate = t.TDate,
                               ThirdPartyID = t.ThirdPartyID,
-                              TotalAmount = s.TotalAmount,
+                              TotalAmount = s?.TotalAmount,
                               Paid = t.Paid,
-                              Remaining = p.Remaining
+                              Remaining = p?.Remaining ?? 0,
                           }).ToList().Cast<dynamic>().ToList();
             return result;
         }
@@ -117,7 +119,7 @@ namespace GUIForms.Dtos
         {
             var totalFinancial = _IUOW.payments.GetAll()
                                                .Where(p => p.ThirdPartyID == tid && DateTime.Parse(p.Date) < DateTime.Parse(DFT))
-                                               .Sum(p => (decimal?)p.Remaining - (decimal?)p.Paid) ?? 0;
+                                               .Sum(p => (decimal?)p.Remaining ?? 0 );
             return totalFinancial;
         }
     }

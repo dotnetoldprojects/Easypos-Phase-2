@@ -198,7 +198,7 @@ namespace Easypos.Payment
                 return;
             }
             txtTotalPay.Text = Convert.ToString((Convert.ToDouble(txtCash.Text) + Convert.ToDouble(txtBank.Text)));
-            if (Pos != null || Sb != null)
+            if (Pos != null || Sb != null || Pur != null)
             {
                 txtRem.Text = Convert.ToString((Convert.ToDouble(txtTotal.Text) - Convert.ToDouble(txtTotalPay.Text)));
             }
@@ -214,7 +214,7 @@ namespace Easypos.Payment
                 return;
             }
             txtTotalPay.Text = Convert.ToString((Convert.ToDouble(txtCash.Text) + Convert.ToDouble(txtBank.Text)));
-            if (Pos != null || Sb != null)
+            if (Pos != null || Sb != null || Pur != null)
             {
                 txtRem.Text = Convert.ToString((Convert.ToDouble(txtTotal.Text) - Convert.ToDouble(txtTotalPay.Text)));
             }

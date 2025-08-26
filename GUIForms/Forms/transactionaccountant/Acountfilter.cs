@@ -74,20 +74,32 @@ namespace Easypos.TransactionsAccountant
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            Customeraccount CA = new Customeraccount();
-            CA.Tid = Tid;
-            if (Tid == 0)
+            Checkcustomer();
+        }
+        private void clients_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            //Checkcustomer();
+        }
+        void Checkcustomer() {
+            Tid = Convert.ToInt32(clients.SelectedIndex);
+            if (RBCust.Checked)
             {
-                MessageBox.Show("برجاء اختيار الموزع او العميل","خطأ",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                if (Tid == 1)
+                {
+                    MessageBox.Show("لا يمكن اختيار عميل افتراضي", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+            Customeraccount CA = new Customeraccount();
+            CA.Tid = int.Parse(clients.SelectedValue.ToString());
+            if (Tid == 0 || Tid == 1)
+            {
+                MessageBox.Show("برجاء اختيار الموزع او العميل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             CA.textBox5.Text = DTF.Value.ToString("dd-MM-yyyy");
             CA.textBox6.Text = DTT.Value.ToString("dd-MM-yyyy");
             CA.ShowDialog();
-        }
-        private void clients_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            Tid = Convert.ToInt32(clients.SelectedValue);
         }
     }
 }

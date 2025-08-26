@@ -46,15 +46,7 @@ namespace Easypos.TransactionsAccountant
                 var BT = item.Type;
                 if (BT != "مسوده")
                 {
-                    var BN = 0;
-                    if (item.Type == "فاتورة مبيعات")
-                    {
-                        BN = item.InvoiceNo;
-                    }
-                    else if (item.Type == "سندات قبض")
-                    {
-                        BN = item.ID;
-                    }
+                    var BN = item.InvoiceNo;
                     decimal Creditor = 0;
                     decimal Dibtor = 0;
                     if (item.Type == "فاتورة مبيعات")
@@ -62,7 +54,7 @@ namespace Easypos.TransactionsAccountant
                         Creditor = decimal.Parse(item.TotalAmount);
                         Dibtor = 0;
                     }
-                    if (item.Type == "سندات قبض")
+                    if (item.Type == "سند ايصال مبيعات")
                     {
                         Dibtor = item.Paid;
                         Creditor = 0;
@@ -86,18 +78,18 @@ namespace Easypos.TransactionsAccountant
                             var GBalnce = Math.Round(TBalance, 2);
                             DGV.Rows[i].Cells[5].Value = GBalnce;
                         }
-                        if (Det == "سندات قبض")
+                        if (Det == "سند ايصال مبيعات")
                         {
                             TBalance = TBalance + Tot;
                             var GBalnce = Math.Round(TBalance, 2);
                             DGV.Rows[i].Cells[5].Value = GBalnce;
                         }
-                        if (Det == "فاتورة مرتجع")
-                        {
-                            TBalance = TBalance + Pay;
-                            var GBalnce = Math.Round(TBalance, 2);
-                            //CA.DGV.Rows[i].Cells[5].Value = GBalnce;
-                        }
+                        //if (Det == "فاتورة مرتجع")
+                        //{
+                        //    TBalance = TBalance + Pay;
+                        //    var GBalnce = Math.Round(TBalance, 2);
+                        //    //CA.DGV.Rows[i].Cells[5].Value = GBalnce;
+                        //}
                         if (Det == "سندات دفع")
                         {
                             TBalance = TBalance - Tot;

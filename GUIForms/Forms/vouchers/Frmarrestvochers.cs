@@ -170,6 +170,15 @@ namespace Easypos.Vouchers
                         }
                     }
                 }
+                else
+                {
+                    Voch.Date = date.Value.ToString("dd-MM-yyyy");
+                    Voch.Thiredpartyid = Convert.ToInt32(Clients.SelectedValue.ToString());
+                    Voch.Vochertypes = Vochertypes.Text;
+                    Voch.Paid = decimal.Parse(txtprice.Text);
+                    Voch.Paymentmathod = Cmbpricetype.Text;
+                    Voch.Note = Note.Text;
+                }
             }
             try
             {
@@ -182,7 +191,7 @@ namespace Easypos.Vouchers
                 var logger = new ExceptionLogger(_IUW);
                 logger.Log(ex, "Vochers");
             }
-            SalesHelper.Savetransactions(Voch.Id, Voch.Thiredpartyid, Voch.Paid, Methode,_IUW);
+            SalesHelper.Savetransactions(Voch.Id, Voch.Thiredpartyid, Voch.Paid, Vochertypes.Text, _IUW);
             Clearfieldes();
             Loading();
         }
