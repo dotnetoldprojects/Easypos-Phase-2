@@ -109,6 +109,7 @@ namespace Easypos.Vouchers
                 Voch.Paid = Convert.ToDecimal(txtmony.Text);
                 Voch.Paymentmathod = CmbPaymethod.Text;
                 Voch.Note = Purnottxt.Text;
+                SalesHelper.Savetransactions(Voch.Id, Voch.Thiredpartyid, Voch.Paid, Vochertypes.Text, _IUW, Voch.Date);
             }
             if (Methode == "سندات قبض")
             {
@@ -169,6 +170,7 @@ namespace Easypos.Vouchers
                             return;
                         }
                     }
+                    SalesHelper.Savetransactions(Voch.Id, Voch.Thiredpartyid, Voch.Paid, Vochertype.Text, _IUW, Voch.Date);
                 }
                 else
                 {
@@ -191,7 +193,6 @@ namespace Easypos.Vouchers
                 var logger = new ExceptionLogger(_IUW);
                 logger.Log(ex, "Vochers");
             }
-            SalesHelper.Savetransactions(Voch.Id, Voch.Thiredpartyid, Voch.Paid, Vochertypes.Text, _IUW);
             Clearfieldes();
             Loading();
         }
@@ -254,7 +255,7 @@ namespace Easypos.Vouchers
                 Voch.Methode = Methode;
                 _IUW.vouchers.Update(Voch);
                 _IUW.Complete();
-                SalesHelper.Savetransactions(Voch.Id, Voch.Thiredpartyid, Voch.Paid, Methode, _IUW);
+                SalesHelper.Savetransactions(Voch.Id, Voch.Thiredpartyid, Voch.Paid, Methode, _IUW, Voch.Date);
             }
         }
         private void SaveEdit(string Methode)

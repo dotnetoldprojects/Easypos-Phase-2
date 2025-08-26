@@ -85,12 +85,12 @@ namespace GUIForms.helpers
 
 
 
-        public static void Savetransactions(int inv, int? TP, decimal? paid, string type, IUnitofwork _IUW)
+        public static void Savetransactions(int inv, int? TP, decimal? paid, string type, IUnitofwork _IUW, string date)
         {
             transaction trn = new transaction();
             trn.Invoiceno = inv;
             trn.Paynum = null;
-            trn.TDate = DateTime.Now.ToString("dd-MM-yyyy");
+            trn.TDate = date;
             trn.Type = type;
             trn.ThirdPartyID = TP;
             trn.Paid = paid;

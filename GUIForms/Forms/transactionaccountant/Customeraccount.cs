@@ -1,5 +1,7 @@
 ﻿using Domain.Models;
 using GUIForms.Dtos;
+using Reporting;
+using Reporting.accountant;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,10 +30,11 @@ namespace Easypos.TransactionsAccountant
             _IUW = new Unitofwork(new EasyposEntities());
         }
         public int Tid { get; set; }
+        public string TT { get; set; }
         private void Loading()
         {
-            var Balance = GC.GetBalance(Tid, textBox5.Text);
-            var Res = GC.LoadAccounting(Tid, textBox5.Text, textBox6.Text);
+            var Balance = GC.GetBalance(Tid, textBox5.Text,TT);
+            var Res = GC.LoadAccounting(Tid, textBox5.Text, textBox6.Text,TT);
             foreach (var item in Res)
             {
                 textBox1.Text = item.MobileNumber;
@@ -58,6 +61,16 @@ namespace Easypos.TransactionsAccountant
                     {
                         Dibtor = item.Paid;
                         Creditor = 0;
+                    }
+                    if (item.Type == "فاتورة مشتريات")
+                    {
+                        Dibtor = decimal.Parse(item.TotalAmount);
+                        Creditor = 0;
+                    }
+                    if (item.Type == "سند دفع لمورد")
+                    {
+                        Dibtor = 0;
+                        Creditor = item.Paid;
                     }
                     DGV.Rows.Add(BN, item.TDate, item.Type, Dibtor, Creditor, 0.00); 
                     Double TBalance = 0.00;
@@ -90,11 +103,17 @@ namespace Easypos.TransactionsAccountant
                         //    var GBalnce = Math.Round(TBalance, 2);
                         //    //CA.DGV.Rows[i].Cells[5].Value = GBalnce;
                         //}
-                        if (Det == "سندات دفع")
+                        if (Det == "فاتورة مشتريات")
                         {
-                            TBalance = TBalance - Tot;
+                            TBalance = TBalance + (Tot - Pay);
                             var GBalnce = Math.Round(TBalance, 2);
-                            //CA.DGV.Rows[i].Cells[5].Value = GBalnce;
+                            DGV.Rows[i].Cells[5].Value = GBalnce;
+                        }
+                        if (Det == "سند دفع لمورد")
+                        {
+                            TBalance = TBalance + (Tot - Pay);
+                            var GBalnce = Math.Round(TBalance, 2);
+                            DGV.Rows[i].Cells[5].Value = GBalnce;
                         }
                     }
                 }
@@ -107,6 +126,59 @@ namespace Easypos.TransactionsAccountant
         private void Customeraccount_Load(object sender, EventArgs e)
         {
             Loading();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Accountantreport AR = new Accountantreport();
+            Frmreporting FQR = new Frmreporting();
+            Dataset ds = new Dataset();
+            byte[] Logo = Convert.FromBase64String(DC.CompanyLogo);
+            int i = 0;
+            for (i = 0; i < DGV.Rows.Count; i++)
+            {
+                var DTD = DGV.Rows[i].Cells[1].Value;
+                if (DTD == null)
+                {
+                    DTD = textBox5.Text;
+                    DGV.Rows[i].Cells[0].Value = 0;
+                }
+                ds.Accountants.Rows.Add(new object[] {
+                    DGV.Rows[i].Cells[0].Value.ToString(),
+                    DTD,
+                    DGV.Rows[i].Cells[2].Value.ToString(),
+                    DGV.Rows[i].Cells[3].Value.ToString(),
+                    DGV.Rows[i].Cells[4].Value.ToString(),
+                    DGV.Rows[i].Cells[5].Value.ToString(),
+                    Logo
+                });
+            }
+            AR.SetDataSource(ds);
+            FQR.CRV.ReportSource = AR;
+            FQR.CRV.Refresh();
+
+
+            AR.SetParameterValue("CompanyName", DC.Name);
+            AR.SetParameterValue("Address", DC.Address);
+            AR.SetParameterValue("PhoneNo", "PN");
+            AR.SetParameterValue("MobileNo", "MN");
+            AR.SetParameterValue("Taxnum", DC.Taxnumber);
+            AR.SetParameterValue("Fromdate", textBox5.Text);
+            AR.SetParameterValue("Todate", textBox6.Text);
+            AR.SetParameterValue("Clientname", textBox2.Text);
+            AR.SetParameterValue("Clientaddress", textBox3.Text);
+            AR.SetParameterValue("Taxnumber", textBox4.Text);
+            if ( TT == "2")
+            {
+                AR.SetParameterValue("TOF", "كشف حساب عميل");
+            }
+            else
+            {
+                AR.SetParameterValue("TOF", "كشف حساب مورد");
+            }
+            AR.SetParameterValue("English_Shop_name", DC.ENName);
+            AR.SetParameterValue("Proname", DC.CRN);
+            FQR.Show();
         }
     }
 }

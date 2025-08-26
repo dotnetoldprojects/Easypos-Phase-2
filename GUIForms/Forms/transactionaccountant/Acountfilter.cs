@@ -92,6 +92,14 @@ namespace Easypos.TransactionsAccountant
             }
             Customeraccount CA = new Customeraccount();
             CA.Tid = int.Parse(clients.SelectedValue.ToString());
+            if (RBCust.Checked)
+            {
+                CA.TT = "2";
+            }
+            else
+            {
+                CA.TT = "1";
+            }
             if (Tid == 0 || Tid == 1)
             {
                 MessageBox.Show("برجاء اختيار الموزع او العميل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);

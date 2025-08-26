@@ -65,11 +65,25 @@ namespace Easypos.Purchases
                             15 // نسبة الضريبة
                         );
         }
+        public void Clearall()
+        {
+            Invid = 0;
+            Billtype.SelectedIndex = 1;
+            DTP.Value = DateTime.Now;
+            clientID.SelectedIndex = -1;
+            txtTBV.Clear();
+            txtDiscount.Clear();
+            txtTax.Clear();
+            txtTotal.Clear();
+            BStxt.Clear();
+            DGV.Rows.Clear();
+            Clearfildes();
+        }
         public void Clearfildes()
         {
             txtQuantity.Clear();
             txtPrice.Clear();
-            LoadAllCombos();
+            //LoadAllCombos();
         }
         private void Btnclose_Click(object sender, EventArgs e)
         {
@@ -150,7 +164,6 @@ namespace Easypos.Purchases
             else
             {
                 openpayment();
-                Clearfildes();
             }
         }
         public void openpayment()
@@ -338,6 +351,11 @@ namespace Easypos.Purchases
         private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             _NO.Usenumber(sender, e);
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                _DGVPH.AddProductToDGV();
+                Clearfildes();
+            }
         }
     }
 }

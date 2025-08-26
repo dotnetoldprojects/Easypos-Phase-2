@@ -76,50 +76,104 @@ namespace GUIForms.Dtos
             doc.LoadXml(xmlContent);
             return doc;
         }
-        public List<dynamic> LoadAccounting(int Thirdid,string DFT, string DTT)
+        public List<dynamic> LoadAccounting(int Thirdid,string DFT, string DTT, string TT)
         {
             DateTime DF = DateTime.Parse(DFT);
             DateTime DT = DateTime.Parse(DTT);
-            var result = (from t in _IUOW.transactions.GetAll().ToList()
-                          where t.ThirdPartyID == Thirdid &&
-                                DateTime.Parse(t.TDate) >= DF && DateTime.Parse(t.TDate) <= DT 
-                                && t.Type != "ايرادات اخرى"
-                          join tp in _IUOW.thirdparties.GetAll().ToList() on t.ThirdPartyID equals tp.ID into tpJoin
-                          from tp in tpJoin.DefaultIfEmpty()
+            List<dynamic> Res = new List<dynamic>();
+            List<payment> PL = new List<payment>();
+            List<paymentout> PO = new List<paymentout>();
+            List<sale> SL = new List<sale>();
+            List<purchase> Pur = new List<purchase>();
+            if (TT == "2")
+            {
+                PL = _IUOW.payments.GetAll().ToList();
+                SL = _IUOW.sales.GetAll().ToList();
+                Res = (from t in _IUOW.transactions.GetAll().ToList()
+                              where t.ThirdPartyID == Thirdid &&
+                                    DateTime.Parse(t.TDate) >= DF && DateTime.Parse(t.TDate) <= DT
+                                    //&& t.Type != "ايرادات اخرى"
+                              join tp in _IUOW.thirdparties.GetAll().ToList() on t.ThirdPartyID equals tp.ID into tpJoin
+                              from tp in tpJoin.DefaultIfEmpty()
 
-                          join p in _IUOW.payments.GetAll().ToList() on t.Paynum equals p.paymentNo into pJoin
-                          from p in pJoin.DefaultIfEmpty()
+                              join p in PL on t.Paynum equals p.paymentNo into pJoin
+                              from p in pJoin.DefaultIfEmpty()
 
-                          join s in _IUOW.sales.GetAll().ToList() on t.Invoiceno equals s.Invoiceno into sJoin
-                          from s in sJoin.DefaultIfEmpty()
+                              join s in SL on t.Invoiceno equals s.Invoiceno into sJoin
+                              from s in sJoin.DefaultIfEmpty()
 
-                          select new
-                          {
-                              ID = t.ID,
-                              Name = tp.Name,
-                              MobileNumber = tp.MobileNumber,
-                              Address = tp.Address,
-                              Taxnumber = tp.Taxnumber,
-                              Type = t.Type,
-                              Paynum = t.Paynum,
-                              InvoiceNo = t.Invoiceno,
-                              TDate = t.TDate,
-                              ThirdPartyID = t.ThirdPartyID,
-                              TotalAmount = s?.TotalAmount,
-                              Paid = t.Paid,
-                              Remaining = p?.Remaining ?? 0,
-                          }).ToList().Cast<dynamic>().ToList();
-            return result;
+                              select new
+                              {
+                                  ID = t.ID,
+                                  Name = tp.Name,
+                                  MobileNumber = tp.MobileNumber,
+                                  Address = tp.Address,
+                                  Taxnumber = tp.Taxnumber,
+                                  Type = t.Type,
+                                  Paynum = t.Paynum,
+                                  InvoiceNo = t.Invoiceno,
+                                  TDate = t.TDate,
+                                  ThirdPartyID = t.ThirdPartyID,
+                                  TotalAmount = s?.TotalAmount,
+                                  Paid = t.Paid,
+                                  Remaining = p?.Remaining ?? 0,
+                              }).ToList().Cast<dynamic>().ToList();
+            }
+            else
+            {
+                PO = _IUOW.paymentouts.GetAll().ToList();
+                Pur = _IUOW.purchases.GetAll().ToList();
+                Res = (from t in _IUOW.transactions.GetAll().ToList()
+                       where t.ThirdPartyID == Thirdid &&
+                             DateTime.Parse(t.TDate) >= DF && DateTime.Parse(t.TDate) <= DT
+                       join tp in _IUOW.thirdparties.GetAll().ToList() on t.ThirdPartyID equals tp.ID into tpJoin
+                       from tp in tpJoin.DefaultIfEmpty()
+
+                       join p in PO on t.Paynum equals p.paymentNo into pJoin
+                       from p in pJoin.DefaultIfEmpty()
+
+                       join s in Pur on t.Invoiceno equals s.Invoiceno into sJoin
+                       from s in sJoin.DefaultIfEmpty()
+
+                       select new
+                       {
+                           ID = t.ID,
+                           Name = tp.Name,
+                           MobileNumber = tp.MobileNumber,
+                           Address = tp.Address,
+                           Taxnumber = tp.Taxnumber,
+                           Type = t.Type,
+                           Paynum = t.Paynum,
+                           InvoiceNo = t.Invoiceno,
+                           TDate = t.TDate,
+                           ThirdPartyID = t.ThirdPartyID,
+                           TotalAmount = s?.TotalAmount,
+                           Paid = t.Paid,
+                           Remaining = p?.Remaining ?? 0,
+                       }).ToList().Cast<dynamic>().ToList();
+            }
+
+            return Res;
         }
         public List<expencestype> LaodETypes()
         {
             return _IUOW.expencestypes.GetAll().ToList();
         }
-        public object GetBalance(int tid, string DFT)
+        public object GetBalance(int tid, string DFT, string TT)
         {
-            var totalFinancial = _IUOW.payments.GetAll()
-                                               .Where(p => p.ThirdPartyID == tid && DateTime.Parse(p.Date) < DateTime.Parse(DFT))
-                                               .Sum(p => (decimal?)p.Remaining ?? 0 );
+            decimal totalFinancial;
+            if (TT == "2")
+            {
+                totalFinancial = _IUOW.payments.GetAll()
+                                   .Where(p => p.ThirdPartyID == tid && DateTime.Parse(p.Date) < DateTime.Parse(DFT))
+                                   .Sum(p => (decimal?)p.Remaining ?? 0);
+            }
+            else
+            {
+                totalFinancial = _IUOW.paymentouts.GetAll()
+                                   .Where(p => p.ThirdPartyID == tid && DateTime.Parse(p.Date) < DateTime.Parse(DFT))
+                                   .Sum(p => (decimal?)p.Remaining ?? 0);
+            }
             return totalFinancial;
         }
     }

@@ -126,7 +126,7 @@ namespace Easypos.Payment
                         {
                             Savpayout();
                         }
-                        Pur.Clearfildes();
+                        Pur.Clearall();
                         MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
                     }
                 }
@@ -163,7 +163,7 @@ namespace Easypos.Payment
             pay.Type = "فاتورة مبيعات";
             _IUW.payments.Insert(pay);
             _IUW.Complete();
-            SalesHelper.Savetransactions(Inv, pay.ThirdPartyID, pay.Paid, "فاتورة مبيعات", _IUW);
+            SalesHelper.Savetransactions(Inv, pay.ThirdPartyID, pay.Paid, "فاتورة مبيعات", _IUW, pay.Date);
         }
         private void Savpayout()
         {
@@ -180,7 +180,7 @@ namespace Easypos.Payment
             payout.Type = "فاتورة مشتريات";
             _IUW.paymentouts.Insert(payout);
             _IUW.Complete();
-            SalesHelper.Savetransactions(Pur.Invid, payout.ThirdPartyID, payout.Paid, "فاتورة مشتريات", _IUW);
+            SalesHelper.Savetransactions(Pur.Invid, payout.ThirdPartyID, payout.Paid, "فاتورة مشتريات", _IUW, pay.Date);
             Close();
         }
         private void txtCash_KeyPress(object sender, KeyPressEventArgs e)

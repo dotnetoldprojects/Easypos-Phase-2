@@ -42,6 +42,12 @@ namespace Easypos.TransactionsAccountant
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DGV = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Detailes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -59,12 +65,6 @@ namespace Easypos.TransactionsAccountant
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Detailes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Payment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Paid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Balance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -115,6 +115,60 @@ namespace Easypos.TransactionsAccountant
             dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.DGV.RowsDefaultCellStyle = dataGridViewCellStyle11;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "InvoiceNo";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
+            resources.ApplyResources(this.ID, "ID");
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "TDate";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Date.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.Date, "Date");
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Detailes
+            // 
+            this.Detailes.DataPropertyName = "Type";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Detailes.DefaultCellStyle = dataGridViewCellStyle5;
+            resources.ApplyResources(this.Detailes, "Detailes");
+            this.Detailes.Name = "Detailes";
+            this.Detailes.ReadOnly = true;
+            // 
+            // Payment
+            // 
+            this.Payment.DataPropertyName = "Total";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Payment.DefaultCellStyle = dataGridViewCellStyle6;
+            resources.ApplyResources(this.Payment, "Payment");
+            this.Payment.Name = "Payment";
+            this.Payment.ReadOnly = true;
+            // 
+            // Paid
+            // 
+            this.Paid.DataPropertyName = "Paied";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Paid.DefaultCellStyle = dataGridViewCellStyle7;
+            resources.ApplyResources(this.Paid, "Paid");
+            this.Paid.Name = "Paid";
+            this.Paid.ReadOnly = true;
+            // 
+            // Balance
+            // 
+            this.Balance.DataPropertyName = "Balance";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Balance.DefaultCellStyle = dataGridViewCellStyle8;
+            resources.ApplyResources(this.Balance, "Balance");
+            this.Balance.Name = "Balance";
+            this.Balance.ReadOnly = true;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.PowderBlue;
@@ -156,6 +210,7 @@ namespace Easypos.TransactionsAccountant
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.button3.Name = "button3";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
@@ -228,60 +283,6 @@ namespace Easypos.TransactionsAccountant
             resources.ApplyResources(this.textBox6, "textBox6");
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "InvoiceNo";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
-            resources.ApplyResources(this.ID, "ID");
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "TDate";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Date.DefaultCellStyle = dataGridViewCellStyle4;
-            resources.ApplyResources(this.Date, "Date");
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Detailes
-            // 
-            this.Detailes.DataPropertyName = "Type";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Detailes.DefaultCellStyle = dataGridViewCellStyle5;
-            resources.ApplyResources(this.Detailes, "Detailes");
-            this.Detailes.Name = "Detailes";
-            this.Detailes.ReadOnly = true;
-            // 
-            // Payment
-            // 
-            this.Payment.DataPropertyName = "Total";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Payment.DefaultCellStyle = dataGridViewCellStyle6;
-            resources.ApplyResources(this.Payment, "Payment");
-            this.Payment.Name = "Payment";
-            this.Payment.ReadOnly = true;
-            // 
-            // Paid
-            // 
-            this.Paid.DataPropertyName = "Paied";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Paid.DefaultCellStyle = dataGridViewCellStyle7;
-            resources.ApplyResources(this.Paid, "Paid");
-            this.Paid.Name = "Paid";
-            this.Paid.ReadOnly = true;
-            // 
-            // Balance
-            // 
-            this.Balance.DataPropertyName = "Balance";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Balance.DefaultCellStyle = dataGridViewCellStyle8;
-            resources.ApplyResources(this.Balance, "Balance");
-            this.Balance.Name = "Balance";
-            this.Balance.ReadOnly = true;
             // 
             // Customeraccount
             // 

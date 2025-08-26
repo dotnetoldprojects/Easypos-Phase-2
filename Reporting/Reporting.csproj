@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="accountant\Accountantreport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Accountantreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Frmreporting.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,10 @@
       <DependentUpon>ReceiptVoucher.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="accountant\Accountantreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Accountantreport1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Frmreporting.resx">
       <DependentUpon>Frmreporting.cs</DependentUpon>
     </EmbeddedResource>
