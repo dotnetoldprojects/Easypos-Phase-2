@@ -53,16 +53,35 @@ namespace Resturantlayer
         private void Btnshowreport_Click(object sender, EventArgs e)
         {
             Frmreporting FR = new Frmreporting();
-            Ds = new Dataset();
-            DateTime fromDateTime = DateTime.Parse($"{DTF.Value:yyyy-MM-dd} {TTF.Value:HH:mm:ss}");
-            DateTime toDateTime = DateTime.Parse($"{DTT.Value:yyyy-MM-dd} {TTE.Value:HH:mm:ss}");
+            Dataset Ds = new Dataset();
+
+            // محاولة تحويل التاريخ والوقت مع التحقق
+            if (!DateTime.TryParse($"{DTF.Value:yyyy-MM-dd} {TTF.Value:HH:mm:ss}", out DateTime fromDateTime) ||
+                !DateTime.TryParse($"{DTT.Value:yyyy-MM-dd} {TTE.Value:HH:mm:ss}", out DateTime toDateTime))
+            {
+                MessageBox.Show("تاريخ أو وقت غير صالح", "خطأ");
+                return;
+            }
+
             if (RBAllsales.Checked)
             {
                 RD = new Summarysales();
-                // 1- جدول المبيعات (dtbasic)
-                var dtbasic = (from sd in _IUW.salesdetailes.GetAll()
-                               join s in _IUW.sales.GetAll() on sd.InvoiceNo equals s.Invoiceno
-                               let saleDateTime = DateTime.Parse($"{s.TDate:yyyy-MM-dd} {s.TTime:HH:mm:ss}")
+
+                // تجهيز الجداول داخل الـ DataSet
+                if (!Ds.Tables.Contains("dtbasic"))
+                    Ds.Tables.Add(new DataTable("dtbasic"));
+                if (!Ds.Tables.Contains("invoicedetailes"))
+                    Ds.Tables.Add(new DataTable("invoicedetailes"));
+
+                var sales = _IUW.sales.GetAll().ToList();
+                var salesdetailes = _IUW.salesdetailes.GetAll().ToList();
+                var payments = _IUW.payments.GetAll().ToList();
+                var thirdparties = _IUW.thirdparties.GetAll().ToList();
+
+                // جدول المبيعات
+                var dtbasic = (from sd in salesdetailes
+                               join s in sales on sd.InvoiceNo equals s.Invoiceno
+                               let saleDateTime = DateTime.TryParse($"{s.TDate:yyyy-MM-dd} {s.TTime:HH:mm:ss}", out var saleDateTimeResult) ? saleDateTimeResult : DateTime.MinValue
                                where saleDateTime >= fromDateTime && saleDateTime <= toDateTime
                                select new
                                {
@@ -76,41 +95,28 @@ namespace Resturantlayer
                                    sd.Discount,
                                }).ToList();
 
-                DataTable dt = Ds.Tables["dtbasic"];
+                var dt = Ds.Tables["dtbasic"];
                 foreach (var item in dtbasic)
                 {
-                    DataRow row = dt.NewRow();
+                    var row = dt.NewRow();
                     row["ProductNo"] = item.ProductNo;
                     row["TDDesc"] = item.TDDesc;
                     row["Quantity"] = item.Quantity;
                     row["Price"] = item.ItemPrice;
                     row["Subtotal"] = item.Total;
                     row["Discount"] = item.Discount;
-                    row["Totafterdiscount"] = item.Total;
+                    row["Totafterdiscount"] = item.Total - item.Discount;
                     dt.Rows.Add(row);
                 }
 
+                // تفاصيل الفاتورة
+                var invoicedetailes = (from sd in salesdetailes
+                                       join s in sales on sd.InvoiceNo equals s.Invoiceno
+                                       let saleDateTime = DateTime.TryParse($"{s.TDate:yyyy-MM-dd} {s.TTime:HH:mm:ss}", out var saleDateTimeResult) ? saleDateTimeResult : DateTime.MinValue
 
-                // 2- جدول المدفوعات (Dtpay)
-                var dtpay = (from p in _IUW.payments.GetAll()
-                             join s in _IUW.sales.GetAll() on p.InvoiceNo equals s.Invoiceno
-                             let saleDateTime = DateTime.Parse($"{s.TDate:yyyy-MM-dd} {s.TTime:HH:mm:ss}")
-                             where saleDateTime >= fromDateTime && saleDateTime <= toDateTime
-                             select new
-                             {
-                                 s.Invoiceno,
-                                 p.Date,
-                                 p.PaymentMethod,
-                                 p.Paid
-                             }).ToList();
-
-                // 4- تفاصيل الفاتورة (invoicedetailes)
-                var invoicedetailes = (from sd in _IUW.salesdetailes.GetAll()
-                                       join s in _IUW.sales.GetAll() on sd.InvoiceNo equals s.Invoiceno
-                                       let saleDateTime = DateTime.Parse($"{s.TDate:yyyy-MM-dd} {s.TTime:HH:mm:ss}")
                                        where saleDateTime >= fromDateTime && saleDateTime <= toDateTime
-                                       join t in _IUW.thirdparties.GetAll() on s.ThirdPartyID equals t.ID
-                                       join p in _IUW.payments.GetAll() on s.Invoiceno equals p.InvoiceNo into payJoin
+                                       join t in thirdparties on s.ThirdPartyID equals t.ID
+                                       join p in payments on s.Invoiceno equals p.InvoiceNo into payJoin
                                        from pj in payJoin.DefaultIfEmpty()
                                        select new
                                        {
@@ -124,13 +130,13 @@ namespace Resturantlayer
                                            s.TotalAmount,
                                            s.TDate,
                                            CustomerName = t.Name,
-                                           PaymentAmount = pj != null ? pj.Paid : 0
+                                           PaymentAmount = pj?.Paid ?? 0
                                        }).ToList();
 
-                DataTable dt2 = Ds.Tables["invoicedetailes"];
+                var dt2 = Ds.Tables["invoicedetailes"];
                 foreach (var item in invoicedetailes)
                 {
-                    DataRow row = dt2.NewRow();
+                    var row = dt2.NewRow();
                     row["Discount"] = item.Discount;
                     row["productnumber"] = item.ProductNo;
                     row["description"] = item.TDDesc;
@@ -143,32 +149,22 @@ namespace Resturantlayer
                     row["ReceivedAmount"] = item.PaymentAmount;
                     dt2.Rows.Add(row);
                 }
-
-                // 3- جدول العمليات البنكية (Banktrans)
-                //var banktrans = _IUW.banktransactions.GetAll()
-                //    .Select(b => new
-                //    {
-                //        b.TransactionId,
-                //        b.BankName,
-                //        b.TransactionDate,
-                //        b.Amount
-                //    }).ToList();
-
-                //ds.Tables.Add(ToDataTable(banktrans, "Banktrans"));
-
-                // ربط الـ DataSet مع التقرير
-                //RD.SetDataSource(ds);
             }
             else if (RBItemsales.Checked)
             {
                 RD = new Summaryitems();
+
+                if (!Ds.Tables.Contains("productitems"))
+                    Ds.Tables.Add(new DataTable("productitems"));
+
                 var sales = _IUW.sales.GetAll().ToList();
                 var salesdetailes = _IUW.salesdetailes.GetAll().ToList();
                 var productitems = _IUW.productitems.GetAll().ToList();
                 var items = _IUW.items.GetAll().ToList();
                 var unittypes = _IUW.unittypes.GetAll().ToList();
+
                 var query = from s in sales
-                            let saleDateTime = DateTime.Parse($"{s.TDate:yyyy-MM-dd} {s.TTime:HH:mm:ss}")
+                            let saleDateTime = DateTime.TryParse($"{s.TDate:yyyy-MM-dd} {s.TTime:HH:mm:ss}", out var saleDateTimeResult) ? saleDateTimeResult : DateTime.MinValue
                             where saleDateTime >= fromDateTime && saleDateTime <= toDateTime
                             join sd in salesdetailes on s.Invoiceno equals sd.InvoiceNo into sdGroup
                             from sd in sdGroup.DefaultIfEmpty()
@@ -194,18 +190,16 @@ namespace Resturantlayer
                                 UName = g.Key.UName,
                                 ItemQty = g.Key.ItemQty,
                                 ItemPrice = g.Key.ItemPrice,
-                                Quantity = g.Sum(x => decimal.Parse(x.pi?.Quantity)),
-                                Total = g.Sum(x => decimal.Parse(x.pi?.Quantity) * (g.Key.ItemPrice ?? 0)),
-                                QBD = g.Sum(x => decimal.Parse(x.pi?.Quantity) + (g.Key.ItemQty ?? 0))
+                                Quantity = g.Sum(x => decimal.TryParse(x.pi?.Quantity, out var q) ? q : 0),
+                                Total = g.Sum(x => (decimal.TryParse(x.pi?.Quantity, out var q) ? q : 0) * (g.Key.ItemPrice ?? 0)),
+                                QBD = g.Sum(x => (decimal.TryParse(x.pi?.Quantity, out var q) ? q : 0) -  + (g.Key.ItemQty ?? 0))
                             };
 
                 var result = query.OrderBy(x => x.ID).ToList();
-
-
-                DataTable dt = Ds.Tables["productitems"];
+                var dt = Ds.Tables["productitems"];
                 foreach (var item in result)
                 {
-                    DataRow row = dt.NewRow();
+                    var row = dt.NewRow();
                     row["Itemname"] = item.Itemname;
                     row["UnitType"] = item.UName;
                     row["itemqty"] = item.ItemQty;
@@ -221,12 +215,15 @@ namespace Resturantlayer
                 MessageBox.Show("برجاء اختيار نوع التقرير", "خطأ");
                 return;
             }
+
+            // إعداد التقرير
             RD.SetDataSource(Ds);
-            RD.SetParameterValue("SalesDate", $"من {DTF.Value.ToString("dd-MM-yyyy")} " + " " + $" إلي {DTT.Value.ToString("dd-MM-yyyy")}");
+            RD.SetParameterValue("SalesDate", $"من {DTF.Value:dd-MM-yyyy} إلي {DTT.Value:dd-MM-yyyy}");
             RD.SetParameterValue("English_Shop_name", DC.ENName);
             RD.SetParameterValue("CompanyName", DC.Name);
             FR.CRV.ReportSource = RD;
             FR.Show();
         }
+
     }
 }
