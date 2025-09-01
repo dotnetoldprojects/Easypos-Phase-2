@@ -1,4 +1,5 @@
-﻿using Domain.Models;
+﻿using Domain;
+using Domain.Models;
 using GUIForms.Dtos;
 using Reporting;
 using Reporting.accountant;

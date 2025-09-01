@@ -114,6 +114,7 @@
             <xs:sequence>
               <xs:element name="PChange" msprop:Generator_ColumnPropNameInTable="PChangeColumn" msprop:Generator_ColumnPropNameInRow="PChange" msprop:Generator_UserColumnName="PChange" msprop:Generator_ColumnVarNameInTable="columnPChange" type="xs:string" minOccurs="0" />
               <xs:element name="Paid" msprop:Generator_ColumnPropNameInTable="PaidColumn" msprop:Generator_ColumnPropNameInRow="Paid" msprop:Generator_UserColumnName="Paid" msprop:Generator_ColumnVarNameInTable="columnPaid" type="xs:string" minOccurs="0" />
+              <xs:element name="Bank" msprop:Generator_ColumnPropNameInRow="Bank" msprop:Generator_ColumnPropNameInTable="BankColumn" msprop:Generator_ColumnVarNameInTable="columnBank" msprop:Generator_UserColumnName="Bank" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -334,10 +335,10 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Boket" msprop:Generator_RowClassName="BoketRow" msprop:Generator_RowEvHandlerName="BoketRowChangeEventHandler" msprop:Generator_RowDeletedName="BoketRowDeleted" msprop:Generator_RowDeletingName="BoketRowDeleting" msprop:Generator_RowEvArgName="BoketRowChangeEvent" msprop:Generator_TablePropName="Boket" msprop:Generator_RowChangedName="BoketRowChanged" msprop:Generator_UserTableName="Boket" msprop:Generator_RowChangingName="BoketRowChanging" msprop:Generator_TableClassName="BoketDataTable" msprop:Generator_TableVarName="tableBoket">
+        <xs:element name="Boket" msprop:Generator_RowEvHandlerName="BoketRowChangeEventHandler" msprop:Generator_RowDeletedName="BoketRowDeleted" msprop:Generator_RowDeletingName="BoketRowDeleting" msprop:Generator_RowEvArgName="BoketRowChangeEvent" msprop:Generator_TablePropName="Boket" msprop:Generator_RowChangedName="BoketRowChanged" msprop:Generator_UserTableName="Boket" msprop:Generator_RowChangingName="BoketRowChanging" msprop:Generator_RowClassName="BoketRow" msprop:Generator_TableClassName="BoketDataTable" msprop:Generator_TableVarName="tableBoket">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="Imagedata" msprop:Generator_UserColumnName="Imagedata" msprop:Generator_ColumnPropNameInTable="ImagedataColumn" msprop:Generator_ColumnPropNameInRow="Imagedata" msprop:Generator_ColumnVarNameInTable="columnImagedata" type="xs:base64Binary" minOccurs="0" />
+              <xs:element name="Imagedata" msprop:Generator_ColumnPropNameInTable="ImagedataColumn" msprop:Generator_ColumnPropNameInRow="Imagedata" msprop:Generator_UserColumnName="Imagedata" msprop:Generator_ColumnVarNameInTable="columnImagedata" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

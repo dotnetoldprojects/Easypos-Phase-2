@@ -206,33 +206,6 @@ namespace Easypos.Salesforms
         }
         public void Getsalesbyfilters()
         {
-            //if (!string.IsNullOrEmpty(IN.Text))
-            //{
-            //    //var Data = Res.Where(x => x.Invoiceno == int.Parse(IN.Text)).FirstOrDefault();
-            //    var Data = Res.Where(x => x.Invoiceno == int.Parse(IN.Text))
-            //                  .Select(x => new
-            //                    {
-            //                        x.Invoiceno,
-            //                        x.TDate,
-            //                        x.TTime,
-            //                        x.NonVatTotal,
-            //                        x.Discount,
-            //                        x.VatAmount,
-            //                        x.TotalAmount,
-            //                        x.Cash,
-            //                        x.Bank,
-            //                        ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
-            //                        x.Type,
-            //                        x.Note
-            //                    })
-            //                  .FirstOrDefault();
-            //    DGV.DataSource = new List<object> { Data };
-            //}
-
-
-
-
-
             var query = Res.AsQueryable();
 
             // شرط رقم الفاتورة
@@ -246,7 +219,7 @@ namespace Easypos.Salesforms
             if (clientID.SelectedValue != null && (int)clientID.SelectedValue != 0)
             {
                 int clientId = (int)clientID.SelectedValue;
-                query = query.Where(x => x.ThirdPartyID == clientId); // غيّر اسم الحقل حسب اللي عندك
+                query = query.Where(x => x.ThirdPartyID == clientId);
             }
 
             // شرط التاريخ
@@ -254,21 +227,42 @@ namespace Easypos.Salesforms
             {
                 var fromDate = DTF.Value.Date;
                 var toDate = DTT.Value.Date;
-                query = query.Where(x => DateTime.Parse(x.TDate).Date >= fromDate && DateTime.Parse(x.TDate).Date <= toDate);
+                query = query.AsEnumerable()
+                             .Where(x =>
+                             {
+                                 DateTime tDate;
+                                 return DateTime.TryParse(x.TDate, out tDate)
+                                            && tDate.Date >= fromDate
+                                            && tDate.Date <= toDate;
+                             })
+                             .AsQueryable();
             }
 
             // شرط الوقت
             if (Searchbytime.Checked)
             {
-                var fromTime = TimeSpan.Parse(TTF.Text);
-                var toTime = TimeSpan.Parse(TTT.Text);
-                query = query.Where(x => TimeSpan.Parse(x.TTime) >= fromTime && TimeSpan.Parse(x.TTime) <= toTime);
+                if (TimeSpan.TryParse(TTF.Text, out var fromTime) &&
+                    TimeSpan.TryParse(TTT.Text, out var toTime))
+                {
+                    query = query.AsEnumerable()
+                                 .Where(x =>
+                                 {
+                                     if (TimeSpan.TryParse(x.TTime, out var tTime))
+                                     {
+                                         return tTime >= fromTime && tTime <= toTime;
+                                     }
+                                     return false;
+                                 })
+                                 .AsQueryable();
+                }
             }
+
+
 
             // شرط رقم الهاتف
             if (!string.IsNullOrEmpty(txtPhone.Text))
             {
-                query = query.Where(x => x.Phone.Contains(txtPhone.Text)); // غيّر اسم الحقل حسب اللي عندك
+                query = query.Where(x => x.Phone.Contains(txtPhone.Text));
             }
 
             // شرط الملاحظات
@@ -296,8 +290,8 @@ namespace Easypos.Salesforms
 
             // عرض النتائج
             DGV.DataSource = result;
-
         }
+
         private void Btnall_Click(object sender, EventArgs e)
         {
             Loading();

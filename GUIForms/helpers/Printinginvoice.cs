@@ -1,6 +1,7 @@
 ﻿using Aspose.Pdf;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.ReportAppServer;
+using Domain;
 using Domain.Models;
 using GUIForms.Dtos;
 using iText.Kernel.Pdf;

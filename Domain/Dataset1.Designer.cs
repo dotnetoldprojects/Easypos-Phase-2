@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Reporting {
+namespace Domain {
     
     
     /// <summary>
@@ -3313,6 +3313,8 @@ namespace Reporting {
             
             private global::System.Data.DataColumn columnPaid;
             
+            private global::System.Data.DataColumn columnBank;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public DtpayDataTable() {
@@ -3364,6 +3366,14 @@ namespace Reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn BankColumn {
+                get {
+                    return this.columnBank;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3399,11 +3409,12 @@ namespace Reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DtpayRow AddDtpayRow(string PChange, string Paid) {
+            public DtpayRow AddDtpayRow(string PChange, string Paid, string Bank) {
                 DtpayRow rowDtpayRow = ((DtpayRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PChange,
-                        Paid};
+                        Paid,
+                        Bank};
                 rowDtpayRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDtpayRow);
                 return rowDtpayRow;
@@ -3428,6 +3439,7 @@ namespace Reporting {
             internal void InitVars() {
                 this.columnPChange = base.Columns["PChange"];
                 this.columnPaid = base.Columns["Paid"];
+                this.columnBank = base.Columns["Bank"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3437,6 +3449,8 @@ namespace Reporting {
                 base.Columns.Add(this.columnPChange);
                 this.columnPaid = new global::System.Data.DataColumn("Paid", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaid);
+                this.columnBank = new global::System.Data.DataColumn("Bank", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBank);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10978,6 +10992,22 @@ namespace Reporting {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Bank {
+                get {
+                    try {
+                        return ((string)(this[this.tableDtpay.BankColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Bank\' in table \'Dtpay\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDtpay.BankColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsPChangeNull() {
                 return this.IsNull(this.tableDtpay.PChangeColumn);
             }
@@ -10998,6 +11028,18 @@ namespace Reporting {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetPaidNull() {
                 this[this.tableDtpay.PaidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsBankNull() {
+                return this.IsNull(this.tableDtpay.BankColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetBankNull() {
+                this[this.tableDtpay.BankColumn] = global::System.Convert.DBNull;
             }
         }
         

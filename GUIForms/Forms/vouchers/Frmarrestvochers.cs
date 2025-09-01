@@ -1,5 +1,6 @@
 ﻿using Aspose.Pdf;
 using CrystalDecisions.CrystalReports.Engine;
+using Domain;
 using Domain.Models;
 using GUIForms.Dtos;
 using GUIForms.helpers;
