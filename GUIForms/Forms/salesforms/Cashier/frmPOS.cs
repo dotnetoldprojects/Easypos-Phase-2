@@ -456,6 +456,40 @@ namespace Easypos.Salesforms.Cashier
                 await Sdtos.Sign(Doc, $"Inv{Invid}");
             }
         }
+        public async void Generatexml2(sale sale, List<salesdetaile> Saledetail)
+        {
+            List<ProductLine> productLines = new List<ProductLine>();
+            Geneatexml GXL = new Geneatexml();
+            GXL.Custid = int.Parse(clientID.SelectedValue.ToString());
+            GXL.Invtitle = "Inv-" + sale.Invoiceno.ToString();
+            const string unitCode = "PCE";
+            const decimal taxPercent = 15m;
+
+            for (int i = 0; i < Saledetail.Count; i++)
+            {
+                productLines.Add(new ProductLine
+                {
+                    Id = Saledetail[i].TDetailNo.ToString(),
+                    Name = Saledetail[i].TDDesc.ToString(),
+                    Quantity = int.Parse(Saledetail[i].Quantity.ToString()),
+                    UnitCode = unitCode,
+                    UnitPrice = decimal.Parse(Saledetail[i].ItemPrice.ToString()),
+                    Discount = decimal.Parse(Saledetail[i].Discount.ToString()),
+                    TaxPercent = taxPercent
+                });
+            }
+            string InputPath = @"Data/Invoice.xml";
+            var data = DC;
+            var RBD = Convert.ToDecimal(sale.Discount);
+            GXL.Custid = sale.ThirdPartyID ?? 10;
+            GXL.Createxmldata(productLines, DC, false, RBD);
+
+            var xmlContent = File.ReadAllText(InputPath);
+            var Doc = GC.LoadInvoiceFromString(xmlContent);
+            Signdtos Sdtos = new Signdtos();
+            Sdtos.Saleid = sale.Invoiceno;
+            await Sdtos.Sign(Doc, $"Inv{sale.Invoiceno}");
+        }
         public void Btnsaved()
         {
             if (DGV.Rows.Count == 0)
@@ -631,9 +665,22 @@ namespace Easypos.Salesforms.Cashier
                     {
                         Signdtos SD = new Signdtos();
                         var GUL = _IUW.UBLS.GetAll().Where(x => x.Saleid == int.Parse(Dataid)).FirstOrDefault();
-                        SD.Saleid = int.Parse(Dataid);
-                        SD.Ublid = GUL.Id;
-                        await SD.SendInvoiceAsync(GUL.Invoicehash, GUL.Uuid, GUL.Invoice, GUL.Path, GUL.QRCode);
+                        if (GUL != null)
+                        {
+                            SD.Saleid = int.Parse(Dataid);
+                            SD.Ublid = GUL.Id;
+                            await SD.SendInvoiceAsync(GUL.Invoicehash, GUL.Uuid, GUL.Invoice, GUL.Path, GUL.QRCode);
+                        }
+                        else
+                        {
+                            var Invdata = _IUW.sales.GetAll().Where(x => x.Invoiceno == int.Parse(Dataid)).FirstOrDefault();
+                            var Invsaledetail = _IUW.salesdetailes.GetAll().Where(x => x.InvoiceNo == Invdata.Invoiceno).ToList();
+                            SD.Saleid = int.Parse(Invdata.Invoiceno.ToString());
+                            Generatexml2(Invdata, Invsaledetail);
+                            var GUL2 = _IUW.UBLS.GetAll().Where(x => x.Saleid == int.Parse(Dataid)).FirstOrDefault();
+                            SD.Ublid = GUL2.Id;
+                            await SD.SendInvoiceAsync(GUL2.Invoicehash, GUL2.Uuid, GUL2.Invoice, GUL2.Path, GUL2.QRCode);
+                        }
                     }
                     catch (Exception ex)
                     {

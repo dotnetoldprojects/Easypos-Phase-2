@@ -205,8 +205,8 @@ namespace GUIForms.helpers
                 {
                     Rep.SetParameterValue("Shopname", DC.Name);
                     Rep.SetParameterValue("PhoneNo", DC.PhoneNo);
-                    Rep.SetParameterValue("Paied", Paied);
-                    Rep.SetParameterValue("Dept", Dept);
+                    Rep.SetParameterValue("Paid", Paied);
+                    Rep.SetParameterValue("Remaining", Dept);
                     FR.Show();
                     //Rep.PrintOptions.PrinterName = DC.Printername;
                     //Rep.PrintToPrinter(1, true, 1, 1);
