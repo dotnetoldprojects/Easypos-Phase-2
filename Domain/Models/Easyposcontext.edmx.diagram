@@ -46,6 +46,7 @@
         <AssociationConnector Association="EasyposModel.FK_alltailoring_tailorjabzor" />
         <AssociationConnector Association="EasyposModel.FK_alltailoring_tailorneck" />
         <AssociationConnector Association="EasyposModel.FK_tailorheader_thirdparty" />
+        <EntityTypeShape EntityType="EasyposModel.stok_transaction" Width="1.5" PointX="7.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

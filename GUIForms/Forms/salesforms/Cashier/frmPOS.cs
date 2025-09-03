@@ -345,9 +345,16 @@ namespace Easypos.Salesforms.Cashier
                 SD.Totafterdiscount = SD.Subtotal - SD.Discount;
                 SD.Total = decimal.Parse(DGV.Rows[i].Cells[7].Value.ToString());
                 details.Add(SD);
-                var product = _IUW.products.GetAll().Where(p => p.ProductNo == SD.ProductNo).FirstOrDefault();
-                product.StocksOnHand -= int.Parse(SD.Quantity.ToString());
-                _IUW.products.Update(product);
+                //var product = _IUW.products.GetAll().Where(p => p.ProductNo == SD.ProductNo).FirstOrDefault();
+                //product.StocksOnHand -= int.Parse(SD.Quantity.ToString());
+                //_IUW.products.Update(product);
+                var SOH = _IUW.stok_transactions.GetAll().Where(s => s.Proid == SD.ProductNo).FirstOrDefault();
+                if (SOH != null)
+                {
+                    SOH.Quantity -= int.Parse(SD.Quantity.ToString());
+                    _IUW.stok_transactions.Update(SOH);
+                    _IUW.Complete();
+                }
                 //var result = GC.GetProductItems(product.ProductNo.ToString());
             }
             // استدعاء الدالة العامة

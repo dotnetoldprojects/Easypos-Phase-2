@@ -43,37 +43,28 @@ namespace GUIForms.Forms.salesforms.Normal
             InitializeComponent();
             Loading();
         }
-        public void Saveitemsales()
+        public void Saveitemsales(int SIN)
         {
             bool IUL = DC.ISUSElineproduction ?? false;
             if (IUL)
             {
-                var items = _IUW.items.GetAll();
-                var productitems = _IUW.productitems.GetAll();
-                var query = from it in items
-                            join pi in productitems on it.ID equals int.Parse(pi.itemid) into piGroup
-                            from pi in piGroup.DefaultIfEmpty()
-                            where pi?.Proid != null
-                            select new
-                            {
-                                ID = it.ID,
-                                ItemQty = it.Itemqty,
-                                Quantity = pi.Quantity
-                            };
-
-                var result = query.ToList();
-                List<itemsale> ISList = new List<itemsale>();
-
-                foreach (var item in result)
+                for (int i = 0; i < DGV.Rows.Count; i++)
                 {
-                    var IS = new itemsale
+                    var result = GC.GetProductItems(DGV.Rows[i].Cells[0].Value.ToString()).ToList();
+                    if (result.Count > 0)
                     {
-                        Date = DateTime.Now.ToString("dd-MM-yyyy"),
-                        Quantity = int.Parse(item.Quantity),
-                        Itemid = item.ID,
-                        invoiceno = Invid,
-                    };
-                    ISList.Add(IS);     // إضافة العنصر للقائمة لو محتاج تستخدمها لاحقًا
+                        foreach (var item in result)
+                        {
+                            dynamic dynItem = item;
+                            itemsale IS = new itemsale();
+                            IS.Date = DateTime.Now.ToString("dd-MM-yyyy");
+                            IS.Quantity = int.Parse(dynItem.Quantity.ToString());
+                            IS.Itemid = dynItem.ID;
+                            IS.invoiceno = SIN;
+                            _IUW.itemsales.Insert(IS);
+                            _IUW.Complete();
+                        }
+                    }
                 }
             }
         }
@@ -325,11 +316,22 @@ namespace GUIForms.Forms.salesforms.Normal
                 SD.Totafterdiscount = SD.Subtotal - SD.Discount;
                 SD.Total = decimal.Parse(DGV.Rows[i].Cells[7].Value.ToString());
                 details.Add(SD);
+                //var product = _IUW.products.GetAll().Where(p => p.ProductNo == SD.ProductNo).FirstOrDefault();
+                //product.StocksOnHand -= int.Parse(SD.Quantity.ToString());
+                //_IUW.products.Update(product);
+                var SOH = _IUW.stok_transactions.GetAll().Where(s => s.Proid == SD.ProductNo).FirstOrDefault();
+                if (SOH != null)
+                {
+                    SOH.Quantity -= int.Parse(SD.Quantity.ToString());
+                    _IUW.stok_transactions.Update(SOH);
+                    _IUW.Complete();
+                }
             }
             // استدعاء الدالة العامة
             SalesHelper.SaveSaleWithDetails(sale, details, _IUW);
+            Saveitemsales(sale.Invoiceno);
             Invid = sale.Invoiceno;
-            Saveitemsales();
+            //Saveitemsales();
             //Clearfildes();
         }
         public void openpayment()

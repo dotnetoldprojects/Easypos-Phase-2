@@ -283,6 +283,13 @@ namespace Easypos.Purchases
                 SD.Totafterdiscount = double.Parse(DGV.Rows[i].Cells[6].Value.ToString());
                 SD.Total = (decimal?)(SD.ItemPrice * SD.Quantity);
                 details.Add(SD);
+                var SOH = _IUW.stok_transactions.GetAll().Where(s => s.Proid == SD.ProductNo).FirstOrDefault();
+                if (SOH != null)
+                {
+                    SOH.Quantity += int.Parse(SD.Quantity.ToString());
+                    _IUW.stok_transactions.Update(SOH);
+                    _IUW.Complete();
+                }
             }
             // استدعاء الدالة العامة
             PurchaseHelper.SavePurchaseWithDetails(pur, details, _IUW);

@@ -103,6 +103,8 @@ public partial class EasyposEntities : DbContext
 
     public virtual DbSet<tailorneck> tailornecks { get; set; }
 
+    public virtual DbSet<stok_transaction> stok_transaction { get; set; }
+
 
     public virtual int Getpaymentin()
     {

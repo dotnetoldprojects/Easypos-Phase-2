@@ -145,6 +145,9 @@
     <Compile Include="Models\staff.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\stok_transaction.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\tailorbocket.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>

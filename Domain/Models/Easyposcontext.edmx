@@ -302,6 +302,15 @@
           <Property Name="UPassword" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Role" Type="nvarchar" MaxLength="45" />
         </EntityType>
+        <EntityType Name="stok_transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Proid" Type="int" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="tailorbocket">
           <Key>
             <PropertyRef Name="Id" />
@@ -612,6 +621,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="sales" EntityType="Self.sales" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="salesdetailes" EntityType="Self.salesdetailes" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="staff" EntityType="Self.staff" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="stok_transaction" EntityType="Self.stok_transaction" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="tailorbocket" EntityType="Self.tailorbocket" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="tailordetaile" EntityType="Self.tailordetaile" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="tailorhand" EntityType="Self.tailorhand" Schema="resturant" store:Type="Tables" />
@@ -1085,6 +1095,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
             <End Role="thirdparty" EntitySet="thirdparties" />
             <End Role="tailorheader" EntitySet="tailorheaders" />
           </AssociationSet>
+          <EntitySet Name="stok_transaction" EntityType="EasyposModel.stok_transaction" />
         </EntityContainer>
         <EntityType Name="UBL">
           <Key>
@@ -1326,6 +1337,15 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="stok_transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Proid" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1856,6 +1876,16 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
                 <ScalarProperty Name="Regulartipper" ColumnName="Regulartipper" />
                 <ScalarProperty Name="Plainfrench" ColumnName="Plainfrench" />
                 <ScalarProperty Name="Plain" ColumnName="Plain" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stok_transaction">
+            <EntityTypeMapping TypeName="EasyposModel.stok_transaction">
+              <MappingFragment StoreEntitySet="stok_transaction">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
