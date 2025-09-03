@@ -244,9 +244,22 @@ namespace Easypos.Masters
                 DGVProitems.Rows.Clear();
 
                 // 4. أعد تحميل البيانات
+                //var query = from pi in _IUW.productitems.GetAll()
+                //            join it in _IUW.items.GetAll() on pi.itemid equals it.ID.ToString() into itGroup
+                //            from it in itGroup.DefaultIfEmpty()
+                //            select new
+                //            {
+                //                Pro = pi.Proid,
+                //ID = it?.ID,
+                //                Itemname = it?.Itemname,
+                //                Quantity = pi.Quantity
+                //            };
+
+                //var result = query.ToList().Where(x => x.Pro == lblProductNo.Text);
                 var query = from pi in _IUW.productitems.GetAll()
                             join it in _IUW.items.GetAll() on pi.itemid equals it.ID.ToString() into itGroup
                             from it in itGroup.DefaultIfEmpty()
+                            where pi.Proid == lblProductNo.Text   // خلي الشرط هنا بدل ما تعمل ToList() وبعدها Where
                             select new
                             {
                                 ID = it?.ID,

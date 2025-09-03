@@ -352,6 +352,14 @@ namespace Easypos.Salesforms.Cashier
                 SD.Totafterdiscount = SD.Subtotal - SD.Discount;
                 SD.Total = decimal.Parse(DGV.Rows[i].Cells[7].Value.ToString());
                 details.Add(SD);
+                var product = _IUW.products.GetAll().Where(p => p.ProductNo == SD.ProductNo).FirstOrDefault();
+                product.StocksOnHand -= int.Parse(SD.Quantity.ToString());
+                _IUW.products.Update(product);
+                var pi = _IUW.productitems.GetAll().Where(x => x.Proid == product.ProductNo.ToString()).ToList();
+                if (true)
+                {
+
+                }
             }
             // استدعاء الدالة العامة
             SalesHelper.SaveSaleWithDetails(sale, details, _IUW);
