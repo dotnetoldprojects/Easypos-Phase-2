@@ -176,5 +176,20 @@ namespace GUIForms.Dtos
             }
             return totalFinancial;
         }
+        public IEnumerable<object> GetProductItems(string proId)
+        {
+            var query = from pi in _IUOW.productitems.GetAll()
+                        join it in _IUOW.items.GetAll() on pi.itemid equals it.ID.ToString() into itGroup
+                        from it in itGroup.DefaultIfEmpty()
+                        where pi.Proid == proId
+                        select new
+                        {
+                            ID = it?.ID,
+                            Itemname = it?.Itemname,
+                            Quantity = pi.Quantity
+                        };
+
+            return query.ToList();
+        }
     }
 }

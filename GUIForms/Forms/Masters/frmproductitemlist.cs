@@ -92,9 +92,13 @@ namespace Easypos.Masters
                 txtItemname.Text = DGV.CurrentRow.Cells[1].Value.ToString();
                 txtUnitPrice.Text = DGV.CurrentRow.Cells[2].Value.ToString();
                 txtStocksOnHand.Text = DGV.CurrentRow.Cells[3].Value.ToString();
-                textBox1.Text = DGV.CurrentRow.Cells[6].Value.ToString();
+                textBox1.Text = DGV.CurrentRow.Cells[5].Value.ToString();
                 textBox2.Text = DGV.CurrentRow.Cells[4].Value.ToString();
-                UId = int.Parse(DGV.CurrentRow.Cells[5].Value.ToString());
+                UId = int.Parse(DGV.CurrentRow.Cells[6].Value.ToString());
+                var totalQuantity = _IUW.itemsales.GetAll()
+                                                  .Where(x => x.Itemid == It.ID)
+                                                  .Sum(x => x.Quantity);
+                txtRemining.Text = (It.Itemqty - totalQuantity).ToString();
             }
         }
         private void Btnaddedit_Click(object sender, EventArgs e)
@@ -170,16 +174,27 @@ namespace Easypos.Masters
         {
             if (!string.IsNullOrEmpty(txtSearch.Text))
             {
-                var Serch = _EVM.Where(x => x.Itemname != null && x.Itemname.Contains(txtSearch.Text)).ToList();
-                DGV.DataSource = Serch.Select(p => new {
-                    ID = p.ID,
-                    Itemname = p.Itemname,
-                    Itemprice = p.Itemprice,
-                    Itemqty = p.Itemqty,
-                    OpeningBalance = p.OpeningBalance,
-                    UnitName = p.UnitName,
-                    Unitid = p.Unitid
-                }).ToList();
+                DC = (company)LanguageHelper.ApplyLanguage(this);
+                var searchText = txtSearch.Text?.Trim().ToLower();
+                if (!string.IsNullOrEmpty(searchText))
+                {
+                    var Serch = GC.GetItemsdatalist().Where(x => x.Itemname.Contains(searchText)).ToList();
+                    Serch = Serch
+                        .Where(x => !string.IsNullOrEmpty(x.Itemname)
+                                 && x.Itemname.Contains(searchText))
+                        .ToList();
+                    DGV.DataSource = Serch.Select(p => new
+                    {
+                        ID = p.ID,
+                        Itemname = p.Itemname,
+                        Itemprice = p.Itemprice,
+                        Itemqty = p.Itemqty,
+                        OpeningBalance = p.OpeningBalance,
+                        UnitName = p.UnitName,
+                        Unitid = p.Unitid
+                    }).ToList();
+                }
+
             }
             else
             {
