@@ -731,6 +731,9 @@
   <data name="&gt;&gt;txtProjectname.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="Billtype.Items2" xml:space="preserve">
+    <value>مرتجع مشتريات</value>
+  </data>
   <data name="Billtype.Items1" xml:space="preserve">
     <value>صدرت</value>
   </data>

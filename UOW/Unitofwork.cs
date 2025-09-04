@@ -47,6 +47,8 @@ namespace UOW
         public IRepository<alltailoring> alltailorings { get; private set; }
         public IRepository<exceptionpro> exceptionpros { get; private set; }
         public IRepository<stok_transaction> stok_transactions { get; private set; }
+        public IRepository<returned> returneds { get; private set; }
+        public IRepository<returnedetaile> returnedetailes { get; private set; }
         public Unitofwork(EasyposEntities Dbc)
         {
             _Dbc = Dbc;
@@ -85,6 +87,8 @@ namespace UOW
             alltailorings = new Repository<alltailoring>(_Dbc);
             exceptionpros = new Repository<exceptionpro>(_Dbc);
             stok_transactions = new Repository<stok_transaction>(_Dbc);
+            returneds = new Repository<returned>(_Dbc);
+            returnedetailes = new Repository<returnedetaile>(_Dbc);
         }
         public int Complete()
         {

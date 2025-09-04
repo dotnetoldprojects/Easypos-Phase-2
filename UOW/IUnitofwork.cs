@@ -45,6 +45,8 @@ namespace UOW
         IRepository<alltailoring> alltailorings { get; }
         IRepository<exceptionpro> exceptionpros { get; }
         IRepository<stok_transaction> stok_transactions { get; }
+        IRepository<returned> returneds { get; }
+        IRepository<returnedetaile> returnedetailes { get; }
         int Complete();
     }
 }

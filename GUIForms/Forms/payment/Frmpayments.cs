@@ -180,7 +180,7 @@ namespace Easypos.Payment
             payout.Type = "فاتورة مشتريات";
             _IUW.paymentouts.Insert(payout);
             _IUW.Complete();
-            SalesHelper.Savetransactions(Pur.Invid, payout.ThirdPartyID, payout.Paid, "فاتورة مشتريات", _IUW, pay.Date);
+            SalesHelper.Savetransactions(Pur.Invid, payout.ThirdPartyID, payout.Paid, "فاتورة مشتريات", _IUW, payout.Date);
             Close();
         }
         private void txtCash_KeyPress(object sender, KeyPressEventArgs e)

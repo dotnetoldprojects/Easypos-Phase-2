@@ -196,32 +196,8 @@
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 54</value>
-  </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1044, 210</value>
-  </data>
-  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
-  </data>
   <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
-  </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>559, 3</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 201</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>بيانات المبلغ</value>
   </data>
   <data name="label21.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -439,23 +415,26 @@
   <data name="QRPic.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="GroupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 8.25pt</value>
   </data>
-  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>559, 3</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 201</value>
   </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>بيانات الفاتورة</value>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>بيانات المبلغ</value>
+  </data>
+  <data name="GroupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
   </data>
   <data name="txtBarcode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="txtBarcode.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 56</value>
+    <value>13, 84</value>
   </data>
   <data name="txtBarcode.Size" type="System.Drawing.Size, System.Drawing">
     <value>142, 21</value>
@@ -485,7 +464,7 @@
     <value>NoControl</value>
   </data>
   <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 59</value>
+    <value>157, 87</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
     <value>68, 13</value>
@@ -506,10 +485,13 @@
     <value>Top, Right</value>
   </data>
   <data name="Billtype.Items" xml:space="preserve">
-    <value>مرتجع مبيعات</value>
+    <value>-- اختر --</value>
   </data>
   <data name="Billtype.Items1" xml:space="preserve">
-    <value>مرتجع مشتريات</value>
+    <value>مرتجع مبيعات</value>
+  </data>
+  <data name="Billtype.Location" type="System.Drawing.Point, System.Drawing">
+    <value>11, 56</value>
   </data>
   <data name="Billtype.Size" type="System.Drawing.Size, System.Drawing">
     <value>144, 21</value>
@@ -522,6 +504,9 @@
   </data>
   <data name="label18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
+    <value>156, 60</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
     <value>69, 13</value>
@@ -604,6 +589,27 @@
   <data name="label1.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 201</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>بيانات الفاتورة</value>
+  </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1044, 210</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
   <data name="ProductCode.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
@@ -623,9 +629,6 @@
     <value>6</value>
   </data>
   <data name="LineTotal.MinimumWidth" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Delete.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="DGV.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -657,6 +660,9 @@
   </data>
   <data name="Btnsave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="Btnsave.Location" type="System.Drawing.Point, System.Drawing">
+    <value>936, 19</value>
   </data>
   <data name="Btnsave.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 97</value>
@@ -699,27 +705,6 @@
   </data>
   <data name="Btnbilllist.Text" xml:space="preserve">
     <value>قائمة الفواتير</value>
-  </data>
-  <data name="Btnsaveandprint.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="Btnsaveandprint.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="Btnsaveandprint.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="Btnsaveandprint.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 14.25pt</value>
-  </data>
-  <data name="Btnsaveandprint.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Btnsaveandprint.Size" type="System.Drawing.Size, System.Drawing">
-    <value>96, 97</value>
-  </data>
-  <data name="Btnsaveandprint.Text" xml:space="preserve">
-    <value>حفظ وطباعة</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>

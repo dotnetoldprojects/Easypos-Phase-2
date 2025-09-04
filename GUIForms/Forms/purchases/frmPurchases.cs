@@ -46,7 +46,7 @@ namespace Easypos.Purchases
         private void LoadAllCombos()
         {
             Commondatasales.FillCombo(clientID, GC.Getsupplierdatalist(), "Name", "ID");
-            Commondatasales.FillCombo(Cattype, GC.Getcategorydatalist(), "CategoryName", "CategoryNo");
+            Commondatasales.FillCombo(Cattype, GC.Getproductdatalist(), "Description", "ProductNo");
             Commondatasales.FillCombo(unitTypes, GC.Getunittypedatalist(), "UName", "ID");
         }
         private void DGVH()
@@ -283,13 +283,20 @@ namespace Easypos.Purchases
                 SD.Totafterdiscount = double.Parse(DGV.Rows[i].Cells[6].Value.ToString());
                 SD.Total = (decimal?)(SD.ItemPrice * SD.Quantity);
                 details.Add(SD);
-                var SOH = _IUW.stok_transactions.GetAll().Where(s => s.Proid == SD.ProductNo).FirstOrDefault();
+                stok_transaction SOH;
+                SOH = _IUW.stok_transactions.GetAll().Where(s => s.Proid == SD.ProductNo).FirstOrDefault();
                 if (SOH != null)
                 {
                     SOH.Quantity += int.Parse(SD.Quantity.ToString());
-                    _IUW.stok_transactions.Update(SOH);
-                    _IUW.Complete();
                 }
+                else
+                {
+                    SOH = new stok_transaction();
+                    SOH.Proid = (int)SD.ProductNo;
+                    SOH.Quantity = (int)SD.Quantity;
+                }
+                _IUW.stok_transactions.Update(SOH);
+                _IUW.Complete();
             }
             // استدعاء الدالة العامة
             PurchaseHelper.SavePurchaseWithDetails(pur, details, _IUW);
