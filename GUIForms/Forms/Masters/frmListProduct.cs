@@ -95,7 +95,7 @@ namespace Easypos.Masters
         {
             var Lastid = GC.Getproductdatalist().Max(p => p.ProductNo);
             string nextCode = $"EP{(Lastid + 1).ToString("D4")}";
-            //lblProductNo.Text = (Lastid + 1).ToString();
+            lblProductNo.Text = (Lastid + 1).ToString();
             txtProductCode.Text = nextCode;
         }
         private void Cleardata()
@@ -187,6 +187,13 @@ namespace Easypos.Masters
                         _IUW.productitems.Insert(Pi);
                         _IUW.Complete();
                     }
+                }
+                var data = _IUW.stok_transactions.Get(int.Parse(lblProductNo.Text));
+                if (data == null)
+                {
+                    data.Quantity += int.Parse(txtStocksOnHand.Text);
+                    data.Proid = int.Parse(lblProductNo.Text);
+                    _IUW.stok_transactions.Update(data);
                 }
                 _IUW.Complete();
             }
