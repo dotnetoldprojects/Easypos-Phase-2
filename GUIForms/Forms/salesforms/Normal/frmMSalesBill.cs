@@ -280,6 +280,17 @@ namespace GUIForms.Forms.salesforms.Normal
                 SD.Totafterdiscount = double.Parse(DGV.Rows[i].Cells[6].Value.ToString());
                 SD.Total = (decimal?)(SD.ItemPrice * SD.Quantity);
                 details.Add(SD);
+                _IUW.invtransactions.Insert(new invtransaction
+                {
+                    Proid = int.Parse(SD.ProductNo.ToString()),
+                    Quantity = int.Parse(SD.Quantity.ToString()),
+                    Date = DateTime.Now,
+                    Credit = 0,
+                    Dipt = decimal.Parse(SD.ItemPrice.ToString()),
+                    type = "Sales",
+                    transid = SD.InvoiceNo
+                });
+                _IUW.Complete();
             }
             // استدعاء الدالة العامة
             SalesHelper.EditSaleWithDetails(sale, details, _IUW);

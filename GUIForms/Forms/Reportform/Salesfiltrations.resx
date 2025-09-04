@@ -429,6 +429,39 @@
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="RBStok.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="RBStok.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="RBStok.Location" type="System.Drawing.Point, System.Drawing">
+    <value>111, 15</value>
+  </data>
+  <data name="RBStok.Size" type="System.Drawing.Size, System.Drawing">
+    <value>88, 28</value>
+  </data>
+  <data name="RBStok.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="RBStok.Text" xml:space="preserve">
+    <value>تقرير المخزون</value>
+  </data>
+  <data name="RBStok.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;RBStok.Name" xml:space="preserve">
+    <value>RBStok</value>
+  </data>
+  <data name="&gt;&gt;RBStok.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;RBStok.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;RBStok.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="Typeexp.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -461,7 +494,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;Typeexp.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="Explist.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 151</value>
@@ -485,7 +518,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;Explist.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -515,7 +548,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="ChkPayment.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -545,7 +578,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;ChkPayment.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="ChkPayout.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -575,7 +608,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;ChkPayout.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="ChkExpenses.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -602,7 +635,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;ChkExpenses.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="ChkPurchases.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -632,7 +665,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;ChkPurchases.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 33</value>

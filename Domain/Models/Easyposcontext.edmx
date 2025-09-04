@@ -94,6 +94,19 @@
           <Property Name="Vat" Type="float" />
           <Property Name="Typeid" Type="int" />
         </EntityType>
+        <EntityType Name="invtransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="Credit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Dipt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Proid" Type="int" Nullable="false" />
+          <Property Name="transid" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="items">
           <Key>
             <PropertyRef Name="ID" />
@@ -636,6 +649,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="exceptionpro" EntityType="Self.exceptionpro" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="expencestype" EntityType="Self.expencestype" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="expenses" EntityType="Self.expenses" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="invtransaction" EntityType="Self.invtransaction" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="items" EntityType="Self.items" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="itemsales" EntityType="Self.itemsales" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="orders" EntityType="Self.orders" Schema="resturant" store:Type="Tables" />
@@ -1129,6 +1143,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="stok_transaction" EntityType="EasyposModel.stok_transaction" />
           <EntitySet Name="returneds" EntityType="EasyposModel.returned" />
           <EntitySet Name="returnedetailes" EntityType="EasyposModel.returnedetaile" />
+          <EntitySet Name="invtransactions" EntityType="EasyposModel.invtransaction" />
         </EntityContainer>
         <EntityType Name="UBL">
           <Key>
@@ -1407,6 +1422,19 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Discount" Type="Double" Nullable="false" />
           <Property Name="Totafterdiscount" Type="Double" />
           <Property Name="Total" Type="Decimal" Precision="8" Scale="2" />
+        </EntityType>
+        <EntityType Name="invtransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Credit" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Dipt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Proid" Type="Int32" Nullable="false" />
+          <Property Name="transid" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1980,6 +2008,20 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
                 <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
                 <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
                 <ScalarProperty Name="TDetailNo" ColumnName="TDetailNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invtransactions">
+            <EntityTypeMapping TypeName="EasyposModel.invtransaction">
+              <MappingFragment StoreEntitySet="invtransaction">
+                <ScalarProperty Name="transid" ColumnName="transid" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Dipt" ColumnName="Dipt" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -170,6 +170,9 @@
   <data name="txtBarcode.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 27</value>
   </data>
+  <data name="&gt;&gt;RB1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="&gt;&gt;label23.Name" xml:space="preserve">
     <value>label23</value>
   </data>
@@ -194,10 +197,7 @@
   <data name="&gt;&gt;Btncustomers.Parent" xml:space="preserve">
     <value>GroupBox1</value>
   </data>
-  <data name="cmbproducts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 55</value>
-  </data>
-  <data name="&gt;&gt;label45.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label27.Type" xml:space="preserve">
@@ -239,14 +239,11 @@
   <data name="Btnbilllist.Location" type="System.Drawing.Point, System.Drawing">
     <value>114, 19</value>
   </data>
-  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 165</value>
+  <data name="Billtype.Items1" xml:space="preserve">
+    <value>صدرت</value>
   </data>
   <data name="&gt;&gt;Billtype.Parent" xml:space="preserve">
     <value>GroupBox1</value>
-  </data>
-  <data name="label44.TabIndex" type="System.Int32, mscorlib">
-    <value>50</value>
   </data>
   <data name="&gt;&gt;txtTax.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -314,9 +311,6 @@
   <data name="&gt;&gt;txtPrice.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;txtTotal.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="&gt;&gt;Btncustomers.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -341,17 +335,11 @@
   <data name="&gt;&gt;txtRefranse.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;RB1.Name" xml:space="preserve">
-    <value>RB1</value>
-  </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
   <data name="&gt;&gt;label18.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="&gt;&gt;Btnsave.Name" xml:space="preserve">
     <value>Btnsave</value>
@@ -377,14 +365,14 @@
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
   <data name="label18.Location" type="System.Drawing.Point, System.Drawing">
     <value>156, 86</value>
   </data>
   <data name="txtProjectname.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
+  </data>
+  <data name="&gt;&gt;label43.Name" xml:space="preserve">
+    <value>label43</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -428,8 +416,8 @@
   <data name="&gt;&gt;panel5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ProdName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
   </data>
   <data name="&gt;&gt;txtTBV.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -446,6 +434,9 @@
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>201, 86</value>
   </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="RB1.Location" type="System.Drawing.Point, System.Drawing">
     <value>46, 33</value>
   </data>
@@ -460,9 +451,6 @@
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;Btnbilllist.Name" xml:space="preserve">
-    <value>Btnbilllist</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>-223, 30</value>
@@ -500,6 +488,9 @@
   <data name="&gt;&gt;label15.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;txtTotal.Name" xml:space="preserve">
+    <value>txtTotal</value>
+  </data>
   <data name="&gt;&gt;UnitPrice.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -530,8 +521,8 @@
   <data name="&gt;&gt;DTP.Name" xml:space="preserve">
     <value>DTP</value>
   </data>
-  <data name="&gt;&gt;label45.Name" xml:space="preserve">
-    <value>label45</value>
+  <data name="label11.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 165</value>
   </data>
   <data name="clientID.Location" type="System.Drawing.Point, System.Drawing">
     <value>50, 55</value>
@@ -554,8 +545,8 @@
   <data name="&gt;&gt;Salesorder.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
-  <data name="&gt;&gt;txtTotal.Name" xml:space="preserve">
-    <value>txtTotal</value>
+  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 264</value>
   </data>
   <data name="label45.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 135</value>
@@ -599,14 +590,14 @@
   <data name="&gt;&gt;txtBarcode.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Btnsaveandprint.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
   <data name="&gt;&gt;label19.Name" xml:space="preserve">
     <value>label19</value>
   </data>
   <data name="&gt;&gt;label21.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -614,14 +605,11 @@
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
-  </data>
   <data name="Btnclose.TabIndex" type="System.Int32, mscorlib">
     <value>22</value>
   </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;ProdName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RB2.Name" xml:space="preserve">
     <value>RB2</value>
@@ -632,8 +620,8 @@
   <data name="RB1.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
   </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>996, 3</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>160, 33</value>
@@ -647,6 +635,9 @@
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
     <value>10</value>
   </data>
+  <data name="&gt;&gt;Btnbilllist.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Quantity.HeaderText" xml:space="preserve">
     <value>الكمية</value>
   </data>
@@ -658,6 +649,9 @@
   </data>
   <data name="&gt;&gt;Btnadd.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;panel1.Name" xml:space="preserve">
     <value>panel1</value>
@@ -698,8 +692,8 @@
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>201, 58</value>
   </data>
-  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Salesorder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 24</value>
   </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
     <value>5</value>
@@ -713,11 +707,14 @@
   <data name="&gt;&gt;label8.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
     <value>-434, 30</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="&gt;&gt;lblTitle.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
     <value>201, 116</value>
@@ -731,11 +728,14 @@
   <data name="&gt;&gt;txtProjectname.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Billtype.Items2" xml:space="preserve">
     <value>مرتجع مشتريات</value>
   </data>
-  <data name="Billtype.Items1" xml:space="preserve">
-    <value>صدرت</value>
+  <data name="&gt;&gt;txtDiscount.Name" xml:space="preserve">
+    <value>txtDiscount</value>
   </data>
   <data name="&gt;&gt;label21.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -749,8 +749,14 @@
   <data name="clientID.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="Billtype.Items" xml:space="preserve">
     <value>مسوده</value>
+  </data>
+  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="GroupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>800, 3</value>
@@ -775,9 +781,6 @@
   </data>
   <data name="&gt;&gt;label16.Parent" xml:space="preserve">
     <value>groupBox4</value>
-  </data>
-  <data name="label45.TabIndex" type="System.Int32, mscorlib">
-    <value>52</value>
   </data>
   <data name="txtPrice.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 113</value>
@@ -810,20 +813,26 @@
   <data name="QRPic.Location" type="System.Drawing.Point, System.Drawing">
     <value>167, 143</value>
   </data>
-  <data name="Delete.HeaderText" xml:space="preserve">
-    <value>حذف</value>
+  <data name="&gt;&gt;label27.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="&gt;&gt;Discount.Name" xml:space="preserve">
+    <value>Discount</value>
   </data>
   <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
+    <value>panel4</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;txtProjectname.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
   </data>
   <data name="txtTax.Location" type="System.Drawing.Point, System.Drawing">
     <value>24, 135</value>
@@ -846,17 +855,23 @@
   <data name="UnitPrice.HeaderText" xml:space="preserve">
     <value>سعر الصنف</value>
   </data>
+  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="&gt;&gt;clientID.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 610</value>
+  <data name="&gt;&gt;Btnbilllist.Name" xml:space="preserve">
+    <value>Btnbilllist</value>
+  </data>
+  <data name="&gt;&gt;label45.Name" xml:space="preserve">
+    <value>label45</value>
   </data>
   <data name="&gt;&gt;label20.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;Btnsaveandprint.Parent" xml:space="preserve">
-    <value>panel1</value>
+  <data name="&gt;&gt;DTP.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
   <data name="pictureBox2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -873,20 +888,14 @@
   <data name="ProdName.HeaderText" xml:space="preserve">
     <value>الوصف</value>
   </data>
-  <data name="lblInvoiceNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-275, 26</value>
-  </data>
-  <data name="Salesorder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 24</value>
-  </data>
   <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
     <value>panel3</value>
   </data>
-  <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 264</value>
+  <data name="&gt;&gt;Salesorder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
+    <value>groupBox2</value>
   </data>
   <data name="label21.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -905,9 +914,6 @@
   </data>
   <data name="&gt;&gt;Btnsaveandprint.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;txtNote.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -933,8 +939,8 @@
   <data name="&gt;&gt;Btncustomers.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;Salesorder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="label44.TabIndex" type="System.Int32, mscorlib">
+    <value>50</value>
   </data>
   <data name="&gt;&gt;QRPic.ZOrder" xml:space="preserve">
     <value>11</value>
@@ -942,8 +948,8 @@
   <data name="&gt;&gt;clientID.Parent" xml:space="preserve">
     <value>GroupBox1</value>
   </data>
-  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="cmbproducts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>13, 55</value>
   </data>
   <data name="&gt;&gt;label4.Parent" xml:space="preserve">
     <value>GroupBox1</value>
@@ -975,11 +981,8 @@
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>52</value>
   </data>
-  <data name="&gt;&gt;txtDiscount.Name" xml:space="preserve">
-    <value>txtDiscount</value>
-  </data>
-  <data name="&gt;&gt;txtProjectname.Parent" xml:space="preserve">
-    <value>groupBox4</value>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;label10.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1008,9 +1011,6 @@
   <data name="&gt;&gt;lblTitle.Name" xml:space="preserve">
     <value>lblTitle</value>
   </data>
-  <data name="&gt;&gt;Delete.Name" xml:space="preserve">
-    <value>Delete</value>
-  </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -1023,14 +1023,17 @@
   <data name="&gt;&gt;Btnclose.Name" xml:space="preserve">
     <value>Btnclose</value>
   </data>
-  <data name="txtTotal.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 610</value>
+  </data>
+  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>201, 143</value>
   </data>
   <data name="&gt;&gt;label11.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>996, 3</value>
+  <data name="&gt;&gt;txtTotal.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;txtQuantity.Name" xml:space="preserve">
     <value>txtQuantity</value>
@@ -1050,17 +1053,14 @@
   <data name="&gt;&gt;txtRefranse.Name" xml:space="preserve">
     <value>txtRefranse</value>
   </data>
-  <data name="label8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>201, 143</value>
+  <data name="&gt;&gt;Delete.Name" xml:space="preserve">
+    <value>Delete</value>
   </data>
   <data name="&gt;&gt;panel3.Name" xml:space="preserve">
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="&gt;&gt;txtNote.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;txtBarcode.Parent" xml:space="preserve">
     <value>GroupBox1</value>
@@ -1101,11 +1101,11 @@
   <data name="DTP.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 28</value>
   </data>
-  <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
-    <value>$this</value>
+  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
@@ -1118,6 +1118,9 @@
   </data>
   <data name="label27.Location" type="System.Drawing.Point, System.Drawing">
     <value>-223, 30</value>
+  </data>
+  <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-434, 30</value>
   </data>
   <data name="&gt;&gt;DGV.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -1152,9 +1155,6 @@
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>GroupBox1</value>
   </data>
-  <data name="txtTax.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
   <data name="&gt;&gt;Btnsave.Parent" xml:space="preserve">
     <value>panel1</value>
   </data>
@@ -1176,8 +1176,8 @@
   <data name="&gt;&gt;label21.Name" xml:space="preserve">
     <value>label21</value>
   </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;label45.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label44.Parent" xml:space="preserve">
     <value>groupBox4</value>
@@ -1188,17 +1188,17 @@
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 210</value>
   </data>
-  <data name="&gt;&gt;label43.Name" xml:space="preserve">
-    <value>label43</value>
+  <data name="&gt;&gt;Btnsaveandprint.Parent" xml:space="preserve">
+    <value>panel1</value>
   </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="lblInvoiceNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-275, 26</value>
   </data>
   <data name="unitTypes.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 83</value>
   </data>
-  <data name="&gt;&gt;label27.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="label45.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
   </data>
   <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1215,8 +1215,8 @@
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="&gt;&gt;Discount.Name" xml:space="preserve">
-    <value>Discount</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;label21.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -1230,8 +1230,8 @@
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>43, 6</value>
   </data>
-  <data name="&gt;&gt;RB1.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;txtNote.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1248,8 +1248,8 @@
   <data name="&gt;&gt;label44.Name" xml:space="preserve">
     <value>label44</value>
   </data>
-  <data name="label9.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="txtTax.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
   </data>
   <data name="&gt;&gt;lblInvoiceNo.Name" xml:space="preserve">
     <value>lblInvoiceNo</value>
@@ -1266,8 +1266,8 @@
   <data name="cmbproducts.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;lblTitle.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Btnsaveandprint.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
   </data>
   <data name="&gt;&gt;Billtype.ZOrder" xml:space="preserve">
     <value>4</value>
@@ -1275,17 +1275,17 @@
   <data name="&gt;&gt;lblTitle.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
-  <data name="&gt;&gt;Btnbilllist.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;label12.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
   </data>
-  <data name="&gt;&gt;GroupBox1.Parent" xml:space="preserve">
-    <value>panel4</value>
+  <data name="&gt;&gt;RB1.Name" xml:space="preserve">
+    <value>RB1</value>
   </data>
   <data name="&gt;&gt;lblInvoiceNo.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="&gt;&gt;label19.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="txtTotal.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
     <value>7</value>
@@ -1323,8 +1323,8 @@
   <data name="LineTotal.HeaderText" xml:space="preserve">
     <value>الإجمالي</value>
   </data>
-  <data name="label21.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-434, 30</value>
+  <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;txtQuantity.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -1338,8 +1338,8 @@
   <data name="&gt;&gt;label43.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;DTP.Parent" xml:space="preserve">
-    <value>GroupBox1</value>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label15.Name" xml:space="preserve">
     <value>label15</value>
@@ -1347,8 +1347,8 @@
   <data name="ProductCode.HeaderText" xml:space="preserve">
     <value>كود الصنف</value>
   </data>
-  <data name="&gt;&gt;groupBox3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Delete.HeaderText" xml:space="preserve">
+    <value>حذف</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>$this</value>

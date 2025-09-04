@@ -70,10 +70,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DGV = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.Btnsave = new System.Windows.Forms.Button();
-            this.Btnclose = new System.Windows.Forms.Button();
-            this.Btnbilllist = new System.Windows.Forms.Button();
             this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UnitType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +78,10 @@
             this.UnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LineTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Btnsave = new System.Windows.Forms.Button();
+            this.Btnclose = new System.Windows.Forms.Button();
+            this.Btnbilllist = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
@@ -337,46 +337,6 @@
             this.DGV.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Controls.Add(this.Btnsave);
-            this.panel1.Controls.Add(this.Btnclose);
-            this.panel1.Controls.Add(this.Btnbilllist);
-            this.panel1.Name = "panel1";
-            // 
-            // Btnsave
-            // 
-            resources.ApplyResources(this.Btnsave, "Btnsave");
-            this.Btnsave.BackColor = System.Drawing.Color.PowderBlue;
-            this.Btnsave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btnsave.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.Btnsave.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
-            this.Btnsave.Name = "Btnsave";
-            this.Btnsave.UseVisualStyleBackColor = false;
-            this.Btnsave.Click += new System.EventHandler(this.Btnsave_Click);
-            // 
-            // Btnclose
-            // 
-            resources.ApplyResources(this.Btnclose, "Btnclose");
-            this.Btnclose.BackColor = System.Drawing.Color.PowderBlue;
-            this.Btnclose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btnclose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.Btnclose.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
-            this.Btnclose.Name = "Btnclose";
-            this.Btnclose.UseVisualStyleBackColor = false;
-            this.Btnclose.Click += new System.EventHandler(this.Btnclose_Click);
-            // 
-            // Btnbilllist
-            // 
-            resources.ApplyResources(this.Btnbilllist, "Btnbilllist");
-            this.Btnbilllist.BackColor = System.Drawing.Color.PowderBlue;
-            this.Btnbilllist.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btnbilllist.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.Btnbilllist.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
-            this.Btnbilllist.Name = "Btnbilllist";
-            this.Btnbilllist.UseVisualStyleBackColor = false;
-            // 
             // ProductCode
             // 
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -446,6 +406,47 @@
             this.LineTotal.Name = "LineTotal";
             this.LineTotal.ReadOnly = true;
             // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.Btnsave);
+            this.panel1.Controls.Add(this.Btnclose);
+            this.panel1.Controls.Add(this.Btnbilllist);
+            this.panel1.Name = "panel1";
+            // 
+            // Btnsave
+            // 
+            resources.ApplyResources(this.Btnsave, "Btnsave");
+            this.Btnsave.BackColor = System.Drawing.Color.PowderBlue;
+            this.Btnsave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnsave.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.Btnsave.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.Btnsave.Name = "Btnsave";
+            this.Btnsave.UseVisualStyleBackColor = false;
+            this.Btnsave.Click += new System.EventHandler(this.Btnsave_Click);
+            // 
+            // Btnclose
+            // 
+            resources.ApplyResources(this.Btnclose, "Btnclose");
+            this.Btnclose.BackColor = System.Drawing.Color.PowderBlue;
+            this.Btnclose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnclose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.Btnclose.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.Btnclose.Name = "Btnclose";
+            this.Btnclose.UseVisualStyleBackColor = false;
+            this.Btnclose.Click += new System.EventHandler(this.Btnclose_Click);
+            // 
+            // Btnbilllist
+            // 
+            resources.ApplyResources(this.Btnbilllist, "Btnbilllist");
+            this.Btnbilllist.BackColor = System.Drawing.Color.PowderBlue;
+            this.Btnbilllist.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnbilllist.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.Btnbilllist.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.Btnbilllist.Name = "Btnbilllist";
+            this.Btnbilllist.UseVisualStyleBackColor = false;
+            this.Btnbilllist.Click += new System.EventHandler(this.Btnbilllist_Click);
+            // 
             // Returnedbill
             // 
             resources.ApplyResources(this, "$this");
@@ -506,7 +507,6 @@
         private System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button Btnsave;
         private System.Windows.Forms.Button Btnclose;
-        private System.Windows.Forms.Button Btnbilllist;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitType;
@@ -515,5 +515,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn LineTotal;
+        private System.Windows.Forms.Button Btnbilllist;
     }
 }

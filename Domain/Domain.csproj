@@ -103,6 +103,9 @@
     <Compile Include="Models\expensesview.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\invtransaction.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\item.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>

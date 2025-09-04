@@ -47,6 +47,7 @@ namespace UOW
         IRepository<stok_transaction> stok_transactions { get; }
         IRepository<returned> returneds { get; }
         IRepository<returnedetaile> returnedetailes { get; }
+        IRepository<invtransaction> invtransactions { get; }
         int Complete();
     }
 }

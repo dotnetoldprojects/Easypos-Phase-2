@@ -55,6 +55,7 @@
             this.DTF = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.RBStok = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.GroupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -171,6 +172,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.RBStok);
             this.tabPage2.Controls.Add(this.Typeexp);
             this.tabPage2.Controls.Add(this.Explist);
             this.tabPage2.Controls.Add(this.radioButton1);
@@ -261,6 +263,12 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
             // 
+            // RBStok
+            // 
+            resources.ApplyResources(this.RBStok, "RBStok");
+            this.RBStok.Name = "RBStok";
+            this.RBStok.UseVisualStyleBackColor = true;
+            // 
             // Salesfiltrations
             // 
             resources.ApplyResources(this, "$this");
@@ -311,5 +319,6 @@
         public System.Windows.Forms.RadioButton radioButton1;
         public System.Windows.Forms.ComboBox Explist;
         public System.Windows.Forms.CheckBox Typeexp;
+        public System.Windows.Forms.RadioButton RBStok;
     }
 }

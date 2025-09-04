@@ -329,6 +329,12 @@
     <Compile Include="Forms\Returned\Returnedbill.Designer.cs">
       <DependentUpon>Returnedbill.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Returned\Returnedlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Returned\Returnedlist.Designer.cs">
+      <DependentUpon>Returnedlist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\tailoring\Frmtailoring.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -565,6 +571,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Returned\Returnedbill.resx">
       <DependentUpon>Returnedbill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Returned\Returnedlist.resx">
+      <DependentUpon>Returnedlist.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\tailoring\Frmtailoring.en.resx">
       <DependentUpon>Frmtailoring.cs</DependentUpon>

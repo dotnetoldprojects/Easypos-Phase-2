@@ -157,6 +157,16 @@ namespace GUIForms.Forms.Masters
                 ST.Quantity = int.Parse(txtStocksOnHand.Text);
                 ST.Note = textBox2.Text;
                 _IUW.stok_transactions.Update(ST);
+                _IUW.invtransactions.Insert(new invtransaction
+                {
+                    Proid = ST.Proid,
+                    Quantity = ST.Quantity,
+                    Date = DateTime.Now,
+                    Credit = ST.Quantity > 0 ? ST.Quantity : 0,
+                    Dipt = ST.Quantity < 0 ? ST.Quantity : 0,
+                    type = "Adjust",
+                    transid = ST.Id
+                });
                 _IUW.Complete();
                 MessageBox.Show("Updated Successfully");
                 Cleardata();

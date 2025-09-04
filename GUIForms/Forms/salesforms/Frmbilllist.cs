@@ -339,7 +339,6 @@ namespace Easypos.Salesforms
             // عرض النتائج
             DGV.DataSource = result;
         }
-
         private void Btnall_Click(object sender, EventArgs e)
         {
             Loading();

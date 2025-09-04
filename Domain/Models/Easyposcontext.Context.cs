@@ -109,6 +109,8 @@ public partial class EasyposEntities : DbContext
 
     public virtual DbSet<returnedetaile> returnedetailes { get; set; }
 
+    public virtual DbSet<invtransaction> invtransactions { get; set; }
+
 
     public virtual int Getpaymentin()
     {

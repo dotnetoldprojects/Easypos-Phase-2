@@ -22,6 +22,7 @@ namespace GUIForms.Forms.Returned
         IUnitofwork _IUW;
         Usingnumber _NO;
         public int TP { get; set; }
+        public string Type { get; set; }
         public Returnedbill()
         {
             InitializeComponent();
@@ -114,15 +115,28 @@ namespace GUIForms.Forms.Returned
                 {
                     if (Billtype.SelectedIndex == 1)
                     {
+                        Type = "Returned Sales";
                         SOH.Quantity += int.Parse(SD.Quantity.ToString());
                     }
                     if (Billtype.SelectedIndex == 2)
                     {
+                        Type = "Purchases Sales";
                         SOH.Quantity -= int.Parse(SD.Quantity.ToString());
                     }
                     _IUW.stok_transactions.Update(SOH);
                     _IUW.Complete();
                 }
+                _IUW.invtransactions.Insert(new invtransaction
+                {
+                    Proid = int.Parse(SD.ProductNo.ToString()),
+                    Quantity = int.Parse(SD.Quantity.ToString()),
+                    Date = DateTime.Now,
+                    Credit = Billtype.SelectedIndex == 1 ? SOH.Quantity : 0,
+                    Dipt = Billtype.SelectedIndex == 2 ? SOH.Quantity : 0,
+                    type = Type,
+                    transid = SD.InvoiceNo
+                });
+                _IUW.Complete();
             }
         }
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
@@ -268,6 +282,12 @@ namespace GUIForms.Forms.Returned
             var sal = _IUW.sales.GetAll().Where(x => x.Invoiceno == int.Parse(txtBarcode.Text)).FirstOrDefault();
             sal.Billtype = "مسودة";
             _IUW.Complete();
+        }
+
+        private void Btnbilllist_Click(object sender, EventArgs e)
+        {
+            Returnedlist RL = new Returnedlist();
+            RL.ShowDialog();
         }
     }
 }
