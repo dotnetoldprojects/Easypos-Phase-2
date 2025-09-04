@@ -88,6 +88,7 @@ namespace Easypos
             this.metroTile1 = new MetroFramework.Controls.MetroTile();
             this.Btntail = new MetroFramework.Controls.MetroTile();
             this.Btnreportsales = new MetroFramework.Controls.MetroTile();
+            this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.HP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Btnmin)).BeginInit();
@@ -188,6 +189,7 @@ namespace Easypos
             this.ملفToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ملفToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.الاصنافToolStripMenuItem,
+            this.toolStripMenuItem11,
             this.تصنيفالاصنافToolStripMenuItem,
             this.الوحداتToolStripMenuItem,
             this.التصنيفاتToolStripMenuItem,
@@ -214,7 +216,7 @@ namespace Easypos
             this.تصنيفالاصنافToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.تصنيفالاصنافToolStripMenuItem.Name = "تصنيفالاصنافToolStripMenuItem";
             resources.ApplyResources(this.تصنيفالاصنافToolStripMenuItem, "تصنيفالاصنافToolStripMenuItem");
-            this.تصنيفالاصنافToolStripMenuItem.Click += new System.EventHandler(this.تصنيفالاصنافToolStripMenuItem_Click);
+            this.تصنيفالاصنافToolStripMenuItem.Click += new System.EventHandler(this.تصنيفالاصنافToolStripMenuItem_Click_1);
             // 
             // الوحداتToolStripMenuItem
             // 
@@ -695,6 +697,14 @@ namespace Easypos
             this.Btnreportsales.UseTileImage = true;
             this.Btnreportsales.Click += new System.EventHandler(this.Btnreportsales_Click);
             // 
+            // toolStripMenuItem11
+            // 
+            this.toolStripMenuItem11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.toolStripMenuItem11.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem11.Name = "toolStripMenuItem11";
+            resources.ApplyResources(this.toolStripMenuItem11, "toolStripMenuItem11");
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.تصنيفالاصنافToolStripMenuItem_Click);
+            // 
             // Frmindex
             // 
             resources.ApplyResources(this, "$this");
@@ -785,5 +795,6 @@ namespace Easypos
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private MetroFramework.Controls.MetroTile metroTile1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
     }
 }

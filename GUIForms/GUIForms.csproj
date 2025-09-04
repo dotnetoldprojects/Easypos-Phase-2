@@ -269,6 +269,12 @@
     <Compile Include="Forms\Masters\Frmunits.Designer.cs">
       <DependentUpon>Frmunits.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Masters\Listofstok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Masters\Listofstok.Designer.cs">
+      <DependentUpon>Listofstok.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Reportform\Reportrestfiltrations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -499,6 +505,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Masters\Frmunits.resx">
       <DependentUpon>Frmunits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Masters\Listofstok.ar.resx">
+      <DependentUpon>Listofstok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Masters\Listofstok.resx">
+      <DependentUpon>Listofstok.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reportform\Reportrestfiltrations.resx">
       <DependentUpon>Reportrestfiltrations.cs</DependentUpon>

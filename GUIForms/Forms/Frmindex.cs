@@ -9,6 +9,7 @@ using Easypos.Tailoring;
 using Easypos.TransactionsAccountant;
 using Easypos.Vouchers;
 using GUIForms.Dtos;
+using GUIForms.Forms.Masters;
 using GUIForms.Forms.salesforms.Normal;
 using Reporting.Sales;
 using Resturantlayer;
@@ -681,6 +682,11 @@ namespace Easypos
         {
             FrmExpencetype FET = new FrmExpencetype();
             FET.Show();
+        }
+        private void تصنيفالاصنافToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            Listofstok FLS = new Listofstok();
+            FLS.Show();
         }
     }
 }
