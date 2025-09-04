@@ -16,5 +16,10 @@ namespace GUIForms.Forms.Returned
         {
             InitializeComponent();
         }
+
+        private void Btnclose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

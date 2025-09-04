@@ -136,6 +136,12 @@
     <Compile Include="Models\purchasedetaile.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\returned.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\returnedetaile.cs">
+      <DependentUpon>Easyposcontext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sale.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>

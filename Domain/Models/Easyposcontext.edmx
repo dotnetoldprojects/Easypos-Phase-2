@@ -254,6 +254,35 @@
           <Property Name="Billtype" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Supplierbill" Type="nvarchar" MaxLength="45" />
         </EntityType>
+        <EntityType Name="returned">
+          <Key>
+            <PropertyRef Name="Invoiceno" />
+          </Key>
+          <Property Name="Invoiceno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TDate" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="NonVatTotal" Type="float" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="VatAmount" Type="float" Nullable="false" />
+          <Property Name="TotalAmount" Type="nvarchar" MaxLength="45" Nullable="false" />
+          <Property Name="Note" Type="nvarchar" MaxLength="100" />
+          <Property Name="Returnedtype" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="returnedetailes">
+          <Key>
+            <PropertyRef Name="TDetailNo" />
+          </Key>
+          <Property Name="TDetailNo" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceNo" Type="int" Nullable="false" />
+          <Property Name="ProductNo" Type="bigint" Nullable="false" />
+          <Property Name="TDDesc" Type="nvarchar" MaxLength="145" />
+          <Property Name="Unitid" Type="int" />
+          <Property Name="ItemPrice" Type="float" Nullable="false" />
+          <Property Name="Quantity" Type="float" Nullable="false" />
+          <Property Name="Subtotal" Type="float" Nullable="false" />
+          <Property Name="Discount" Type="float" Nullable="false" />
+          <Property Name="Totafterdiscount" Type="float" />
+          <Property Name="Total" Type="decimal" Precision="8" Scale="2" />
+        </EntityType>
         <EntityType Name="sales">
           <Key>
             <PropertyRef Name="Invoiceno" />
@@ -618,6 +647,8 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="productitems" EntityType="Self.productitems" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="purchasedetailes" EntityType="Self.purchasedetailes" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="purchases" EntityType="Self.purchases" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="returned" EntityType="Self.returned" Schema="resturant" store:Type="Tables" />
+          <EntitySet Name="returnedetailes" EntityType="Self.returnedetailes" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="sales" EntityType="Self.sales" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="salesdetailes" EntityType="Self.salesdetailes" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="staff" EntityType="Self.staff" Schema="resturant" store:Type="Tables" />
@@ -1096,6 +1127,8 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
             <End Role="tailorheader" EntitySet="tailorheaders" />
           </AssociationSet>
           <EntitySet Name="stok_transaction" EntityType="EasyposModel.stok_transaction" />
+          <EntitySet Name="returneds" EntityType="EasyposModel.returned" />
+          <EntitySet Name="returnedetailes" EntityType="EasyposModel.returnedetaile" />
         </EntityContainer>
         <EntityType Name="UBL">
           <Key>
@@ -1345,6 +1378,35 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Proid" Type="Int32" Nullable="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="returned">
+          <Key>
+            <PropertyRef Name="Invoiceno" />
+          </Key>
+          <Property Name="Invoiceno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TDate" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="NonVatTotal" Type="Double" Nullable="false" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="VatAmount" Type="Double" Nullable="false" />
+          <Property Name="TotalAmount" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Returnedtype" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="returnedetaile">
+          <Key>
+            <PropertyRef Name="TDetailNo" />
+          </Key>
+          <Property Name="TDetailNo" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceNo" Type="Int32" Nullable="false" />
+          <Property Name="ProductNo" Type="Int64" Nullable="false" />
+          <Property Name="TDDesc" Type="String" MaxLength="145" FixedLength="false" Unicode="true" />
+          <Property Name="Unitid" Type="Int32" />
+          <Property Name="ItemPrice" Type="Double" Nullable="false" />
+          <Property Name="Quantity" Type="Double" Nullable="false" />
+          <Property Name="Subtotal" Type="Double" Nullable="false" />
+          <Property Name="Discount" Type="Double" Nullable="false" />
+          <Property Name="Totafterdiscount" Type="Double" />
+          <Property Name="Total" Type="Decimal" Precision="8" Scale="2" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1887,6 +1949,37 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Proid" ColumnName="Proid" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="returneds">
+            <EntityTypeMapping TypeName="EasyposModel.returned">
+              <MappingFragment StoreEntitySet="returned">
+                <ScalarProperty Name="Returnedtype" ColumnName="Returnedtype" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="VatAmount" ColumnName="VatAmount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="NonVatTotal" ColumnName="NonVatTotal" />
+                <ScalarProperty Name="TDate" ColumnName="TDate" />
+                <ScalarProperty Name="Invoiceno" ColumnName="Invoiceno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="returnedetailes">
+            <EntityTypeMapping TypeName="EasyposModel.returnedetaile">
+              <MappingFragment StoreEntitySet="returnedetailes">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Totafterdiscount" ColumnName="Totafterdiscount" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="Unitid" ColumnName="Unitid" />
+                <ScalarProperty Name="TDDesc" ColumnName="TDDesc" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+                <ScalarProperty Name="TDetailNo" ColumnName="TDetailNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -196,8 +196,32 @@
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
+  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 54</value>
+  </data>
+  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1044, 210</value>
+  </data>
+  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
+    <value>48</value>
+  </data>
   <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
+  </data>
+  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>559, 3</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 201</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>بيانات المبلغ</value>
   </data>
   <data name="label21.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -415,20 +439,17 @@
   <data name="QRPic.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>559, 3</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 201</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>بيانات المبلغ</value>
-  </data>
   <data name="GroupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
+  </data>
+  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
+  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 201</value>
+  </data>
+  <data name="GroupBox1.Text" xml:space="preserve">
+    <value>بيانات الفاتورة</value>
   </data>
   <data name="txtBarcode.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -467,10 +488,10 @@
     <value>157, 59</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>47, 13</value>
+    <value>68, 13</value>
   </data>
   <data name="label9.Text" xml:space="preserve">
-    <value>الباركود:</value>
+    <value>رقم الفاتوره :</value>
   </data>
   <data name="txtNote.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -503,7 +524,7 @@
     <value>NoControl</value>
   </data>
   <data name="label18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 13</value>
+    <value>69, 13</value>
   </data>
   <data name="label18.Text" xml:space="preserve">
     <value>نوع الفاتورة :</value>
@@ -560,7 +581,7 @@
     <value>NoControl</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
+    <value>41, 13</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>التاريخ:</value>
@@ -575,34 +596,13 @@
     <value>NoControl</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 13</value>
+    <value>65, 13</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>رقم الفاتورة:</value>
   </data>
   <data name="label1.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
-  </data>
-  <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt</value>
-  </data>
-  <data name="GroupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>235, 201</value>
-  </data>
-  <data name="GroupBox1.Text" xml:space="preserve">
-    <value>بيانات الفاتورة</value>
-  </data>
-  <data name="panel4.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 54</value>
-  </data>
-  <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1044, 210</value>
-  </data>
-  <data name="panel4.TabIndex" type="System.Int32, mscorlib">
-    <value>48</value>
   </data>
   <data name="ProductCode.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
@@ -729,8 +729,5 @@
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
 </root>

@@ -105,6 +105,10 @@ public partial class EasyposEntities : DbContext
 
     public virtual DbSet<stok_transaction> stok_transaction { get; set; }
 
+    public virtual DbSet<returned> returneds { get; set; }
+
+    public virtual DbSet<returnedetaile> returnedetailes { get; set; }
+
 
     public virtual int Getpaymentin()
     {
