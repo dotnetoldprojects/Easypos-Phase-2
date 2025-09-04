@@ -10,6 +10,7 @@ using Easypos.TransactionsAccountant;
 using Easypos.Vouchers;
 using GUIForms.Dtos;
 using GUIForms.Forms.Masters;
+using GUIForms.Forms.Returned;
 using GUIForms.Forms.salesforms.Normal;
 using Reporting.Sales;
 using Resturantlayer;
@@ -269,11 +270,8 @@ namespace Easypos
         }
         private void Btnreturn_Click(object sender, EventArgs e)
         {
-            //Fremreturnrequired FRR = new Fremreturnrequired();
-            //FRR.Show();
-            //Salesreturned FRS = new Salesreturned();
-            //Returnedsales FRS = new Returnedsales();
-            //FRS.Show();
+            Returnedbill FRS = new Returnedbill();
+            FRS.Show();
         }
         private void Btnbank_Click(object sender, EventArgs e)
         {

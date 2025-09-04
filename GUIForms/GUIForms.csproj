@@ -323,6 +323,12 @@
     <Compile Include="Forms\Masters\Subforms\Itemsales.Designer.cs">
       <DependentUpon>Itemsales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Returned\Returnedbill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Returned\Returnedbill.Designer.cs">
+      <DependentUpon>Returnedbill.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\tailoring\Frmtailoring.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -554,6 +560,12 @@
     <EmbeddedResource Include="Forms\Masters\Subforms\Itemsales.resx">
       <DependentUpon>Itemsales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Returned\Returnedbill.ar.resx">
+      <DependentUpon>Returnedbill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Returned\Returnedbill.resx">
+      <DependentUpon>Returnedbill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\tailoring\Frmtailoring.en.resx">
       <DependentUpon>Frmtailoring.cs</DependentUpon>
     </EmbeddedResource>
@@ -763,6 +775,7 @@
     <Content Include="resources\يد مثلث.jpg" />
     <Content Include="resources\يد مثلث.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

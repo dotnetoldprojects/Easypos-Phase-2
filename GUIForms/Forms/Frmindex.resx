@@ -117,87 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;lblCompanyInfo.Name" xml:space="preserve">
-    <value>lblCompanyInfo</value>
-  </data>
-  <data name="&gt;&gt;lblCompanyInfo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblCompanyInfo.Parent" xml:space="preserve">
-    <value>HP</value>
-  </data>
-  <data name="&gt;&gt;lblCompanyInfo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Logo.Name" xml:space="preserve">
-    <value>Logo</value>
-  </data>
-  <data name="&gt;&gt;Logo.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;Logo.Parent" xml:space="preserve">
-    <value>HP</value>
-  </data>
-  <data name="&gt;&gt;Logo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Btnmin.Name" xml:space="preserve">
-    <value>Btnmin</value>
-  </data>
-  <data name="&gt;&gt;Btnmin.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;Btnmin.Parent" xml:space="preserve">
-    <value>HP</value>
-  </data>
-  <data name="&gt;&gt;Btnmin.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;Btnclose.Name" xml:space="preserve">
-    <value>Btnclose</value>
-  </data>
-  <data name="&gt;&gt;Btnclose.Type" xml:space="preserve">
-    <value>FontAwesome.Sharp.IconPictureBox, FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f</value>
-  </data>
-  <data name="&gt;&gt;Btnclose.Parent" xml:space="preserve">
-    <value>HP</value>
-  </data>
-  <data name="&gt;&gt;Btnclose.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="HP.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="HP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="HP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1108, 35</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="HP.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;HP.Name" xml:space="preserve">
-    <value>HP</value>
-  </data>
-  <data name="&gt;&gt;HP.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HP.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;HP.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <data name="lblCompanyInfo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="lblCompanyInfo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="lblCompanyInfo.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 15.75pt, style=Bold</value>
   </data>
@@ -366,6 +294,51 @@
   <data name="&gt;&gt;Btnclose.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="HP.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="HP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="HP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1108, 35</value>
+  </data>
+  <data name="HP.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;HP.Name" xml:space="preserve">
+    <value>HP</value>
+  </data>
+  <data name="&gt;&gt;HP.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;HP.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;HP.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="HN.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom</value>
+  </data>
+  <data name="HN.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="HN.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 18pt</value>
+  </data>
+  <data name="HN.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 4</value>
+  </data>
+  <data name="HN.Size" type="System.Drawing.Size, System.Drawing">
+    <value>142, 29</value>
+  </data>
+  <data name="HN.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="HN.Text" xml:space="preserve">
+    <value>برنامج نقاط البيع</value>
+  </data>
   <data name="&gt;&gt;HN.Name" xml:space="preserve">
     <value>HN</value>
   </data>
@@ -402,39 +375,6 @@
   <data name="&gt;&gt;Header.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="HN.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom</value>
-  </data>
-  <data name="HN.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="HN.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 18pt</value>
-  </data>
-  <data name="HN.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 4</value>
-  </data>
-  <data name="HN.Size" type="System.Drawing.Size, System.Drawing">
-    <value>142, 29</value>
-  </data>
-  <data name="HN.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="HN.Text" xml:space="preserve">
-    <value>برنامج نقاط البيع</value>
-  </data>
-  <data name="&gt;&gt;HN.Name" xml:space="preserve">
-    <value>HN</value>
-  </data>
-  <data name="&gt;&gt;HN.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;HN.Parent" xml:space="preserve">
-    <value>Header</value>
-  </data>
-  <data name="&gt;&gt;HN.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="MS.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -451,19 +391,19 @@
 </value>
   </data>
   <data name="الاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الاصنافToolStripMenuItem.Text" xml:space="preserve">
     <value>المنتجات</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="toolStripMenuItem11.Text" xml:space="preserve">
     <value>الاصناف الاوليه</value>
   </data>
   <data name="تصنيفالاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="تصنيفالاصنافToolStripMenuItem.Text" xml:space="preserve">
     <value>المخزون</value>
@@ -486,7 +426,7 @@
 </value>
   </data>
   <data name="الوحداتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الوحداتToolStripMenuItem.Text" xml:space="preserve">
     <value>الوحدات</value>
@@ -505,7 +445,7 @@
 </value>
   </data>
   <data name="التصنيفاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="التصنيفاتToolStripMenuItem.Text" xml:space="preserve">
     <value>التصنيفات</value>
@@ -528,7 +468,7 @@
 </value>
   </data>
   <data name="الاضافاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الاضافاتToolStripMenuItem.Text" xml:space="preserve">
     <value>الاضافات</value>
@@ -551,7 +491,7 @@
 </value>
   </data>
   <data name="المورديينوالعملاءToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="المورديينوالعملاءToolStripMenuItem.Text" xml:space="preserve">
     <value>المورديين والعملاء</value>
@@ -570,7 +510,7 @@
 </value>
   </data>
   <data name="الموظفيينToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الموظفيينToolStripMenuItem.Text" xml:space="preserve">
     <value>الموظفيين</value>
@@ -591,7 +531,7 @@
 </value>
   </data>
   <data name="ترتيبالاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="ترتيبالاصنافToolStripMenuItem.Text" xml:space="preserve">
     <value>ترتيب الاصناف</value>
@@ -615,7 +555,7 @@
 </value>
   </data>
   <data name="خروجToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="خروجToolStripMenuItem.Text" xml:space="preserve">
     <value>خروج</value>
@@ -634,135 +574,6 @@
   </data>
   <data name="ملفToolStripMenuItem.Text" xml:space="preserve">
     <value>ملف</value>
-  </data>
-  <data name="المبيعاتToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAhNJREFUWEft
-        lr9LV2EUxjWjhCBoKLLNwaH/oR8ggdHSFAQuYoNCg/ZjiKA1QZDIwMGMoq1cbAlKiYJIFFqKaguCaCga
-        s6HwI4fOjePj9973veodgj5w4d73POd9zr3nfV9uW9t/WgD0AH3huQMYBDrXKxsCuMIfngIDwFt/PqXa
-        RgBeuqEyo9ptA9gLnAUeAL/U2fkJPAKGgUOeZ+25AczXuI6pv010Scx+AxNe1BSwKvHjwE5gVsZzOKP+
-        VsBu4GMQjUn8bog9BnYA98JYHTYWYAAXg+ikxM6FWH+m+SiwBzgKfAnjGwsA2oHXQXRd4vdD7Fu4L+OV
-        5MeXa1mA9TpiC3Hcx6cllsOizB/XWMsCuoER4EnFLrCFWQdrwQFfsNUtiPhWy8E+q/X4iBikSBYw5MJ3
-        /hbfZQJjSXJij1MkC+jyInYBdzTbWZacyyqooLoAw/d5mXnBVe9xb+bOKKguwE84O5KborwAf/MZzQBe
-        ACcyL9OW8d6+mvr+BbimGc5D1ZZhWk12zPyg6tcBfNUsZw7Yl3mZVkmbGzX3cy555kb4G6rCTspbwPlE
-        v418c6NiEUZuBn0n8FkFzoda5gUZRQyKfkEFmzYvSBTxzE5J1x0GViS+NfOCRBGfgOfADxk38y6da9P4
-        j8qkmJTxBtivc2yZzCKaMS9IFNGseYGvidtivr09zwE47QfRBfsj0vg/xRoWB+XvfKaPmQAAAABJRU5E
-        rkJggg==
-</value>
-  </data>
-  <data name="المبيعاتToolStripMenuItem.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="المبيعاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 20</value>
-  </data>
-  <data name="المبيعاتToolStripMenuItem.Text" xml:space="preserve">
-    <value>المبيعات</value>
-  </data>
-  <data name="المبيعاتToolStripMenuItem.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>BottomCenter</value>
-  </data>
-  <data name="المبيعاتToolStripMenuItem.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="المشترباتToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZNJREFUWEft
-        l71KA0EUhaNJKYqF1jZWalAQOxFBew0EbH0DOwnYKLaCvT5ADL6HighW2tlbKFpq0E8uzOLsMZOdTViI
-        kA+m2XvuvWeZn50tlYZ4APNAHdgAxjVeKMAc0OaXF2BVdYUBLABfngHjTnUGUAPeRduNN2BL6/wBWHJT
-        cOUS26oxgKY0iKGpdYIArSRLY4Yfz0FL6wT5DwaO07WjONI6QSIMVIB1t11jhmkrWidIloHCGUgDwDTw
-        mDzPwQMwle6QQcCAHT69Ukt3yCBgwA6oXqmnO2QwqAYWge903Sgsp5rukEEnA+55tcMezxr5mhvAhfcG
-        oxovHODUM7ALjKimUICVHue7Gx/AufYKAuwBn1qlT161T1fcyj9xi7LfYetqW3sMPu4bYFewZ+A69qIK
-        NIAnN/Y1Hg1wKfNot+VJ1fkAO5Jj5DsNEwK3303V+dhq1wTgTHVRAPdSyLbnrOp8gAPJMRqqiwJYs+3j
-        ith/w6FqFPurAm695jfAmOqiASackRmNhQDKwLIbZY0PSfgBDamAyyE5H8UAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="المشترباتToolStripMenuItem.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>TopCenter</value>
-  </data>
-  <data name="المشترباتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>70, 20</value>
-  </data>
-  <data name="المشترباتToolStripMenuItem.Text" xml:space="preserve">
-    <value>المشتربات</value>
-  </data>
-  <data name="المشترباتToolStripMenuItem.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>BottomCenter</value>
-  </data>
-  <data name="المشترباتToolStripMenuItem.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
-    <value>ImageAboveText</value>
-  </data>
-  <data name="Resturantmenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 20</value>
-  </data>
-  <data name="Resturantmenu.Text" xml:space="preserve">
-    <value>المطعم</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 20</value>
-  </data>
-  <data name="toolStripMenuItem1.Text" xml:space="preserve">
-    <value>عروض الاسعار</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 20</value>
-  </data>
-  <data name="toolStripMenuItem2.Text" xml:space="preserve">
-    <value>امر التفصيل</value>
-  </data>
-  <data name="toolStripMenuItem2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="MS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="MS.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 2, 0, 2</value>
-  </data>
-  <data name="MS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1108, 24</value>
-  </data>
-  <data name="MS.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="MS.Text" xml:space="preserve">
-    <value>menuStrip1</value>
-  </data>
-  <data name="&gt;&gt;MS.Name" xml:space="preserve">
-    <value>MS</value>
-  </data>
-  <data name="&gt;&gt;MS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MS.Parent" xml:space="preserve">
-    <value>MP</value>
-  </data>
-  <data name="&gt;&gt;MS.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="MP.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="MP.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 79</value>
-  </data>
-  <data name="MP.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1108, 39</value>
-  </data>
-  <data name="MP.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;MP.Name" xml:space="preserve">
-    <value>MP</value>
-  </data>
-  <data name="&gt;&gt;MP.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MP.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;MP.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="فاتورةمبيعاتToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -828,6 +639,36 @@
   <data name="قائمةالمبيعاتToolStripMenuItem.Text" xml:space="preserve">
     <value>قائمة المبيعات</value>
   </data>
+  <data name="المبيعاتToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAhNJREFUWEft
+        lr9LV2EUxjWjhCBoKLLNwaH/oR8ggdHSFAQuYoNCg/ZjiKA1QZDIwMGMoq1cbAlKiYJIFFqKaguCaCga
+        s6HwI4fOjePj9973veodgj5w4d73POd9zr3nfV9uW9t/WgD0AH3huQMYBDrXKxsCuMIfngIDwFt/PqXa
+        RgBeuqEyo9ptA9gLnAUeAL/U2fkJPAKGgUOeZ+25AczXuI6pv010Scx+AxNe1BSwKvHjwE5gVsZzOKP+
+        VsBu4GMQjUn8bog9BnYA98JYHTYWYAAXg+ikxM6FWH+m+SiwBzgKfAnjGwsA2oHXQXRd4vdD7Fu4L+OV
+        5MeXa1mA9TpiC3Hcx6cllsOizB/XWMsCuoER4EnFLrCFWQdrwQFfsNUtiPhWy8E+q/X4iBikSBYw5MJ3
+        /hbfZQJjSXJij1MkC+jyInYBdzTbWZacyyqooLoAw/d5mXnBVe9xb+bOKKguwE84O5KborwAf/MZzQBe
+        ACcyL9OW8d6+mvr+BbimGc5D1ZZhWk12zPyg6tcBfNUsZw7Yl3mZVkmbGzX3cy555kb4G6rCTspbwPlE
+        v418c6NiEUZuBn0n8FkFzoda5gUZRQyKfkEFmzYvSBTxzE5J1x0GViS+NfOCRBGfgOfADxk38y6da9P4
+        j8qkmJTxBtivc2yZzCKaMS9IFNGseYGvidtivr09zwE47QfRBfsj0vg/xRoWB+XvfKaPmQAAAABJRU5E
+        rkJggg==
+</value>
+  </data>
+  <data name="المبيعاتToolStripMenuItem.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="المبيعاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>62, 20</value>
+  </data>
+  <data name="المبيعاتToolStripMenuItem.Text" xml:space="preserve">
+    <value>المبيعات</value>
+  </data>
+  <data name="المبيعاتToolStripMenuItem.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="المبيعاتToolStripMenuItem.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
   <data name="فاتورةالمشترباتToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAWJJREFUWEft
@@ -846,11 +687,44 @@
   <data name="فاتورةالمشترباتToolStripMenuItem.Text" xml:space="preserve">
     <value>فاتورة المشتربات</value>
   </data>
+  <data name="المشترباتToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAZNJREFUWEft
+        l71KA0EUhaNJKYqF1jZWalAQOxFBew0EbH0DOwnYKLaCvT5ADL6HighW2tlbKFpq0E8uzOLsMZOdTViI
+        kA+m2XvuvWeZn50tlYZ4APNAHdgAxjVeKMAc0OaXF2BVdYUBLABfngHjTnUGUAPeRduNN2BL6/wBWHJT
+        cOUS26oxgKY0iKGpdYIArSRLY4Yfz0FL6wT5DwaO07WjONI6QSIMVIB1t11jhmkrWidIloHCGUgDwDTw
+        mDzPwQMwle6QQcCAHT69Ukt3yCBgwA6oXqmnO2QwqAYWge903Sgsp5rukEEnA+55tcMezxr5mhvAhfcG
+        oxovHODUM7ALjKimUICVHue7Gx/AufYKAuwBn1qlT161T1fcyj9xi7LfYetqW3sMPu4bYFewZ+A69qIK
+        NIAnN/Y1Hg1wKfNot+VJ1fkAO5Jj5DsNEwK3303V+dhq1wTgTHVRAPdSyLbnrOp8gAPJMRqqiwJYs+3j
+        ith/w6FqFPurAm695jfAmOqiASackRmNhQDKwLIbZY0PSfgBDamAyyE5H8UAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="المشترباتToolStripMenuItem.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>TopCenter</value>
+  </data>
+  <data name="المشترباتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="المشترباتToolStripMenuItem.Text" xml:space="preserve">
+    <value>المشتربات</value>
+  </data>
+  <data name="المشترباتToolStripMenuItem.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>BottomCenter</value>
+  </data>
+  <data name="المشترباتToolStripMenuItem.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageAboveText</value>
+  </data>
   <data name="Restreport.Size" type="System.Drawing.Size, System.Drawing">
     <value>109, 22</value>
   </data>
   <data name="Restreport.Text" xml:space="preserve">
     <value>التقارير</value>
+  </data>
+  <data name="Resturantmenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 20</value>
+  </data>
+  <data name="Resturantmenu.Text" xml:space="preserve">
+    <value>المطعم</value>
   </data>
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 22</value>
@@ -863,6 +737,12 @@
   </data>
   <data name="toolStripMenuItem4.Text" xml:space="preserve">
     <value>قائمة عرض الاسعار</value>
+  </data>
+  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 20</value>
+  </data>
+  <data name="toolStripMenuItem1.Text" xml:space="preserve">
+    <value>عروض الاسعار</value>
   </data>
   <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
@@ -900,41 +780,65 @@
   <data name="toolStripMenuItem10.Text" xml:space="preserve">
     <value>قائمة التفصيل</value>
   </data>
-  <data name="&gt;&gt;lbluser.Name" xml:space="preserve">
-    <value>lbluser</value>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>78, 20</value>
   </data>
-  <data name="&gt;&gt;lbluser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>امر التفصيل</value>
   </data>
-  <data name="&gt;&gt;lbluser.Parent" xml:space="preserve">
-    <value>Footer</value>
+  <data name="toolStripMenuItem2.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;lbluser.ZOrder" xml:space="preserve">
+  <data name="MS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="MS.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 2, 0, 2</value>
+  </data>
+  <data name="MS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1108, 24</value>
+  </data>
+  <data name="MS.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="MS.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;MS.Name" xml:space="preserve">
+    <value>MS</value>
+  </data>
+  <data name="&gt;&gt;MS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;MS.Parent" xml:space="preserve">
+    <value>MP</value>
+  </data>
+  <data name="&gt;&gt;MS.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Footer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
+  <data name="MP.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="Footer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 718</value>
+  <data name="MP.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 79</value>
   </data>
-  <data name="Footer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1108, 30</value>
+  <data name="MP.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1108, 39</value>
   </data>
-  <data name="Footer.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
+  <data name="MP.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;Footer.Name" xml:space="preserve">
-    <value>Footer</value>
+  <data name="&gt;&gt;MP.Name" xml:space="preserve">
+    <value>MP</value>
   </data>
-  <data name="&gt;&gt;Footer.Type" xml:space="preserve">
+  <data name="&gt;&gt;MP.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Footer.Parent" xml:space="preserve">
+  <data name="&gt;&gt;MP.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;Footer.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;MP.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="lbluser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Right</value>
@@ -971,6 +875,30 @@
   </data>
   <data name="&gt;&gt;lbluser.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="Footer.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="Footer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 718</value>
+  </data>
+  <data name="Footer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1108, 30</value>
+  </data>
+  <data name="Footer.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Footer.Name" xml:space="preserve">
+    <value>Footer</value>
+  </data>
+  <data name="&gt;&gt;Footer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Footer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Footer.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="Btnpro.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
@@ -1271,9 +1199,6 @@
         OlNxWcfUAlzRwWKXjpl3DgunWe6A3Tpm3kU/AXsaVEufjqkFOKiDY4r5EzDA8RoHwfv69HcuczwKs+xi
         HgRnxE6Dtq73BjgNLNLtksROg2+jlx2fe73vFwRBEARBEPkLkNBKh7FV1xAAAAAASUVORK5CYII=
 </value>
-  </data>
-  <data name="Btnreturn.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;Btnreturn.Name" xml:space="preserve">
     <value>Btnreturn</value>
@@ -1733,63 +1658,6 @@
   <data name="Content.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;metroTile1.Name" xml:space="preserve">
-    <value>metroTile1</value>
-  </data>
-  <data name="&gt;&gt;metroTile1.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTile, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;metroTile1.Parent" xml:space="preserve">
-    <value>Content</value>
-  </data>
-  <data name="&gt;&gt;metroTile1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;Btntail.Name" xml:space="preserve">
-    <value>Btntail</value>
-  </data>
-  <data name="&gt;&gt;Btntail.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTile, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;Btntail.Parent" xml:space="preserve">
-    <value>Content</value>
-  </data>
-  <data name="&gt;&gt;Btntail.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;Btnreportsales.Name" xml:space="preserve">
-    <value>Btnreportsales</value>
-  </data>
-  <data name="&gt;&gt;Btnreportsales.Type" xml:space="preserve">
-    <value>MetroFramework.Controls.MetroTile, MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a</value>
-  </data>
-  <data name="&gt;&gt;Btnreportsales.Parent" xml:space="preserve">
-    <value>Content</value>
-  </data>
-  <data name="&gt;&gt;Btnreportsales.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="Content.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 103</value>
-  </data>
-  <data name="Content.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1108, 619</value>
-  </data>
-  <data name="Content.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;Content.Name" xml:space="preserve">
-    <value>Content</value>
-  </data>
-  <data name="&gt;&gt;Content.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Content.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;Content.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="metroTile1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>None</value>
   </data>
@@ -1962,6 +1830,27 @@
   </data>
   <data name="&gt;&gt;Btnreportsales.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="Content.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 103</value>
+  </data>
+  <data name="Content.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1108, 619</value>
+  </data>
+  <data name="Content.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Content.Name" xml:space="preserve">
+    <value>Content</value>
+  </data>
+  <data name="&gt;&gt;Content.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Content.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Content.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -4744,6 +4633,12 @@
   <data name="&gt;&gt;الاصنافToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripMenuItem11.Name" xml:space="preserve">
+    <value>toolStripMenuItem11</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;تصنيفالاصنافToolStripMenuItem.Name" xml:space="preserve">
     <value>تصنيفالاصنافToolStripMenuItem</value>
   </data>
@@ -4904,12 +4799,6 @@
     <value>toolStripMenuItem10</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem11.Name" xml:space="preserve">
-    <value>toolStripMenuItem11</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem11.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
