@@ -355,17 +355,6 @@ namespace Easypos.Salesforms.Cashier
                     _IUW.stok_transactions.Update(SOH);
                     _IUW.Complete();
                 }
-                _IUW.invtransactions.Insert(new invtransaction
-                {
-                    Proid = int.Parse(SD.ProductNo.ToString()),
-                    Quantity = int.Parse(SD.Quantity.ToString()),
-                    Date = DateTime.Now,
-                    Credit = 0,
-                    Dipt = decimal.Parse(SD.ItemPrice.ToString()),
-                    type = "Sales",
-                    transid = SD.InvoiceNo
-                });
-                _IUW.Complete();
                 //var result = GC.GetProductItems(product.ProductNo.ToString());
             }
             // استدعاء الدالة العامة

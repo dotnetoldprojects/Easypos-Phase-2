@@ -164,7 +164,7 @@ namespace GUIForms.Forms.Masters
                     Date = DateTime.Now,
                     Credit = ST.Quantity > 0 ? ST.Quantity : 0,
                     Dipt = ST.Quantity < 0 ? ST.Quantity : 0,
-                    type = "Adjust",
+                    type = "Inventory",
                     transid = ST.Id
                 });
                 _IUW.Complete();

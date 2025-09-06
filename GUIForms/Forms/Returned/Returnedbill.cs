@@ -52,6 +52,17 @@ namespace GUIForms.Forms.Returned
             {
                 Btnsaved();
                 openpayment();
+                Loading();
+                Billtype.SelectedIndex = 0;
+                DGV.Rows.Clear();
+                txtBarcode.Clear();
+                txtTBV.Text = "0";
+                txtDiscount.Text = "0";
+                txtTax.Text = "0";
+                txtTotal.Text = "0";
+                txtNote.Clear();
+                txtBarcode.Focus();
+                MessageBox.Show("Saved Successfully");
             }
 
         }
@@ -88,13 +99,14 @@ namespace GUIForms.Forms.Returned
         }
         private void Savereturned()
         {
-            var pur = new returned
+            var ret = new returned
             {
                 Returnedtype = Billtype.Text,
                 NonVatTotal = double.Parse(txtTBV.Text),
                 Discount = double.Parse(txtDiscount.Text),
                 VatAmount = double.Parse(txtTax.Text),
                 TotalAmount = txtTotal.Text,
+                TDate = DateTime.Now.ToString("yyyy-MM-dd"),
             };
             var details = new List<returnedetaile>();
             for (int i = 0; i < DGV.Rows.Count; i++)
@@ -120,24 +132,16 @@ namespace GUIForms.Forms.Returned
                     }
                     if (Billtype.SelectedIndex == 2)
                     {
-                        Type = "Purchases Sales";
+                        Type = "Returned Purchases";
                         SOH.Quantity -= int.Parse(SD.Quantity.ToString());
                     }
                     _IUW.stok_transactions.Update(SOH);
                     _IUW.Complete();
                 }
-                _IUW.invtransactions.Insert(new invtransaction
-                {
-                    Proid = int.Parse(SD.ProductNo.ToString()),
-                    Quantity = int.Parse(SD.Quantity.ToString()),
-                    Date = DateTime.Now,
-                    Credit = Billtype.SelectedIndex == 1 ? SOH.Quantity : 0,
-                    Dipt = Billtype.SelectedIndex == 2 ? SOH.Quantity : 0,
-                    type = Type,
-                    transid = SD.InvoiceNo
-                });
-                _IUW.Complete();
+
             }
+            // استدعاء الدالة العامة
+            Returnedhelper.SaveReturneWithDetails(ret, details, _IUW,Type);
         }
         private void txtBarcode_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -168,41 +172,50 @@ namespace GUIForms.Forms.Returned
                             {
                                 if (sal != null)
                                 {
-                                    TP = int.Parse(sal.ThirdPartyID.ToString());
-                                    txtTBV.Text = sal.NonVatTotal.ToString();
-                                    txtDiscount.Text = sal.Discount.ToString();
-                                    txtTax.Text = sal.VatAmount.ToString();
-                                    txtTotal.Text = sal.TotalAmount;
-                                    var details = _IUW.salesdetailes.GetAll()
-                                                                    .Where(sd => sd.InvoiceNo == sal.Invoiceno)
-                                                                    .Join(
-                                                                        _IUW.unittypes.GetAll(),
-                                                                        sd => sd.Unitid,
-                                                                        ut => ut.ID,
-                                                                        (sd, ut) => new
-                                                                        {
-                                                                            sd.InvoiceNo,
-                                                                            sd.ProductNo,
-                                                                            sd.TDDesc,
-                                                                            ut.UName,
-                                                                            sd.Unitid,
-                                                                            sd.Quantity,
-                                                                            sd.ItemPrice,
-                                                                            sd.Discount,
-                                                                            sd.Total
-                                                                        }
-                                                                    ).OrderByDescending(x => x.InvoiceNo)
-                                                                     .ToList();
-                                    foreach (var detail in details)
+                                    var data = _IUW.returneds.Find(x => x.Invoiceno == sal.Invoiceno && x.Returnedtype == "مرتجع مبيعات");
+                                    if (data != null)
                                     {
-                                        DGV.Rows.Add(detail.ProductNo,
-                                                     detail.TDDesc,
-                                                     detail.UName,
-                                                     detail.Unitid,
-                                                     detail.Quantity,
-                                                     detail.ItemPrice,
-                                                     detail.Discount,
-                                                     detail.Total);
+                                        MessageBox.Show("هذه الفاتورة تم ارجاعها من قبل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        TP = int.Parse(sal.ThirdPartyID.ToString());
+                                        txtTBV.Text = sal.NonVatTotal.ToString();
+                                        txtDiscount.Text = sal.Discount.ToString();
+                                        txtTax.Text = sal.VatAmount.ToString();
+                                        txtTotal.Text = sal.TotalAmount;
+                                        var details = _IUW.salesdetailes.GetAll()
+                                                                        .Where(sd => sd.InvoiceNo == sal.Invoiceno)
+                                                                        .Join(
+                                                                            _IUW.unittypes.GetAll(),
+                                                                            sd => sd.Unitid,
+                                                                            ut => ut.ID,
+                                                                            (sd, ut) => new
+                                                                            {
+                                                                                sd.InvoiceNo,
+                                                                                sd.ProductNo,
+                                                                                sd.TDDesc,
+                                                                                ut.UName,
+                                                                                sd.Unitid,
+                                                                                sd.Quantity,
+                                                                                sd.ItemPrice,
+                                                                                sd.Discount,
+                                                                                sd.Total
+                                                                            }
+                                                                        ).OrderByDescending(x => x.InvoiceNo)
+                                                                         .ToList();
+                                        foreach (var detail in details)
+                                        {
+                                            DGV.Rows.Add(detail.ProductNo,
+                                                         detail.TDDesc,
+                                                         detail.UName,
+                                                         detail.Unitid,
+                                                         detail.Quantity,
+                                                         detail.ItemPrice,
+                                                         detail.Discount,
+                                                         detail.Total);
+                                        }
                                     }
                                 }
                             }
@@ -224,41 +237,50 @@ namespace GUIForms.Forms.Returned
                             {
                                 if (pur != null)
                                 {
-                                    TP = int.Parse(pur.ThirdPartyID.ToString());
-                                    txtTBV.Text = pur.NonVatTotal.ToString();
-                                    txtDiscount.Text = pur.Discount.ToString();
-                                    txtTax.Text = pur.VatAmount.ToString();
-                                    txtTotal.Text = pur.TotalAmount;
-                                    var details = _IUW.purchasedetailes.GetAll()
-                                                                    .Where(sd => sd.InvoiceNo == pur.Invoiceno)
-                                                                    .Join(
-                                                                        _IUW.unittypes.GetAll(),
-                                                                        sd => sd.Unitid,
-                                                                        ut => ut.ID,
-                                                                        (sd, ut) => new
-                                                                        {
-                                                                            sd.InvoiceNo,
-                                                                            sd.ProductNo,
-                                                                            sd.TDDesc,
-                                                                            ut.UName,
-                                                                            sd.Unitid,
-                                                                            sd.Quantity,
-                                                                            sd.ItemPrice,
-                                                                            sd.Discount,
-                                                                            sd.Total
-                                                                        }
-                                                                    ).OrderByDescending(x => x.InvoiceNo)
-                                                                     .ToList();
-                                    foreach (var detail in details)
+                                    var data = _IUW.returneds.Find(x => x.Invoiceno == pur.Invoiceno && x.Returnedtype == "مرتجع مشتريات");
+                                    if (data != null)
                                     {
-                                        DGV.Rows.Add(detail.ProductNo,
-                                                     detail.TDDesc,
-                                                     detail.UName,
-                                                     detail.Unitid,
-                                                     detail.Quantity,
-                                                     detail.ItemPrice,
-                                                     detail.Discount,
-                                                     detail.Total);
+                                        MessageBox.Show("هذه الفاتورة تم ارجاعها من قبل", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        TP = int.Parse(pur.ThirdPartyID.ToString());
+                                        txtTBV.Text = pur.NonVatTotal.ToString();
+                                        txtDiscount.Text = pur.Discount.ToString();
+                                        txtTax.Text = pur.VatAmount.ToString();
+                                        txtTotal.Text = pur.TotalAmount;
+                                        var details = _IUW.purchasedetailes.GetAll()
+                                                                        .Where(sd => sd.InvoiceNo == pur.Invoiceno)
+                                                                        .Join(
+                                                                            _IUW.unittypes.GetAll(),
+                                                                            sd => sd.Unitid,
+                                                                            ut => ut.ID,
+                                                                            (sd, ut) => new
+                                                                            {
+                                                                                sd.InvoiceNo,
+                                                                                sd.ProductNo,
+                                                                                sd.TDDesc,
+                                                                                ut.UName,
+                                                                                sd.Unitid,
+                                                                                sd.Quantity,
+                                                                                sd.ItemPrice,
+                                                                                sd.Discount,
+                                                                                sd.Total
+                                                                            }
+                                                                        ).OrderByDescending(x => x.InvoiceNo)
+                                                                         .ToList();
+                                        foreach (var detail in details)
+                                        {
+                                            DGV.Rows.Add(detail.ProductNo,
+                                                         detail.TDDesc,
+                                                         detail.UName,
+                                                         detail.Unitid,
+                                                         detail.Quantity,
+                                                         detail.ItemPrice,
+                                                         detail.Discount,
+                                                         detail.Total);
+                                        }
                                     }
                                 }
                             }

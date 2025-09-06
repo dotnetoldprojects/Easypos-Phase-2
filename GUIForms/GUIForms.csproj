@@ -436,6 +436,7 @@
     <Compile Include="helpers\Getallsales.cs" />
     <Compile Include="helpers\Printinginvoice.cs" />
     <Compile Include="helpers\PurchaseHelper.cs" />
+    <Compile Include="helpers\Returnedhelper.cs" />
     <Compile Include="helpers\SalesHelper.cs" />
     <Compile Include="helpers\Signdtos.cs" />
     <Compile Include="helpers\UBLClass.cs" />
