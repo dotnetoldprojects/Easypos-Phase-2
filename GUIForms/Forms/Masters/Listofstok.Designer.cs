@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listofstok));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.Btnaddedit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,11 +55,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.DGV = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.ProductNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +64,10 @@
             this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Btnrep = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -108,6 +109,7 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.Btnrep);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.Btnaddedit);
@@ -128,6 +130,17 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // textBox2
+            // 
+            resources.ApplyResources(this.textBox2, "textBox2");
+            this.textBox2.BackColor = System.Drawing.Color.White;
+            this.textBox2.Name = "textBox2";
             // 
             // Btnaddedit
             // 
@@ -257,42 +270,11 @@
             this.DGV.ReadOnly = true;
             this.DGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellClick);
             // 
-            // groupBox1
-            // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.txtSearch);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // txtSearch
-            // 
-            resources.ApplyResources(this.txtSearch, "txtSearch");
-            this.txtSearch.BackColor = System.Drawing.Color.White;
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // label11
-            // 
-            resources.ApplyResources(this.label11, "label11");
-            this.label11.Name = "label11";
-            // 
-            // textBox2
-            // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Name = "textBox2";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
             // ProductNo
             // 
             this.ProductNo.DataPropertyName = "ProductNo";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ProductNo.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ProductNo.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.ProductNo, "ProductNo");
             this.ProductNo.Name = "ProductNo";
             this.ProductNo.ReadOnly = true;
@@ -314,8 +296,8 @@
             // Barcode
             // 
             this.Barcode.DataPropertyName = "Barcode";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Barcode.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Barcode.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.Barcode, "Barcode");
             this.Barcode.Name = "Barcode";
             this.Barcode.ReadOnly = true;
@@ -354,6 +336,37 @@
             resources.ApplyResources(this.Sid, "Sid");
             this.Sid.Name = "Sid";
             this.Sid.ReadOnly = true;
+            // 
+            // groupBox1
+            // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.txtSearch);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
+            // 
+            // txtSearch
+            // 
+            resources.ApplyResources(this.txtSearch, "txtSearch");
+            this.txtSearch.BackColor = System.Drawing.Color.White;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // label11
+            // 
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
+            // 
+            // Btnrep
+            // 
+            resources.ApplyResources(this.Btnrep, "Btnrep");
+            this.Btnrep.BackColor = System.Drawing.Color.PowderBlue;
+            this.Btnrep.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnrep.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.Btnrep.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.Btnrep.Name = "Btnrep";
+            this.Btnrep.UseVisualStyleBackColor = false;
+            this.Btnrep.Click += new System.EventHandler(this.Btnrep_Click);
             // 
             // Listofstok
             // 
@@ -416,5 +429,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sid;
+        private System.Windows.Forms.Button Btnrep;
     }
 }

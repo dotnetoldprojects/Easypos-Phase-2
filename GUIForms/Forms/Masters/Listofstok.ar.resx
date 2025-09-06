@@ -212,6 +212,27 @@
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>725, 65</value>
   </data>
+  <data name="Btnrep.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="Btnrep.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="Btnrep.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="Btnrep.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 11.25pt</value>
+  </data>
+  <data name="Btnrep.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Btnrep.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 48</value>
+  </data>
+  <data name="Btnrep.Text" xml:space="preserve">
+    <value>تقرير المخزون</value>
+  </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -261,7 +282,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnNew.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 86</value>
+    <value>12, 88</value>
   </data>
   <data name="btnNew.Size" type="System.Drawing.Size, System.Drawing">
     <value>161, 48</value>
@@ -419,6 +440,12 @@
   <data name="DGV.Size" type="System.Drawing.Size, System.Drawing">
     <value>725, 315</value>
   </data>
+  <data name="StocksOnHand.HeaderText" xml:space="preserve">
+    <value>المخزون</value>
+  </data>
+  <data name="Sid.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -448,12 +475,6 @@
   </data>
   <data name="label11.Text" xml:space="preserve">
     <value>اسم المنتج :</value>
-  </data>
-  <data name="StocksOnHand.HeaderText" xml:space="preserve">
-    <value>المخزون</value>
-  </data>
-  <data name="Sid.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>725, 669</value>

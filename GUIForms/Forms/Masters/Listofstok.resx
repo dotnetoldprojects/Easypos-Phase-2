@@ -144,14 +144,14 @@
   <data name="Label5.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="&gt;&gt;Btnaddedit.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
   <data name="DGV.TabIndex" type="System.Int32, mscorlib">
     <value>63</value>
   </data>
   <data name="txtProductCode.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;Showpos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Btnaddedit.Name" xml:space="preserve">
     <value>Btnaddedit</value>
@@ -162,11 +162,8 @@
   <data name="UnitName.HeaderText" xml:space="preserve">
     <value>الوحده</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>16</value>
-  </data>
   <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="&gt;&gt;txtBarcode.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -202,10 +199,10 @@
     <value>7</value>
   </data>
   <data name="&gt;&gt;txtProductCode.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>16</value>
   </data>
   <data name="&gt;&gt;txtCategory.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="&gt;&gt;Description.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -259,7 +256,7 @@
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnNew.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="&gt;&gt;ProductNo.Name" xml:space="preserve">
     <value>ProductNo</value>
@@ -297,6 +294,9 @@
   <data name="&gt;&gt;Sid.Name" xml:space="preserve">
     <value>Sid</value>
   </data>
+  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>648, 86</value>
+  </data>
   <data name="ProductCode.HeaderText" xml:space="preserve">
     <value>رمز المنتج</value>
   </data>
@@ -321,9 +321,6 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
-  <data name="lblProductNo.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
   <data name="txtSearch.Location" type="System.Drawing.Point, System.Drawing">
     <value>188, 28</value>
   </data>
@@ -337,13 +334,13 @@
     <value>188, 116</value>
   </data>
   <data name="&gt;&gt;txtBarcode.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>527, 6</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>359, 86</value>
@@ -361,7 +358,7 @@
     <value>txtStocksOnHand</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -372,6 +369,15 @@
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
   </data>
+  <data name="&gt;&gt;Barcode.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;Btnrep.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="Label8.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
@@ -380,6 +386,9 @@
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="&gt;&gt;Btnrep.Name" xml:space="preserve">
+    <value>Btnrep</value>
   </data>
   <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -407,6 +416,9 @@
   </data>
   <data name="&gt;&gt;ProductCode.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Btndel.Name" xml:space="preserve">
+    <value>Btndel</value>
   </data>
   <data name="Unitid.HeaderText" xml:space="preserve">
     <value>Unitid</value>
@@ -444,11 +456,14 @@
   <data name="&gt;&gt;label11.Parent" xml:space="preserve">
     <value>groupBox1</value>
   </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;ReorderLevel.Name" xml:space="preserve">
     <value>ReorderLevel</value>
@@ -460,7 +475,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtDescription.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="&gt;&gt;txtProductCode.Parent" xml:space="preserve">
     <value>groupBox2</value>
@@ -520,10 +535,13 @@
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lblProductNo.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="&gt;&gt;Showpos.Name" xml:space="preserve">
     <value>Showpos</value>
+  </data>
+  <data name="Btnrep.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 153</value>
   </data>
   <data name="&gt;&gt;txtStocksOnHand.Type" xml:space="preserve">
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -546,11 +564,14 @@
   <data name="&gt;&gt;pictureBox2.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
   <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
   </data>
   <data name="&gt;&gt;Btnaddedit.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
     <value>35</value>
@@ -558,7 +579,7 @@
   <data name="&gt;&gt;Note.Name" xml:space="preserve">
     <value>Note</value>
   </data>
-  <data name="&gt;&gt;StocksOnHand.Type" xml:space="preserve">
+  <data name="&gt;&gt;Showpos.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
@@ -573,8 +594,8 @@
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>62</value>
   </data>
-  <data name="&gt;&gt;Btnaddedit.Parent" xml:space="preserve">
-    <value>groupBox2</value>
+  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="StocksOnHand.HeaderText" xml:space="preserve">
     <value>الكميه</value>
@@ -621,14 +642,20 @@
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
   </data>
+  <data name="&gt;&gt;Btnrep.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
   </data>
   <data name="&gt;&gt;btnNew.Name" xml:space="preserve">
     <value>btnNew</value>
   </data>
-  <data name="Label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>648, 86</value>
+  <data name="Btnrep.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="&gt;&gt;Btnrep.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -651,6 +678,9 @@
   <data name="&gt;&gt;Label5.Name" xml:space="preserve">
     <value>Label5</value>
   </data>
+  <data name="&gt;&gt;button1.Name" xml:space="preserve">
+    <value>button1</value>
+  </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
@@ -670,7 +700,7 @@
     <value>ReorderLevel</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
     <value>1</value>
@@ -679,7 +709,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>18</value>
   </data>
   <data name="Btndel.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -690,8 +720,8 @@
   <data name="txtDescription.Location" type="System.Drawing.Point, System.Drawing">
     <value>188, 55</value>
   </data>
-  <data name="&gt;&gt;Btndel.Name" xml:space="preserve">
-    <value>Btndel</value>
+  <data name="lblProductNo.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;Label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -703,10 +733,13 @@
     <value>648, 116</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;Label8.Name" xml:space="preserve">
     <value>Label8</value>
+  </data>
+  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
   <data name="&gt;&gt;Btnaddedit.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -714,11 +747,11 @@
   <data name="&gt;&gt;Label4.Name" xml:space="preserve">
     <value>Label4</value>
   </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Barcode.Type" xml:space="preserve">
+  <data name="&gt;&gt;StocksOnHand.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 153</value>
   </data>
   <data name="&gt;&gt;Label5.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -748,10 +781,13 @@
     <value>pictureBox2</value>
   </data>
   <data name="&gt;&gt;txtStocksOnHand.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="&gt;&gt;Label5.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="txtStocksOnHand.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -781,7 +817,7 @@
     <value>txtProductCode</value>
   </data>
   <data name="&gt;&gt;Label4.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>15</value>
   </data>
   <metadata name="Sid.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

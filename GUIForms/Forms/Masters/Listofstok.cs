@@ -1,7 +1,12 @@
-﻿using Domain.Models;
+﻿using CrystalDecisions.ReportAppServer;
+using Domain;
+using Domain.Models;
 using GUIForms.Dtos;
 using GUIForms.models;
 using javax.xml.transform;
+using net.sf.saxon;
+using Reporting;
+using Reporting.others;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -77,6 +82,7 @@ namespace GUIForms.Forms.Masters
             txtDescription.Clear();
             txtProductCode.Clear();
             textBox1.Clear();
+            Btnrep.Enabled = false;
             Loading();
         }
         private void picClose_Click(object sender, EventArgs e)
@@ -95,6 +101,7 @@ namespace GUIForms.Forms.Masters
         {
             if (DGV.Rows.Count > 0)
             {
+                Btnrep.Enabled = true;
                 lblProductNo.Text = DGV.CurrentRow.Cells[0].Value.ToString();
                 txtProductCode.Text = DGV.CurrentRow.Cells[1].Value.ToString();
                 txtDescription.Text = DGV.CurrentRow.Cells[2].Value.ToString();
@@ -175,6 +182,95 @@ namespace GUIForms.Forms.Masters
             {
                 MessageBox.Show("Please Select Product");
             }
+        }
+        private void Btnrep_Click(object sender, EventArgs e)
+        {
+            int productId = int.Parse(lblProductNo.Text);
+
+            // جلب بيانات المنتج
+            var product = _IUW.products.GetAll()
+                .FirstOrDefault(p => p.ProductNo == productId);
+
+            // جلب الحركات الخاصة بالمنتج
+            var report = _IUW.invtransactions.GetAll()
+                .Where(t => t.Proid == productId)
+                .GroupBy(t => new { t.transid, t.Proid, t.type, t.Date })
+                .Select(g => new
+                {
+                    Billnumber = g.Key.transid,
+                    ProductId = g.Key.Proid,
+                    Type = g.Key.type,
+                    Date = g.Key.Date,
+                    Quantity = g.Sum(x => x.Quantity),
+                    Credit = g.Sum(x => x.Credit),
+                    Dipt = g.Sum(x => x.Dipt),
+                    Description = product.Description,
+                    StocksOnHand = product.StocksOnHand
+                })
+                .OrderBy(r => r.Date)
+                .ToList();
+
+            // إنشاء التقرير
+            Frmreporting FR = new Frmreporting();
+            Dataset Ds = new Dataset();
+            Stokreport SR = new Stokreport();
+            var dt = Ds.Tables["Stokdata"];
+
+            // إضافة الرصيد الافتتاحي كأول سطر
+            int runningBalance = product.StocksOnHand ?? 0;
+
+            var openingRow = dt.NewRow();
+            openingRow["Proid"] = "--";
+            openingRow["Description"] = "الرصيد الافتتاحي";
+            openingRow["Date"] = "--";
+            openingRow["Billnumber"] = "--";
+            openingRow["Credit"] = 0;
+            openingRow["Dept"] = 0;
+            openingRow["Balance"] = runningBalance;
+            dt.Rows.Add(openingRow);
+
+            // إضافة باقي الحركات مع حساب الرصيد
+            foreach (var item in report)
+            {
+                var row = dt.NewRow();
+                row["Proid"] = item.ProductId;
+                row["Description"] = item.Description;
+                row["Date"] = item.Date.ToString("dd-MM-yyyy");
+                row["Billnumber"] = item.Billnumber;
+                row["Credit"] = item.Credit;
+                row["Dept"] = item.Dipt;
+
+                // تعديل الرصيد حسب نوع الحركة
+                switch (item.Type)
+                {
+                    case "Purchase":
+                    case "Returned Sales":
+                        runningBalance += item.Quantity;
+                        break;
+
+                    case "Sales":
+                    case "Returned Purchases":
+                        runningBalance -= item.Quantity;
+                        break;
+
+                    case "Inventory":
+                        runningBalance += item.Quantity; // لو تعديل مباشر
+                        break;
+                }
+
+                row["Balance"] = runningBalance;
+                dt.Rows.Add(row);
+            }
+
+            // إعداد التقرير
+            SR.SetDataSource(Ds);
+            SR.SetParameterValue("TOF", "تقرير مخزون : " + txtDescription.Text);
+            SR.SetParameterValue("Taxnum", DC.Taxnumber);
+            SR.SetParameterValue("Proname", DC.CRN);
+            SR.SetParameterValue("English_Shop_name", DC.ENName);
+            SR.SetParameterValue("CompanyName", DC.Name);
+            FR.CRV.ReportSource = SR;
+            FR.Show();
         }
     }
 }

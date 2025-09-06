@@ -92,6 +92,12 @@
       <DependentUpon>ExpensesReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="others\Stokreport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stokreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="others\VoucherReport1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -222,6 +228,10 @@
     <EmbeddedResource Include="others\ExpensesReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ExpensesReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="others\Stokreport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Stokreport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="others\VoucherReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
