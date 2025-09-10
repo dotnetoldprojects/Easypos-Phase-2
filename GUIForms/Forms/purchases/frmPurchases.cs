@@ -371,5 +371,14 @@ namespace Easypos.Purchases
                 Clearfildes();
             }
         }
+
+        private void Cattype_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            var data = _IUW.products.Get(int.Parse(Cattype.SelectedValue.ToString()));
+            if (data != null)
+            {
+                unitTypes.SelectedValue = data.Unitid;
+            }
+        }
     }
 }

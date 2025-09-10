@@ -284,7 +284,7 @@ namespace GUIForms.Forms.salesforms.Normal
                 {
                     Proid = int.Parse(SD.ProductNo.ToString()),
                     Quantity = int.Parse(SD.Quantity.ToString()),
-                    Date = DateTime.Now,
+                    Date = DateTime.Now.ToString("dd-MM-yyyy"),
                     Credit = 0,
                     Dipt = decimal.Parse(SD.ItemPrice.ToString()),
                     type = "Sales",

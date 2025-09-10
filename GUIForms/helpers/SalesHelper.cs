@@ -30,7 +30,7 @@ namespace GUIForms.helpers
                 {
                     Proid = int.Parse(item.ProductNo.ToString()),
                     Quantity = int.Parse(item.Quantity.ToString()),
-                    Date = DateTime.Now,
+                    Date = DateTime.Now.ToString("dd-MM-yyyy"),
                     Credit = 0,
                     Dipt = decimal.Parse(item.ItemPrice.ToString()),
                     type = "Sales",

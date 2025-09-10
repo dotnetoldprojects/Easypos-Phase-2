@@ -22,7 +22,7 @@ public partial class invtransaction
 
     public string type { get; set; }
 
-    public System.DateTime Date { get; set; }
+    public string Date { get; set; }
 
     public int Quantity { get; set; }
 

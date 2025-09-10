@@ -164,17 +164,17 @@ namespace GUIForms.Forms.Masters
                 ST.Quantity = int.Parse(txtStocksOnHand.Text);
                 ST.Note = textBox2.Text;
                 _IUW.stok_transactions.Update(ST);
-                _IUW.invtransactions.Insert(new invtransaction
-                {
-                    Proid = ST.Proid,
-                    Quantity = ST.Quantity,
-                    Date = DateTime.Now,
-                    Credit = ST.Quantity > 0 ? ST.Quantity : 0,
-                    Dipt = ST.Quantity < 0 ? ST.Quantity : 0,
-                    type = "Inventory",
-                    transid = ST.Id
-                });
-                _IUW.Complete();
+                //_IUW.invtransactions.Insert(new invtransaction
+                //{
+                //    Proid = ST.Proid,
+                //    Quantity = ST.Quantity,
+                //    Date = DateTime.Now,
+                //    Credit = ST.Quantity > 0 ? ST.Quantity : 0,
+                //    Dipt = ST.Quantity < 0 ? ST.Quantity : 0,
+                //    type = "Inventory",
+                //    transid = ST.Id
+                //});
+                //_IUW.Complete();
                 MessageBox.Show("Updated Successfully");
                 Cleardata();
             }
@@ -224,21 +224,45 @@ namespace GUIForms.Forms.Masters
             openingRow["Description"] = "الرصيد الافتتاحي";
             openingRow["Date"] = "--";
             openingRow["Billnumber"] = "--";
-            openingRow["Credit"] = 0;
-            openingRow["Dept"] = 0;
+            openingRow["Credit"] = runningBalance > 0 ? runningBalance : 0;
+            openingRow["Dept"] = runningBalance < 0 ? runningBalance : 0;
             openingRow["Balance"] = runningBalance;
             dt.Rows.Add(openingRow);
-
+            var Credit = 0.00;
+            var Dept = 0.00;
             // إضافة باقي الحركات مع حساب الرصيد
             foreach (var item in report)
             {
                 var row = dt.NewRow();
                 row["Proid"] = item.ProductId;
-                row["Description"] = item.Description;
-                row["Date"] = item.Date.ToString("dd-MM-yyyy");
+                switch (item.Type)
+                {
+                    case "Purchase":
+                        row["Description"] = "فاتورة مشتريات";
+                        Credit += item.Quantity;
+                        break;
+                    case "Returned Sales":
+                        row["Description"] = "مرتجع مبيعات";
+                        Credit += item.Quantity;
+                        break;
+                    case "Sales":
+                        row["Description"] = "فاتورة مبيعات";
+                        Dept -= item.Quantity;
+                        break;
+                    case "Returned Purchases":
+                        row["Description"] = "مرتجع مشتريات";
+                        Dept -= item.Quantity;
+                        break;
+                    //case "Inventory":
+                    //    row["Description"] = "تعديل مخزون";
+                    //    Credit += item.Quantity >= 0 ? item.Quantity : 0;
+                    //    Dept -= item.Quantity < 0 ? item.Quantity : 0;
+                    //    break;
+                }
+                row["Credit"] = Credit;
+                row["Dept"] = Dept;
+                row["Date"] = item.Date.ToString();
                 row["Billnumber"] = item.Billnumber;
-                row["Credit"] = item.Credit;
-                row["Dept"] = item.Dipt;
 
                 // تعديل الرصيد حسب نوع الحركة
                 switch (item.Type)
@@ -253,13 +277,15 @@ namespace GUIForms.Forms.Masters
                         runningBalance -= item.Quantity;
                         break;
 
-                    case "Inventory":
-                        runningBalance += item.Quantity; // لو تعديل مباشر
-                        break;
+                    //case "Inventory":
+                    //    runningBalance += item.Quantity; // لو تعديل مباشر
+                    //    break;
                 }
 
                 row["Balance"] = runningBalance;
                 dt.Rows.Add(row);
+                Credit = 0.00;
+                Dept = 0.00;
             }
 
             // إعداد التقرير
