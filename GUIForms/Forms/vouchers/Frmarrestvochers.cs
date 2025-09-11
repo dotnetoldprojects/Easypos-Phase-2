@@ -57,6 +57,35 @@ namespace Easypos.Vouchers
             {
                 Vochid = int.Parse(txtpay.Text);
             }
+            // سند ايصال مبيعات
+            if (Vochertypes.SelectedIndex == 2)
+            {
+                var sal = _IUW.sales.Get(int.Parse(txtinv.Text));
+
+                var pay = _IUW.payments.Find(x => x.InvoiceNo == sal.Invoiceno);
+                pay.Cash = 0;
+                pay.Bank = 0;
+                pay.Remaining = decimal.Parse(sal.TotalAmount);
+                pay.PaymentMethod = "اجل";
+                _IUW.payments.Update(pay);
+                _IUW.Complete();
+
+                var trn = _IUW.transactions.Find(x => x.Invoiceno == sal.Invoiceno && x.Type == "سند ايصال مبيعات");
+                _IUW.transactions.Delbyid(trn.ID);
+                _IUW.Complete();
+            }
+            else
+            {
+                var pay = _IUW.payments.GetAll().Where(x => x.Type == "ايرادات اخرى" && x.Paid == decimal.Parse(txtprice.Text)).LastOrDefault();
+                _IUW.payments.Delbyid(pay.paymentNo);
+                _IUW.Complete();
+
+                var trn = _IUW.transactions.GetAll().Where(x => x.Type == "ايرادات اخرى" && x.Paid == decimal.Parse(txtprice.Text)).LastOrDefault();
+                _IUW.transactions.Delbyid(trn.ID);
+                _IUW.Complete();
+            }
+
+
             _IUW.vouchers.Delbyid(Vochid);
             _IUW.Complete();
             Clearfieldes();
@@ -143,10 +172,23 @@ namespace Easypos.Vouchers
                     {
                         PO.paymentNo = result.PaymentNo;
                         PO.Paid = PO.Paid + Convert.ToDecimal(txtprice.Text);
-                        PO.Cash = PO.Paid;
+                        if (Cmbpricetype.SelectedIndex == 1)
+                        {
+                            PO.Cash = PO.Paid;
+                            PO.Bank = 0;
+                        }
+                        if (Cmbpricetype.SelectedIndex == 2)
+                        {
+                            PO.Cash = 0;
+                            PO.Bank = PO.Paid;
+                        }
                         PO.Remaining = Convert.ToDecimal(result.TotalAmount) - PO.Paid;
                         if (PO.Remaining >= 0)
                         {
+                            if (PO.Remaining == 0)
+                            {
+                                PO.PaymentMethod = "نقدي";
+                            }
                             _IUW.payments.Update(PO);
                             _IUW.Complete();
                             Voch.Billnumber = Convert.ToInt32(Invnum.Text);
@@ -171,10 +213,32 @@ namespace Easypos.Vouchers
                             return;
                         }
                     }
-                    SalesHelper.Savetransactions(int.Parse(Invnum.Text), Voch.Thiredpartyid, Voch.Paid, Vochertypes.Text, _IUW, Voch.Date);
                 }
                 else
                 {
+                    Invnum.Text = "";
+                    payment py = new payment();
+                    py.ThirdPartyID = Convert.ToInt32(Clients.SelectedValue.ToString());
+                    py.Date = date.Value.ToString("dd-MM-yyyy");
+                    py.Time = DateTime.Now.ToString("HH:mm:ss");
+                    py.Type = Vochertypes.Text;
+                    py.Paid = decimal.Parse(txtprice.Text);
+                    if (Cmbpricetype.SelectedIndex == 1)
+                    {
+                        py.Cash = py.Paid;
+                        py.Bank = 0;
+                        py.PaymentMethod = "نقدي";
+                    }
+                    if (Cmbpricetype.SelectedIndex == 2)
+                    {
+                        py.Cash = 0;
+                        py.Bank = py.Paid;
+                        py.PaymentMethod = "بنكي";
+                    }
+                    py.Remaining = 0;
+                    _IUW.payments.Insert(py);
+                    _IUW.Complete();
+
                     Voch.Date = date.Value.ToString("dd-MM-yyyy");
                     Voch.Thiredpartyid = Convert.ToInt32(Clients.SelectedValue.ToString());
                     Voch.Vochertypes = Vochertypes.Text;
@@ -188,6 +252,7 @@ namespace Easypos.Vouchers
                 Voch.Methode = Methode;
                 _IUW.vouchers.Insert(Voch);
                 _IUW.Complete();
+                SalesHelper.Savetransactions(int.Parse(Invnum.Text == "" ? "0" : Invnum.Text), Voch.Thiredpartyid, Voch.Paid, Vochertypes.Text, _IUW, Voch.Date);
             }
             catch (Exception ex)
             {
@@ -397,9 +462,9 @@ namespace Easypos.Vouchers
         {
             if (DGSales.Rows.Count > 0)
             {
-                Btnsave.IconChar = FontAwesome.Sharp.IconChar.Pen;
-                Btnsave.Text = "تعديل";
-                Btnsave.BackColor = Color.FromArgb(255, 184, 128);
+                //Btnsave.IconChar = FontAwesome.Sharp.IconChar.Pen;
+                Btnsave.Enabled = false;
+                //Btnsave.BackColor = Color.FromArgb(255, 184, 128);
                 txtpay.Text = DGSales.CurrentRow.Cells[0].Value.ToString();
                 var inv = DGSales.CurrentRow?.Cells[1]?.Value?.ToString() ?? "";
                 txtinv.Text = inv;

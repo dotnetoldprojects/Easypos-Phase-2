@@ -90,34 +90,36 @@ namespace GUIForms.Dtos
                 PL = _IUOW.payments.GetAll().ToList();
                 SL = _IUOW.sales.GetAll().ToList();
                 Res = (from t in _IUOW.transactions.GetAll().ToList()
-                              where t.ThirdPartyID == Thirdid &&
-                                    DateTime.Parse(t.TDate) >= DF && DateTime.Parse(t.TDate) <= DT
-                                    //&& t.Type != "ايرادات اخرى"
-                              join tp in _IUOW.thirdparties.GetAll().ToList() on t.ThirdPartyID equals tp.ID into tpJoin
-                              from tp in tpJoin.DefaultIfEmpty()
+                       where t.ThirdPartyID == Thirdid &&
+                             DateTime.Parse(t.TDate) >= DF && DateTime.Parse(t.TDate) <= DT
+                       //&& t.Type != "ايرادات اخرى"
+                       join tp in _IUOW.thirdparties.GetAll().ToList() on t.ThirdPartyID equals tp.ID into tpJoin
+                       from tp in tpJoin.DefaultIfEmpty()
 
-                              join p in PL on t.Paynum equals p.paymentNo into pJoin
-                              from p in pJoin.DefaultIfEmpty()
+                       join p in PL on t.Paynum equals p.paymentNo into pJoin
+                       from p in pJoin.DefaultIfEmpty()
 
-                              join s in SL on t.Invoiceno equals s.Invoiceno into sJoin
-                              from s in sJoin.DefaultIfEmpty()
+                       join s in SL on t.Invoiceno equals s.Invoiceno into sJoin
+                       from s in sJoin.DefaultIfEmpty()
 
-                              select new
-                              {
-                                  ID = t.ID,
+                       select new
+                       {
+
+                           ID = (t.Type == "فاتورة مبيعات") ? s?.Invoiceno :
+                                (t.Type == "سند ايصال مبيعات") ? t?.Invoiceno : t.ID,
                                   Name = tp.Name,
-                                  MobileNumber = tp.MobileNumber,
-                                  Address = tp.Address,
-                                  Taxnumber = tp.Taxnumber,
-                                  Type = t.Type,
-                                  Paynum = t.Paynum,
-                                  InvoiceNo = t.Invoiceno,
-                                  TDate = t.TDate,
-                                  ThirdPartyID = t.ThirdPartyID,
-                                  TotalAmount = s?.TotalAmount,
-                                  Paid = t.Paid,
-                                  Remaining = p?.Remaining ?? 0,
-                              }).ToList().Cast<dynamic>().ToList();
+                                   MobileNumber = tp.MobileNumber,
+                                   Address = tp.Address,
+                                   Taxnumber = tp.Taxnumber,
+                                   Type = t.Type,
+                                   Paynum = t.Paynum,
+                                   InvoiceNo = t.Invoiceno,
+                                   TDate = t.TDate,
+                                   ThirdPartyID = t.ThirdPartyID,
+                                   TotalAmount = s?.TotalAmount,
+                                   Paid = t.Paid,
+                                   Remaining = p?.Remaining ?? 0,
+                       }).ToList().Cast<dynamic>().ToList();
             }
             else
             {

@@ -115,10 +115,22 @@ namespace Resturantlayer
                 }
 
 
+                //var filteredPayments = (from pay in payments
+                //                        join sa in sales
+                //                            on pay.InvoiceNo equals sa.Invoiceno
+                //                        let saleDateTime = DateTime.TryParse(sa.TDate + " " + sa.TTime, out var dtt) ? dtt : (DateTime?)null
+                //                        select new
+                //                        {
+                //                            SaleDateTime = saleDateTime,
+                //                            PChange = pay.Remaining,
+                //                            Paid = pay.Cash,
+                //                            Bank = pay.Bank
+                //                        }).ToList();
                 var filteredPayments = (from pay in payments
                                         join sa in sales
-                                            on pay.InvoiceNo equals sa.Invoiceno
-                                        let saleDateTime = DateTime.TryParse(sa.TDate + " " + sa.TTime, out var dtt) ? dtt : (DateTime?)null
+                                            on pay.InvoiceNo equals sa.Invoiceno into salesGroup
+                                        from sa in salesGroup.DefaultIfEmpty()
+                                        let saleDateTime = DateTime.TryParse(pay.Date + " " + pay.Time, out var dtt) ? dtt : (DateTime?)null
                                         select new
                                         {
                                             SaleDateTime = saleDateTime,
@@ -126,6 +138,8 @@ namespace Resturantlayer
                                             Paid = pay.Cash,
                                             Bank = pay.Bank
                                         }).ToList();
+
+
 
                 // فلترة حسب النطاق الزمني
                 var FP = filteredPayments

@@ -50,7 +50,7 @@ namespace Easypos.TransactionsAccountant
                 var BT = item.Type;
                 if (BT != "مسوده")
                 {
-                    var BN = item.InvoiceNo;
+                    var BN = (item.InvoiceNo == 0) ? item.ID : item.InvoiceNo;
                     decimal Creditor = 0;
                     decimal Dibtor = 0;
                     if (item.Type == "فاتورة مبيعات")
@@ -58,7 +58,7 @@ namespace Easypos.TransactionsAccountant
                         Creditor = 0;
                         Dibtor = decimal.Parse(item.TotalAmount);
                     }
-                    if (item.Type == "سند ايصال مبيعات")
+                    if (item.Type == "سند ايصال مبيعات" || item.Type == "ايرادات اخرى")
                     {
                         Dibtor = item.Paid;
                         Creditor = 0;
@@ -92,7 +92,7 @@ namespace Easypos.TransactionsAccountant
                             var GBalnce = Math.Round(TBalance, 2);
                             DGV.Rows[i].Cells[5].Value = GBalnce;
                         }
-                        if (Det == "سند ايصال مبيعات")
+                        if (Det == "سند ايصال مبيعات" || Det == "ايرادات اخرى")
                         {
                             TBalance = TBalance + Tot;
                             var GBalnce = Math.Round(TBalance, 2);
