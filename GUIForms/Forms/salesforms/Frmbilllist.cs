@@ -39,6 +39,7 @@ namespace Easypos.Salesforms
         {
             InitializeComponent();
             Loading();
+            DataTotals();
         }
         public async void Generatexml(sale sale,List<salesdetaile> Saledetail)
         {
@@ -82,6 +83,7 @@ namespace Easypos.Salesforms
             _PI = new Printinginvoice();
             Getdatalist();
             LoadAllCombos();
+            CMBStatus.SelectedIndex = 0;
         }
         private void LoadAllCombos()
         {
@@ -118,6 +120,8 @@ namespace Easypos.Salesforms
         }
         private async void DGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            var Datedata = DGV.CurrentRow.Cells[5].Value.ToString();
+            var MDate = DateTime.Now.ToString("dd-MM-yyyy");
             var Dataid = DGV.CurrentRow.Cells[4].Value.ToString();
             var Datatye = DGV.CurrentRow.Cells[14].Value.ToString();
             var Datareg = DGV.CurrentRow.Cells[15].Value.ToString();
@@ -216,6 +220,12 @@ namespace Easypos.Salesforms
                 else if (Datareg == "سجلت")
                 {
                     MessageBox.Show("لا يمكن تسجيل الفاتوره لانها مسجله مسبقا", "تسجيل فاتوره", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else if (Datedata != MDate)
+                {
+                    MessageBox.Show("لا يمكن تسجيل فاتوره بتاريخ مسبق", "تسجيل فاتوره", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
@@ -251,6 +261,7 @@ namespace Easypos.Salesforms
         private void Btnsearch_Click(object sender, EventArgs e)
         {
             Getsalesbyfilters();
+            DataTotals();
         }
         public void Getsalesbyfilters()
         {
@@ -318,7 +329,12 @@ namespace Easypos.Salesforms
             {
                 query = query.Where(x => x.Note.Contains(txtNote.Text));
             }
-
+            // شرط الحالة من ComboBox
+            if (CMBStatus.SelectedItem != null && CMBStatus.SelectedItem.ToString() != "الكل")
+            {
+                string selectedStatus = CMBStatus.SelectedItem.ToString();
+                query = query.Where(x => x.Status == selectedStatus);
+            }
             // تحويل النتائج
             var result = query.Select(x => new
             {
@@ -333,7 +349,8 @@ namespace Easypos.Salesforms
                 x.Bank,
                 ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
                 x.Type,
-                x.Note
+                x.Status,
+                x.Note,
             }).ToList();
 
             // عرض النتائج
@@ -342,6 +359,35 @@ namespace Easypos.Salesforms
         private void Btnall_Click(object sender, EventArgs e)
         {
             Loading();
+            DataTotals();
+        }
+        void DataTotals()
+        {
+            decimal Subtotal = 0;
+            decimal Disctotal = 0;
+            decimal totalTax = 0;
+            decimal totalAmount = 0;
+
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                if (row.Cells["Subtotal"].Value != null)
+                    Subtotal += Convert.ToDecimal(row.Cells["Subtotal"].Value);
+
+                if (row.Cells["Discount"].Value != null)
+                    Disctotal += Convert.ToDecimal(row.Cells["Discount"].Value);
+
+                if (row.Cells["Tax"].Value != null)
+                    totalTax += Convert.ToDecimal(row.Cells["Tax"].Value);
+
+                if (row.Cells["Total"].Value != null)
+                    totalAmount += Convert.ToDecimal(row.Cells["Total"].Value);
+            }
+
+            lblsubtotal.Text = Subtotal.ToString("N2");
+            lbldisc.Text = Disctotal.ToString("N2");
+            lbltax.Text = totalTax.ToString("N2");
+            lbltot.Text = totalAmount.ToString("N2");
+
         }
     }
 }
