@@ -192,6 +192,51 @@
   <data name="&gt;&gt;Btnshowreport.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="Chksalestaxdetaileszatca.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chksalestaxdetaileszatca.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="Chksalestaxdetaileszatca.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 86</value>
+  </data>
+  <data name="Chksalestaxdetaileszatca.Size" type="System.Drawing.Size, System.Drawing">
+    <value>178, 28</value>
+  </data>
+  <data name="Chksalestaxdetaileszatca.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="Chksalestaxdetaileszatca.Text" xml:space="preserve">
+    <value>التقرير الضريبي لهيئة الزكاه والدخل</value>
+  </data>
+  <data name="&gt;&gt;Chksalestaxdetaileszatca.Name" xml:space="preserve">
+    <value>Chksalestaxdetaileszatca</value>
+  </data>
+  <data name="&gt;&gt;Chksalestaxdetaileszatca.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Chksalestaxdetaileszatca.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;Chksalestaxdetaileszatca.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="Chksalesreturned.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chksalesreturned.Location" type="System.Drawing.Point, System.Drawing">
+    <value>216, 154</value>
+  </data>
+  <data name="Chksalesreturned.Size" type="System.Drawing.Size, System.Drawing">
+    <value>115, 28</value>
+  </data>
+  <data name="Chksalesreturned.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="Chksalesreturned.Text" xml:space="preserve">
+    <value>تقرير مرتجع المبيعات</value>
+  </data>
   <data name="&gt;&gt;Chksalesreturned.Name" xml:space="preserve">
     <value>Chksalesreturned</value>
   </data>
@@ -202,7 +247,22 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Chksalesreturned.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="Chksales.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chksales.Location" type="System.Drawing.Point, System.Drawing">
+    <value>243, 18</value>
+  </data>
+  <data name="Chksales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>87, 28</value>
+  </data>
+  <data name="Chksales.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Chksales.Text" xml:space="preserve">
+    <value>تقرير المبيعات</value>
   </data>
   <data name="&gt;&gt;Chksales.Name" xml:space="preserve">
     <value>Chksales</value>
@@ -214,7 +274,19 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Chksales.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="Users.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 222</value>
+  </data>
+  <data name="Users.Size" type="System.Drawing.Size, System.Drawing">
+    <value>289, 32</value>
+  </data>
+  <data name="Users.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="Users.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;Users.Name" xml:space="preserve">
     <value>Users</value>
@@ -226,7 +298,25 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Users.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="Chkuser.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chkuser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 188</value>
+  </data>
+  <data name="Chkuser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 28</value>
+  </data>
+  <data name="Chkuser.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="Chkuser.Text" xml:space="preserve">
+    <value>حسب المستخدم</value>
+  </data>
+  <data name="Chkuser.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;Chkuser.Name" xml:space="preserve">
     <value>Chkuser</value>
@@ -238,7 +328,25 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Chkuser.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <data name="Chkonetax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chkonetax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 154</value>
+  </data>
+  <data name="Chkonetax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 28</value>
+  </data>
+  <data name="Chkonetax.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="Chkonetax.Text" xml:space="preserve">
+    <value>التقرير الضريبي الموحد</value>
+  </data>
+  <data name="Chkonetax.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;Chkonetax.Name" xml:space="preserve">
     <value>Chkonetax</value>
@@ -250,7 +358,22 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Chkonetax.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
+  </data>
+  <data name="Chksalestax.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chksalestax.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 120</value>
+  </data>
+  <data name="Chksalestax.Size" type="System.Drawing.Size, System.Drawing">
+    <value>183, 28</value>
+  </data>
+  <data name="Chksalestax.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="Chksalestax.Text" xml:space="preserve">
+    <value>تقرير المبيعات لضريبة القيمة المضافة</value>
   </data>
   <data name="&gt;&gt;Chksalestax.Name" xml:space="preserve">
     <value>Chksalestax</value>
@@ -262,7 +385,22 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Chksalestax.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
+  </data>
+  <data name="Chksalestaxdetailes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chksalestaxdetailes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>195, 86</value>
+  </data>
+  <data name="Chksalestaxdetailes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 28</value>
+  </data>
+  <data name="Chksalestaxdetailes.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="Chksalestaxdetailes.Text" xml:space="preserve">
+    <value>التقرير الضريبي للمبيعات</value>
   </data>
   <data name="&gt;&gt;Chksalestaxdetailes.Name" xml:space="preserve">
     <value>Chksalestaxdetailes</value>
@@ -274,7 +412,22 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Chksalestaxdetailes.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
+  </data>
+  <data name="Chksalesdetailes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Chksalesdetailes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>207, 52</value>
+  </data>
+  <data name="Chksalesdetailes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>124, 28</value>
+  </data>
+  <data name="Chksalesdetailes.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="Chksalesdetailes.Text" xml:space="preserve">
+    <value>تقرير المبيعات تفصيلي</value>
   </data>
   <data name="&gt;&gt;Chksalesdetailes.Name" xml:space="preserve">
     <value>Chksalesdetailes</value>
@@ -286,7 +439,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;Chksalesdetailes.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 33</value>
@@ -315,28 +468,6 @@
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Typeexp.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Typeexp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Typeexp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>213, 151</value>
-  </data>
-  <data name="Typeexp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 28</value>
-  </data>
-  <data name="Typeexp.TabIndex" type="System.Int32, mscorlib">
-    <value>17</value>
-  </data>
-  <data name="Typeexp.Text" xml:space="preserve">
-    <value>البحث بواسطة النوع
-</value>
-  </data>
-  <data name="Typeexp.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;Typeexp.Name" xml:space="preserve">
     <value>Typeexp</value>
   </data>
@@ -348,18 +479,6 @@
   </data>
   <data name="&gt;&gt;Typeexp.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="Explist.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 151</value>
-  </data>
-  <data name="Explist.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 32</value>
-  </data>
-  <data name="Explist.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="Explist.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;Explist.Name" xml:space="preserve">
     <value>Explist</value>
@@ -373,24 +492,6 @@
   <data name="&gt;&gt;Explist.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>208, 83</value>
-  </data>
-  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 28</value>
-  </data>
-  <data name="radioButton1.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="radioButton1.Text" xml:space="preserve">
-    <value>تقرير مرتجع المشتريات</value>
-  </data>
-  <data name="radioButton1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
     <value>radioButton1</value>
   </data>
@@ -402,24 +503,6 @@
   </data>
   <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="ChkPayment.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkPayment.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 117</value>
-  </data>
-  <data name="ChkPayment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>118, 28</value>
-  </data>
-  <data name="ChkPayment.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="ChkPayment.Text" xml:space="preserve">
-    <value>تقرير سندات القبض</value>
-  </data>
-  <data name="ChkPayment.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;ChkPayment.Name" xml:space="preserve">
     <value>ChkPayment</value>
@@ -433,24 +516,6 @@
   <data name="&gt;&gt;ChkPayment.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="ChkPayout.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkPayout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 83</value>
-  </data>
-  <data name="ChkPayout.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 28</value>
-  </data>
-  <data name="ChkPayout.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="ChkPayout.Text" xml:space="preserve">
-    <value>تقرير سندات الصرف</value>
-  </data>
-  <data name="ChkPayout.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="&gt;&gt;ChkPayout.Name" xml:space="preserve">
     <value>ChkPayout</value>
   </data>
@@ -463,21 +528,6 @@
   <data name="&gt;&gt;ChkPayout.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="ChkExpenses.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkExpenses.Location" type="System.Drawing.Point, System.Drawing">
-    <value>231, 15</value>
-  </data>
-  <data name="ChkExpenses.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 28</value>
-  </data>
-  <data name="ChkExpenses.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="ChkExpenses.Text" xml:space="preserve">
-    <value>تقرير المصروفات</value>
-  </data>
   <data name="&gt;&gt;ChkExpenses.Name" xml:space="preserve">
     <value>ChkExpenses</value>
   </data>
@@ -489,24 +539,6 @@
   </data>
   <data name="&gt;&gt;ChkExpenses.ZOrder" xml:space="preserve">
     <value>5</value>
-  </data>
-  <data name="ChkPurchases.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="ChkPurchases.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 49</value>
-  </data>
-  <data name="ChkPurchases.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 28</value>
-  </data>
-  <data name="ChkPurchases.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="ChkPurchases.Text" xml:space="preserve">
-    <value>تقرير المشتريات</value>
-  </data>
-  <data name="ChkPurchases.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="&gt;&gt;ChkPurchases.Name" xml:space="preserve">
     <value>ChkPurchases</value>
@@ -736,224 +768,210 @@
   <data name="&gt;&gt;GroupBox3.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="Chksalesreturned.AutoSize" type="System.Boolean, mscorlib">
+  <data name="Typeexp.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Chksalesreturned.Location" type="System.Drawing.Point, System.Drawing">
-    <value>216, 154</value>
+  <data name="Typeexp.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
-  <data name="Chksalesreturned.Size" type="System.Drawing.Size, System.Drawing">
-    <value>115, 28</value>
+  <data name="Typeexp.Location" type="System.Drawing.Point, System.Drawing">
+    <value>213, 151</value>
   </data>
-  <data name="Chksalesreturned.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
+  <data name="Typeexp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 28</value>
   </data>
-  <data name="Chksalesreturned.Text" xml:space="preserve">
-    <value>تقرير مرتجع المبيعات</value>
+  <data name="Typeexp.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
   </data>
-  <data name="&gt;&gt;Chksalesreturned.Name" xml:space="preserve">
-    <value>Chksalesreturned</value>
+  <data name="Typeexp.Text" xml:space="preserve">
+    <value>البحث بواسطة النوع
+</value>
   </data>
-  <data name="&gt;&gt;Chksalesreturned.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="Typeexp.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;Chksalesreturned.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="&gt;&gt;Typeexp.Name" xml:space="preserve">
+    <value>Typeexp</value>
   </data>
-  <data name="&gt;&gt;Chksalesreturned.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Typeexp.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Typeexp.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;Typeexp.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="Chksales.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Explist.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 151</value>
   </data>
-  <data name="Chksales.Location" type="System.Drawing.Point, System.Drawing">
-    <value>243, 18</value>
+  <data name="Explist.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 32</value>
   </data>
-  <data name="Chksales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>87, 28</value>
+  <data name="Explist.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
-  <data name="Chksales.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="Chksales.Text" xml:space="preserve">
-    <value>تقرير المبيعات</value>
-  </data>
-  <data name="&gt;&gt;Chksales.Name" xml:space="preserve">
-    <value>Chksales</value>
-  </data>
-  <data name="&gt;&gt;Chksales.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Chksales.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;Chksales.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="Users.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 222</value>
-  </data>
-  <data name="Users.Size" type="System.Drawing.Size, System.Drawing">
-    <value>289, 32</value>
-  </data>
-  <data name="Users.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="Users.Visible" type="System.Boolean, mscorlib">
+  <data name="Explist.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="&gt;&gt;Users.Name" xml:space="preserve">
-    <value>Users</value>
+  <data name="&gt;&gt;Explist.Name" xml:space="preserve">
+    <value>Explist</value>
   </data>
-  <data name="&gt;&gt;Users.Type" xml:space="preserve">
+  <data name="&gt;&gt;Explist.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Users.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="&gt;&gt;Explist.Parent" xml:space="preserve">
+    <value>tabPage2</value>
   </data>
-  <data name="&gt;&gt;Users.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;Explist.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="radioButton1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="radioButton1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>208, 83</value>
+  </data>
+  <data name="radioButton1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 28</value>
+  </data>
+  <data name="radioButton1.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="radioButton1.Text" xml:space="preserve">
+    <value>تقرير مرتجع المشتريات</value>
+  </data>
+  <data name="radioButton1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Name" xml:space="preserve">
+    <value>radioButton1</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;radioButton1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="Chkuser.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ChkPayment.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Chkuser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 188</value>
+  <data name="ChkPayment.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 117</value>
   </data>
-  <data name="Chkuser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 28</value>
+  <data name="ChkPayment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 28</value>
   </data>
-  <data name="Chkuser.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="Chkuser.Text" xml:space="preserve">
-    <value>حسب المستخدم</value>
-  </data>
-  <data name="Chkuser.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;Chkuser.Name" xml:space="preserve">
-    <value>Chkuser</value>
-  </data>
-  <data name="&gt;&gt;Chkuser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Chkuser.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;Chkuser.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="Chkonetax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Chkonetax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 154</value>
-  </data>
-  <data name="Chkonetax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 28</value>
-  </data>
-  <data name="Chkonetax.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="Chkonetax.Text" xml:space="preserve">
-    <value>التقرير الضريبي الموحد</value>
-  </data>
-  <data name="Chkonetax.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;Chkonetax.Name" xml:space="preserve">
-    <value>Chkonetax</value>
-  </data>
-  <data name="&gt;&gt;Chkonetax.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Chkonetax.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;Chkonetax.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="Chksalestax.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Chksalestax.Location" type="System.Drawing.Point, System.Drawing">
-    <value>147, 120</value>
-  </data>
-  <data name="Chksalestax.Size" type="System.Drawing.Size, System.Drawing">
-    <value>183, 28</value>
-  </data>
-  <data name="Chksalestax.TabIndex" type="System.Int32, mscorlib">
+  <data name="ChkPayment.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
   </data>
-  <data name="Chksalestax.Text" xml:space="preserve">
-    <value>تقرير المبيعات لضريبة القيمة المضافة</value>
+  <data name="ChkPayment.Text" xml:space="preserve">
+    <value>تقرير سندات القبض</value>
   </data>
-  <data name="&gt;&gt;Chksalestax.Name" xml:space="preserve">
-    <value>Chksalestax</value>
+  <data name="ChkPayment.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;Chksalestax.Type" xml:space="preserve">
+  <data name="&gt;&gt;ChkPayment.Name" xml:space="preserve">
+    <value>ChkPayment</value>
+  </data>
+  <data name="&gt;&gt;ChkPayment.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Chksalestax.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="&gt;&gt;ChkPayment.Parent" xml:space="preserve">
+    <value>tabPage2</value>
   </data>
-  <data name="&gt;&gt;Chksalestax.ZOrder" xml:space="preserve">
-    <value>5</value>
+  <data name="&gt;&gt;ChkPayment.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
-  <data name="Chksalestaxdetailes.AutoSize" type="System.Boolean, mscorlib">
+  <data name="ChkPayout.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Chksalestaxdetailes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 86</value>
+  <data name="ChkPayout.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 83</value>
   </data>
-  <data name="Chksalestaxdetailes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 28</value>
+  <data name="ChkPayout.Size" type="System.Drawing.Size, System.Drawing">
+    <value>123, 28</value>
   </data>
-  <data name="Chksalestaxdetailes.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="Chksalestaxdetailes.Text" xml:space="preserve">
-    <value>التقرير الضريبي للمبيعات</value>
-  </data>
-  <data name="&gt;&gt;Chksalestaxdetailes.Name" xml:space="preserve">
-    <value>Chksalestaxdetailes</value>
-  </data>
-  <data name="&gt;&gt;Chksalestaxdetailes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;Chksalestaxdetailes.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;Chksalestaxdetailes.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="Chksalesdetailes.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="Chksalesdetailes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>207, 52</value>
-  </data>
-  <data name="Chksalesdetailes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 28</value>
-  </data>
-  <data name="Chksalesdetailes.TabIndex" type="System.Int32, mscorlib">
+  <data name="ChkPayout.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="Chksalesdetailes.Text" xml:space="preserve">
-    <value>تقرير المبيعات تفصيلي</value>
+  <data name="ChkPayout.Text" xml:space="preserve">
+    <value>تقرير سندات الصرف</value>
   </data>
-  <data name="&gt;&gt;Chksalesdetailes.Name" xml:space="preserve">
-    <value>Chksalesdetailes</value>
+  <data name="ChkPayout.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;Chksalesdetailes.Type" xml:space="preserve">
+  <data name="&gt;&gt;ChkPayout.Name" xml:space="preserve">
+    <value>ChkPayout</value>
+  </data>
+  <data name="&gt;&gt;ChkPayout.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;Chksalesdetailes.Parent" xml:space="preserve">
-    <value>tabPage1</value>
+  <data name="&gt;&gt;ChkPayout.Parent" xml:space="preserve">
+    <value>tabPage2</value>
   </data>
-  <data name="&gt;&gt;Chksalesdetailes.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="&gt;&gt;ChkPayout.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="ChkExpenses.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ChkExpenses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 15</value>
+  </data>
+  <data name="ChkExpenses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 28</value>
+  </data>
+  <data name="ChkExpenses.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="ChkExpenses.Text" xml:space="preserve">
+    <value>تقرير المصروفات</value>
+  </data>
+  <data name="&gt;&gt;ChkExpenses.Name" xml:space="preserve">
+    <value>ChkExpenses</value>
+  </data>
+  <data name="&gt;&gt;ChkExpenses.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChkExpenses.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;ChkExpenses.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="ChkPurchases.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ChkPurchases.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 49</value>
+  </data>
+  <data name="ChkPurchases.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 28</value>
+  </data>
+  <data name="ChkPurchases.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="ChkPurchases.Text" xml:space="preserve">
+    <value>تقرير المشتريات</value>
+  </data>
+  <data name="ChkPurchases.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ChkPurchases.Name" xml:space="preserve">
+    <value>ChkPurchases</value>
+  </data>
+  <data name="&gt;&gt;ChkPurchases.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ChkPurchases.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;ChkPurchases.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

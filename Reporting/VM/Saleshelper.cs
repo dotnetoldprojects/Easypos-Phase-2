@@ -175,6 +175,53 @@ namespace Reporting.VM
                 Remaining = double.Parse(item.Remaining.ToString())
             }).ToList();
         }
+        public List<UBLDtos> Getsaleszatcalist(string DTF, string DTT)
+        {
+            var allSales = _IUOW.UBLS.GetAll()
+                .Where(ubl => ubl.Status == "سجلت")
+                .GroupJoin(
+                    _IUOW.sales.GetAll(),
+                    ubl => ubl.Saleid,
+                    sale => sale.Invoiceno,
+                    (ubl, saleGroup) => new { ubl, saleGroup }
+                )
+                .SelectMany(
+                    x => x.saleGroup.DefaultIfEmpty(),
+                    (x, sale) => new
+                    {
+                        x.ubl.Saleid,
+                        x.ubl.Uuid,
+                        NonVatTotal = sale?.NonVatTotal ?? 0,
+                        Discount = sale?.Discount ?? 0,
+                        VatAmount = sale?.VatAmount ?? 0,
+                        TotalAmount = sale?.TotalAmount,
+                        TDate = sale?.TDate,
+                    }
+                )
+                .ToList();
+
+            // فلترة بالتاريخ
+            if (IsValidDateRange(DTF, DTT, out var startDate, out var endDate))
+            {
+                allSales = allSales
+                    .Where(s => DateTime.TryParse(s.TDate, out var date)
+                                && date >= startDate && date <= endDate)
+                    .ToList();
+            }
+
+            // تحويل للـ Saleslist
+            return allSales.Select(item => new UBLDtos
+            {
+                Invoiceno = (int)item.Saleid,
+                Name = item.Uuid,
+                NonVatTotal = item.NonVatTotal,
+                Discount = item.Discount,
+                VatAmount = item.VatAmount,
+                TotalAmount = double.Parse(item.TotalAmount),
+                TDate = item.TDate,
+
+            }).ToList();
+        }
 
         public List<EWT> GetExpenselist(string DTF, string DTT, int Tid)
         {

@@ -172,6 +172,12 @@
       <DependentUpon>STPRep.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="sales\Salesreportes\STZPRep.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>STZPRep.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="tailor\CRAll1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -206,6 +212,7 @@
     <Compile Include="VM\Saleshelper.cs" />
     <Compile Include="VM\Saleslist.cs" />
     <Compile Include="VM\Salesonetax.cs" />
+    <Compile Include="VM\UBLDtos.cs" />
     <Compile Include="vouchers\PaymentVoucher1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -289,6 +296,10 @@
     <EmbeddedResource Include="sales\Salesreportes\STPRep.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>STPRep1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sales\Salesreportes\STZPRep.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>STZPRep.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="tailor\CRAll.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -182,6 +182,34 @@ namespace Reporting.Sales
                     });
                 }
             }
+            else if (Chksalestaxdetaileszatca.Checked)
+            {
+                Objrpt = new STZPRep();
+                List<UBLDtos> SL = new List<UBLDtos>();
+                if (Chkdate.Checked)
+                {
+                    SL = ASR.Getsaleszatcalist(DF, DT);
+                }
+                else
+                {
+                    SL = ASR.Getsaleszatcalist(null, null);
+                }
+                foreach (var item in SL)
+                {
+                    Dsx.Sales.Rows.Add(new object[] {
+                        item.Invoiceno,
+                        item.Name,
+                        item.TDate,
+                        null,
+                        item.NonVatTotal,
+                        item.Discount,
+                        item.VatAmount,
+                        item.TotalAmount,
+                        null,
+                        Logo,
+                    });
+                }
+            }
             else if (Chksalestax.Checked)
             {
                 Objrpt = new CRDSByVAT();
@@ -272,12 +300,12 @@ namespace Reporting.Sales
             }
             Objrpt.SetDataSource(Dsx);
             Objrpt.SetParameterValue("CompanyName", DC.Name);
-            Objrpt.SetParameterValue("Address", DC.Address);
+            //Objrpt.SetParameterValue("Address", DC.Address);
             Objrpt.SetParameterValue("Taxnum", DC.Taxnumber);
-            Objrpt.SetParameterValue("PhoneNo", DC.PhoneNo);
+            //Objrpt.SetParameterValue("PhoneNo", DC.PhoneNo);
             Objrpt.SetParameterValue("Proname", DC.CRN);
             Objrpt.SetParameterValue("English_Shop_name", DC.ENName);
-            if (ChkPayout.Checked || ChkPayment.Checked || ChkExpenses.Checked || Chksales.Checked || Chksalestax.Checked || Chksalestaxdetailes.Checked || Chksalesdetailes.Checked || Chkuser.Checked || ChkPurchases.Checked)
+            if (ChkPayout.Checked || ChkPayment.Checked || ChkExpenses.Checked || Chksales.Checked || Chksalestax.Checked || Chksalestaxdetailes.Checked || Chksalestaxdetaileszatca.Checked || Chksalesdetailes.Checked || Chkuser.Checked || ChkPurchases.Checked)
             {
                 if (Chkdate.Checked)
                 {
