@@ -12,7 +12,7 @@ namespace GUIForms.helpers
     public class UBLClass
     {
         IUnitofwork _IUW;
-        public void SaveUBL(string QRCode, string Invoicehash, string Uuid,string Invoice,int Saleid,string Status, string path)
+        public void SaveUBL(string QRCode, string Invoicehash, string Uuid,string Invoice,int Saleid,string Status, string path,int invid)
         {
             _IUW = new Unitofwork(new EasyposEntities());
             UBL ubl = new UBL
@@ -23,7 +23,8 @@ namespace GUIForms.helpers
                 Invoice = Invoice,
                 Saleid = Saleid, 
                 Status = Status,
-                Path = path
+                Path = path,
+                Invoicenumber = invid
             };
             _IUW.UBLS.Insert(ubl);
             _IUW.Complete();

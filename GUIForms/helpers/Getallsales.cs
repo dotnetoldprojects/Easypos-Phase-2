@@ -35,7 +35,7 @@ namespace GUIForms.helpers
                             (x, thirdParty) => new { x.sale, x.payment, thirdParty })
                         .GroupJoin(_IUW.UBLS.GetAll(),
                             x => x.sale.Invoiceno,
-                            ubl => ubl.Saleid,
+                            ubl => ubl.Invoicenumber,
                             (x, ubls) => new { x.sale, x.payment, x.thirdParty, ubls = ubls.DefaultIfEmpty() })
                         .SelectMany(
                             x => x.ubls,

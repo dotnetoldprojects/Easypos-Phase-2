@@ -32,6 +32,7 @@ namespace GUI.Helpers
         public string QR { get; set; }
         public int Saleid { get; set; }
         public int Ublid { get; set; }
+        public int invno { get; set; }
         public Signdtos()
         {
             _validator = new EInvoiceValidator();
@@ -157,7 +158,7 @@ namespace GUI.Helpers
             string Oldpaths = @"Data/Signedinvoice.xml";
             File.Delete(Oldpathi);
             File.Delete(Oldpaths);
-            UC.SaveUBL(QR, IH, Uuid, Inv, Saleid, "لم تسجل", path);
+            UC.SaveUBL(QR, IH, Uuid, Inv, Saleid, "لم تسجل", path,invno);
 
 
             //var xmlContent = File.ReadAllText("Data/Signedinvoice.xml");
@@ -219,6 +220,7 @@ namespace GUI.Helpers
                     Saleid = Saleid,
                     Status = "سجلت",
                     Path = path,
+                    Invoicenumber = invno,
                 });
                 _IUW.Complete();
                 MessageBox.Show(zatcaResponse.reportingStatus);

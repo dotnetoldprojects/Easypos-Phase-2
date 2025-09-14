@@ -34,6 +34,8 @@ public partial class UBL
 
     public string Path { get; set; }
 
+    public int Invoicenumber { get; set; }
+
 }
 
 }

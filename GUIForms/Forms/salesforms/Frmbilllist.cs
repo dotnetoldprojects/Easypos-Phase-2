@@ -236,7 +236,9 @@ namespace Easypos.Salesforms
                     // Get the last invoice number
                     ZF.invid = int.Parse(Dataid);
                     ZF.DC = DC;
-                    ZF.Loading();
+                    await ZF.Loading();
+                    Loading();
+                    DataTotals();
                 }
             }
         }

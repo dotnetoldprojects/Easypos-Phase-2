@@ -503,6 +503,7 @@
           <Property Name="Saleid" Type="int" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="Path" Type="nvarchar" MaxLength="250" />
+          <Property Name="Invoicenumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="unittypes">
           <Key>
@@ -1157,6 +1158,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Saleid" Type="Int32" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Invoicenumber" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="voucher">
           <Key>
@@ -1820,6 +1822,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySetMapping Name="UBLs">
             <EntityTypeMapping TypeName="EasyposModel.UBL">
               <MappingFragment StoreEntitySet="UBL">
+                <ScalarProperty Name="Invoicenumber" ColumnName="Invoicenumber" />
                 <ScalarProperty Name="Path" ColumnName="Path" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Saleid" ColumnName="Saleid" />

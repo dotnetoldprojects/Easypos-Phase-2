@@ -4,17 +4,13 @@ using Domain.Models;
 using GUI.Helpers;
 using GUIForms.helpers;
 using Helpers.Dtos;
-using iText.Layout.Element;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
+using System.Windows.Forms;
 using UOW;
 
 namespace GUIForms.Dtos
@@ -27,77 +23,83 @@ namespace GUIForms.Dtos
         public string Zatcainv { get; set; }
         public company DC { get; set; }
         Getcentralaizes GC;
+
         public Zatcafutuers()
         {
-            if (invid > 0) {
-                Loading();
-            }
+            // Constructor فارغ، التحميل بيتم يدويًا
         }
-        public void Loading()
+
+        public async Task Loading()
         {
             _IUW = new Unitofwork(new EasyposEntities());
-            Getzatcaid();      
+            await Getzatcaid();
         }
-        private void Getzatcaid()
+
+        private async Task Getzatcaid()
         {
             var lastInvoice = _IUW.UBLS.GetAll().OrderByDescending(i => i.Saleid).FirstOrDefault();
-            nextNumber = 1;
-            if (lastInvoice != null)
-            {
-                nextNumber = (lastInvoice?.Saleid ?? 0) + 1;
-            }
-            // Format the new invoice number
-            Zatcainv = $"inv-{nextNumber.ToString("D5")}";
-            Getsalesdata();
+            nextNumber = (int)(lastInvoice != null ? (lastInvoice.Saleid + 1) : 1);
+            Zatcainv = $"inv-{nextNumber:D5}";
+            await Getsalesdata();
         }
-        private void Getsalesdata()
+
+        private async Task Getsalesdata()
         {
             var Salesinnvoice = _IUW.sales.Get(invid);
             var SDinvoice = _IUW.salesdetailes.GetAll().Where(x => x.InvoiceNo == invid).ToList();
-            Generatexml(Salesinnvoice, SDinvoice);
+            await Generatexml(Salesinnvoice, SDinvoice);
         }
-        private async void Generatexml(sale sal,  List<salesdetaile> SD)
+
+        private async Task Generatexml(sale sal, List<salesdetaile> SD)
         {
             List<ProductLine> productLines = new List<ProductLine>();
-            Geneatexml GXL = new Geneatexml();
-            GXL.Custid = (int)sal.ThirdPartyID;
-            GXL.Invtitle = Zatcainv;
+            Geneatexml GXL = new Geneatexml
+            {
+                Custid = (int)sal.ThirdPartyID,
+                Invtitle = Zatcainv
+            };
+
             const string unitCode = "PCE";
             const decimal taxPercent = 15m;
 
-            for (int i = 0; i < SD.Count; i++)
+            foreach (var item in SD)
             {
                 productLines.Add(new ProductLine
                 {
-                    Id = SD[i].TDetailNo.ToString(),
-                    Name = SD[i].TDDesc.ToString(),
-                    Quantity = int.Parse(SD[i].Quantity.ToString()),
+                    Id = item.TDetailNo.ToString(),
+                    Name = item.TDDesc,
+                    Quantity = int.Parse(item.Quantity.ToString()),
                     UnitCode = unitCode,
-                    UnitPrice = decimal.Parse(SD[i].ItemPrice.ToString()),
-                    Discount = decimal.Parse(SD[i].Discount.ToString()),
+                    UnitPrice = decimal.Parse(item.ItemPrice.ToString()),
+                    Discount = decimal.Parse(item.Discount.ToString()),
                     TaxPercent = taxPercent
                 });
             }
+
             string InputPath = @"Data/Invoice.xml";
-            var data = DC;
             var RBD = Convert.ToDecimal(sal.Discount);
-            bool RB2 = false;
-            if (RBD > 0) {
-                RB2 = true;
-            }
+            bool RB2 = RBD > 0;
+
             GXL.Createxmldata(productLines, DC, RB2, RBD);
 
             var xmlContent = File.ReadAllText(InputPath);
             GC = new Getcentralaizes();
             var Doc = GC.LoadInvoiceFromString(xmlContent);
-            Signdtos Sdtos = new Signdtos();
-            Sdtos.Saleid = nextNumber;
+
+            Signdtos Sdtos = new Signdtos
+            {
+                Saleid = nextNumber,
+                invno = invid
+            };
+
             await Sdtos.Sign(Doc, Zatcainv);
 
-
-            var GUL = _IUW.UBLS.GetAll().Where(x => x.Saleid == Sdtos.Saleid).FirstOrDefault();
-            Sdtos.Ublid = GUL.Id;
-            await Sdtos.SendInvoiceAsync(GUL.Invoicehash, GUL.Uuid, GUL.Invoice, GUL.Path, GUL.QRCode);
+            var GUL = _IUW.UBLS.GetAll().FirstOrDefault(x => x.Saleid == Sdtos.Saleid);
+            if (GUL != null)
+            {
+                Sdtos.Ublid = GUL.Id;
+                await Sdtos.SendInvoiceAsync(GUL.Invoicehash, GUL.Uuid, GUL.Invoice, GUL.Path, GUL.QRCode);
+            }
         }
     }
 }
