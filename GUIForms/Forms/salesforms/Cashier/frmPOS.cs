@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -36,6 +37,7 @@ namespace Easypos.Salesforms.Cashier
         public int Invid { get; set; }
         int top = 0;
         Usingnumber _ON;
+        Zatcafutuers ZF;
         public frmPOS()
         {
             InitializeComponent();
@@ -71,6 +73,7 @@ namespace Easypos.Salesforms.Cashier
             GC = new Getcentralaizes();
             DC = (company)LanguageHelper.ApplyLanguage(this);
             _IUW = new Unitofwork(new EasyposEntities());
+            ZF = new Zatcafutuers();
             Billtype.SelectedIndex = 1;
             LoadAllCombos();
             Getcatlist();
@@ -427,6 +430,7 @@ namespace Easypos.Salesforms.Cashier
         }
         public async void Generatexml()
         {
+            // Get the last invoice number
             if (Billtype.Text == "صدرت")
             {
                 List<ProductLine> productLines = new List<ProductLine>();
@@ -619,6 +623,8 @@ namespace Easypos.Salesforms.Cashier
             var Dataid = dgwInvoice.CurrentRow.Cells[3].Value.ToString();
             var Datatye = dgwInvoice.CurrentRow.Cells[5].Value.ToString();
             var Datareg = dgwInvoice.CurrentRow.Cells[6].Value.ToString();
+            var Datedata = DGV.CurrentRow.Cells[1].Value.ToString();
+            var MDate = DateTime.Now.ToString("dd-MM-yyyy");
             if (dgwInvoice.Columns[e.ColumnIndex].Name == "Show")
             {
                 Clearfieldes();
@@ -664,34 +670,16 @@ namespace Easypos.Salesforms.Cashier
                 {
                     MessageBox.Show("لا يمكن تسجيل الفاتوره لانها مسجله مسبقا", "تسجيل فاتوره", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else if (Datedata != MDate)
+                {
+                    MessageBox.Show("لا يمكن تسجيل فاتوره بتاريخ مسبق", "تسجيل فاتوره", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 else
                 {
-                    try
-                    {
-                        Signdtos SD = new Signdtos();
-                        var GUL = _IUW.UBLS.GetAll().Where(x => x.Saleid == int.Parse(Dataid)).FirstOrDefault();
-                        if (GUL != null)
-                        {
-                            SD.Saleid = int.Parse(Dataid);
-                            SD.Ublid = GUL.Id;
-                            await SD.SendInvoiceAsync(GUL.Invoicehash, GUL.Uuid, GUL.Invoice, GUL.Path, GUL.QRCode);
-                        }
-                        else
-                        {
-                            var Invdata = _IUW.sales.GetAll().Where(x => x.Invoiceno == int.Parse(Dataid)).FirstOrDefault();
-                            var Invsaledetail = _IUW.salesdetailes.GetAll().Where(x => x.InvoiceNo == Invdata.Invoiceno).ToList();
-                            SD.Saleid = int.Parse(Invdata.Invoiceno.ToString());
-                            Generatexml2(Invdata, Invsaledetail);
-                            var GUL2 = _IUW.UBLS.GetAll().Where(x => x.Saleid == int.Parse(Dataid)).FirstOrDefault();
-                            SD.Ublid = GUL2.Id;
-                            await SD.SendInvoiceAsync(GUL2.Invoicehash, GUL2.Uuid, GUL2.Invoice, GUL2.Path, GUL2.QRCode);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        var logger = new ExceptionLogger(_IUW);
-                        logger.Log(ex, "Data Registration");
-                    }
+                    ZF.invid = int.Parse(Dataid);
+                    ZF.DC = DC;
+                    ZF.Loading();
                     Getdatalist();
                 }
             }

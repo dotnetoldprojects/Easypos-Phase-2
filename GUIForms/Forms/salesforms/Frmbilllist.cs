@@ -14,8 +14,10 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -35,6 +37,7 @@ namespace Easypos.Salesforms
         IUnitofwork _IUW;
         Getallsales GAS;
         List<SaleViewModel> Res;
+        Zatcafutuers ZF;
         public Frmbilllist()
         {
             InitializeComponent();
@@ -79,6 +82,7 @@ namespace Easypos.Salesforms
         {
             GC = new Getcentralaizes();
             DC = (company)LanguageHelper.ApplyLanguage(this);
+            ZF = new Zatcafutuers();
             _IUW = new Unitofwork(new EasyposEntities());
             _PI = new Printinginvoice();
             Getdatalist();
@@ -229,32 +233,10 @@ namespace Easypos.Salesforms
                 }
                 else
                 {
-                    try
-                    {
-                        Signdtos SD = new Signdtos();
-                        var GUL = _IUW.UBLS.GetAll().Where(x => x.Saleid == int.Parse(Dataid)).FirstOrDefault();
-                        if (GUL != null) {
-                            SD.Saleid = int.Parse(Dataid);
-                            SD.Ublid = GUL.Id;
-                            await SD.SendInvoiceAsync(GUL.Invoicehash, GUL.Uuid, GUL.Invoice, GUL.Path, GUL.QRCode);
-                        }
-                        else
-                        {
-                            var Invdata = _IUW.sales.GetAll().Where(x => x.Invoiceno == int.Parse(Dataid)).FirstOrDefault();
-                            var Invsaledetail = _IUW.salesdetailes.GetAll().Where(x => x.InvoiceNo == Invdata.Invoiceno).ToList();
-                            SD.Saleid = int.Parse(Invdata.Invoiceno.ToString());
-                            Generatexml(Invdata, Invsaledetail);
-                            var GUL2 = _IUW.UBLS.GetAll().Where(x => x.Saleid == int.Parse(Dataid)).FirstOrDefault();
-                            SD.Ublid = GUL2.Id;
-                            await SD.SendInvoiceAsync(GUL2.Invoicehash, GUL2.Uuid, GUL2.Invoice, GUL2.Path, GUL2.QRCode);
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        var logger = new ExceptionLogger(_IUW);
-                        logger.Log(ex, "Data Registration");
-                    }
-                    Getdatalist();
+                    // Get the last invoice number
+                    ZF.invid = int.Parse(Dataid);
+                    ZF.DC = DC;
+                    ZF.Loading();
                 }
             }
         }

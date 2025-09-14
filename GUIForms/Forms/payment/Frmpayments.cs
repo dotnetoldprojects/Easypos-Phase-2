@@ -100,7 +100,7 @@ namespace Easypos.Payment
                             if (Sb.Billtype.Text == "صدرت")
                             {
                                 Savpayment();
-                                Sb.Generatexml();
+                                //Sb.Generatexml();
                             }
                             MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
                         }
@@ -110,7 +110,7 @@ namespace Easypos.Payment
                             if (Pos.Billtype.Text == "صدرت")
                             {
                                 Savpayment();
-                                Pos.Generatexml();
+                                //Pos.Generatexml();
                             }
                             MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
                             //Pos.Clearfieldes();
