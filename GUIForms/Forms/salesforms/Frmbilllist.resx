@@ -1379,6 +1379,12 @@
   <data name="Status.HeaderText" xml:space="preserve">
     <value>التسجيل</value>
   </data>
+  <metadata name="Invoicenumber.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Invoicenumber.HeaderText" xml:space="preserve">
+    <value>رقم التسجيل بالهيئه</value>
+  </data>
   <metadata name="Note.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -1545,6 +1551,12 @@
     <value>Status</value>
   </data>
   <data name="&gt;&gt;Status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Invoicenumber.Name" xml:space="preserve">
+    <value>Invoicenumber</value>
+  </data>
+  <data name="&gt;&gt;Invoicenumber.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Note.Name" xml:space="preserve">

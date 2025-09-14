@@ -679,7 +679,7 @@ namespace Easypos.Salesforms.Cashier
                 {
                     ZF.invid = int.Parse(Dataid);
                     ZF.DC = DC;
-                    ZF.Loading();
+                    await ZF.Loading();
                     Getdatalist();
                 }
             }

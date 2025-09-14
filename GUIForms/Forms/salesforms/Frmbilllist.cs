@@ -119,6 +119,9 @@ namespace Easypos.Salesforms
                 ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
                 x.Type,
                 x.Status,
+                Invoicenumber = !string.IsNullOrEmpty(x.Invoicenumber) && int.TryParse(x.Invoicenumber, out int num)
+                                ? $"inv-{num.ToString("D5")}"
+                                : "",
                 x.Note
             }).ToList();
         }
@@ -334,6 +337,7 @@ namespace Easypos.Salesforms
                 ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
                 x.Type,
                 x.Status,
+                x.Invoicenumber,
                 x.Note,
             }).ToList();
 

@@ -19,46 +19,51 @@ namespace GUIForms.helpers
         }
         public List<SaleViewModel> GetSaleslist()
         {
-            var result = _IUW.sales.GetAll().GroupJoin(_IUW.payments.GetAll(),
-                        sale => sale.Invoiceno,
-                        payment => payment.InvoiceNo,
-                        (sale, payments) => new { sale, payments = payments.DefaultIfEmpty() })
-                        .SelectMany(
-                            x => x.payments,
-                            (x, payment) => new { x.sale, payment })
-                        .GroupJoin(_IUW.thirdparties.GetAll(),
-                            x => x.sale.ThirdPartyID,
-                            tp => tp.ID,
-                            (x, thirdParties) => new { x.sale, x.payment, thirdParties = thirdParties.DefaultIfEmpty() })
-                        .SelectMany(
-                            x => x.thirdParties,
-                            (x, thirdParty) => new { x.sale, x.payment, thirdParty })
-                        .GroupJoin(_IUW.UBLS.GetAll(),
-                            x => x.sale.Invoiceno,
-                            ubl => ubl.Invoicenumber,
-                            (x, ubls) => new { x.sale, x.payment, x.thirdParty, ubls = ubls.DefaultIfEmpty() })
-                        .SelectMany(
-                            x => x.ubls,
-                            (x, ubl) => new SaleViewModel
-                            {
-                                Invoiceno = x.sale.Invoiceno,
-                                TDate = x.sale.TDate,
-                                TTime = x.sale.TTime,
-                                NonVatTotal = x.sale.NonVatTotal,
-                                Discount = x.sale.Discount,
-                                VatAmount = x.sale.VatAmount,
-                                TotalAmount = x.sale.TotalAmount,
-                                Type = x.sale.Billtype.ToString(),
-                                Cash = x.payment?.Cash ?? 0,
-                                Bank = x.payment?.Bank ?? 0,
-                                ThirdPartyID = x.thirdParty?.ID,
-                                ThirdPartyName = x.thirdParty?.Name ?? "عميل افتراضي",
-                                Phone = x.thirdParty.MobileNumber,
-                                Status = ubl?.Status ?? "لم تسجل",
-                                Note = x.sale.Note
-                            }).OrderByDescending(x => x.Invoiceno).ToList();
+            var result = _IUW.sales.GetAll()
+                .GroupJoin(_IUW.payments.GetAll(),
+                    sale => sale.Invoiceno,
+                    payment => payment.InvoiceNo,
+                    (sale, payments) => new { sale, payments = payments.DefaultIfEmpty() })
+                .SelectMany(
+                    x => x.payments,
+                    (x, payment) => new { x.sale, payment })
+                .GroupJoin(_IUW.thirdparties.GetAll(),
+                    x => x.sale.ThirdPartyID,
+                    tp => tp.ID,
+                    (x, thirdParties) => new { x.sale, x.payment, thirdParties = thirdParties.DefaultIfEmpty() })
+                .SelectMany(
+                    x => x.thirdParties,
+                    (x, thirdParty) => new { x.sale, x.payment, thirdParty })
+                .GroupJoin(_IUW.UBLS.GetAll(),
+                    x => x.sale.Invoiceno,
+                    ubl => ubl.Invoicenumber,
+                    (x, ubls) => new { x.sale, x.payment, x.thirdParty, ubls = ubls.DefaultIfEmpty() })
+                .SelectMany(
+                    x => x.ubls,
+                    (x, ubl) => new SaleViewModel
+                    {
+                        Invoiceno = x.sale.Invoiceno,
+                        TDate = x.sale.TDate,
+                        TTime = x.sale.TTime,
+                        NonVatTotal = x.sale.NonVatTotal,
+                        Discount = x.sale.Discount,
+                        VatAmount = x.sale.VatAmount,
+                        TotalAmount = x.sale.TotalAmount,
+                        Type = x.sale.Billtype?.ToString() ?? "غير محدد",
+                        Cash = x.payment?.Cash ?? 0,
+                        Bank = x.payment?.Bank ?? 0,
+                        ThirdPartyID = x.thirdParty?.ID ?? 0,
+                        ThirdPartyName = x.thirdParty?.Name ?? "عميل افتراضي",
+                        Phone = x.thirdParty?.MobileNumber ?? "",
+                        Status = ubl?.Status ?? "لم تسجل",
+                        Invoicenumber = ubl?.Saleid.ToString() ?? "",
+                        Note = x.sale.Note ?? ""
+                    })
+                .OrderByDescending(x => x.Invoiceno)
+                .ToList();
 
-                        return result;
+
+            return result;
         }
         public List<PurchaseViewModel> GetPurlist()
         {

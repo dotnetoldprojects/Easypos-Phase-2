@@ -51,8 +51,6 @@ namespace Easypos.Salesforms
             this.Btnclose = new System.Windows.Forms.Button();
             this.Btnsearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.CMBStatus = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtNote = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -67,7 +65,9 @@ namespace Easypos.Salesforms
             this.DTF = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.Searchbydate = new System.Windows.Forms.CheckBox();
+            this.CMBStatus = new System.Windows.Forms.ComboBox();
             this.Searchbytime = new System.Windows.Forms.CheckBox();
             this.IN = new System.Windows.Forms.TextBox();
             this.clientID = new System.Windows.Forms.ComboBox();
@@ -89,6 +89,7 @@ namespace Easypos.Salesforms
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Billtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Invoicenumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btnreg = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -225,22 +226,6 @@ namespace Easypos.Salesforms
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // label13
-            // 
-            resources.ApplyResources(this.label13, "label13");
-            this.label13.Name = "label13";
-            // 
-            // CMBStatus
-            // 
-            this.CMBStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CMBStatus.FormattingEnabled = true;
-            this.CMBStatus.Items.AddRange(new object[] {
-            resources.GetString("CMBStatus.Items"),
-            resources.GetString("CMBStatus.Items1"),
-            resources.GetString("CMBStatus.Items2")});
-            resources.ApplyResources(this.CMBStatus, "CMBStatus");
-            this.CMBStatus.Name = "CMBStatus";
-            // 
             // groupBox3
             // 
             resources.ApplyResources(this.groupBox3, "groupBox3");
@@ -338,11 +323,27 @@ namespace Easypos.Salesforms
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.TabStop = false;
             // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
             // Searchbydate
             // 
             resources.ApplyResources(this.Searchbydate, "Searchbydate");
             this.Searchbydate.Name = "Searchbydate";
             this.Searchbydate.UseVisualStyleBackColor = true;
+            // 
+            // CMBStatus
+            // 
+            this.CMBStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CMBStatus.FormattingEnabled = true;
+            this.CMBStatus.Items.AddRange(new object[] {
+            resources.GetString("CMBStatus.Items"),
+            resources.GetString("CMBStatus.Items1"),
+            resources.GetString("CMBStatus.Items2")});
+            resources.ApplyResources(this.CMBStatus, "CMBStatus");
+            this.CMBStatus.Name = "CMBStatus";
             // 
             // Searchbytime
             // 
@@ -413,6 +414,7 @@ namespace Easypos.Salesforms
             this.Customer,
             this.Billtype,
             this.Status,
+            this.Invoicenumber,
             this.Note,
             this.Btnreg,
             this.Delete});
@@ -525,6 +527,12 @@ namespace Easypos.Salesforms
             resources.ApplyResources(this.Status, "Status");
             this.Status.Name = "Status";
             // 
+            // Invoicenumber
+            // 
+            this.Invoicenumber.DataPropertyName = "Invoicenumber";
+            resources.ApplyResources(this.Invoicenumber, "Invoicenumber");
+            this.Invoicenumber.Name = "Invoicenumber";
+            // 
             // Note
             // 
             this.Note.DataPropertyName = "Note";
@@ -607,6 +615,16 @@ namespace Easypos.Salesforms
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblsubtotal;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lbldisc;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lbltot;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lbltax;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox CMBStatus;
         private System.Windows.Forms.DataGridViewButtonColumn Show;
         private System.Windows.Forms.DataGridViewButtonColumn Print;
         private System.Windows.Forms.DataGridViewTextBoxColumn Invoiceno;
@@ -621,18 +639,9 @@ namespace Easypos.Salesforms
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn Billtype;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Invoicenumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewButtonColumn Btnreg;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
-        private System.Windows.Forms.Label lblsubtotal;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lbldisc;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lbltot;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lbltax;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox CMBStatus;
     }
 }
