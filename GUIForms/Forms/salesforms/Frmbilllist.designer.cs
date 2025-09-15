@@ -93,6 +93,8 @@ namespace Easypos.Salesforms
             this.Note = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btnreg = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CMPay = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -312,6 +314,8 @@ namespace Easypos.Salesforms
             // GroupBox1
             // 
             resources.ApplyResources(this.GroupBox1, "GroupBox1");
+            this.GroupBox1.Controls.Add(this.label14);
+            this.GroupBox1.Controls.Add(this.CMPay);
             this.GroupBox1.Controls.Add(this.label13);
             this.GroupBox1.Controls.Add(this.Searchbydate);
             this.GroupBox1.Controls.Add(this.CMBStatus);
@@ -555,6 +559,22 @@ namespace Easypos.Salesforms
             this.Delete.Text = "Delete";
             this.Delete.UseColumnTextForButtonValue = true;
             // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // CMPay
+            // 
+            this.CMPay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CMPay.FormattingEnabled = true;
+            this.CMPay.Items.AddRange(new object[] {
+            resources.GetString("CMPay.Items"),
+            resources.GetString("CMPay.Items1"),
+            resources.GetString("CMPay.Items2")});
+            resources.ApplyResources(this.CMPay, "CMPay");
+            this.CMPay.Name = "CMPay";
+            // 
             // Frmbilllist
             // 
             resources.ApplyResources(this, "$this");
@@ -643,5 +663,7 @@ namespace Easypos.Salesforms
         private System.Windows.Forms.DataGridViewTextBoxColumn Note;
         private System.Windows.Forms.DataGridViewButtonColumn Btnreg;
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox CMPay;
     }
 }

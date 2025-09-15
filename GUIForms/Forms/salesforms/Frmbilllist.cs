@@ -38,6 +38,7 @@ namespace Easypos.Salesforms
         Getallsales GAS;
         List<SaleViewModel> Res;
         Zatcafutuers ZF;
+        public bool Filter { get; set; }
         public Frmbilllist()
         {
             InitializeComponent();
@@ -80,6 +81,7 @@ namespace Easypos.Salesforms
         }
         private void Loading()
         {
+            Filter = false;
             GC = new Getcentralaizes();
             DC = (company)LanguageHelper.ApplyLanguage(this);
             ZF = new Zatcafutuers();
@@ -88,6 +90,7 @@ namespace Easypos.Salesforms
             Getdatalist();
             LoadAllCombos();
             CMBStatus.SelectedIndex = 0;
+            CMPay.SelectedIndex = 0;
         }
         private void LoadAllCombos()
         {
@@ -240,13 +243,23 @@ namespace Easypos.Salesforms
                     ZF.invid = int.Parse(Dataid);
                     ZF.DC = DC;
                     await ZF.Loading();
-                    Loading();
-                    DataTotals();
+                    if (Filter)
+                    {
+                        GAS = new Getallsales();
+                        Res = GAS.GetSaleslist();
+                        Getsalesbyfilters();
+                        DataTotals();
+                    }
+                    else
+                    {
+                        Loading();
+                    }
                 }
             }
         }
         private void Btnsearch_Click(object sender, EventArgs e)
         {
+            Filter = true;
             Getsalesbyfilters();
             DataTotals();
         }
@@ -322,24 +335,49 @@ namespace Easypos.Salesforms
                 string selectedStatus = CMBStatus.SelectedItem.ToString();
                 query = query.Where(x => x.Status == selectedStatus);
             }
-            // تحويل النتائج
-            var result = query.Select(x => new
+            if (CMPay.SelectedItem != null && CMPay.SelectedItem.ToString() != "الكل")
             {
-                x.Invoiceno,
-                x.TDate,
-                x.TTime,
-                x.NonVatTotal,
-                x.Discount,
-                x.VatAmount,
-                x.TotalAmount,
-                x.Cash,
-                x.Bank,
-                ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
-                x.Type,
-                x.Status,
-                x.Invoicenumber,
-                x.Note,
-            }).ToList();
+                string selectedStatus = CMPay.SelectedItem.ToString();
+                if (selectedStatus == "نقدي")
+                {
+                    query = query.Where(x => x.Cash != 0);
+
+                }
+                if (selectedStatus == "بنكي")
+                {
+                    query = query.Where(x => x.Bank != 0);
+
+                }
+            }
+            var result = query
+    .AsEnumerable() // نحول لـ LINQ to Objects عشان نقدر نستخدم TryParse
+    .Select(x =>
+    {
+        int numa;
+        string formattedNumber = !string.IsNullOrEmpty(x.Invoicenumber) && int.TryParse(x.Invoicenumber, out numa)
+            ? $"inv-{numa.ToString("D5")}"
+            : "";
+
+        return new
+        {
+            x.Invoiceno,
+            x.TDate,
+            x.TTime,
+            x.NonVatTotal,
+            x.Discount,
+            x.VatAmount,
+            x.TotalAmount,
+            x.Cash,
+            x.Bank,
+            ThirdParty = x.ThirdPartyName ?? "عميل افتراضي",
+            x.Type,
+            x.Status,
+            Invoicenumber = formattedNumber,
+            x.Note,
+        };
+    })
+    .ToList();
+
 
             // عرض النتائج
             DGV.DataSource = result;

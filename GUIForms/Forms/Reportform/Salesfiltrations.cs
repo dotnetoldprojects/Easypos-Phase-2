@@ -205,7 +205,6 @@ namespace Reporting.Sales
                         item.Discount,
                         item.VatAmount,
                         item.TotalAmount,
-                        null,
                         Logo,
                     });
                 }

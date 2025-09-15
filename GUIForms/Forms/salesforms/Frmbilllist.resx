@@ -1013,6 +1013,69 @@
   <data name="GroupBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
+  <data name="label14.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="label14.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label14.Location" type="System.Drawing.Point, System.Drawing">
+    <value>147, 78</value>
+  </data>
+  <data name="label14.Size" type="System.Drawing.Size, System.Drawing">
+    <value>57, 13</value>
+  </data>
+  <data name="label14.TabIndex" type="System.Int32, mscorlib">
+    <value>55</value>
+  </data>
+  <data name="label14.Text" xml:space="preserve">
+    <value>نوع الدفع :</value>
+  </data>
+  <data name="&gt;&gt;label14.Name" xml:space="preserve">
+    <value>label14</value>
+  </data>
+  <data name="&gt;&gt;label14.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label14.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="CMPay.Items" xml:space="preserve">
+    <value>الكل</value>
+  </data>
+  <data name="CMPay.Items1" xml:space="preserve">
+    <value>نقدي</value>
+  </data>
+  <data name="CMPay.Items2" xml:space="preserve">
+    <value>بنكي</value>
+  </data>
+  <data name="CMPay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 75</value>
+  </data>
+  <data name="CMPay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 21</value>
+  </data>
+  <data name="CMPay.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="&gt;&gt;CMPay.Name" xml:space="preserve">
+    <value>CMPay</value>
+  </data>
+  <data name="&gt;&gt;CMPay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CMPay.Parent" xml:space="preserve">
+    <value>GroupBox1</value>
+  </data>
+  <data name="&gt;&gt;CMPay.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label13.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
@@ -1044,7 +1107,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="Searchbydate.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1071,7 +1134,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;Searchbydate.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="CMBStatus.Items" xml:space="preserve">
     <value>الكل</value>
@@ -1101,7 +1164,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;CMBStatus.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="Searchbytime.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1128,7 +1191,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;Searchbytime.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="IN.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1152,7 +1215,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;IN.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="clientID.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1176,7 +1239,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;clientID.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1206,7 +1269,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1236,7 +1299,7 @@
     <value>GroupBox1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="GroupBox1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 8.25pt</value>
