@@ -38,7 +38,6 @@ namespace GUIForms.helpers
                 });
                 _IUW.Complete();
             }
-
             _IUW.Complete();
         }
 
@@ -99,14 +98,25 @@ namespace GUIForms.helpers
 
         public static void Savetransactions(int inv, int? TP, decimal? paid, string type, IUnitofwork _IUW, string date)
         {
+            var Gp = _IUW.payments.GetAll().LastOrDefault();
             transaction trn = new transaction();
             trn.Invoiceno = inv;
-            trn.Paynum = null;
+            trn.Paynum = Gp.paymentNo;
             trn.TDate = date;
             trn.Type = type;
             trn.ThirdPartyID = TP;
             trn.Paid = paid;
-            trn.Paytype = "Cash & Bank";
+            if (Gp.Bank > 0 && Gp.Cash > 0)
+            {
+                trn.Paytype = "Cash & Bank";
+            }
+            else if (Gp.Cash > 0)
+            {
+                trn.Paytype = "نقدي";
+            }
+            else if (Gp.Bank > 0) {
+                trn.Paytype = "بنكي";
+            }
             trn.Note = null;
             _IUW.transactions.Insert(trn);
             _IUW.Complete();

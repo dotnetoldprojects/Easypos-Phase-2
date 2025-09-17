@@ -5,6 +5,7 @@ using GUIForms.Dtos;
 using GUIForms.Forms.salesforms.Normal;
 using GUIForms.helpers;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using UOW;
@@ -92,6 +93,11 @@ namespace Easypos.Payment
                         MessageBox.Show("لا يمكن البيع بالآجل لعميل اقتراضي", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+                    if (Rem == 0.00 && clients.SelectedIndex == 1)
+                    {
+                        MessageBox.Show("لا يمكن البيع بالآجل لعميل اقتراضي", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     else
                     {
                         if (Sb != null)
@@ -100,6 +106,35 @@ namespace Easypos.Payment
                             if (Sb.Billtype.Text == "صدرت")
                             {
                                 Savpayment();
+                                var Gp = _IUW.payments.GetAll().LastOrDefault();
+                                if (Gp.Bank > 0)
+                                {
+                                    var trans = new transaction();
+                                    trans.Invoiceno = Gp.InvoiceNo;
+                                    trans.Paynum = Gp.paymentNo;
+                                    trans.TDate = Gp.Date;
+                                    trans.Type = "سند ايصال مبيعات";
+                                    trans.Paytype = "بنكي";
+                                    trans.ThirdPartyID = Gp.ThirdPartyID;
+                                    trans.Paid = Gp.Bank;
+                                    trans.Note = "";
+                                    _IUW.transactions.Insert(trans);
+                                    _IUW.Complete();
+                                }
+                                if (Gp.Cash > 0)
+                                {
+                                    var trans = new transaction();
+                                    trans.Invoiceno = Gp.InvoiceNo;
+                                    trans.Paynum = Gp.paymentNo;
+                                    trans.TDate = Gp.Date;
+                                    trans.Type = "سند ايصال مبيعات";
+                                    trans.Paytype = "نقدي";
+                                    trans.ThirdPartyID = Gp.ThirdPartyID;
+                                    trans.Paid = Gp.Cash;
+                                    trans.Note = "";
+                                    _IUW.transactions.Insert(trans);
+                                    _IUW.Complete();
+                                }
                                 //Sb.Generatexml();
                             }
                             MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
@@ -110,6 +145,35 @@ namespace Easypos.Payment
                             if (Pos.Billtype.Text == "صدرت")
                             {
                                 Savpayment();
+                                var Gp = _IUW.payments.GetAll().LastOrDefault();
+                                if (Gp.Bank > 0)
+                                {
+                                    var trans = new transaction();
+                                    trans.Invoiceno = Gp.InvoiceNo;
+                                    trans.Paynum = Gp.paymentNo;
+                                    trans.TDate = Gp.Date;
+                                    trans.Type = "سند ايصال مبيعات";
+                                    trans.Paytype = "بنكي";
+                                    trans.ThirdPartyID = Gp.ThirdPartyID;
+                                    trans.Paid = Gp.Bank;
+                                    trans.Note = "";
+                                    _IUW.transactions.Insert(trans);
+                                    _IUW.Complete();
+                                }
+                                if (Gp.Cash > 0)
+                                {
+                                    var trans = new transaction();
+                                    trans.Invoiceno = Gp.InvoiceNo;
+                                    trans.Paynum = Gp.paymentNo;
+                                    trans.TDate = Gp.Date;
+                                    trans.Type = "سند ايصال مبيعات";
+                                    trans.Paytype = "نقدي";
+                                    trans.ThirdPartyID = Gp.ThirdPartyID;
+                                    trans.Paid = Gp.Cash;
+                                    trans.Note = "";
+                                    _IUW.transactions.Insert(trans);
+                                    _IUW.Complete();
+                                }
                                 //Pos.Generatexml();
                             }
                             MessageBox.Show("تم حفظ الفاتورة بنجاح", "نجاح");
@@ -159,7 +223,7 @@ namespace Easypos.Payment
             pay.Date = DateTime.Now.ToString("dd-MM-yyyy");
             pay.Time = DateTime.Now.ToString("hh:mm:ss");
             pay.ThirdPartyID = int.Parse(clients.SelectedValue.ToString());
-            pay.PaymentMethod = "Cash & Bank";
+            pay.PaymentMethod = remaining == 0 ? "نقدي" : "اجل";
             pay.Type = "فاتورة مبيعات";
             _IUW.payments.Insert(pay);
             _IUW.Complete();

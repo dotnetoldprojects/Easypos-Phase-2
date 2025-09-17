@@ -196,7 +196,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <EntityDeploy Include="Models\Easyposcontext.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Easyposcontext.Designer.cs</LastGenOutput>
