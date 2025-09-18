@@ -25,16 +25,16 @@ namespace GUIForms.helpers
                 _IUW.returnedetailes.Insert(item);
 
 
-                _IUW.invtransactions.Insert(new invtransaction
-                {
-                    Proid = int.Parse(item.ProductNo.ToString()),
-                    Quantity = int.Parse(item.Quantity.ToString()),
-                    Date = DateTime.Now.ToString("dd-MM-yyyy"),
-                    Credit = type == "Returned Sales" ? decimal.Parse(ret.TotalAmount) : 0,
-                    Dipt = type == "Returned Purchases" ? decimal.Parse(ret.TotalAmount) : 0,
-                    type = type,
-                    transid = item.InvoiceNo
-                });
+                //_IUW.invtransactions.Insert(new invtransaction
+                //{
+                //    Proid = int.Parse(item.ProductNo.ToString()),
+                //    Quantity = int.Parse(item.Quantity.ToString()),
+                //    Date = DateTime.Now.ToString("dd-MM-yyyy"),
+                //    Credit = type == "Returned Sales" ? decimal.Parse(ret.TotalAmount) : 0,
+                //    Dipt = type == "Returned Purchases" ? decimal.Parse(ret.TotalAmount) : 0,
+                //    type = type,
+                //    transid = item.InvoiceNo
+                //});
                 _IUW.Complete();
             }
 

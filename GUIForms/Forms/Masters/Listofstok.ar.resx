@@ -184,6 +184,9 @@
   <data name="pictureBox2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="pictureBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>338, 10</value>
+  </data>
   <data name="pictureBox2.Size" type="System.Drawing.Size, System.Drawing">
     <value>45, 44</value>
   </data>
@@ -200,6 +203,9 @@
   <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>206, 4</value>
+  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>138, 60</value>
   </data>
@@ -210,136 +216,16 @@
     <value>Top</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 65</value>
+    <value>389, 65</value>
   </data>
-  <data name="Btnrep.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="Btnrep.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="Btnrep.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="Btnrep.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 11.25pt</value>
-  </data>
-  <data name="Btnrep.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Btnrep.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 48</value>
-  </data>
-  <data name="Btnrep.Text" xml:space="preserve">
-    <value>تقرير المخزون</value>
-  </data>
-  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>الوصف :</value>
-  </data>
-  <data name="textBox2.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>453, 48</value>
-  </data>
-  <data name="Btnaddedit.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="Btnaddedit.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="Btnaddedit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 11.25pt</value>
-  </data>
-  <data name="Btnaddedit.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="Btnaddedit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 47</value>
-  </data>
-  <data name="Btnaddedit.Text" xml:space="preserve">
-    <value>تعديل</value>
-  </data>
-  <data name="btnNew.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btnNew.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnNew.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 11.25pt</value>
-  </data>
-  <data name="btnNew.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnNew.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 88</value>
-  </data>
-  <data name="btnNew.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 48</value>
-  </data>
-  <data name="btnNew.Text" xml:space="preserve">
-    <value>جديد</value>
-  </data>
-  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>الوحدة :</value>
-  </data>
-  <data name="textBox1.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 21</value>
-  </data>
-  <data name="lblProductNo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblProductNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="lblProductNo.Text" xml:space="preserve">
-    <value> </value>
-  </data>
-  <data name="txtDescription.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="txtDescription.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 21</value>
-  </data>
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 13</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>الوصف :</value>
+  <data name="txtStocksOnHand.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 129</value>
   </data>
   <data name="txtStocksOnHand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 21</value>
+    <value>270, 20</value>
   </data>
-  <data name="txtStocksOnHand.Text" xml:space="preserve">
-    <value>0</value>
+  <data name="txtStocksOnHand.TabIndex" type="System.Int32, mscorlib">
+    <value>34</value>
   </data>
   <data name="Label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -347,136 +233,94 @@
   <data name="Label8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
+  <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>61, 132</value>
+  </data>
   <data name="Label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+    <value>40, 13</value>
+  </data>
+  <data name="Label8.TabIndex" type="System.Int32, mscorlib">
+    <value>35</value>
   </data>
   <data name="Label8.Text" xml:space="preserve">
-    <value>المخزون :</value>
+    <value>المتاح :</value>
   </data>
-  <data name="txtCategory.Enabled" type="System.Boolean, mscorlib">
+  <data name="textBox2.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
-  <data name="txtCategory.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 21</value>
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 95</value>
   </data>
-  <data name="Label5.AutoSize" type="System.Boolean, mscorlib">
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 20</value>
+  </data>
+  <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>49, 13</value>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 98</value>
   </data>
-  <data name="Label5.Text" xml:space="preserve">
-    <value>التصنيف :</value>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 13</value>
   </data>
-  <data name="txtBarcode.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>37</value>
   </data>
-  <data name="txtBarcode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 21</value>
+  <data name="label2.Text" xml:space="preserve">
+    <value>الرصيد الافتتاحي :</value>
   </data>
-  <data name="Label4.AutoSize" type="System.Boolean, mscorlib">
+  <data name="button2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="button2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="button2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 11.25pt</value>
+  </data>
+  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 161</value>
+  </data>
+  <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 32</value>
+  </data>
+  <data name="button2.Text" xml:space="preserve">
+    <value>تعديل مخزون</value>
+  </data>
+  <data name="RB1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="Label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="RB1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="Label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 13</value>
+  <data name="RB1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>49, 17</value>
   </data>
-  <data name="Label4.Text" xml:space="preserve">
-    <value>الباركود :</value>
+  <data name="RB1.Text" xml:space="preserve">
+    <value>زياده</value>
   </data>
-  <data name="txtProductCode.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="txtProductCode.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 21</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+  <data name="RB2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="RB2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>59, 13</value>
+  <data name="RB2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 17</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>رمز الصنف :</value>
-  </data>
-  <data name="label10.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>رقم الصنف :</value>
-  </data>
-  <data name="groupBox2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 222</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>بيانات الصنف</value>
-  </data>
-  <data name="DGV.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="DGV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 354</value>
-  </data>
-  <data name="DGV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 315</value>
-  </data>
-  <data name="StocksOnHand.HeaderText" xml:space="preserve">
-    <value>المخزون</value>
-  </data>
-  <data name="Sid.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="groupBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 287</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>725, 67</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>بيانات البحث</value>
-  </data>
-  <data name="txtSearch.Size" type="System.Drawing.Size, System.Drawing">
-    <value>444, 21</value>
-  </data>
-  <data name="label11.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label11.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>اسم المنتج :</value>
+  <data name="RB2.Text" xml:space="preserve">
+    <value>نقص</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>725, 669</value>
+    <value>389, 204</value>
   </data>
 </root>

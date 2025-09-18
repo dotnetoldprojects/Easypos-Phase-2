@@ -26,16 +26,16 @@ namespace GUIForms.helpers
                 _IUW.purchasedetailes.Insert(item);
 
 
-                _IUW.invtransactions.Insert(new invtransaction
-                {
-                    Proid = int.Parse(item.ProductNo.ToString()),
-                    Quantity = int.Parse(item.Quantity.ToString()),
-                    Date = DateTime.Now.ToString("dd-MM-yyyy"),
-                    Credit = 0,
-                    Dipt = decimal.Parse(item.ItemPrice.ToString()),
-                    type = "Purchase",
-                    transid = item.InvoiceNo
-                });
+                //_IUW.invtransactions.Insert(new invtransaction
+                //{
+                //    Proid = int.Parse(item.ProductNo.ToString()),
+                //    Quantity = int.Parse(item.Quantity.ToString()),
+                //    Date = DateTime.Now.ToString("dd-MM-yyyy"),
+                //    Credit = 0,
+                //    Dipt = decimal.Parse(item.ItemPrice.ToString()),
+                //    type = "Purchase",
+                //    transid = item.InvoiceNo
+                //});
                 _IUW.Complete();
             }
 

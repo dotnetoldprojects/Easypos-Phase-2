@@ -220,7 +220,7 @@ namespace GUI.Helpers
                     Saleid = Saleid,
                     Status = "سجلت",
                     Path = path,
-                    Invoicenumber = invno,
+                    invoicenumber = invno,
                 });
                 _IUW.Complete();
                 MessageBox.Show(zatcaResponse.reportingStatus);

@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmproductitemlist));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Btnrep = new System.Windows.Forms.Button();
             this.txtRemining = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.Btnaddedit = new System.Windows.Forms.Button();
-            this.BtnDelete = new System.Windows.Forms.Button();
             this.BtnNew = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,11 +48,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.Label7 = new System.Windows.Forms.Label();
-            this.txtStocksOnHand = new System.Windows.Forms.TextBox();
-            this.Label8 = new System.Windows.Forms.Label();
             this.txtItemname = new System.Windows.Forms.TextBox();
             this.Label5 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.DGV = new System.Windows.Forms.DataGridView();
@@ -63,7 +62,6 @@
             this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OpeningBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unitid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Btnrep = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -109,7 +107,6 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.Btnaddedit);
-            this.groupBox2.Controls.Add(this.BtnDelete);
             this.groupBox2.Controls.Add(this.BtnNew);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.label2);
@@ -118,13 +115,22 @@
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.txtUnitPrice);
             this.groupBox2.Controls.Add(this.Label7);
-            this.groupBox2.Controls.Add(this.txtStocksOnHand);
-            this.groupBox2.Controls.Add(this.Label8);
             this.groupBox2.Controls.Add(this.txtItemname);
             this.groupBox2.Controls.Add(this.Label5);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // Btnrep
+            // 
+            this.Btnrep.BackColor = System.Drawing.Color.PowderBlue;
+            resources.ApplyResources(this.Btnrep, "Btnrep");
+            this.Btnrep.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnrep.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.Btnrep.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.Btnrep.Name = "Btnrep";
+            this.Btnrep.UseVisualStyleBackColor = false;
+            this.Btnrep.Click += new System.EventHandler(this.Btnrep_Click);
             // 
             // txtRemining
             // 
@@ -160,17 +166,6 @@
             this.Btnaddedit.Name = "Btnaddedit";
             this.Btnaddedit.UseVisualStyleBackColor = false;
             this.Btnaddedit.Click += new System.EventHandler(this.Btnaddedit_Click);
-            // 
-            // BtnDelete
-            // 
-            this.BtnDelete.BackColor = System.Drawing.Color.PowderBlue;
-            resources.ApplyResources(this.BtnDelete, "BtnDelete");
-            this.BtnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDelete.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.BtnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
-            this.BtnDelete.Name = "BtnDelete";
-            this.BtnDelete.UseVisualStyleBackColor = false;
-            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnNew
             // 
@@ -227,19 +222,6 @@
             resources.ApplyResources(this.Label7, "Label7");
             this.Label7.Name = "Label7";
             // 
-            // txtStocksOnHand
-            // 
-            this.txtStocksOnHand.BackColor = System.Drawing.Color.White;
-            resources.ApplyResources(this.txtStocksOnHand, "txtStocksOnHand");
-            this.txtStocksOnHand.Name = "txtStocksOnHand";
-            this.txtStocksOnHand.TextChanged += new System.EventHandler(this.txtStocksOnHand_TextChanged);
-            this.txtStocksOnHand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitPrice_KeyPress);
-            // 
-            // Label8
-            // 
-            resources.ApplyResources(this.Label8, "Label8");
-            this.Label8.Name = "Label8";
-            // 
             // txtItemname
             // 
             this.txtItemname.BackColor = System.Drawing.Color.White;
@@ -253,11 +235,23 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txtSearch);
             this.groupBox1.Controls.Add(this.label11);
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.PowderBlue;
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtSearch
             // 
@@ -293,8 +287,8 @@
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle3;
             resources.ApplyResources(this.ID, "ID");
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
@@ -341,17 +335,6 @@
             this.Unitid.Name = "Unitid";
             this.Unitid.ReadOnly = true;
             // 
-            // Btnrep
-            // 
-            this.Btnrep.BackColor = System.Drawing.Color.PowderBlue;
-            resources.ApplyResources(this.Btnrep, "Btnrep");
-            this.Btnrep.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Btnrep.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
-            this.Btnrep.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
-            this.Btnrep.Name = "Btnrep";
-            this.Btnrep.UseVisualStyleBackColor = false;
-            this.Btnrep.Click += new System.EventHandler(this.Btnrep_Click);
-            // 
             // frmproductitemlist
             // 
             resources.ApplyResources(this, "$this");
@@ -388,12 +371,9 @@
         public System.Windows.Forms.TextBox textBox1;
         internal System.Windows.Forms.TextBox txtUnitPrice;
         internal System.Windows.Forms.Label Label7;
-        internal System.Windows.Forms.TextBox txtStocksOnHand;
-        internal System.Windows.Forms.Label Label8;
         internal System.Windows.Forms.TextBox txtItemname;
         internal System.Windows.Forms.Label Label5;
         private System.Windows.Forms.Button Btnaddedit;
-        private System.Windows.Forms.Button BtnDelete;
         private System.Windows.Forms.Button BtnNew;
         internal System.Windows.Forms.GroupBox groupBox1;
         internal System.Windows.Forms.TextBox txtSearch;
@@ -402,6 +382,8 @@
         private System.Windows.Forms.Button button1;
         internal System.Windows.Forms.TextBox txtRemining;
         internal System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button Btnrep;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Itemname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Itemprice;
@@ -409,6 +391,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
         private System.Windows.Forms.DataGridViewTextBoxColumn OpeningBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unitid;
-        private System.Windows.Forms.Button Btnrep;
     }
 }

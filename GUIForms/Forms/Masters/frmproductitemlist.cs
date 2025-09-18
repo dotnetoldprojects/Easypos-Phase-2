@@ -2,6 +2,7 @@
 using Domain.Models;
 using Easypos.Masters.Subforms;
 using GUIForms.Dtos;
+using GUIForms.Forms.Masters;
 using GUIForms.helpers;
 using GUIForms.models;
 using Reporting;
@@ -49,12 +50,15 @@ namespace Easypos.Masters
             }
             txtItemname.Clear();
             txtUnitPrice.Clear();
-            txtStocksOnHand.Clear();
+            //txtStocksOnHand.Clear();
             textBox1.Clear();
             textBox2.Clear();
             txtSearch.Clear();
-            DGV.DataSource = null;
-            DGV.Rows.Clear();
+            //DGV.DataSource = null;
+            //DGV.Rows.Clear();
+            Btnaddedit.Enabled = true;
+            //txtStocksOnHand.Enabled = true;
+            txtRemining.Clear();
             Loading();
         }
         private void Loading()
@@ -66,7 +70,7 @@ namespace Easypos.Masters
             _IUW = new Unitofwork(new EasyposEntities());
             GetItemsData();
         }
-        private void GetItemsData()
+        public void GetItemsData()
         {
             DGV.DataSource = GC.GetItemsdatalist();
         }
@@ -93,24 +97,26 @@ namespace Easypos.Masters
         {
             if (DGV.Rows.Count > 0)
             {
+                //Btnaddedit.Enabled = false;
+                //txtStocksOnHand.Enabled = false;
                 It.ID = int.Parse(DGV.CurrentRow.Cells[0].Value.ToString());
                 txtItemname.Text = DGV.CurrentRow.Cells[1].Value.ToString();
                 txtUnitPrice.Text = DGV.CurrentRow.Cells[2].Value.ToString();
-                txtStocksOnHand.Text = DGV.CurrentRow.Cells[3].Value.ToString();
+                //txtStocksOnHand.Text = DGV.CurrentRow.Cells[3].Value.ToString();
                 textBox1.Text = DGV.CurrentRow.Cells[6].Value.ToString();
                 textBox2.Text = DGV.CurrentRow.Cells[4].Value.ToString();
                 UId = int.Parse(DGV.CurrentRow.Cells[5].Value.ToString());
                 var totalQuantity = _IUW.itemsales.GetAll()
                                                   .Where(x => x.Itemid == It.ID)
                                                   .Sum(x => x.Quantity);
-                txtRemining.Text = (int.Parse(txtStocksOnHand.Text) - totalQuantity).ToString();
+                txtRemining.Text = (int.Parse(textBox2.Text) - totalQuantity).ToString();
             }
         }
         private void Btnaddedit_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtItemname.Text) ||
                        string.IsNullOrEmpty(txtUnitPrice.Text) ||
-                       string.IsNullOrEmpty(txtStocksOnHand.Text) ||
+                       //string.IsNullOrEmpty(txtStocksOnHand.Text) ||
                        string.IsNullOrEmpty(textBox1.Text) ||
                        string.IsNullOrEmpty(textBox2.Text))
             {
@@ -134,7 +140,7 @@ namespace Easypos.Masters
                     {
                         It.Itemname = txtItemname.Text;
                         It.Itemprice = Convert.ToDouble(txtUnitPrice.Text);
-                        It.Itemqty = double.Parse(txtStocksOnHand.Text);
+                        //It.Itemqty = double.Parse(txtStocksOnHand.Text);
                         It.OpeningBalance = int.Parse(textBox2.Text);
                         _IUW.items.Update(It);
                     }
@@ -142,7 +148,7 @@ namespace Easypos.Masters
                     {
                         It.Itemname = txtItemname.Text;
                         It.Itemprice = Convert.ToDouble(txtUnitPrice.Text);
-                        It.Itemqty = double.Parse(txtStocksOnHand.Text);
+                        //It.Itemqty = double.Parse(txtStocksOnHand.Text);
                         It.OpeningBalance = int.Parse(textBox2.Text);
                         _IUW.items.Insert(It);
                     }
@@ -213,40 +219,40 @@ namespace Easypos.Masters
         }
         private void txtStocksOnHand_TextChanged(object sender, EventArgs e)
         {
-            textBox2.Text = txtStocksOnHand.Text;
+            //textBox2.Text = txtStocksOnHand.Text;
         }
         void Getdata(int IID)
         {
-            var purchases = _IUW.purchases.GetAll().ToList();
-            var purchaseDetails = _IUW.purchasedetailes.GetAll().ToList();
+            //var purchases = _IUW.purchases.GetAll().ToList();
+            //var purchaseDetails = _IUW.purchasedetailes.GetAll().ToList();
 
-            var result1 = from detail in purchaseDetails
-                          join purchase in purchases
-                          on detail.InvoiceNo equals purchase.Invoiceno into joined
-                          from purchase in joined.DefaultIfEmpty()
-                          select new
-                          {
-                              detail.TDetailNo,
-                              detail.TDDesc,
-                              TDate = purchase?.TDate.ToString() ?? "",
-                              detail.Quantity,
-                              detail.InvoiceNo
-                          };
+            //var result1 = from detail in purchaseDetails
+            //              join purchase in purchases
+            //              on detail.InvoiceNo equals purchase.Invoiceno into joined
+            //              from purchase in joined.DefaultIfEmpty()
+            //              select new
+            //              {
+            //                  detail.TDetailNo,
+            //                  detail.TDDesc,
+            //                  TDate = purchase?.TDate.ToString() ?? "",
+            //                  detail.Quantity,
+            //                  detail.InvoiceNo
+            //              };
 
-            foreach (var item in result1)
-            {
-                var row = new DataGridViewRow();
-                row.CreateCells(DGV,
-                    item.TDetailNo.ToString(),
-                    item.TDDesc ?? "",
-                    item.TDate,
-                    item.Quantity.ToString(),
-                    "0",
-                    "0",
-                    item.InvoiceNo,
-                    "فاتورة مشتريات"
-                );
-            }
+            //foreach (var item in result1)
+            //{
+            //    var row = new DataGridViewRow();
+            //    row.CreateCells(DGV,
+            //        item.TDetailNo.ToString(),
+            //        item.TDDesc ?? "",
+            //        item.TDate,
+            //        item.Quantity.ToString(),
+            //        "0",
+            //        "0",
+            //        item.InvoiceNo,
+            //        "فاتورة مشتريات"
+            //    );
+            //}
 
             var items = _IUW.items.GetAll().ToList();
             var itemsales = _IUW.itemsales.GetAll().ToList();
@@ -258,29 +264,13 @@ namespace Easypos.Masters
                           where its.Itemid == IID
                           select new
                           {
-                              its.ID,
+                              it.ID,
                               Itemname = it?.Itemname ?? "",
                               its.Date,
                               Itemqty = it?.Itemqty ?? 0,
                               its.Quantity,
                               its.invoiceno
                           };
-            //foreach (var item in result2)
-            //{
-            //    var row = new DataGridViewRow();
-            //    row.CreateCells(DGV,
-            //        item.ID.ToString(),
-            //        item.Itemname,
-            //        item.Date.ToString(),
-            //        item.Itemqty,
-            //        item.Quantity.ToString(),
-            //        item.Itemqty - item.Quantity,
-            //        item.invoiceno,
-            //        "فاتورة مبيعات"
-            //    );
-            //}
-
-
             SO = new List<SalesReportItem>();
 
             foreach (var item in result2)
@@ -297,6 +287,42 @@ namespace Easypos.Masters
                     Type = "فاتورة مبيعات"
                 });
             }
+
+            // Replace this line inside Getdata(int IID):
+            // Remining = Itemqty - adj.Quantity,
+
+            // With this corrected line:
+            
+            var itemadjustments = _IUW.invtransactions.GetAll().ToList();
+            var result3 = from adj in itemadjustments
+                          join it in items
+                          on adj.Itemid equals it.ID into joined
+                          from it in joined.DefaultIfEmpty()
+                          where adj.Itemid == IID
+                          select new
+                          {
+                              it.ID,
+                              Itemname = it?.Itemname ?? "",
+                              adj.Date,
+                              Itemqty = it?.Itemqty ?? 0,
+                              adj.Quantity,
+                              Remining = (it?.Itemqty ?? 0) - adj.Quantity,
+                              adj.type
+                          };
+            foreach (var item in result3)
+            {
+                SO.Add(new SalesReportItem
+                {
+                    ID = item.ID,
+                    Itemname = item.Itemname,
+                    Date = item.Date.ToString(),
+                    Itemqty = item.Itemqty,
+                    Quantity = item.Quantity,
+                    Remining = item.Itemqty + item.Quantity, // لو الإضافة موجبة
+                    Invoiceno = "--",
+                    Type = item.type,
+                });
+            }
         }
         private void Btnrep_Click(object sender, EventArgs e)
         {
@@ -311,7 +337,7 @@ namespace Easypos.Masters
                 var dt = Ds.Tables["Stokdata"];
 
                 // إضافة الرصيد الافتتاحي كأول سطر
-                int runningBalance = int.Parse(txtStocksOnHand.Text);
+                int runningBalance = int.Parse(textBox2.Text);
 
                 var openingRow = dt.NewRow();
                 openingRow["Proid"] = "--";
@@ -348,11 +374,14 @@ namespace Easypos.Masters
                             row["Description"] = "مرتجع مشتريات";
                             Dept -= item.Quantity;
                             break;
-                            //case "Inventory":
-                            //    row["Description"] = "تعديل مخزون";
-                            //    Credit += item.Quantity >= 0 ? item.Quantity : 0;
-                            //    Dept -= item.Quantity < 0 ? item.Quantity : 0;
-                            //    break;
+                        case "تعديل مخزون زائد":
+                            row["Description"] = "تعديل مخزون زائد";
+                            Credit += item.Quantity;
+                            break;
+                        case "تعديل مخزون ناقص":
+                            row["Description"] = "تعديل مخزون ناقص";
+                            Dept -= item.Quantity;
+                            break;
                     }
                     row["Credit"] = Credit;
                     row["Dept"] = Dept;
@@ -363,11 +392,13 @@ namespace Easypos.Masters
                     switch (item.Type)
                     {
                         case "فاتورة مشتريات":
+                        case "تعديل مخزون زائد":
                         case "مرتجع مبيعات":
                             runningBalance += item.Quantity;
                             break;
 
                         case "فاتورة مبيعات":
+                        case "تعديل مخزون ناقص":
                         case "مرتجع مشتريات":
                             runningBalance -= item.Quantity;
                             break;
@@ -398,6 +429,15 @@ namespace Easypos.Masters
                 MessageBox.Show("خطأ","برجاء ادخال المنتج",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Listofstok LOS = new Listofstok();
+            LOS.itemid = It.ID;
+            //LOS.txtStocksOnHand.Text = txtRemining.Text;
+            LOS.textBox2.Text = textBox2.Text;
+            LOS.ShowDialog();
         }
     }
 }

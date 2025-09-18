@@ -190,7 +190,7 @@ namespace Reporting.VM
                     (x, sale) => new
                     {
                         x.ubl.Saleid,
-                        x.ubl.Invoicenumber,
+                        x.ubl.invoicenumber,
                         NonVatTotal = sale?.NonVatTotal ?? 0,
                         Discount = sale?.Discount ?? 0,
                         VatAmount = sale?.VatAmount ?? 0,
@@ -212,7 +212,7 @@ namespace Reporting.VM
             // تحويل للـ Saleslist
             return allSales.Select(item => new UBLDtos
             {
-                Invoiceno = (int)item.Invoicenumber,
+                Invoiceno = (int)item.invoicenumber,
                 //Name = item.Invoicenumber.ToString(),
                 Name = !string.IsNullOrEmpty(item.Saleid.ToString()) && int.TryParse(item.Saleid.ToString(), out int num)? $"inv-{num.ToString("D5")}": "", 
                 NonVatTotal = item.NonVatTotal,

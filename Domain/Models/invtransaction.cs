@@ -26,13 +26,7 @@ public partial class invtransaction
 
     public int Quantity { get; set; }
 
-    public decimal Credit { get; set; }
-
-    public decimal Dipt { get; set; }
-
-    public int Proid { get; set; }
-
-    public int transid { get; set; }
+    public int Itemid { get; set; }
 
 }
 

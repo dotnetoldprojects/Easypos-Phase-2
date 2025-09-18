@@ -21,23 +21,23 @@ namespace GUIForms.helpers
             _IUW.sales.Insert(sale);
             _IUW.Complete();
             // حفظ التفاصيل
-            foreach (var item in details)
-            {
-                item.InvoiceNo = sale.Invoiceno;
-                _IUW.salesdetailes.Insert(item);
+            //foreach (var item in details)
+            //{
+            //    item.InvoiceNo = sale.Invoiceno;
+            //    _IUW.salesdetailes.Insert(item);
 
-                _IUW.invtransactions.Insert(new invtransaction
-                {
-                    Proid = int.Parse(item.ProductNo.ToString()),
-                    Quantity = int.Parse(item.Quantity.ToString()),
-                    Date = DateTime.Now.ToString("dd-MM-yyyy"),
-                    Credit = 0,
-                    Dipt = decimal.Parse(item.ItemPrice.ToString()),
-                    type = "Sales",
-                    transid = sale.Invoiceno
-                });
-                _IUW.Complete();
-            }
+            //    _IUW.invtransactions.Insert(new invtransaction
+            //    {
+            //        Proid = int.Parse(item.ProductNo.ToString()),
+            //        Quantity = int.Parse(item.Quantity.ToString()),
+            //        Date = DateTime.Now.ToString("dd-MM-yyyy"),
+            //        Credit = 0,
+            //        Dipt = decimal.Parse(item.ItemPrice.ToString()),
+            //        type = "Sales",
+            //        transid = sale.Invoiceno
+            //    });
+            //    _IUW.Complete();
+            //}
             _IUW.Complete();
         }
 

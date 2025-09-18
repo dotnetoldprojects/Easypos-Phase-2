@@ -102,10 +102,7 @@
           <Property Name="type" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
-          <Property Name="Credit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Dipt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-          <Property Name="Proid" Type="int" Nullable="false" />
-          <Property Name="transid" Type="int" Nullable="false" />
+          <Property Name="Itemid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="items">
           <Key>
@@ -488,7 +485,7 @@
           <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ThirdPartyID" Type="int" />
           <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="Paytype" Type="nvarchar" MaxLength="45" />
+          <Property Name="Paytype" Type="nvarchar" MaxLength="100" />
           <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="UBL">
@@ -503,7 +500,7 @@
           <Property Name="Saleid" Type="int" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="Path" Type="nvarchar" MaxLength="250" />
-          <Property Name="Invoicenumber" Type="int" Nullable="false" />
+          <Property Name="invoicenumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="unittypes">
           <Key>
@@ -1039,7 +1036,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ThirdPartyID" Type="Int32" />
           <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Paytype" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Paytype" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="unittype">
@@ -1103,7 +1100,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <FunctionImport Name="Getpaymentout" />
           <FunctionImport Name="Getreturne" />
           <FunctionImport Name="Gettransactions" />
-          <EntitySet Name="UBLs" EntityType="EasyposModel.UBL" />
           <EntitySet Name="vouchers" EntityType="EasyposModel.voucher" />
           <EntitySet Name="exceptionproes" EntityType="EasyposModel.exceptionpro" />
           <EntitySet Name="alltailorings" EntityType="EasyposModel.alltailoring" />
@@ -1145,21 +1141,8 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="returneds" EntityType="EasyposModel.returned" />
           <EntitySet Name="returnedetailes" EntityType="EasyposModel.returnedetaile" />
           <EntitySet Name="invtransactions" EntityType="EasyposModel.invtransaction" />
+          <EntitySet Name="UBLs" EntityType="EasyposModel.UBL" />
         </EntityContainer>
-        <EntityType Name="UBL">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="QRCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Invoicehash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Uuid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Invoice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Saleid" Type="Int32" />
-          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Invoicenumber" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="voucher">
           <Key>
             <PropertyRef Name="Id" />
@@ -1433,10 +1416,21 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Date" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Credit" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Dipt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Proid" Type="Int32" Nullable="false" />
-          <Property Name="transid" Type="Int32" Nullable="false" />
+          <Property Name="Itemid" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UBL">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="QRCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Invoicehash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Uuid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Invoice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Saleid" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="invoicenumber" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1819,21 +1813,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <FunctionImportMapping FunctionImportName="Getpaymentout" FunctionName="EasyposModel.Store.Getpaymentout" />
           <FunctionImportMapping FunctionImportName="Getreturne" FunctionName="EasyposModel.Store.Getreturne" />
           <FunctionImportMapping FunctionImportName="Gettransactions" FunctionName="EasyposModel.Store.Gettransactions" />
-          <EntitySetMapping Name="UBLs">
-            <EntityTypeMapping TypeName="EasyposModel.UBL">
-              <MappingFragment StoreEntitySet="UBL">
-                <ScalarProperty Name="Invoicenumber" ColumnName="Invoicenumber" />
-                <ScalarProperty Name="Path" ColumnName="Path" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="Saleid" ColumnName="Saleid" />
-                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
-                <ScalarProperty Name="Uuid" ColumnName="Uuid" />
-                <ScalarProperty Name="Invoicehash" ColumnName="Invoicehash" />
-                <ScalarProperty Name="QRCode" ColumnName="QRCode" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="vouchers">
             <EntityTypeMapping TypeName="EasyposModel.voucher">
               <MappingFragment StoreEntitySet="vouchers">
@@ -2017,13 +1996,25 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySetMapping Name="invtransactions">
             <EntityTypeMapping TypeName="EasyposModel.invtransaction">
               <MappingFragment StoreEntitySet="invtransaction">
-                <ScalarProperty Name="transid" ColumnName="transid" />
-                <ScalarProperty Name="Proid" ColumnName="Proid" />
-                <ScalarProperty Name="Dipt" ColumnName="Dipt" />
-                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Itemid" ColumnName="Itemid" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UBLs">
+            <EntityTypeMapping TypeName="EasyposModel.UBL">
+              <MappingFragment StoreEntitySet="UBL">
+                <ScalarProperty Name="invoicenumber" ColumnName="invoicenumber" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Saleid" ColumnName="Saleid" />
+                <ScalarProperty Name="Invoice" ColumnName="Invoice" />
+                <ScalarProperty Name="Uuid" ColumnName="Uuid" />
+                <ScalarProperty Name="Invoicehash" ColumnName="Invoicehash" />
+                <ScalarProperty Name="QRCode" ColumnName="QRCode" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

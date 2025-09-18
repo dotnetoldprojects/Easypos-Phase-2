@@ -24,7 +24,7 @@ namespace GUIForms.helpers
                 Saleid = Saleid, 
                 Status = Status,
                 Path = path,
-                Invoicenumber = invid
+                invoicenumber = invid
             };
             _IUW.UBLS.Insert(ubl);
             _IUW.Complete();
