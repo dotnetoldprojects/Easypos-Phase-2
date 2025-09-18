@@ -88,12 +88,8 @@ namespace Easypos.Payment
                 if (Formname == "Sales")
                 {
                     var Rem = Convert.ToDouble(txtRem.Text);
-                    if (Rem > 0 && clients.SelectedIndex == 1)
-                    {
-                        MessageBox.Show("لا يمكن البيع بالآجل لعميل اقتراضي", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                    if (Rem == 0.00 && clients.SelectedIndex == 1)
+                    var TP = Convert.ToDouble(txtTotalPay.Text);
+                    if (TP == 0 && Rem >= 0 && clients.SelectedIndex == 1)
                     {
                         MessageBox.Show("لا يمكن البيع بالآجل لعميل اقتراضي", "خطأ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;

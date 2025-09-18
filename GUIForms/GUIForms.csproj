@@ -203,6 +203,7 @@
     <Compile Include="Dtos\LanguageHelper.cs" />
     <Compile Include="Dtos\PayDto.cs" />
     <Compile Include="Dtos\ProductLine.cs" />
+    <Compile Include="Dtos\SalesReportItem.cs" />
     <Compile Include="Dtos\Usingnumber.cs" />
     <Compile Include="Dtos\Zatcafutuers.cs" />
     <Compile Include="Forms\Frmindex.cs">

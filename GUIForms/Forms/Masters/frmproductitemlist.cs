@@ -1,8 +1,11 @@
-﻿using Domain.Models;
+﻿using Domain;
+using Domain.Models;
 using Easypos.Masters.Subforms;
 using GUIForms.Dtos;
 using GUIForms.helpers;
 using GUIForms.models;
+using Reporting;
+using Reporting.others;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +13,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -27,6 +31,7 @@ namespace Easypos.Masters
         IUnitofwork _IUW;
         private List<ItemsViewModel> _EVM;
         Usingnumber _NO;
+        List<SalesReportItem> SO;
         public frmproductitemlist()
         {
             InitializeComponent();  
@@ -92,13 +97,13 @@ namespace Easypos.Masters
                 txtItemname.Text = DGV.CurrentRow.Cells[1].Value.ToString();
                 txtUnitPrice.Text = DGV.CurrentRow.Cells[2].Value.ToString();
                 txtStocksOnHand.Text = DGV.CurrentRow.Cells[3].Value.ToString();
-                textBox1.Text = DGV.CurrentRow.Cells[5].Value.ToString();
+                textBox1.Text = DGV.CurrentRow.Cells[6].Value.ToString();
                 textBox2.Text = DGV.CurrentRow.Cells[4].Value.ToString();
-                UId = int.Parse(DGV.CurrentRow.Cells[6].Value.ToString());
+                UId = int.Parse(DGV.CurrentRow.Cells[5].Value.ToString());
                 var totalQuantity = _IUW.itemsales.GetAll()
                                                   .Where(x => x.Itemid == It.ID)
                                                   .Sum(x => x.Quantity);
-                txtRemining.Text = (It.Itemqty - totalQuantity).ToString();
+                txtRemining.Text = (int.Parse(txtStocksOnHand.Text) - totalQuantity).ToString();
             }
         }
         private void Btnaddedit_Click(object sender, EventArgs e)
@@ -205,6 +210,194 @@ namespace Easypos.Masters
         private void txtUnitPrice_KeyPress(object sender, KeyPressEventArgs e)
         {
             _NO.Usenumber(sender, e);
+        }
+        private void txtStocksOnHand_TextChanged(object sender, EventArgs e)
+        {
+            textBox2.Text = txtStocksOnHand.Text;
+        }
+        void Getdata(int IID)
+        {
+            var purchases = _IUW.purchases.GetAll().ToList();
+            var purchaseDetails = _IUW.purchasedetailes.GetAll().ToList();
+
+            var result1 = from detail in purchaseDetails
+                          join purchase in purchases
+                          on detail.InvoiceNo equals purchase.Invoiceno into joined
+                          from purchase in joined.DefaultIfEmpty()
+                          select new
+                          {
+                              detail.TDetailNo,
+                              detail.TDDesc,
+                              TDate = purchase?.TDate.ToString() ?? "",
+                              detail.Quantity,
+                              detail.InvoiceNo
+                          };
+
+            foreach (var item in result1)
+            {
+                var row = new DataGridViewRow();
+                row.CreateCells(DGV,
+                    item.TDetailNo.ToString(),
+                    item.TDDesc ?? "",
+                    item.TDate,
+                    item.Quantity.ToString(),
+                    "0",
+                    "0",
+                    item.InvoiceNo,
+                    "فاتورة مشتريات"
+                );
+            }
+
+            var items = _IUW.items.GetAll().ToList();
+            var itemsales = _IUW.itemsales.GetAll().ToList();
+
+            var result2 = from its in itemsales
+                          join it in items
+                          on its.Itemid equals it.ID into joined
+                          from it in joined.DefaultIfEmpty()
+                          where its.Itemid == IID
+                          select new
+                          {
+                              its.ID,
+                              Itemname = it?.Itemname ?? "",
+                              its.Date,
+                              Itemqty = it?.Itemqty ?? 0,
+                              its.Quantity,
+                              its.invoiceno
+                          };
+            //foreach (var item in result2)
+            //{
+            //    var row = new DataGridViewRow();
+            //    row.CreateCells(DGV,
+            //        item.ID.ToString(),
+            //        item.Itemname,
+            //        item.Date.ToString(),
+            //        item.Itemqty,
+            //        item.Quantity.ToString(),
+            //        item.Itemqty - item.Quantity,
+            //        item.invoiceno,
+            //        "فاتورة مبيعات"
+            //    );
+            //}
+
+
+            SO = new List<SalesReportItem>();
+
+            foreach (var item in result2)
+            {
+                SO.Add(new SalesReportItem
+                {
+                    ID = item.ID,
+                    Itemname = item.Itemname,
+                    Date = item.Date.ToString(),
+                    Itemqty = item.Itemqty,
+                    Quantity =item.Quantity,
+                    Remining = item.Itemqty - item.Quantity,
+                    Invoiceno = item.invoiceno.ToString(),
+                    Type = "فاتورة مبيعات"
+                });
+            }
+        }
+        private void Btnrep_Click(object sender, EventArgs e)
+        {
+            if (It.ID != 0)
+            {
+                Getdata(It.ID);
+
+                // إنشاء التقرير
+                Frmreporting FR = new Frmreporting();
+                Dataset Ds = new Dataset();
+                Stokreport SR = new Stokreport();
+                var dt = Ds.Tables["Stokdata"];
+
+                // إضافة الرصيد الافتتاحي كأول سطر
+                int runningBalance = int.Parse(txtStocksOnHand.Text);
+
+                var openingRow = dt.NewRow();
+                openingRow["Proid"] = "--";
+                openingRow["Description"] = "الرصيد الافتتاحي";
+                openingRow["Date"] = "--";
+                openingRow["Billnumber"] = "--";
+                openingRow["Credit"] = runningBalance > 0 ? runningBalance : 0;
+                openingRow["Dept"] = runningBalance < 0 ? runningBalance : 0;
+                openingRow["Balance"] = runningBalance;
+                dt.Rows.Add(openingRow);
+
+                var Credit = 0.00;
+                var Dept = 0.00;
+                // إضافة باقي الحركات مع حساب الرصيد
+                foreach (var item in SO.ToList())
+                {
+                    var row = dt.NewRow();
+                    row["Proid"] = item.ID;
+                    switch (item.Type)
+                    {
+                        case "فاتورة مشتريات":
+                            row["Description"] = "فاتورة مشتريات";
+                            Credit += item.Quantity;
+                            break;
+                        case "مرتجع مبيعات":
+                            row["Description"] = "مرتجع مبيعات";
+                            Credit += item.Quantity;
+                            break;
+                        case "فاتورة مبيعات":
+                            row["Description"] = "فاتورة مبيعات";
+                            Dept -= item.Quantity;
+                            break;
+                        case "مرتجع مشتريات":
+                            row["Description"] = "مرتجع مشتريات";
+                            Dept -= item.Quantity;
+                            break;
+                            //case "Inventory":
+                            //    row["Description"] = "تعديل مخزون";
+                            //    Credit += item.Quantity >= 0 ? item.Quantity : 0;
+                            //    Dept -= item.Quantity < 0 ? item.Quantity : 0;
+                            //    break;
+                    }
+                    row["Credit"] = Credit;
+                    row["Dept"] = Dept;
+                    row["Date"] = item.Date.ToString();
+                    row["Billnumber"] = item.Invoiceno;
+
+                    // تعديل الرصيد حسب نوع الحركة
+                    switch (item.Type)
+                    {
+                        case "فاتورة مشتريات":
+                        case "مرتجع مبيعات":
+                            runningBalance += item.Quantity;
+                            break;
+
+                        case "فاتورة مبيعات":
+                        case "مرتجع مشتريات":
+                            runningBalance -= item.Quantity;
+                            break;
+
+                            //case "Inventory":
+                            //    runningBalance += item.Quantity; // لو تعديل مباشر
+                            //    break;
+                    }
+
+                    row["Balance"] = runningBalance;
+                    dt.Rows.Add(row);
+                    Credit = 0.00;
+                    Dept = 0.00;
+                }
+
+                // إعداد التقرير
+                SR.SetDataSource(Ds);
+                SR.SetParameterValue("TOF", "تقرير مخزون : " + txtItemname.Text);
+                SR.SetParameterValue("Taxnum", DC.Taxnumber);
+                SR.SetParameterValue("Proname", DC.CRN);
+                SR.SetParameterValue("English_Shop_name", DC.ENName);
+                SR.SetParameterValue("CompanyName", DC.Name);
+                FR.CRV.ReportSource = SR;
+                FR.Show();
+            }
+            else
+            {
+                MessageBox.Show("خطأ","برجاء ادخال المنتج",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
         }
     }
 }

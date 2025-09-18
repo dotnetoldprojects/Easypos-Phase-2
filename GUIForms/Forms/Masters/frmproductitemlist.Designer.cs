@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmproductitemlist));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -63,6 +63,7 @@
             this.UnitName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OpeningBalance = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unitid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Btnrep = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -103,6 +104,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.Btnrep);
             this.groupBox2.Controls.Add(this.txtRemining);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.button1);
@@ -230,6 +232,7 @@
             this.txtStocksOnHand.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.txtStocksOnHand, "txtStocksOnHand");
             this.txtStocksOnHand.Name = "txtStocksOnHand";
+            this.txtStocksOnHand.TextChanged += new System.EventHandler(this.txtStocksOnHand_TextChanged);
             this.txtStocksOnHand.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUnitPrice_KeyPress);
             // 
             // Label8
@@ -290,8 +293,8 @@
             // ID
             // 
             this.ID.DataPropertyName = "ID";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ID.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ID.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.ID, "ID");
             this.ID.Name = "ID";
             this.ID.ReadOnly = true;
@@ -337,6 +340,17 @@
             resources.ApplyResources(this.Unitid, "Unitid");
             this.Unitid.Name = "Unitid";
             this.Unitid.ReadOnly = true;
+            // 
+            // Btnrep
+            // 
+            this.Btnrep.BackColor = System.Drawing.Color.PowderBlue;
+            resources.ApplyResources(this.Btnrep, "Btnrep");
+            this.Btnrep.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btnrep.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
+            this.Btnrep.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
+            this.Btnrep.Name = "Btnrep";
+            this.Btnrep.UseVisualStyleBackColor = false;
+            this.Btnrep.Click += new System.EventHandler(this.Btnrep_Click);
             // 
             // frmproductitemlist
             // 
@@ -395,5 +409,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn UnitName;
         private System.Windows.Forms.DataGridViewTextBoxColumn OpeningBalance;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unitid;
+        private System.Windows.Forms.Button Btnrep;
     }
 }

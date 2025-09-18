@@ -164,6 +164,7 @@ namespace GUIForms.Forms.Masters
                 ST.Quantity = int.Parse(txtStocksOnHand.Text);
                 ST.Note = textBox2.Text;
                 _IUW.stok_transactions.Update(ST);
+                _IUW.Complete();
                 //_IUW.invtransactions.Insert(new invtransaction
                 //{
                 //    Proid = ST.Proid,

@@ -56,7 +56,10 @@ namespace Easypos.TransactionsAccountant
                     if (item.Type == "فاتورة مبيعات")
                     {
                         Creditor = 0;
-                        Dibtor = decimal.Parse(item.TotalAmount);
+                        if (item.TotalAmount != null)
+                        {
+                            Dibtor = decimal.Parse(item.TotalAmount);
+                        }
                     }
                     if (item.Type == "سند ايصال مبيعات" || item.Type == "ايرادات اخرى")
                     {
@@ -65,7 +68,10 @@ namespace Easypos.TransactionsAccountant
                     }
                     if (item.Type == "فاتورة مشتريات")
                     {
-                        Dibtor = decimal.Parse(item.TotalAmount);
+                        if (item.TotalAmount != null)
+                        {
+                            Dibtor = decimal.Parse(item.TotalAmount);
+                        }
                         Creditor = 0;
                     }
                     if (item.Type == "سند دفع لمورد")
