@@ -70,7 +70,7 @@ namespace GUIForms.Forms.Masters
                 IT.Itemid = itemid;
                 IT.Date = DateTime.Now.ToString("dd-MM-yyyy");
                 IT.Quantity = Convert.ToInt32(txtStocksOnHand.Text);
-
+                IT.Note = textBox1.Text;
                 var ITS = _IUW.items.GetAll().Where(x => x.ID == itemid).FirstOrDefault();
                 if (ITS != null)
                 {
@@ -96,12 +96,12 @@ namespace GUIForms.Forms.Masters
 
         private void RB1_Click(object sender, EventArgs e)
         {
-            lbltext.Text = "تعديل مخزون زائد";
+            textBox1.Text = "تعديل مخزون زائد";
         }
 
         private void RB2_Click(object sender, EventArgs e)
         {
-            lbltext.Text = "تعديل مخزون ناقص";
+            textBox1.Text = "تعديل مخزون ناقص";
         }
     }
 }

@@ -40,7 +40,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.RB1 = new System.Windows.Forms.RadioButton();
             this.RB2 = new System.Windows.Forms.RadioButton();
-            this.lbltext = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -123,21 +124,28 @@
             this.RB2.UseVisualStyleBackColor = true;
             this.RB2.Click += new System.EventHandler(this.RB2_Click);
             // 
-            // lbltext
+            // textBox1
             // 
-            resources.ApplyResources(this.lbltext, "lbltext");
-            this.lbltext.Name = "lbltext";
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.Name = "textBox1";
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
             // 
             // Listofstok
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.lbltext);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.RB2);
             this.Controls.Add(this.RB1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtStocksOnHand);
             this.Controls.Add(this.Label8);
             this.Controls.Add(this.panel2);
@@ -166,6 +174,7 @@
         public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.RadioButton RB1;
         private System.Windows.Forms.RadioButton RB2;
-        internal System.Windows.Forms.Label lbltext;
+        public System.Windows.Forms.TextBox textBox1;
+        internal System.Windows.Forms.Label label3;
     }
 }

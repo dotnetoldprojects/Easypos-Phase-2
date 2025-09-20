@@ -243,7 +243,7 @@
     <value>35</value>
   </data>
   <data name="Label8.Text" xml:space="preserve">
-    <value>المتاح :</value>
+    <value>الكميه :</value>
   </data>
   <data name="textBox2.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -288,7 +288,7 @@
     <value>NoControl</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 177</value>
+    <value>93, 237</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 32</value>
@@ -320,19 +320,31 @@
   <data name="RB2.Text" xml:space="preserve">
     <value>نقص</value>
   </data>
-  <data name="lbltext.AutoSize" type="System.Boolean, mscorlib">
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>107, 164</value>
+  </data>
+  <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="lbltext.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 55</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="lbltext.Location" type="System.Drawing.Point, System.Drawing">
-    <value>117, 156</value>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>50, 167</value>
   </data>
-  <data name="lbltext.Size" type="System.Drawing.Size, System.Drawing">
-    <value>0, 13</value>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>ملاحظات :</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>389, 222</value>
+    <value>389, 290</value>
   </data>
 </root>

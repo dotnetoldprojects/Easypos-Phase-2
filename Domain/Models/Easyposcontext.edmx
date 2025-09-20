@@ -103,6 +103,7 @@
           <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="Itemid" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="items">
           <Key>
@@ -1417,6 +1418,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Date" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Itemid" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UBL">
           <Key>
@@ -1996,6 +1998,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySetMapping Name="invtransactions">
             <EntityTypeMapping TypeName="EasyposModel.invtransaction">
               <MappingFragment StoreEntitySet="invtransaction">
+                <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Itemid" ColumnName="Itemid" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Date" ColumnName="Date" />

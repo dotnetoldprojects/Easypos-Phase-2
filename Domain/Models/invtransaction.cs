@@ -28,6 +28,8 @@ public partial class invtransaction
 
     public int Itemid { get; set; }
 
+    public string Note { get; set; }
+
 }
 
 }
