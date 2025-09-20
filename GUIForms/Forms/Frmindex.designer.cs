@@ -42,7 +42,6 @@ namespace Easypos
             this.ملفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الاصنافToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.تصنيفالاصنافToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الوحداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.التصنيفاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الاضافاتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -190,7 +189,6 @@ namespace Easypos
             this.ملفToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.الاصنافToolStripMenuItem,
             this.toolStripMenuItem11,
-            this.تصنيفالاصنافToolStripMenuItem,
             this.الوحداتToolStripMenuItem,
             this.التصنيفاتToolStripMenuItem,
             this.الاضافاتToolStripMenuItem,
@@ -217,14 +215,6 @@ namespace Easypos
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             resources.ApplyResources(this.toolStripMenuItem11, "toolStripMenuItem11");
             this.toolStripMenuItem11.Click += new System.EventHandler(this.تصنيفالاصنافToolStripMenuItem_Click);
-            // 
-            // تصنيفالاصنافToolStripMenuItem
-            // 
-            this.تصنيفالاصنافToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.تصنيفالاصنافToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.تصنيفالاصنافToolStripMenuItem.Name = "تصنيفالاصنافToolStripMenuItem";
-            resources.ApplyResources(this.تصنيفالاصنافToolStripMenuItem, "تصنيفالاصنافToolStripMenuItem");
-            this.تصنيفالاصنافToolStripMenuItem.Click += new System.EventHandler(this.تصنيفالاصنافToolStripMenuItem_Click_1);
             // 
             // الوحداتToolStripMenuItem
             // 
@@ -778,7 +768,6 @@ namespace Easypos
         private MetroFramework.Controls.MetroTile Btnsales;
         private MetroFramework.Controls.MetroTile Btnsettings;
         private System.Windows.Forms.Panel Content;
-        private System.Windows.Forms.ToolStripMenuItem تصنيفالاصنافToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem قائمةالمبيعاتToolStripMenuItem;
         private MetroFramework.Controls.MetroTile Btnreportsales;
         private System.Windows.Forms.ToolStripMenuItem Restreport;

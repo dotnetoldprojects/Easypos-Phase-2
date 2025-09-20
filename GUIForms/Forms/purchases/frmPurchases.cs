@@ -184,7 +184,7 @@ namespace Easypos.Purchases
             }
             else if (clientID.SelectedValue == null)
             {
-                MessageBox.Show("الرجاء اختيار عميل", "خطأ");
+                MessageBox.Show("الرجاء اختيار مورد", "خطأ");
                 return;
             }
             else

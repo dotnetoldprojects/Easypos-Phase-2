@@ -223,39 +223,48 @@ namespace Easypos.Masters
         }
         void Getdata(int IID)
         {
-            //var purchases = _IUW.purchases.GetAll().ToList();
-            //var purchaseDetails = _IUW.purchasedetailes.GetAll().ToList();
-
-            //var result1 = from detail in purchaseDetails
-            //              join purchase in purchases
-            //              on detail.InvoiceNo equals purchase.Invoiceno into joined
-            //              from purchase in joined.DefaultIfEmpty()
-            //              select new
-            //              {
-            //                  detail.TDetailNo,
-            //                  detail.TDDesc,
-            //                  TDate = purchase?.TDate.ToString() ?? "",
-            //                  detail.Quantity,
-            //                  detail.InvoiceNo
-            //              };
-
-            //foreach (var item in result1)
-            //{
-            //    var row = new DataGridViewRow();
-            //    row.CreateCells(DGV,
-            //        item.TDetailNo.ToString(),
-            //        item.TDDesc ?? "",
-            //        item.TDate,
-            //        item.Quantity.ToString(),
-            //        "0",
-            //        "0",
-            //        item.InvoiceNo,
-            //        "فاتورة مشتريات"
-            //    );
-            //}
-
+            SO = new List<SalesReportItem>();
             var items = _IUW.items.GetAll().ToList();
+            var purchases = _IUW.purchases.GetAll().ToList();
+            var purchaseDetails = _IUW.purchasedetailes.GetAll().ToList();
             var itemsales = _IUW.itemsales.GetAll().ToList();
+
+
+            var result = from item in items
+                         join pd in purchaseDetails
+                         on item.ID equals pd.ProductNo into pdGroup
+                         from pd in pdGroup.DefaultIfEmpty()
+
+                             // حماية من null قبل الـ join الثاني
+                         let invoiceNo = pd != null ? pd.InvoiceNo : 0
+
+                         join p in purchases
+                         on invoiceNo equals p.Invoiceno into pGroup
+                         from p in pGroup.DefaultIfEmpty()
+
+                         where pd != null && pd.ProductNo == IID
+                         select new
+                         {
+                             Item = item.ID,
+                             Itemname = item.Itemname,
+                             Date = p.TDate,
+                             Quantity = pd.Quantity,
+                             Invoiceno = pd.InvoiceNo
+                         };
+            foreach (var item in result)
+            {
+                SO.Add(new SalesReportItem
+                {
+                    ID = item.Item,
+                    Itemname = item.Itemname,
+                    Date = item.Date.ToString(),
+                    Itemqty = 0,
+                    Quantity = (int)item.Quantity,
+                    Remining = 0,
+                    Invoiceno = item.Invoiceno.ToString(),
+                    Type = "فاتورة مشتريات"
+                });
+            }
 
             var result2 = from its in itemsales
                           join it in items
@@ -271,7 +280,6 @@ namespace Easypos.Masters
                               its.Quantity,
                               its.invoiceno
                           };
-            SO = new List<SalesReportItem>();
 
             foreach (var item in result2)
             {
@@ -287,11 +295,6 @@ namespace Easypos.Masters
                     Type = "فاتورة مبيعات"
                 });
             }
-
-            // Replace this line inside Getdata(int IID):
-            // Remining = Itemqty - adj.Quantity,
-
-            // With this corrected line:
             
             var itemadjustments = _IUW.invtransactions.GetAll().ToList();
             var result3 = from adj in itemadjustments
@@ -323,6 +326,8 @@ namespace Easypos.Masters
                     Type = item.type,
                 });
             }
+
+            SO = SO.OrderBy(x => DateTime.Parse(x.Date)).ToList();
         }
         private void Btnrep_Click(object sender, EventArgs e)
         {

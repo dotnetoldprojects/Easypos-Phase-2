@@ -2016,7 +2016,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size toolStripMenuItem11_Size {
             get {
@@ -2207,7 +2207,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size الاصنافToolStripMenuItem_Size {
             get {
@@ -2236,7 +2236,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size الاضافاتToolStripMenuItem_Size {
             get {
@@ -2275,7 +2275,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size التصنيفاتToolStripMenuItem_Size {
             get {
@@ -2422,7 +2422,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size المورديينوالعملاءToolStripMenuItem_Size {
             get {
@@ -2451,7 +2451,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size الموظفيينToolStripMenuItem_Size {
             get {
@@ -2480,7 +2480,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size الوحداتToolStripMenuItem_Size {
             get {
@@ -2509,7 +2509,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size ترتيبالاصنافToolStripMenuItem_Size {
             get {
@@ -2524,25 +2524,6 @@ namespace GUIForms.Forms {
         public static string ترتيبالاصنافToolStripMenuItem_Text {
             get {
                 return ResourceManager.GetString("ترتيبالاصنافToolStripMenuItem.Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
-        /// </summary>
-        public static System.Drawing.Size تصنيفالاصنافToolStripMenuItem_Size {
-            get {
-                object obj = ResourceManager.GetObject("تصنيفالاصنافToolStripMenuItem.Size", resourceCulture);
-                return ((System.Drawing.Size)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to المخزون.
-        /// </summary>
-        public static string تصنيفالاصنافToolStripMenuItem_Text {
-            get {
-                return ResourceManager.GetString("تصنيفالاصنافToolStripMenuItem.Text", resourceCulture);
             }
         }
         
@@ -2586,7 +2567,7 @@ namespace GUIForms.Forms {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=162, Height=22}.
+        ///   Looks up a localized resource of type System.Drawing.Size similar to {Width=184, Height=26}.
         /// </summary>
         public static System.Drawing.Size خروجToolStripMenuItem_Size {
             get {

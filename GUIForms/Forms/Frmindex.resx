@@ -391,22 +391,16 @@
 </value>
   </data>
   <data name="الاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="الاصنافToolStripMenuItem.Text" xml:space="preserve">
     <value>المنتجات</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="toolStripMenuItem11.Text" xml:space="preserve">
     <value>الاصناف الاوليه</value>
-  </data>
-  <data name="تصنيفالاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
-  </data>
-  <data name="تصنيفالاصنافToolStripMenuItem.Text" xml:space="preserve">
-    <value>المخزون</value>
   </data>
   <data name="الوحداتToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -426,7 +420,7 @@
 </value>
   </data>
   <data name="الوحداتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="الوحداتToolStripMenuItem.Text" xml:space="preserve">
     <value>الوحدات</value>
@@ -445,7 +439,7 @@
 </value>
   </data>
   <data name="التصنيفاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="التصنيفاتToolStripMenuItem.Text" xml:space="preserve">
     <value>التصنيفات</value>
@@ -468,7 +462,7 @@
 </value>
   </data>
   <data name="الاضافاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="الاضافاتToolStripMenuItem.Text" xml:space="preserve">
     <value>الاضافات</value>
@@ -491,7 +485,7 @@
 </value>
   </data>
   <data name="المورديينوالعملاءToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="المورديينوالعملاءToolStripMenuItem.Text" xml:space="preserve">
     <value>المورديين والعملاء</value>
@@ -510,7 +504,7 @@
 </value>
   </data>
   <data name="الموظفيينToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="الموظفيينToolStripMenuItem.Text" xml:space="preserve">
     <value>الموظفيين</value>
@@ -531,7 +525,7 @@
 </value>
   </data>
   <data name="ترتيبالاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="ترتيبالاصنافToolStripMenuItem.Text" xml:space="preserve">
     <value>ترتيب الاصناف</value>
@@ -555,7 +549,7 @@
 </value>
   </data>
   <data name="خروجToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="خروجToolStripMenuItem.Text" xml:space="preserve">
     <value>خروج</value>
@@ -4637,12 +4631,6 @@
     <value>toolStripMenuItem11</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;تصنيفالاصنافToolStripMenuItem.Name" xml:space="preserve">
-    <value>تصنيفالاصنافToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;تصنيفالاصنافToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;الوحداتToolStripMenuItem.Name" xml:space="preserve">
