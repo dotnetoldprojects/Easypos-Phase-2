@@ -41,6 +41,7 @@ namespace Easypos.Purchases
             _IUW = new Unitofwork(new EasyposEntities());
             Billtype.SelectedIndex = 1;
             paymentMethod.SelectedIndex = 1;
+            Producttype.SelectedIndex = 0;
             LoadAllCombos();
         }
         private void LoadAllCombos()
@@ -374,10 +375,33 @@ namespace Easypos.Purchases
 
         private void Cattype_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            var data = _IUW.products.Get(int.Parse(Cattype.SelectedValue.ToString()));
-            if (data != null)
+            if (Producttype.SelectedIndex == 0)
             {
-                unitTypes.SelectedValue = data.Unitid;
+                var data = _IUW.products.Get(int.Parse(Cattype.SelectedValue.ToString()));
+                if (data != null)
+                {
+                    unitTypes.SelectedValue = data.Unitid;
+                }
+            }
+            else
+            {
+                var data = _IUW.items.Get(int.Parse(Cattype.SelectedValue.ToString()));
+                if (data != null)
+                {
+                    unitTypes.SelectedValue = data.UID;
+                }
+            }
+        }
+
+        private void Producttype_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (Producttype.SelectedIndex == 0)
+            {
+                Commondatasales.FillCombo(Cattype, GC.Getproductdatalist(), "Description", "ProductNo");
+            }
+            else
+            {
+                Commondatasales.FillCombo(Cattype, GC.Getitemdatalist(), "Itemname", "ID");
             }
         }
     }

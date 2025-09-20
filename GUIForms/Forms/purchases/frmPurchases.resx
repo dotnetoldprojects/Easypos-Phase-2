@@ -447,11 +447,44 @@
   <data name="groupBox2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Right</value>
   </data>
+  <data name="label7.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label7.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Verdana, 8.25pt</value>
+  </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 29</value>
+  </data>
+  <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 13</value>
+  </data>
+  <data name="label7.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
+  </data>
+  <data name="label7.Text" xml:space="preserve">
+    <value>نوع الصنف :</value>
+  </data>
+  <data name="&gt;&gt;label7.Name" xml:space="preserve">
+    <value>label7</value>
+  </data>
+  <data name="&gt;&gt;label7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label7.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="Cattype.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="Cattype.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 29</value>
+    <value>33, 53</value>
   </data>
   <data name="Cattype.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 21</value>
@@ -469,46 +502,43 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;Cattype.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
-  <data name="label6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="Producttype.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="Producttype.Items" xml:space="preserve">
+    <value>منتجات</value>
   </data>
-  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="Producttype.Items1" xml:space="preserve">
+    <value>اصناف اوليه</value>
   </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 34</value>
+  <data name="Producttype.Location" type="System.Drawing.Point, System.Drawing">
+    <value>33, 26</value>
   </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>33, 13</value>
+  <data name="Producttype.Size" type="System.Drawing.Size, System.Drawing">
+    <value>186, 21</value>
   </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
+  <data name="Producttype.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>الفئة :</value>
+  <data name="&gt;&gt;Producttype.Name" xml:space="preserve">
+    <value>Producttype</value>
   </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
+  <data name="&gt;&gt;Producttype.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;Producttype.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="&gt;&gt;Producttype.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="Btnadd.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="Btnadd.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 137</value>
+    <value>33, 161</value>
   </data>
   <data name="Btnadd.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 30</value>
@@ -529,13 +559,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;Btnadd.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="txtQuantity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="txtQuantity.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 111</value>
+    <value>33, 135</value>
   </data>
   <data name="txtQuantity.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 21</value>
@@ -553,13 +583,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtQuantity.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txtPrice.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="txtPrice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 84</value>
+    <value>33, 108</value>
   </data>
   <data name="txtPrice.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 21</value>
@@ -577,7 +607,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;txtPrice.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="unitTypes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -586,7 +616,7 @@
     <value>False</value>
   </data>
   <data name="unitTypes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>36, 54</value>
+    <value>33, 78</value>
   </data>
   <data name="unitTypes.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 21</value>
@@ -604,7 +634,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;unitTypes.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lblcount.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -613,7 +643,7 @@
     <value>True</value>
   </data>
   <data name="lblcount.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 114</value>
+    <value>225, 138</value>
   </data>
   <data name="lblcount.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 13</value>
@@ -634,7 +664,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblcount.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="lblprice.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -643,7 +673,7 @@
     <value>True</value>
   </data>
   <data name="lblprice.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 88</value>
+    <value>225, 112</value>
   </data>
   <data name="lblprice.Size" type="System.Drawing.Size, System.Drawing">
     <value>39, 13</value>
@@ -664,7 +694,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblprice.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="lblunit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -673,7 +703,7 @@
     <value>True</value>
   </data>
   <data name="lblunit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>228, 59</value>
+    <value>225, 83</value>
   </data>
   <data name="lblunit.Size" type="System.Drawing.Size, System.Drawing">
     <value>43, 13</value>
@@ -694,7 +724,40 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lblunit.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
+  </data>
+  <data name="lblproduct.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="lblproduct.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblproduct.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblproduct.Location" type="System.Drawing.Point, System.Drawing">
+    <value>225, 58</value>
+  </data>
+  <data name="lblproduct.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 13</value>
+  </data>
+  <data name="lblproduct.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblproduct.Text" xml:space="preserve">
+    <value>الصنف :</value>
+  </data>
+  <data name="&gt;&gt;lblproduct.Name" xml:space="preserve">
+    <value>lblproduct</value>
+  </data>
+  <data name="&gt;&gt;lblproduct.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblproduct.Parent" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;lblproduct.ZOrder" xml:space="preserve">
+    <value>10</value>
   </data>
   <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 8.25pt</value>

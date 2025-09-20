@@ -35,6 +35,10 @@ namespace GUIForms.Dtos
         {
             return _IUOW.products.GetAll().ToList();
         }
+        public List<item> Getitemdatalist()
+        {
+            return _IUOW.items.GetAll().ToList();
+        }
         public List<thirdparty> Getthirdpartydatalist()
         {
             return _IUOW.thirdparties.GetAll().ToList();

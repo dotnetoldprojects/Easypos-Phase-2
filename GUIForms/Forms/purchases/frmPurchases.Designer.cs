@@ -53,7 +53,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Cattype = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Btnadd = new System.Windows.Forms.Button();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -91,6 +90,9 @@
             this.LineTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Producttype = new System.Windows.Forms.ComboBox();
+            this.lblproduct = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -185,8 +187,9 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.Cattype);
-            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.Producttype);
             this.groupBox2.Controls.Add(this.Btnadd);
             this.groupBox2.Controls.Add(this.txtQuantity);
             this.groupBox2.Controls.Add(this.txtPrice);
@@ -194,6 +197,7 @@
             this.groupBox2.Controls.Add(this.lblcount);
             this.groupBox2.Controls.Add(this.lblprice);
             this.groupBox2.Controls.Add(this.lblunit);
+            this.groupBox2.Controls.Add(this.lblproduct);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
@@ -206,11 +210,6 @@
             this.Cattype.Name = "Cattype";
             this.Cattype.ValueMember = "ID";
             this.Cattype.SelectionChangeCommitted += new System.EventHandler(this.Cattype_SelectionChangeCommitted);
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
             // 
             // Btnadd
             // 
@@ -538,6 +537,27 @@
             resources.ApplyResources(this.Type, "Type");
             this.Type.Name = "Type";
             // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // Producttype
+            // 
+            resources.ApplyResources(this.Producttype, "Producttype");
+            this.Producttype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Producttype.FormattingEnabled = true;
+            this.Producttype.Items.AddRange(new object[] {
+            resources.GetString("Producttype.Items"),
+            resources.GetString("Producttype.Items1")});
+            this.Producttype.Name = "Producttype";
+            this.Producttype.SelectionChangeCommitted += new System.EventHandler(this.Producttype_SelectionChangeCommitted);
+            // 
+            // lblproduct
+            // 
+            resources.ApplyResources(this.lblproduct, "lblproduct");
+            this.lblproduct.Name = "lblproduct";
+            // 
             // frmPurchases
             // 
             resources.ApplyResources(this, "$this");
@@ -618,8 +638,10 @@
         private System.Windows.Forms.DataGridViewButtonColumn Delete;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private System.Windows.Forms.ComboBox Cattype;
-        private System.Windows.Forms.Label label6;
         public System.Windows.Forms.ComboBox Billtype;
         private System.Windows.Forms.CheckBox ISVAT;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox Producttype;
+        private System.Windows.Forms.Label lblproduct;
     }
 }
