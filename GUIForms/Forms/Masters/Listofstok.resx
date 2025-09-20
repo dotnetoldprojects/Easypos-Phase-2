@@ -140,9 +140,6 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="txtStocksOnHand.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
   <data name="txtStocksOnHand.Location" type="System.Drawing.Point, System.Drawing">
     <value>189, 83</value>
   </data>
@@ -153,7 +150,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="txtStocksOnHand.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
@@ -181,7 +178,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -196,7 +193,7 @@
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="Label8.Location" type="System.Drawing.Point, System.Drawing">
     <value>359, 86</value>
@@ -214,13 +211,16 @@
     <value>100, 23</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;Label8.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
   <data name="&gt;&gt;RB2.Type" xml:space="preserve">
     <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Listofstok</value>
   </data>
   <data name="button2.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -235,7 +235,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;RB1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;button2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -243,8 +243,8 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 23</value>
   </data>
-  <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Listofstok</value>
+  <data name="&gt;&gt;lbltext.Parent" xml:space="preserve">
+    <value>$this</value>
   </data>
   <data name="&gt;&gt;textBox2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -253,7 +253,7 @@
     <value>40</value>
   </data>
   <data name="&gt;&gt;RB2.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;txtStocksOnHand.Name" xml:space="preserve">
     <value>txtStocksOnHand</value>
@@ -264,6 +264,9 @@
   <data name="&gt;&gt;picClose.Name" xml:space="preserve">
     <value>picClose</value>
   </data>
+  <data name="lbltext.TabIndex" type="System.Int32, mscorlib">
+    <value>43</value>
+  </data>
   <data name="&gt;&gt;Label8.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -271,13 +274,19 @@
     <value>textBox2</value>
   </data>
   <data name="&gt;&gt;txtStocksOnHand.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="picClose.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 4</value>
   </data>
   <data name="&gt;&gt;Label8.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lbltext.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;panel2.Name" xml:space="preserve">
     <value>panel2</value>
@@ -291,8 +300,11 @@
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;lbltext.Name" xml:space="preserve">
+    <value>lbltext</value>
+  </data>
+  <data name="&gt;&gt;lbltext.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;RB2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -369,8 +381,14 @@
   <data name="$this.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
     <value>Yes</value>
   </data>
-  <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="txtStocksOnHand.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="lbltext.Location" type="System.Drawing.Point, System.Drawing">
+    <value>240, 156</value>
   </data>
   <data name="&gt;&gt;pictureBox2.ZOrder" xml:space="preserve">
     <value>1</value>

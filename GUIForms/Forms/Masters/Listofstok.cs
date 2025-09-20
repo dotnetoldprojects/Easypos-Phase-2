@@ -26,6 +26,8 @@ namespace GUIForms.Forms.Masters
 {
     public partial class Listofstok : Form
     {
+        //"تعديل مخزون ناقص"
+        //"تعديل مخزون زائد"
         public int itemid { get; set; }
         IUnitofwork _IUW;
         company DC;
@@ -90,6 +92,16 @@ namespace GUIForms.Forms.Masters
                 PLI.Clearitems();
                 Close();
             }
+        }
+
+        private void RB1_Click(object sender, EventArgs e)
+        {
+            lbltext.Text = "تعديل مخزون زائد";
+        }
+
+        private void RB2_Click(object sender, EventArgs e)
+        {
+            lbltext.Text = "تعديل مخزون ناقص";
         }
     }
 }

@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.RB1 = new System.Windows.Forms.RadioButton();
             this.RB2 = new System.Windows.Forms.RadioButton();
+            this.lbltext = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -113,17 +114,25 @@
             resources.ApplyResources(this.RB1, "RB1");
             this.RB1.Name = "RB1";
             this.RB1.UseVisualStyleBackColor = true;
+            this.RB1.Click += new System.EventHandler(this.RB1_Click);
             // 
             // RB2
             // 
             resources.ApplyResources(this.RB2, "RB2");
             this.RB2.Name = "RB2";
             this.RB2.UseVisualStyleBackColor = true;
+            this.RB2.Click += new System.EventHandler(this.RB2_Click);
+            // 
+            // lbltext
+            // 
+            resources.ApplyResources(this.lbltext, "lbltext");
+            this.lbltext.Name = "lbltext";
             // 
             // Listofstok
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbltext);
             this.Controls.Add(this.RB2);
             this.Controls.Add(this.RB1);
             this.Controls.Add(this.button2);
@@ -157,5 +166,6 @@
         public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.RadioButton RB1;
         private System.Windows.Forms.RadioButton RB2;
+        internal System.Windows.Forms.Label lbltext;
     }
 }

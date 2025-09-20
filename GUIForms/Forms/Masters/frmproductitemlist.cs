@@ -5,6 +5,7 @@ using GUIForms.Dtos;
 using GUIForms.Forms.Masters;
 using GUIForms.helpers;
 using GUIForms.models;
+using net.sf.saxon.regex;
 using Reporting;
 using Reporting.others;
 using System;
@@ -33,10 +34,14 @@ namespace Easypos.Masters
         private List<ItemsViewModel> _EVM;
         Usingnumber _NO;
         List<SalesReportItem> SO;
+        bool RFlag;
+        int runningBalance;
         public frmproductitemlist()
         {
             InitializeComponent();  
             Loading();
+            RFlag = false;
+            runningBalance = 0;
         }
         public void Clearitems()
         {
@@ -97,6 +102,7 @@ namespace Easypos.Masters
         {
             if (DGV.Rows.Count > 0)
             {
+                RFlag = false;
                 //Btnaddedit.Enabled = false;
                 //txtStocksOnHand.Enabled = false;
                 It.ID = int.Parse(DGV.CurrentRow.Cells[0].Value.ToString());
@@ -109,7 +115,10 @@ namespace Easypos.Masters
                 var totalQuantity = _IUW.itemsales.GetAll()
                                                   .Where(x => x.Itemid == It.ID)
                                                   .Sum(x => x.Quantity);
-                txtRemining.Text = (int.Parse(textBox2.Text) - totalQuantity).ToString();
+                Getdata(It.ID);
+                Getrepall();
+                //txtRemining.Text = (int.Parse(textBox2.Text) - totalQuantity).ToString();
+                txtRemining.Text = runningBalance.ToString();
             }
         }
         private void Btnaddedit_Click(object sender, EventArgs e)
@@ -334,91 +343,102 @@ namespace Easypos.Masters
             if (It.ID != 0)
             {
                 Getdata(It.ID);
+                RFlag = true;
+                Getrepall();
+            }
+            else
+            {
+                MessageBox.Show("خطأ","برجاء ادخال المنتج",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return;
+            }
+        }
+        void Getrepall()
+        {
+            // إنشاء التقرير
+            Frmreporting FR = new Frmreporting();
+            Dataset Ds = new Dataset();
+            Stokreport SR = new Stokreport();
+            var dt = Ds.Tables["Stokdata"];
 
-                // إنشاء التقرير
-                Frmreporting FR = new Frmreporting();
-                Dataset Ds = new Dataset();
-                Stokreport SR = new Stokreport();
-                var dt = Ds.Tables["Stokdata"];
+            // إضافة الرصيد الافتتاحي كأول سطر
+            runningBalance = int.Parse(textBox2.Text);
 
-                // إضافة الرصيد الافتتاحي كأول سطر
-                int runningBalance = int.Parse(textBox2.Text);
+            var openingRow = dt.NewRow();
+            openingRow["Proid"] = "--";
+            openingRow["Description"] = "الرصيد الافتتاحي";
+            openingRow["Date"] = "--";
+            openingRow["Billnumber"] = "--";
+            openingRow["Credit"] = runningBalance > 0 ? runningBalance : 0;
+            openingRow["Dept"] = runningBalance < 0 ? runningBalance : 0;
+            openingRow["Balance"] = runningBalance;
+            dt.Rows.Add(openingRow);
 
-                var openingRow = dt.NewRow();
-                openingRow["Proid"] = "--";
-                openingRow["Description"] = "الرصيد الافتتاحي";
-                openingRow["Date"] = "--";
-                openingRow["Billnumber"] = "--";
-                openingRow["Credit"] = runningBalance > 0 ? runningBalance : 0;
-                openingRow["Dept"] = runningBalance < 0 ? runningBalance : 0;
-                openingRow["Balance"] = runningBalance;
-                dt.Rows.Add(openingRow);
-
-                var Credit = 0.00;
-                var Dept = 0.00;
-                // إضافة باقي الحركات مع حساب الرصيد
-                foreach (var item in SO.ToList())
+            var Credit = 0.00;
+            var Dept = 0.00;
+            // إضافة باقي الحركات مع حساب الرصيد
+            foreach (var item in SO.ToList())
+            {
+                var row = dt.NewRow();
+                row["Proid"] = item.ID;
+                switch (item.Type)
                 {
-                    var row = dt.NewRow();
-                    row["Proid"] = item.ID;
-                    switch (item.Type)
-                    {
-                        case "فاتورة مشتريات":
-                            row["Description"] = "فاتورة مشتريات";
-                            Credit += item.Quantity;
-                            break;
-                        case "مرتجع مبيعات":
-                            row["Description"] = "مرتجع مبيعات";
-                            Credit += item.Quantity;
-                            break;
-                        case "فاتورة مبيعات":
-                            row["Description"] = "فاتورة مبيعات";
-                            Dept -= item.Quantity;
-                            break;
-                        case "مرتجع مشتريات":
-                            row["Description"] = "مرتجع مشتريات";
-                            Dept -= item.Quantity;
-                            break;
-                        case "تعديل مخزون زائد":
-                            row["Description"] = "تعديل مخزون زائد";
-                            Credit += item.Quantity;
-                            break;
-                        case "تعديل مخزون ناقص":
-                            row["Description"] = "تعديل مخزون ناقص";
-                            Dept -= item.Quantity;
-                            break;
-                    }
-                    row["Credit"] = Credit;
-                    row["Dept"] = Dept;
-                    row["Date"] = item.Date.ToString();
-                    row["Billnumber"] = item.Invoiceno;
+                    case "فاتورة مشتريات":
+                        row["Description"] = "فاتورة مشتريات";
+                        Credit += item.Quantity;
+                        break;
+                    case "مرتجع مبيعات":
+                        row["Description"] = "مرتجع مبيعات";
+                        Credit += item.Quantity;
+                        break;
+                    case "فاتورة مبيعات":
+                        row["Description"] = "فاتورة مبيعات";
+                        Dept -= item.Quantity;
+                        break;
+                    case "مرتجع مشتريات":
+                        row["Description"] = "مرتجع مشتريات";
+                        Dept -= item.Quantity;
+                        break;
+                    case "تعديل مخزون زائد":
+                        row["Description"] = "تعديل مخزون زائد";
+                        Credit += item.Quantity;
+                        break;
+                    case "تعديل مخزون ناقص":
+                        row["Description"] = "تعديل مخزون ناقص";
+                        Dept -= item.Quantity;
+                        break;
+                }
+                row["Credit"] = Credit;
+                row["Dept"] = Dept;
+                row["Date"] = item.Date.ToString();
+                row["Billnumber"] = item.Invoiceno;
 
-                    // تعديل الرصيد حسب نوع الحركة
-                    switch (item.Type)
-                    {
-                        case "فاتورة مشتريات":
-                        case "تعديل مخزون زائد":
-                        case "مرتجع مبيعات":
-                            runningBalance += item.Quantity;
-                            break;
+                // تعديل الرصيد حسب نوع الحركة
+                switch (item.Type)
+                {
+                    case "فاتورة مشتريات":
+                    case "تعديل مخزون زائد":
+                    case "مرتجع مبيعات":
+                        runningBalance += item.Quantity;
+                        break;
 
-                        case "فاتورة مبيعات":
-                        case "تعديل مخزون ناقص":
-                        case "مرتجع مشتريات":
-                            runningBalance -= item.Quantity;
-                            break;
+                    case "فاتورة مبيعات":
+                    case "تعديل مخزون ناقص":
+                    case "مرتجع مشتريات":
+                        runningBalance -= item.Quantity;
+                        break;
 
-                            //case "Inventory":
-                            //    runningBalance += item.Quantity; // لو تعديل مباشر
-                            //    break;
-                    }
-
-                    row["Balance"] = runningBalance;
-                    dt.Rows.Add(row);
-                    Credit = 0.00;
-                    Dept = 0.00;
+                        //case "Inventory":
+                        //    runningBalance += item.Quantity; // لو تعديل مباشر
+                        //    break;
                 }
 
+                row["Balance"] = runningBalance;
+                dt.Rows.Add(row);
+                Credit = 0.00;
+                Dept = 0.00;
+            }
+            if (RFlag)
+            {
                 // إعداد التقرير
                 SR.SetDataSource(Ds);
                 SR.SetParameterValue("TOF", "تقرير مخزون : " + txtItemname.Text);
@@ -429,13 +449,7 @@ namespace Easypos.Masters
                 FR.CRV.ReportSource = SR;
                 FR.Show();
             }
-            else
-            {
-                MessageBox.Show("خطأ","برجاء ادخال المنتج",MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                return;
-            }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Listofstok LOS = new Listofstok();
