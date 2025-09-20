@@ -127,12 +127,12 @@ namespace GUIForms.Forms.Returned
                 {
                     if (Billtype.SelectedIndex == 1)
                     {
-                        Type = "Returned Sales";
+                        Type = "مرتجع مبيعات";
                         SOH.Quantity += int.Parse(SD.Quantity.ToString());
                     }
                     if (Billtype.SelectedIndex == 2)
                     {
-                        Type = "Returned Purchases";
+                        Type = "مرتجع مشتريات";
                         SOH.Quantity -= int.Parse(SD.Quantity.ToString());
                     }
                     _IUW.stok_transactions.Update(SOH);

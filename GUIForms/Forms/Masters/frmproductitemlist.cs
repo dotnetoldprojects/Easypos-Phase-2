@@ -235,10 +235,14 @@ namespace Easypos.Masters
             SO = new List<SalesReportItem>();
             var items = _IUW.items.GetAll().ToList();
             var purchases = _IUW.purchases.GetAll().ToList();
+            var returneds = _IUW.returneds.GetAll().ToList();
             var purchaseDetails = _IUW.purchasedetailes.GetAll().ToList();
+            var returnedDetails = _IUW.returnedetailes.GetAll().ToList();
             var itemsales = _IUW.itemsales.GetAll().ToList();
+            var productitems = _IUW.productitems.GetAll().ToList();
 
-
+            #region
+            //مشتريات
             var result = from item in items
                          join pd in purchaseDetails
                          on item.ID equals pd.ProductNo into pdGroup
@@ -274,7 +278,48 @@ namespace Easypos.Masters
                     Type = "فاتورة مشتريات"
                 });
             }
+            #endregion
+            #region
+            //مرتجع مشتريات
+            var result1 = from item in items
+                         join rd in returnedDetails
+                         on item.ID equals rd.ProductNo into pdGroup
+                         from pd in pdGroup.DefaultIfEmpty()
 
+                             // حماية من null قبل الـ join الثاني
+                         let invoiceNo = pd != null ? pd.InvoiceNo : 0
+
+                         join p in returneds
+                         on invoiceNo equals p.Invoiceno into pGroup
+                         from p in pGroup.DefaultIfEmpty()
+
+                         where pd != null && pd.ProductNo == IID && p.Returnedtype == "مرتجع مشتريات"
+                          select new
+                         {
+                             Item = item.ID,
+                             Itemname = item.Itemname,
+                             Date = p.TDate,
+                             Quantity = pd.Quantity,
+                             Invoiceno = pd.InvoiceNo
+                         };
+            foreach (var item in result1)
+            {
+                SO.Add(new SalesReportItem
+                {
+                    ID = item.Item,
+                    Itemname = item.Itemname,
+                    Date = item.Date.ToString(),
+                    Itemqty = 0,
+                    Quantity = (int)item.Quantity,
+                    Remining = 0,
+                    Invoiceno = item.Invoiceno.ToString(),
+                    Type = "مرتجع مشتريات"
+                });
+            }
+            #endregion
+
+            #region
+            //مبيعات
             var result2 = from its in itemsales
                           join it in items
                           on its.Itemid equals it.ID into joined
@@ -304,9 +349,46 @@ namespace Easypos.Masters
                     Type = "فاتورة مبيعات"
                 });
             }
-            
+            #endregion
+            var result3 = from ret in returneds
+                          where ret.Returnedtype == "مرتجع مبيعات"
+
+                          from rd in returnedDetails
+                          where rd != null && rd.InvoiceNo == ret.Invoiceno
+
+                          from pi in productitems
+                          where pi != null && rd.ProductNo == int.Parse(pi.Proid)
+
+                          from it in items
+                          where it != null && pi.itemid == it.ID.ToString() && it.ID == IID
+
+                          select new
+                          {
+                              ItemID = it.ID,
+                              Itemname = it.Itemname,
+                              Quantity = pi.Quantity,
+                              Date = ret.TDate,
+                              Invoiceno = ret.Invoiceno
+                          };
+            foreach (var item in result3)
+            {
+                SO.Add(new SalesReportItem
+                {
+                    ID = item.ItemID,
+                    Itemname = item.Itemname,
+                    Date = item.Date.ToString(),
+                    Itemqty = 0,
+                    Quantity = int.Parse(item.Quantity),
+                    Remining = 0,
+                    Invoiceno = item.Invoiceno.ToString(),
+                    Type = "مرتجع مبيعات"
+                });
+            }
+
+            #region
+            //itemadjustments
             var itemadjustments = _IUW.invtransactions.GetAll().ToList();
-            var result3 = from adj in itemadjustments
+            var result4 = from adj in itemadjustments
                           join it in items
                           on adj.Itemid equals it.ID into joined
                           from it in joined.DefaultIfEmpty()
@@ -321,7 +403,7 @@ namespace Easypos.Masters
                               Remining = (it?.Itemqty ?? 0) - adj.Quantity,
                               adj.type
                           };
-            foreach (var item in result3)
+            foreach (var item in result4)
             {
                 SO.Add(new SalesReportItem
                 {
@@ -337,6 +419,7 @@ namespace Easypos.Masters
             }
 
             SO = SO.OrderBy(x => DateTime.Parse(x.Date)).ToList();
+            #endregion
         }
         private void Btnrep_Click(object sender, EventArgs e)
         {
