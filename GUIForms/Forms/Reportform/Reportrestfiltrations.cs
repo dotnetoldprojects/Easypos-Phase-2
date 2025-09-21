@@ -20,7 +20,9 @@ using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using UOW;
+using static net.sf.saxon.expr.JPConverter;
 
 namespace Resturantlayer
 {
@@ -114,23 +116,15 @@ namespace Resturantlayer
                     dt.Rows.Add(row);
                 }
 
-
-                //var filteredPayments = (from pay in payments
-                //                        join sa in sales
-                //                            on pay.InvoiceNo equals sa.Invoiceno
-                //                        let saleDateTime = DateTime.TryParse(sa.TDate + " " + sa.TTime, out var dtt) ? dtt : (DateTime?)null
-                //                        select new
-                //                        {
-                //                            SaleDateTime = saleDateTime,
-                //                            PChange = pay.Remaining,
-                //                            Paid = pay.Cash,
-                //                            Bank = pay.Bank
-                //                        }).ToList();
                 var filteredPayments = (from pay in payments
                                         join sa in sales
                                             on pay.InvoiceNo equals sa.Invoiceno into salesGroup
                                         from sa in salesGroup.DefaultIfEmpty()
                                         let saleDateTime = DateTime.TryParse(pay.Date + " " + pay.Time, out var dtt) ? dtt : (DateTime?)null
+                                        where pay.InvoiceNo != null
+                                              && sa != null
+                                              && sa.Billtype == "صدرت"
+                                              //&& pay.PaymentMethod != "اجل"
                                         select new
                                         {
                                             SaleDateTime = saleDateTime,
@@ -139,20 +133,29 @@ namespace Resturantlayer
                                             Bank = pay.Bank
                                         }).ToList();
 
-
-
                 // فلترة حسب النطاق الزمني
                 var FP = filteredPayments
                             .Where(x => x.SaleDateTime.HasValue &&
                                         x.SaleDateTime.Value >= fromDateTime &&
                                         x.SaleDateTime.Value <= toDateTime)
                             .ToList();
+                var Voch = (from v in _IUW.vouchers.GetAll().ToList()
+                            let saleDateTime = DateTime.TryParse($"{v.Date}", out var dtt) ? dtt : (DateTime?)null
+                            where saleDateTime != null && saleDateTime >= fromDateTime && saleDateTime <= toDateTime
+                            && v.Vochertypes == "ايرادات اخرى"
+                            group v by 1 into g
+                              select new
+                              {
+                                  Cash = g.Where(x => x.Paymentmathod == "نقدي").Sum(x => (decimal?)x.Paid) ?? 0,
+                                  Bank = g.Where(x => x.Paymentmathod == "بنكي").Sum(x => (decimal?)x.Paid) ?? 0
+                              }).FirstOrDefault();
 
-
+                var cashTotal = Voch?.Cash ?? 0;
+                var bankTotal = Voch?.Bank ?? 0;
                 // مثال: جمع المجاميع بعد الفلترة
                 var totalPChange = FP.Sum(x => x.PChange);
-                var totalPaid = FP.Sum(x => x.Paid);
-                var totalBank = FP.Sum(x => x.Bank);
+                var totalPaid = FP.Sum(x => x.Paid) + cashTotal;
+                var totalBank = FP.Sum(x => x.Bank) + bankTotal;
                 // إضافة النتائج للـ DataTable داخل DataSet
                 if (!Ds.Tables.Contains("Dtpay"))
                 {
