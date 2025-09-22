@@ -158,13 +158,51 @@ namespace GUIForms.Forms.salesforms.Normal
         private void Btnadd_Click(object sender, EventArgs e)
         {
             _DGVPH.AddProductToDGV();
+            UpdateDGVSummary();
             Clearfildes();
+        }
+        public void UpdateDGVSummary()
+        {
+            double sumSubtotal = 0;
+            double sumDiscount = 0;
+            foreach (DataGridViewRow row in DGV.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                sumDiscount += Convert.ToDouble(row.Cells[6].Value);
+                sumSubtotal += Convert.ToDouble(row.Cells[4].Value) * Convert.ToDouble(row.Cells[5].Value);
+
+            }
+            double totalAfterDiscount = sumSubtotal - sumDiscount;
+            double taxRate = DC.VatPercent;
+            if (DC.ISUsePhase2)
+            {
+                if (DC.PricesWithVAT == 1)
+                {
+                    txtTotal.Text = totalAfterDiscount.ToString("N2");
+                    var TBV = double.Parse(totalAfterDiscount.ToString()) / 1.15;
+                    txtTBV.Text = Math.Round(TBV, 2).ToString();
+                    var Tax = double.Parse(totalAfterDiscount.ToString()) - TBV;
+                    txtTax.Text = Math.Round(Tax, 2).ToString();
+                }
+                else
+                {
+                    txtTBV.Text = sumSubtotal.ToString("N2");
+                    txtDiscount.Text = sumDiscount.ToString("N2");
+                    double tax = DC.ISUsePhase2 ? taxRate * totalAfterDiscount : 0;
+                    txtTax.Text = tax.ToString("N2");
+
+                    double finalTotal = totalAfterDiscount + tax;
+                    txtTotal.Text = finalTotal.ToString("N2");
+                }
+            }
         }
         private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13)
             {
                 _DGVPH.AddProductToDGV();
+                UpdateDGVSummary();
                 Clearfildes();
             }
         }

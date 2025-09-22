@@ -69,7 +69,7 @@ namespace GUIForms.helpers
                 AddNewRowToDGV();
             }
 
-            UpdateDGVSummary();
+            //UpdateDGVSummary();
         }
         private void CheckIfExistsThenUpdate()
         {
@@ -119,6 +119,7 @@ namespace GUIForms.helpers
         }
         public void UpdateDGVSummary()
         {
+
             double sumSubtotal = 0;
             double sumDiscount = 0;
 
