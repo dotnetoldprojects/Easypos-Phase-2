@@ -34,7 +34,6 @@ namespace UOW
         public IRepository<thirdparty> thirdparties { get; private set; }
         public IRepository<transaction> transactions { get; private set; }
         public IRepository<unittype> unittypes { get; private set; }
-        public IRepository<vatsetting> vatsettings { get; private set; }
         public IRepository<expensesview> expensesviews { get; private set; }
         public IRepository<UBL> UBLS { get; private set; }
         public IRepository<voucher> vouchers { get; private set; }
@@ -75,7 +74,6 @@ namespace UOW
             thirdparties = new Repository<thirdparty>(_Dbc);
             transactions = new Repository<transaction>(_Dbc);
             unittypes = new Repository<unittype>(_Dbc);
-            vatsettings = new Repository<vatsetting>(_Dbc);
             expensesviews = new Repository<expensesview>(_Dbc);
             UBLS = new Repository<UBL>(_Dbc);
             vouchers = new Repository<voucher>(_Dbc);

@@ -187,9 +187,6 @@
     <Compile Include="Models\unittype.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\vatsetting.cs">
-      <DependentUpon>Easyposcontext.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\voucher.cs">
       <DependentUpon>Easyposcontext.tt</DependentUpon>
     </Compile>
@@ -200,6 +197,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Easyposcontext.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Dataset.xsc">
       <DependentUpon>Dataset.xsd</DependentUpon>
     </None>

@@ -119,6 +119,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.CMDLang = new System.Windows.Forms.ComboBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ChkPWVAT = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtPercent = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -191,6 +194,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.ChkPWVAT);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtPercent);
             this.groupBox1.Controls.Add(this.comdata);
             this.groupBox1.Controls.Add(this.cbzatca);
             this.groupBox1.Controls.Add(this.Logo);
@@ -750,6 +756,22 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // ChkPWVAT
+            // 
+            resources.ApplyResources(this.ChkPWVAT, "ChkPWVAT");
+            this.ChkPWVAT.Name = "ChkPWVAT";
+            this.ChkPWVAT.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // txtPercent
+            // 
+            resources.ApplyResources(this.txtPercent, "txtPercent");
+            this.txtPercent.Name = "txtPercent";
+            // 
             // frmSystemSetting
             // 
             resources.ApplyResources(this, "$this");
@@ -875,5 +897,8 @@
         internal System.Windows.Forms.TextBox txt_seller_buildingnumber;
         internal System.Windows.Forms.Label label31;
         internal System.Windows.Forms.TextBox txt_seller_street;
+        private System.Windows.Forms.CheckBox ChkPWVAT;
+        internal System.Windows.Forms.Label label6;
+        internal System.Windows.Forms.TextBox txtPercent;
     }
 }

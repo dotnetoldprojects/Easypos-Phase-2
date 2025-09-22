@@ -32,7 +32,6 @@ namespace UOW
         IRepository<thirdparty> thirdparties { get; }
         IRepository<transaction> transactions { get; }
         IRepository<unittype> unittypes { get; }
-        IRepository<vatsetting> vatsettings { get; }
         IRepository<expensesview> expensesviews { get; }
         IRepository<UBL> UBLS { get; }
         IRepository<voucher> vouchers { get; }

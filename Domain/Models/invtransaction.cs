@@ -30,6 +30,14 @@ public partial class invtransaction
 
     public string Note { get; set; }
 
+    public decimal Credit { get; set; }
+
+    public decimal Dipt { get; set; }
+
+    public int Proid { get; set; }
+
+    public int transid { get; set; }
+
 }
 
 }

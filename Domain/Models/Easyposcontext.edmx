@@ -67,6 +67,8 @@
           <Property Name="CitySubdivisionName" Type="nvarchar" MaxLength="50" />
           <Property Name="CityName" Type="nvarchar" MaxLength="50" />
           <Property Name="PostalZone" Type="nvarchar" MaxLength="50" />
+          <Property Name="VatPercent" Type="float" Nullable="false" />
+          <Property Name="PricesWithVAT" Type="smallint" />
         </EntityType>
         <EntityType Name="exceptionpro">
           <Key>
@@ -102,8 +104,10 @@
           <Property Name="type" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
-          <Property Name="Itemid" Type="int" Nullable="false" />
-          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="Credit" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Dipt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Proid" Type="int" Nullable="false" />
+          <Property Name="transid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="items">
           <Key>
@@ -486,7 +490,7 @@
           <Property Name="Type" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="ThirdPartyID" Type="int" />
           <Property Name="Paid" Type="decimal" Precision="18" Scale="2" />
-          <Property Name="Paytype" Type="nvarchar" MaxLength="100" />
+          <Property Name="Paytype" Type="nvarchar" MaxLength="45" />
           <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="UBL">
@@ -509,17 +513,6 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UName" Type="nvarchar" MaxLength="45" />
-        </EntityType>
-        <EntityType Name="vatsetting">
-          <Key>
-            <PropertyRef Name="VATID" />
-          </Key>
-          <Property Name="VATID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="VatPercent" Type="float" Nullable="false" />
-          <Property Name="PricesWithVAT" Type="smallint" />
-          <Property Name="ISVAT" Type="smallint" />
-          <Property Name="ISDiscforpro" Type="smallint" />
-          <Property Name="ISDiscafterpro" Type="smallint" />
         </EntityType>
         <EntityType Name="vouchers">
           <Key>
@@ -676,7 +669,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="transactions" EntityType="Self.transactions" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="UBL" EntityType="Self.UBL" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="unittypes" EntityType="Self.unittypes" Schema="resturant" store:Type="Tables" />
-          <EntitySet Name="vatsetting" EntityType="Self.vatsetting" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="vouchers" EntityType="Self.vouchers" Schema="resturant" store:Type="Tables" />
           <EntitySet Name="expensesview" EntityType="Self.expensesview" store:Type="Views" store:Schema="resturant">
             <DefiningQuery>SELECT 
@@ -774,6 +766,8 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="CitySubdivisionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="PostalZone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VatPercent" Type="Double" Nullable="false" />
+          <Property Name="PricesWithVAT" Type="Int16" />
         </EntityType>
         <EntityType Name="expencestype">
           <Key>
@@ -1037,7 +1031,7 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Type" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ThirdPartyID" Type="Int32" />
           <Property Name="Paid" Type="Decimal" Precision="18" Scale="2" />
-          <Property Name="Paytype" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Paytype" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="unittype">
@@ -1419,6 +1413,10 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="Itemid" Type="Int32" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Credit" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Dipt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Proid" Type="Int32" Nullable="false" />
+          <Property Name="transid" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="UBL">
           <Key>
@@ -1468,6 +1466,8 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySetMapping Name="companies">
             <EntityTypeMapping TypeName="EasyposModel.company">
               <MappingFragment StoreEntitySet="company">
+                <ScalarProperty Name="PricesWithVAT" ColumnName="PricesWithVAT" />
+                <ScalarProperty Name="VatPercent" ColumnName="VatPercent" />
                 <ScalarProperty Name="PostalZone" ColumnName="PostalZone" />
                 <ScalarProperty Name="CityName" ColumnName="CityName" />
                 <ScalarProperty Name="CitySubdivisionName" ColumnName="CitySubdivisionName" />
@@ -1788,18 +1788,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="vatsettings">
-            <EntityTypeMapping TypeName="EasyposModel.vatsetting">
-              <MappingFragment StoreEntitySet="vatsetting">
-                <ScalarProperty Name="VATID" ColumnName="VATID" />
-                <ScalarProperty Name="VatPercent" ColumnName="VatPercent" />
-                <ScalarProperty Name="PricesWithVAT" ColumnName="PricesWithVAT" />
-                <ScalarProperty Name="ISVAT" ColumnName="ISVAT" />
-                <ScalarProperty Name="ISDiscforpro" ColumnName="ISDiscforpro" />
-                <ScalarProperty Name="ISDiscafterpro" ColumnName="ISDiscafterpro" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="expensesviews">
             <EntityTypeMapping TypeName="EasyposModel.expensesview">
               <MappingFragment StoreEntitySet="expensesview">
@@ -1998,8 +1986,10 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySetMapping Name="invtransactions">
             <EntityTypeMapping TypeName="EasyposModel.invtransaction">
               <MappingFragment StoreEntitySet="invtransaction">
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+                <ScalarProperty Name="transid" ColumnName="transid" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Dipt" ColumnName="Dipt" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="type" ColumnName="type" />

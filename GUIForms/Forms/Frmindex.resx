@@ -391,13 +391,13 @@
 </value>
   </data>
   <data name="الاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الاصنافToolStripMenuItem.Text" xml:space="preserve">
     <value>المنتجات</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="toolStripMenuItem11.Text" xml:space="preserve">
     <value>الاصناف الاوليه</value>
@@ -420,7 +420,7 @@
 </value>
   </data>
   <data name="الوحداتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الوحداتToolStripMenuItem.Text" xml:space="preserve">
     <value>الوحدات</value>
@@ -439,7 +439,7 @@
 </value>
   </data>
   <data name="التصنيفاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="التصنيفاتToolStripMenuItem.Text" xml:space="preserve">
     <value>التصنيفات</value>
@@ -462,7 +462,7 @@
 </value>
   </data>
   <data name="الاضافاتToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الاضافاتToolStripMenuItem.Text" xml:space="preserve">
     <value>الاضافات</value>
@@ -485,7 +485,7 @@
 </value>
   </data>
   <data name="المورديينوالعملاءToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="المورديينوالعملاءToolStripMenuItem.Text" xml:space="preserve">
     <value>المورديين والعملاء</value>
@@ -504,7 +504,7 @@
 </value>
   </data>
   <data name="الموظفيينToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="الموظفيينToolStripMenuItem.Text" xml:space="preserve">
     <value>الموظفيين</value>
@@ -525,7 +525,7 @@
 </value>
   </data>
   <data name="ترتيبالاصنافToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="ترتيبالاصنافToolStripMenuItem.Text" xml:space="preserve">
     <value>ترتيب الاصناف</value>
@@ -549,7 +549,7 @@
 </value>
   </data>
   <data name="خروجToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>162, 22</value>
   </data>
   <data name="خروجToolStripMenuItem.Text" xml:space="preserve">
     <value>خروج</value>
@@ -1735,6 +1735,9 @@
         GmbNa4nNAwdiwO1MA66BReBTjlCg0Q5MCq6BJuDMeU8+uACa7aQhKNuGQD0wAiwByxW4rnX9fUQhEkI5
         f77zQAiAYeA4ohgJZe2+F0vQL1f7eNLijBgoHse14NQXg4shBq0uqFYAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="Btntail.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;Btntail.Name" xml:space="preserve">
     <value>Btntail</value>

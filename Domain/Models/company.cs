@@ -72,6 +72,10 @@ public partial class company
 
     public string PostalZone { get; set; }
 
+    public double VatPercent { get; set; }
+
+    public Nullable<short> PricesWithVAT { get; set; }
+
 }
 
 }
