@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>easypos-removebg-preview.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Aspose.PDF, Version=25.7.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <HintPath>..\packages\Aspose.PDF.25.7.0\lib\net4.8\Aspose.PDF.dll</HintPath>
@@ -711,6 +714,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="easypos-removebg-preview.ico" />
     <Content Include="resources\1.jpg" />
     <Content Include="resources\1.png" />
     <Content Include="resources\10.jpg" />

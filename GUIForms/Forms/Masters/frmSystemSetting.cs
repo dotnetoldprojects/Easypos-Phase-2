@@ -105,6 +105,11 @@ namespace Easypos.Masters
                     CBBigPrint.Checked = false;
                     CBSmalPrint.Checked = false;
                 }
+                txtPercent.Text = DC.VatPercent.ToString();
+                if (DC.PricesWithVAT == 1)
+                {
+                    ChkPWVAT.Checked = true;
+                }
             }
             Zatcataxcheack();
             Getalldevices();
@@ -161,6 +166,8 @@ namespace Easypos.Masters
                 ? Convert.ToBase64String(File.ReadAllBytes(txtLogoPath.Text))
                 : null;
             DC.ISUsePhase2 = cbzatca.Checked;
+            DC.VatPercent = double.Parse(txtPercent.Text);
+            DC.PricesWithVAT = ChkPWVAT.Checked ? (short)1 : (short)0;
             if (cbzatca.Checked)
             {
                 if (string.IsNullOrEmpty(txt_seller_street.Text))

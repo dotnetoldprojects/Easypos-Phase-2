@@ -26,10 +26,6 @@ public partial class invtransaction
 
     public int Quantity { get; set; }
 
-    public int Itemid { get; set; }
-
-    public string Note { get; set; }
-
     public decimal Credit { get; set; }
 
     public decimal Dipt { get; set; }
@@ -37,6 +33,10 @@ public partial class invtransaction
     public int Proid { get; set; }
 
     public int transid { get; set; }
+
+    public Nullable<int> Itemid { get; set; }
+
+    public string Note { get; set; }
 
 }
 

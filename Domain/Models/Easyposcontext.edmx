@@ -108,6 +108,8 @@
           <Property Name="Dipt" Type="decimal" Precision="18" Scale="2" Nullable="false" />
           <Property Name="Proid" Type="int" Nullable="false" />
           <Property Name="transid" Type="int" Nullable="false" />
+          <Property Name="Itemid" Type="int" />
+          <Property Name="Note" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="items">
           <Key>
@@ -1041,17 +1043,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UName" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="vatsetting">
-          <Key>
-            <PropertyRef Name="VATID" />
-          </Key>
-          <Property Name="VATID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="VatPercent" Type="Double" Nullable="false" />
-          <Property Name="PricesWithVAT" Type="Int16" />
-          <Property Name="ISVAT" Type="Int16" />
-          <Property Name="ISDiscforpro" Type="Int16" />
-          <Property Name="ISDiscafterpro" Type="Int16" />
-        </EntityType>
         <EntityType Name="expensesview">
           <Key>
             <PropertyRef Name="ID" />
@@ -1089,7 +1080,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="thirdparties" EntityType="Self.thirdparty" />
           <EntitySet Name="transactions" EntityType="Self.transaction" />
           <EntitySet Name="unittypes" EntityType="Self.unittype" />
-          <EntitySet Name="vatsettings" EntityType="Self.vatsetting" />
           <EntitySet Name="expensesviews" EntityType="Self.expensesview" />
           <FunctionImport Name="Getpaymentin" />
           <FunctionImport Name="Getpaymentout" />
@@ -1135,8 +1125,8 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <EntitySet Name="stok_transaction" EntityType="EasyposModel.stok_transaction" />
           <EntitySet Name="returneds" EntityType="EasyposModel.returned" />
           <EntitySet Name="returnedetailes" EntityType="EasyposModel.returnedetaile" />
-          <EntitySet Name="invtransactions" EntityType="EasyposModel.invtransaction" />
           <EntitySet Name="UBLs" EntityType="EasyposModel.UBL" />
+          <EntitySet Name="invtransactions" EntityType="EasyposModel.invtransaction" />
         </EntityContainer>
         <EntityType Name="voucher">
           <Key>
@@ -1403,21 +1393,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Totafterdiscount" Type="Double" />
           <Property Name="Total" Type="Decimal" Precision="8" Scale="2" />
         </EntityType>
-        <EntityType Name="invtransaction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Date" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Itemid" Type="Int32" Nullable="false" />
-          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Credit" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Dipt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
-          <Property Name="Proid" Type="Int32" Nullable="false" />
-          <Property Name="transid" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="UBL">
           <Key>
             <PropertyRef Name="Id" />
@@ -1431,6 +1406,21 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Path" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="invoicenumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="invtransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="Credit" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Dipt" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <Property Name="Proid" Type="Int32" Nullable="false" />
+          <Property Name="transid" Type="Int32" Nullable="false" />
+          <Property Name="Itemid" Type="Int32" />
+          <Property Name="Note" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1983,20 +1973,6 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="invtransactions">
-            <EntityTypeMapping TypeName="EasyposModel.invtransaction">
-              <MappingFragment StoreEntitySet="invtransaction">
-                <ScalarProperty Name="transid" ColumnName="transid" />
-                <ScalarProperty Name="Proid" ColumnName="Proid" />
-                <ScalarProperty Name="Dipt" ColumnName="Dipt" />
-                <ScalarProperty Name="Credit" ColumnName="Credit" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="type" ColumnName="type" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="UBLs">
             <EntityTypeMapping TypeName="EasyposModel.UBL">
               <MappingFragment StoreEntitySet="UBL">
@@ -2008,6 +1984,22 @@ warning 6002: The table/view 'Easypos.resturant.expensesview' does not have a pr
                 <ScalarProperty Name="Uuid" ColumnName="Uuid" />
                 <ScalarProperty Name="Invoicehash" ColumnName="Invoicehash" />
                 <ScalarProperty Name="QRCode" ColumnName="QRCode" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="invtransactions">
+            <EntityTypeMapping TypeName="EasyposModel.invtransaction">
+              <MappingFragment StoreEntitySet="invtransaction">
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Itemid" ColumnName="Itemid" />
+                <ScalarProperty Name="transid" ColumnName="transid" />
+                <ScalarProperty Name="Proid" ColumnName="Proid" />
+                <ScalarProperty Name="Dipt" ColumnName="Dipt" />
+                <ScalarProperty Name="Credit" ColumnName="Credit" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="type" ColumnName="type" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

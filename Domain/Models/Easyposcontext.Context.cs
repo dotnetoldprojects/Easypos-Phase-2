@@ -79,8 +79,6 @@ public partial class EasyposEntities : DbContext
 
     public virtual DbSet<unittype> unittypes { get; set; }
 
-    public virtual DbSet<vatsetting> vatsettings { get; set; }
-
     public virtual DbSet<expensesview> expensesviews { get; set; }
 
     public virtual DbSet<voucher> vouchers { get; set; }
@@ -107,9 +105,9 @@ public partial class EasyposEntities : DbContext
 
     public virtual DbSet<returnedetaile> returnedetailes { get; set; }
 
-    public virtual DbSet<invtransaction> invtransactions { get; set; }
-
     public virtual DbSet<UBL> UBLs { get; set; }
+
+    public virtual DbSet<invtransaction> invtransactions { get; set; }
 
 
     public virtual int Getpaymentin()
