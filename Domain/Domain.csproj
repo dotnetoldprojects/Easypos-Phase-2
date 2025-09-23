@@ -197,7 +197,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Easyposcontext.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="App.Config" />
     <None Include="Dataset.xsc">
       <DependentUpon>Dataset.xsd</DependentUpon>
     </None>

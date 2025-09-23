@@ -80,6 +80,12 @@ namespace Easypos.Salesforms.Cashier
             Getdatalist();
             _ON = new Usingnumber();
             _PI = new Printinginvoice();
+            if (!DC.ISUsePhase2)
+            {
+                Datecheacked.Visible = true;
+                lblDate.Visible = true;
+                OldDate.Visible = true;
+            }
         }
         private void Getdatalist()
         {
@@ -322,9 +328,9 @@ namespace Easypos.Salesforms.Cashier
             var sale = new sale
             {
                 Billtype = Billtype.Text,
-                TDate = DateTime.Now.ToString("dd-MM-yyyy"),
+                TDate = Datecheacked.Checked ? OldDate.Value.ToString("dd-MM-yyyy") : DateTime.Now.ToString("dd-MM-yyyy"),
                 ThirdPartyID = int.Parse(clientID.SelectedValue.ToString()),
-                TTime = DateTime.Now.ToString("hh:mm:ss"),
+                TTime = DateTime.Now.ToString("HH:mm:ss"),
                 NonVatTotal = double.Parse(txtTBV.Text),
                 Discount = double.Parse(txtDiscount.Text),
                 VatAmount = double.Parse(txtTax.Text),
@@ -348,6 +354,7 @@ namespace Easypos.Salesforms.Cashier
                 SD.Totafterdiscount = SD.Subtotal - SD.Discount;
                 SD.Total = decimal.Parse(DGV.Rows[i].Cells[7].Value.ToString());
                 details.Add(SD);
+
                 //var product = _IUW.products.GetAll().Where(p => p.ProductNo == SD.ProductNo).FirstOrDefault();
                 //product.StocksOnHand -= int.Parse(SD.Quantity.ToString());
                 //_IUW.products.Update(product);
